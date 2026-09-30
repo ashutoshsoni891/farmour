@@ -102,7 +102,9 @@ class Fakes:
     def keycloak_token(self, email: str | None = None) -> str:
         """A token as if issued by Keycloak for a new identity."""
         sub = str(uuid.uuid4())
-        return self.verifier.issue(TokenClaims(subject=sub, email=email or f"{sub}@example.test"))
+        return self.verifier.issue(
+            TokenClaims(subject=sub, email=email or f"{sub}@example.test", email_verified=True)
+        )
 
 
 @pytest.fixture

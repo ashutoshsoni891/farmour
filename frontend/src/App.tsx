@@ -24,7 +24,7 @@ function Root() {
 export function App() {
   return (
     <Routes>
-      <Route path="/auth/callback" element={<AuthCallbackPage />} />
+      <Route path="/login/callback" element={<AuthCallbackPage />} />
       <Route path="/login/link" element={<LinkLoginPage />} />
       <Route path="*" element={<Root />} />
     </Routes>

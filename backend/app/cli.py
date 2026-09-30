@@ -9,10 +9,15 @@ from app.modules.identity.service import grant_admin_by_email
 
 async def _make_admin(email: str) -> int:
     async with get_sessionmaker()() as session:
-        ok = await grant_admin_by_email(session, email)
+        result = await grant_admin_by_email(session, email)
         await session.commit()
-    print("granted" if ok else "no user with that email (log in once first)")
-    return 0 if ok else 1
+    messages = {
+        "granted": "granted",
+        "not_found": "no user with that verified email (verify it in Keycloak, log in once)",
+        "ambiguous": "more than one user has that email; refusing",
+    }
+    print(messages[result])
+    return 0 if result == "granted" else 1
 
 
 def main() -> int:

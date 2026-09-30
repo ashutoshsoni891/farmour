@@ -5,6 +5,7 @@ Handlers never return raw user-facing text; the frontend maps `message_key` to e
 
 from typing import Any
 
+import structlog
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
@@ -67,4 +68,5 @@ def install_error_handlers(app: FastAPI) -> None:
 
     @app.exception_handler(Exception)
     async def _unhandled(_: Request, exc: Exception) -> JSONResponse:
+        structlog.get_logger().error("unhandled_error", exc_info=exc)
         return JSONResponse(error_body("INTERNAL_ERROR"), status_code=500)

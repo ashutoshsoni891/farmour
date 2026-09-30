@@ -20,7 +20,7 @@ from fastapi import APIRouter
 
 router = APIRouter(prefix="/{name}", tags=["{name}"])
 ''',
-    "service.py": '''"""Public entry point of the {name} module. Other modules call only this file."""
+    "service.py": '''"""Public entry point of the {name} module; other modules call only this."""
 ''',
     "schemas.py": '''"""Pydantic v2 contracts for the {name} module."""
 ''',
@@ -60,11 +60,11 @@ allowed_importers = ["app.modules.{name}"]
 
 def main(name: str) -> int:
     if not re.fullmatch(r"[a-z][a-z0-9_]*", name):
-        print("NAME must be lowercase snake_case")  # noqa: T201
+        print("NAME must be lowercase snake_case")
         return 1
     root = BACKEND / "app" / "modules" / name
     if root.exists():
-        print(f"{root} already exists")  # noqa: T201
+        print(f"{root} already exists")
         return 1
     for rel, content in FILES.items():
         path = root / rel
@@ -72,9 +72,9 @@ def main(name: str) -> int:
         path.write_text(content.format(name=name))
     pyproject = BACKEND / "pyproject.toml"
     pyproject.write_text(pyproject.read_text() + CONTRACT.format(name=name))
-    print(f"created app/modules/{name}/ and its import-linter contract")  # noqa: T201
-    print("next: include its router in app/api/router.py, import its models in")  # noqa: T201
-    print("app/db/migrations/env.py, then use the write-migration skill for tables")  # noqa: T201
+    print(f"created app/modules/{name}/ and its import-linter contract")
+    print("next: include its router in app/api/router.py, import its models in")
+    print("app/db/migrations/env.py, then use the write-migration skill for tables")
     return 0
 
 

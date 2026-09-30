@@ -1,5 +1,6 @@
 import uuid
 from dataclasses import dataclass, field
+from datetime import UTC, datetime, timedelta
 
 import pytest
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -55,7 +56,7 @@ async def test_each_subscriber_runs_once_and_failures_retry(
     assert row.delivered_to == ["ok"]
     assert row.attempts == 1
 
-    row.next_attempt_at = row.created_at  # due again now
+    row.next_attempt_at = datetime.now(UTC) - timedelta(seconds=1)  # due again now
     await session.flush()
     await events.deliver_pending(session)
     await session.refresh(row)

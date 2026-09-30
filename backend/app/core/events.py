@@ -97,6 +97,8 @@ async def deliver_pending(session: AsyncSession, *, batch: int = 50) -> int:
                 error = f"{sub_name}: {type(exc).__name__}"
                 log.warning("outbox.subscriber_failed", event_id=str(row.id), subscriber=sub_name)
         row.delivered_to = done
+        if not subscribers(row.event):
+            log.info("outbox.no_subscribers", event_name=row.event)
         if error is None:
             row.delivered_at = now
             delivered += 1
@@ -104,4 +106,7 @@ async def deliver_pending(session: AsyncSession, *, batch: int = 50) -> int:
             row.attempts += 1
             row.last_error = error
             row.next_attempt_at = now + _backoff(row.attempts)
+            if row.attempts >= MAX_ATTEMPTS:
+                log.error("outbox.dead_letter", event_id=str(row.id), event_name=row.event)
+    await session.flush()
     return delivered

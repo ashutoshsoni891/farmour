@@ -42,20 +42,23 @@ async def test_update_language_and_units(client: AsyncClient, fakes: Fakes) -> N
             "language": "en",
             "unit_pref": "bigha",
             "bigha_sqft": "27000",
-            "phone": "98765 43210",
         },
         headers=auth(token),
     )
     assert r.status_code == 200, r.text
     assert r.json()["language"] == "en"
-    assert r.json()["phone"] == "+919876543210"
 
 
 async def test_update_rejects_unknown_fields_and_bad_values(
     client: AsyncClient, fakes: Fakes
 ) -> None:
     token = fakes.keycloak_token()
-    for body in ({"is_admin": True}, {"language": "fr"}, {"bigha_sqft": "-1"}):
+    for body in (
+        {"is_admin": True},
+        {"phone": "9876543210"},
+        {"language": "fr"},
+        {"bigha_sqft": "-1"},
+    ):
         r = await client.patch("/api/v1/me", json=body, headers=auth(token))
         assert r.status_code == 422, body
 
@@ -114,3 +117,11 @@ async def test_admin_updates_setting_with_audit(
     assert r.json()["value"] == 3
     r = await client.patch("/api/v1/admin/settings/no.such", json={"value": 1}, headers=auth(admin))
     assert r.status_code == 404
+
+
+async def test_unverified_email_is_not_stored(client: AsyncClient, fakes: Fakes) -> None:
+    from app.adapters.identity import TokenClaims
+
+    token = fakes.verifier.issue(TokenClaims(subject="unverified", email="boss@example.test"))
+    r = await client.get("/api/v1/me", headers=auth(token))
+    assert r.json()["email"] is None

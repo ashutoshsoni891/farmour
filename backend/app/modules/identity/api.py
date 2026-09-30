@@ -6,6 +6,7 @@ from typing import Annotated
 from fastapi import APIRouter, Query, Request, status
 
 from app.modules.identity import service
+from app.modules.identity.deps import AdminUser, CurrentUser, SessionDep
 from app.modules.identity.schemas import (
     AdminUserOut,
     AdminUserUpdate,
@@ -17,7 +18,6 @@ from app.modules.identity.schemas import (
     SessionOut,
     UserPage,
 )
-from app.modules.identity.service import AdminUser, CurrentUser, SessionDep
 
 router = APIRouter()
 
@@ -27,7 +27,8 @@ async def request_link(
     body: LinkRequest, request: Request, session: SessionDep
 ) -> LinkRequestAccepted:
     """Send a caretaker a single-use login link in their messaging app."""
-    await service.request_login_link(session, body.phone, request)
+    client_ip = request.client.host if request.client else "unknown"
+    await service.request_login_link(session, body.phone, client_ip)
     return LinkRequestAccepted()
 
 

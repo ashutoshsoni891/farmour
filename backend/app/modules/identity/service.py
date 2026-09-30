@@ -4,22 +4,18 @@ import hashlib
 import secrets
 import uuid
 from datetime import UTC, datetime, timedelta
-from typing import Annotated, Any, cast
+from typing import Any, cast
 
 import structlog
-from fastapi import Depends, Request
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.adapters.channel import OutboundMessage, get_channel
 from app.adapters.identity import TokenVerifyError, get_token_verifier
 from app.config import get_config
 from app.core import audit, rate_limit, session_tokens
-from app.core.errors import AppError, forbidden_role, not_found, unauthenticated
+from app.core.errors import AppError, not_found, unauthenticated
 from app.core.i18n import Lang, t
-from app.core.logging import bind
 from app.core.settings_store import get_int, get_setting
-from app.db.session import get_session
 from app.modules.identity import repository as repo
 from app.modules.identity.models import LoginLink, User
 from app.modules.identity.schemas import (
@@ -30,9 +26,6 @@ from app.modules.identity.schemas import (
 )
 
 log = structlog.get_logger()
-_bearer = HTTPBearer(auto_error=False)
-
-SessionDep = Annotated[AsyncSession, Depends(get_session)]
 
 
 def _principal(user: User) -> Principal:
@@ -49,13 +42,17 @@ async def _user_from_keycloak(session: AsyncSession, token: str) -> User:
         claims = await get_token_verifier().verify(token)
     except TokenVerifyError:
         raise unauthenticated() from None
+    # Only a verified email is stored, so nobody can claim someone else's address.
+    email = claims.email if claims.email_verified else None
     user = await repo.get_by_keycloak_sub(session, claims.subject)
     if user is None:
         # First login: provision a local profile. Roles are granted by an admin, not by the token.
         user = await repo.add_user(
-            session, User(keycloak_sub=claims.subject, email=claims.email, name=claims.name)
+            session, User(keycloak_sub=claims.subject, email=email, name=claims.name)
         )
         log.info("identity.user_provisioned", user_id=str(user.id))
+    elif user.email != email:
+        user.email = email
     if user.deleted_at is not None:
         raise unauthenticated()
     return user
@@ -67,37 +64,28 @@ async def _user_from_session_token(session: AsyncSession, token: str) -> User:
     except session_tokens.SessionTokenError:
         raise unauthenticated() from None
     user = await repo.get_user(session, claims.user_id)
-    if user is None or user.session_version != claims.session_version:
+    if (
+        user is None
+        or user.session_version != claims.session_version
+        or not _link_login_allowed(user)
+    ):
         raise unauthenticated()
     return user
 
 
-async def current_user(
-    session: SessionDep,
-    creds: Annotated[HTTPAuthorizationCredentials | None, Depends(_bearer)],
-) -> Principal:
-    """FastAPI dependency: the authenticated caller (Keycloak token or caretaker session)."""
-    if creds is None or creds.scheme.lower() != "bearer":
-        raise unauthenticated()
-    token = creds.credentials
+def _link_login_allowed(user: User) -> bool:
+    """Link login is for caretakers only. Keycloak accounts, admins and agronomists must use
+    Keycloak (password/passkey, brute-force protection), never a messaging-app link."""
+    return user.keycloak_sub is None and not user.is_admin and not user.is_agronomist
+
+
+async def authenticate(session: AsyncSession, token: str) -> Principal:
+    """Resolve a bearer token to a principal, or raise UNAUTHENTICATED."""
     if session_tokens.is_session_token(token):
         user = await _user_from_session_token(session, token)
     else:
         user = await _user_from_keycloak(session, token)
-    bind(user_id=str(user.id))
     return _principal(user)
-
-
-CurrentUser = Annotated[Principal, Depends(current_user)]
-
-
-async def require_admin(principal: CurrentUser) -> Principal:
-    if not principal.is_admin:
-        raise forbidden_role()
-    return principal
-
-
-AdminUser = Annotated[Principal, Depends(require_admin)]
 
 
 # ---- profile ----
@@ -112,12 +100,7 @@ async def get_me(session: AsyncSession, principal: Principal) -> User:
 
 async def update_me(session: AsyncSession, principal: Principal, data: MeUpdate) -> User:
     user = await get_me(session, principal)
-    changes = data.model_dump(exclude_unset=True)
-    if "phone" in changes and changes["phone"] != user.phone:
-        other = await repo.get_by_phone(session, changes["phone"])
-        if other is not None and other.id != user.id:
-            raise AppError("PHONE_IN_USE", 409)
-    for field, value in changes.items():
+    for field, value in data.model_dump(exclude_unset=True).items():
         setattr(user, field, value)
     await session.flush()
     return user
@@ -130,25 +113,22 @@ def _hash(token: str) -> str:
     return hashlib.sha256(token.encode()).hexdigest()
 
 
-def _client_ip(request: Request) -> str:
-    return request.client.host if request.client else "unknown"
-
-
-async def request_login_link(session: AsyncSession, phone: str, request: Request) -> None:
+async def request_login_link(session: AsyncSession, phone: str, client_ip: str) -> None:
     """Send a single-use login link to the caretaker's messaging app, if the phone is known.
 
     The response never reveals whether the phone is registered.
     """
     limit: dict[str, Any] = await get_setting(session, "auth.link_rate_limit")
     window = int(limit["window_minutes"]) * 60
-    await rate_limit.enforce(f"link:phone:{phone}", limit=int(limit["max"]), window_seconds=window)
+    # IP first, so requests from a blocked IP don't use up the victim's per-phone budget.
     await rate_limit.enforce(
-        f"link:ip:{_client_ip(request)}", limit=int(limit["max_per_ip"]), window_seconds=window
+        f"link:ip:{client_ip}", limit=int(limit["max_per_ip"]), window_seconds=window
     )
+    await rate_limit.enforce(f"link:phone:{phone}", limit=int(limit["max"]), window_seconds=window)
 
     user = await repo.get_by_phone(session, phone)
     account = await repo.active_channel_account(session, user.id) if user else None
-    if user is None or account is None:
+    if user is None or account is None or not _link_login_allowed(user):
         log.info("identity.link_request_ignored")
         return
 
@@ -173,7 +153,7 @@ async def verify_login_link(session: AsyncSession, token: str) -> SessionOut:
     if user_id is None:
         raise AppError("LINK_INVALID", 401)
     user = await repo.get_user(session, user_id)
-    if user is None:
+    if user is None or not _link_login_allowed(user):
         raise AppError("LINK_INVALID", 401)
     days = await get_int(session, "auth.caretaker_session_days")
     ttl = timedelta(days=days)
@@ -230,13 +210,19 @@ async def user_exists(session: AsyncSession, user_id: uuid.UUID) -> bool:
     return await repo.get_user(session, user_id) is not None
 
 
-async def grant_admin_by_email(session: AsyncSession, email: str) -> bool:
-    """Bootstrap: make an existing (already logged-in) user an admin. Used by the CLI."""
-    user = await repo.get_by_email(session, email)
-    if user is None:
-        return False
+async def grant_admin_by_email(session: AsyncSession, email: str) -> str:
+    """Bootstrap: make an existing user with this verified email an admin (CLI only).
+
+    Returns "granted", "not_found" or "ambiguous"; ambiguous matches are refused.
+    """
+    users = await repo.users_with_email(session, email)
+    if not users:
+        return "not_found"
+    if len(users) > 1:
+        return "ambiguous"
+    user = users[0]
     user.is_admin = True
     await audit.record(
         session, actor_id=None, entity="user", entity_id=user.id, action="grant_admin_cli"
     )
-    return True
+    return "granted"

@@ -11,15 +11,18 @@
 		X-Content-Type-Options nosniff
 		Referrer-Policy strict-origin-when-cross-origin
 		X-Frame-Options DENY
+		Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
 		-Server
 	}
 
-	# Keycloak admin console and master realm are never public (spec section 4).
-	@kc_admin path /auth/admin* /auth/realms/master*
-	respond @kc_admin 404
-
-	handle /auth/* {
+	# Only the app realm and Keycloak's static assets are public. The admin console, admin API
+	# and master realm are never reachable through Caddy (spec section 4).
+	@kc_public path /auth/realms/farm/* /auth/resources/* /auth/js/*
+	handle @kc_public {
 		reverse_proxy keycloak:8080
+	}
+	handle /auth/* {
+		respond 404
 	}
 
 	handle /api/* {

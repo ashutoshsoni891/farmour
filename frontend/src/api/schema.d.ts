@@ -497,8 +497,6 @@ export interface components {
         MeUpdate: {
             /** Name */
             name?: string | null;
-            /** Phone */
-            phone?: string | null;
             /** Language */
             language?: ("en" | "hi") | null;
             /** Unit Pref */

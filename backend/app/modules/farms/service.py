@@ -41,6 +41,7 @@ __all__ = [
 ]
 
 MONEY_FIELDS = ("budget_setup_paise", "budget_monthly_paise")
+NOT_NULL_FIELDS = ("name", "livestock")
 
 
 def to_out(farm: Farm, role: Role, can_see_money: bool) -> FarmOut:
@@ -100,7 +101,7 @@ async def update_farm(session: AsyncSession, m: Membership, data: FarmUpdate) ->
     farm = await _farm(session, m.farm_id)
     before = _snapshot(farm)
     for field, value in data.model_dump(exclude_unset=True).items():
-        if field == "name" and value is None:
+        if value is None and field in NOT_NULL_FIELDS:
             continue
         setattr(farm, field, value)
     await session.flush()

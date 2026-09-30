@@ -29,7 +29,7 @@ reachable through Caddy.
   the stack on http://localhost).
 
 ## Staging deploy
-Pushing to `main` builds images, scans them with Trivy and pushes to GHCR
+When CI passes on `main`, the deploy workflow builds images, scans them with Trivy and pushes to GHCR
 (`.github/workflows/deploy-staging.yml`). The deploy job runs when the repository variable
 `STAGING_ENABLED=true` and secrets `STAGING_HOST`, `STAGING_USER`, `STAGING_SSH_KEY`,
 `STAGING_SSH_KNOWN_HOSTS` are set. The server needs Docker, a `farm/` directory with its own

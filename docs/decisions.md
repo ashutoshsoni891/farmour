@@ -9,6 +9,34 @@ Record every structural choice: context, decision, consequences. Newest first. T
 
 ---
 
+## 2026-09-30 — M0 review fixes (architecture + security review)
+- **Context:** Reviews of M0 found issues that break login and outbox delivery, and several
+  auth weaknesses.
+- **Decisions:**
+  1. OIDC callback is `/login/callback` (Caddy sends all of `/auth/*` to Keycloak). Realm
+     redirect URIs are exact, not wildcards.
+  2. Caddy proxies only `/auth/realms/farm/*`, `/auth/resources/*`, `/auth/js/*`; everything
+     else under `/auth` is 404. A Content-Security-Policy is set.
+  3. Link login (caretaker sessions) is only for accounts without Keycloak, admin or agronomist
+     roles; those must use Keycloak.
+  4. `PATCH /me` no longer edits `phone`; phone is set by the messaging binding (M5).
+  5. Only Keycloak-verified emails are stored; `make-admin` refuses ambiguous matches.
+  6. Staging/prod refuse to boot with a weak or placeholder `LINK_SIGNING_SECRET`.
+  7. Celery tasks use `standalone_session()` (unpooled engine per run); the worker imports
+     every module's `events.py` so subscribers are registered.
+  8. Keycloak login theme `farm` (extends `keycloak`) adds the bundled Devanagari font.
+  9. Postgres image: official `postgres:16.15-bookworm` + pinned PGDG PostGIS and pgvector
+     packages (the postgis/postgis bullseye base is EOL).
+  10. Staging deploy runs only after CI succeeds on `main`.
+- **Deferred (tracked, not blocking M0):** pin GitHub Actions by SHA; per-key validation for
+  `/admin/settings` and cross-process cache invalidation; split Compose networks and add a
+  Valkey password; JWKS refresh throttling; caretaker logout endpoint; stronger import-linter
+  contracts (only `service`/`deps`/`schemas` importable across modules, acyclic modules);
+  paginated envelopes for list endpoints; `updated_at` on append-only tables (audit_log,
+  outbox, jobs, login_links, invites) is intentionally omitted.
+- **Operational note:** Keycloak imports the realm only on first start. Later realm-file changes
+  must be applied in the admin console (or by re-creating the Keycloak database locally).
+
 ## 2026-09-30 — M0 foundation choices
 - **Context:** Spec is silent or ambiguous on the points below; each is cheap to change later.
 - **Decisions:**

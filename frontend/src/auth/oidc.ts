@@ -7,7 +7,7 @@ const authority = `${import.meta.env.VITE_KEYCLOAK_URL ?? `${location.origin}/au
 export const userManager = new UserManager({
   authority,
   client_id: import.meta.env.VITE_KEYCLOAK_CLIENT_ID ?? "farm-web",
-  redirect_uri: `${location.origin}/auth/callback`,
+  redirect_uri: `${location.origin}/login/callback`, // outside /auth, which Caddy sends to Keycloak
   post_logout_redirect_uri: `${location.origin}/`,
   response_type: "code",
   scope: "openid email profile",

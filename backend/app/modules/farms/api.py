@@ -15,7 +15,7 @@ from app.modules.farms.schemas import (
     MemberUpdate,
 )
 from app.modules.farms.service import Membership, membership
-from app.modules.identity.service import CurrentUser, SessionDep
+from app.modules.identity.deps import CurrentUser, SessionDep
 
 router = APIRouter(prefix="/farms", tags=["farms"])
 

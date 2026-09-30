@@ -64,10 +64,13 @@ class KeycloakTokenVerifier:
         # Keycloak access tokens carry the client in `azp`; `aud` is often "account".
         if claims.get("azp") != self._client_id:
             raise TokenVerifyError("token not issued for this client")
+        if claims.get("typ", "Bearer") != "Bearer":
+            raise TokenVerifyError("not an access token")
         roles = frozenset(claims.get("realm_access", {}).get("roles", []))
         return TokenClaims(
             subject=str(claims["sub"]),
             email=claims.get("email"),
+            email_verified=bool(claims.get("email_verified", False)),
             name=claims.get("name"),
             roles=roles,
         )

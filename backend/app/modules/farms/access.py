@@ -14,7 +14,7 @@ from fastapi import Depends
 from app.core.errors import forbidden_role, not_found
 from app.core.logging import bind
 from app.modules.farms import repository as repo
-from app.modules.identity.service import CurrentUser, SessionDep
+from app.modules.identity.deps import CurrentUser, SessionDep
 
 Role = Literal["owner", "caretaker"]
 

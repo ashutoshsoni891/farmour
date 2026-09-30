@@ -19,11 +19,11 @@ def caretaker_token(user_id: object) -> str:
     return session_tokens.issue(UUID(str(user_id)), 1, timedelta(minutes=5))
 
 
-OWNER_ONLY = [
+OWNER_ONLY = [  # DELETE last: the owner test runs these in order on one farm
     ("PATCH", "", {"name": "x"}),
-    ("DELETE", "", None),
     ("GET", "/members", None),
     ("POST", "/members/invite", {"phone": "9876543210"}),
+    ("DELETE", "", None),
 ]
 
 

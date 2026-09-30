@@ -3,9 +3,10 @@
 # STAGING_SSH_KNOWN_HOSTS. The server holds its own .env (never in the repo).
 name: Deploy staging
 on:
-  push:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
     branches: [main]
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -15,10 +16,12 @@ concurrency: { group: staging, cancel-in-progress: false }
 
 env:
   IMAGE_PREFIX: ghcr.io/${{ github.repository_owner }}/farm
-  IMAGE_TAG: ${{ github.sha }}
+  IMAGE_TAG: ${{ github.event.workflow_run.head_sha }}
 
 jobs:
   images:
+    # Only when CI passed on main (a failing check must never reach staging).
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-24.04
     strategy:
       matrix:
@@ -28,6 +31,7 @@ jobs:
           - { name: web, context: ., file: deploy/caddy/Dockerfile }
     steps:
       - uses: actions/checkout@v5
+        with: { ref: "${{ github.event.workflow_run.head_sha }}" }
       - uses: docker/login-action@v3
         with: { registry: ghcr.io, username: "${{ github.actor }}", password: "${{ secrets.GITHUB_TOKEN }}" }
       - uses: docker/build-push-action@v6

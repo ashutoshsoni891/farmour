@@ -22,7 +22,10 @@
   "revokeRefreshToken": true,
   "refreshTokenMaxReuse": 0,
   "internationalizationEnabled": true,
-  "supportedLocales": ["hi", "en"],
+  "supportedLocales": [
+    "hi",
+    "en"
+  ],
   "defaultLocale": "hi",
   "webAuthnPolicyPasswordlessRpEntityName": "Farm",
   "webAuthnPolicyPasswordlessUserVerificationRequirement": "required",
@@ -39,11 +42,15 @@
       "directAccessGrantsEnabled": false,
       "serviceAccountsEnabled": false,
       "frontchannelLogout": true,
-      "redirectUris": ["${APP_BASE_URL}/*"],
-      "webOrigins": ["${APP_BASE_URL}"],
+      "redirectUris": [
+        "${APP_BASE_URL}/login/callback"
+      ],
+      "webOrigins": [
+        "${APP_BASE_URL}"
+      ],
       "attributes": {
         "pkce.code.challenge.method": "S256",
-        "post.logout.redirect.uris": "${APP_BASE_URL}/*"
+        "post.logout.redirect.uris": "${APP_BASE_URL}/"
       }
     }
   ],
@@ -66,7 +73,15 @@
       "invalidUserMessage": "ईमेल या पासवर्ड गलत है।",
       "doSubmit": "जमा करें",
       "doCancel": "रद्द करें",
-      "doSignOut": "लॉग आउट"
+      "doSignOut": "लॉग आउट",
+      "locale_hi": "हिन्दी",
+      "locale_en": "English",
+      "requiredFields": "आवश्यक जानकारी"
+    },
+    "en": {
+      "locale_hi": "हिन्दी",
+      "locale_en": "English"
     }
-  }
+  },
+  "loginTheme": "farm"
 }

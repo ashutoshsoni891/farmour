@@ -10,6 +10,7 @@ class TokenVerifyError(Exception):
 class TokenClaims:
     subject: str
     email: str | None = None
+    email_verified: bool = False
     name: str | None = None
     roles: frozenset[str] = field(default_factory=frozenset)
 

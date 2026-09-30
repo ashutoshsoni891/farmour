@@ -3,7 +3,7 @@
 import uuid
 from datetime import datetime
 
-from sqlalchemy import select, update
+from sqlalchemy import func, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.identity.models import ChannelAccount, LoginLink, User
@@ -66,7 +66,10 @@ async def consume_login_link(
     )
 
 
-async def get_by_email(session: AsyncSession, email: str) -> User | None:
-    return await session.scalar(
-        select(User).where(User.email == email, User.deleted_at.is_(None)).limit(1)
+async def users_with_email(session: AsyncSession, email: str) -> list[User]:
+    """Users whose verified email matches (case-insensitive)."""
+    return list(
+        await session.scalars(
+            select(User).where(func.lower(User.email) == email.lower(), User.deleted_at.is_(None))
+        )
     )

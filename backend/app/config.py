@@ -7,7 +7,7 @@ numbers live in the `settings` table (see app.core.settings_store).
 from functools import lru_cache
 from typing import Literal
 
-from pydantic import SecretStr
+from pydantic import SecretStr, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -44,6 +44,14 @@ class Config(BaseSettings):
     storage_adapter: str = "s3"
     token_verifier_adapter: str = "keycloak"  # noqa: S105 — adapter name, not a secret
     channel_adapter: str = "fake"  # telegram arrives in M5
+
+    @model_validator(mode="after")
+    def _secrets_are_real(self) -> "Config":
+        if self.env in ("staging", "prod"):
+            secret = self.link_signing_secret.get_secret_value()
+            if len(secret) < 32 or "change-me" in secret:
+                raise ValueError("LINK_SIGNING_SECRET must be >= 32 random characters")
+        return self
 
     @property
     def keycloak_issuer(self) -> str:

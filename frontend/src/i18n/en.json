@@ -26,5 +26,12 @@
   "err.rate_limited": "Too many attempts. Please wait a few minutes.",
   "err.link_invalid": "This link has expired or was already used.",
   "err.internal_error": "Something went wrong. Please try again.",
-  "err.network": "No connection. Check your internet and try again."
+  "err.network": "No connection. Check your internet and try again.",
+  "err.phone_in_use": "This phone number is already registered.",
+  "err.cannot_remove_own_admin": "You can't remove your own admin role.",
+  "err.not_a_caretaker": "This member is not a caretaker.",
+  "err.setting_missing": "Something went wrong. Please try again.",
+  "err.setting_invalid": "Something went wrong. Please try again.",
+  "err.method_not_allowed": "Something went wrong. Please try again.",
+  "err.http_error": "Something went wrong. Please try again."
 }

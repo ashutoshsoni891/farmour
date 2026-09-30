@@ -7,7 +7,7 @@ from pydantic import BaseModel, ConfigDict
 
 from app.core import audit, settings_store
 from app.core.errors import not_found
-from app.modules.identity.service import AdminUser, SessionDep
+from app.modules.identity.deps import AdminUser, SessionDep
 
 router = APIRouter(prefix="/admin/settings", tags=["admin"])
 

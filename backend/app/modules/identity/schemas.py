@@ -36,15 +36,9 @@ class MeOut(BaseModel):
 class MeUpdate(BaseModel):
     model_config = ConfigDict(extra="forbid")
     name: str | None = Field(default=None, max_length=200)
-    phone: str | None = None
     language: Language | None = None
     unit_pref: UnitPref | None = None
     bigha_sqft: Decimal | None = Field(default=None, gt=0, le=1_000_000)
-
-    @field_validator("phone")
-    @classmethod
-    def _phone(cls, v: str | None) -> str | None:
-        return normalise_indian_phone(v) if v is not None else None
 
 
 class LinkRequest(BaseModel):
