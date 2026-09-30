@@ -31,3 +31,8 @@ deploy/data/
 
 # Claude Code local
 .claude/settings.local.json
+
+# Frontend test output
+frontend/test-results/
+frontend/playwright-report/
+frontend/dev-dist/
