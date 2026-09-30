@@ -1,0 +1,30 @@
+"""Operator commands: `uv run python -m app.cli make-admin <email>`."""
+
+import argparse
+import asyncio
+
+from app.db.session import get_sessionmaker
+from app.modules.identity.service import grant_admin_by_email
+
+
+async def _make_admin(email: str) -> int:
+    async with get_sessionmaker()() as session:
+        ok = await grant_admin_by_email(session, email)
+        await session.commit()
+    print("granted" if ok else "no user with that email (log in once first)")
+    return 0 if ok else 1
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(prog="app.cli")
+    sub = parser.add_subparsers(dest="cmd", required=True)
+    admin = sub.add_parser("make-admin", help="grant admin to an existing user by email")
+    admin.add_argument("email")
+    args = parser.parse_args()
+    if args.cmd == "make-admin":
+        return asyncio.run(_make_admin(args.email))
+    return 2
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

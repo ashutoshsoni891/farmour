@@ -1,0 +1,106 @@
+[project]
+name = "farm-api"
+version = "0.1.0"
+description = "Farm planning platform API (modular monolith)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "alembic>=1.20.0",
+    "asyncpg>=0.31.0",
+    "boto3>=1.43.105",
+    "celery>=5.6.3",
+    "fastapi>=0.142.1",
+    "httpx>=0.28.1",
+    "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
+    "pyjwt[crypto]>=2.15.1",
+    "redis>=8.1.0",
+    "sqlalchemy[asyncio]>=2.1.1",
+    "structlog>=26.1.0",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "bandit>=1.9.4",
+    "hypothesis>=6.168.3",
+    "import-linter>=2.15",
+    "mypy>=2.3.1",
+    "pip-audit>=2.10.1",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.16.9",
+    "testcontainers[postgres]>=4.15.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = ["app/db/migrations/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "S", "ASYNC", "RUF", "SIM", "PT"]
+ignore = ["B008"]  # FastAPI Depends() in defaults
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "S105", "S106"]
+"app/modules/*/tests/**" = ["S101", "S105", "S106"]
+
+[tool.mypy]
+strict = true
+python_version = "3.12"
+plugins = ["pydantic.mypy"]
+exclude = ["app/db/migrations/"]
+
+[[tool.mypy.overrides]]
+module = ["celery.*", "boto3.*", "botocore.*", "testcontainers.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
+testpaths = ["tests", "app"]
+markers = ["integration: needs Docker (Postgres + PostGIS via testcontainers)"]
+
+[tool.coverage.run]
+source = ["app"]
+omit = ["app/db/migrations/*"]
+
+[tool.bandit]
+exclude_dirs = ["tests", "app/db/migrations"]
+
+# ---- import-linter: architecture rules from spec section 16 ----
+[tool.importlinter]
+root_package = "app"
+include_external_packages = true
+
+[[tool.importlinter.contracts]]
+name = "Layers: api/jobs -> modules -> core -> db -> adapters -> config"
+type = "layers"
+layers = ["app.main", "app.api | app.jobs | app.cli", "app.modules", "app.core", "app.db", "app.adapters", "app.config"]
+
+[[tool.importlinter.contracts]]
+name = "Provider SDKs only inside app.adapters"
+type = "forbidden"
+source_modules = ["app.api", "app.jobs", "app.cli", "app.modules", "app.core", "app.db", "app.config"]
+forbidden_modules = ["boto3", "botocore", "redis", "httpx"]
+allow_indirect_imports = true
+ignore_imports = ["app.modules.*.tests.** -> httpx"]
+
+# Module boundaries: a module's repository and models may be imported only by that module.
+# One contract per module; `make new-module` appends a new block.
+[[tool.importlinter.contracts]]
+name = "Module identity owns its tables"
+type = "protected"
+protected_modules = ["app.modules.identity.repository", "app.modules.identity.models"]
+allowed_importers = ["app.modules.identity"]
+
+[[tool.importlinter.contracts]]
+name = "Module farms owns its tables"
+type = "protected"
+protected_modules = ["app.modules.farms.repository", "app.modules.farms.models"]
+allowed_importers = ["app.modules.farms"]
