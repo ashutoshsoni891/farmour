@@ -1,35 +1,53 @@
-.PHONY: install run test lint typecheck migrate new-module
+.PHONY: install run run-local stop test test-unit test-integration lint typecheck migrate \
+	new-module openapi e2e check
 
-# Targets are stubs until M0 creates backend/, frontend/ and deploy/.
-# Each target fails loudly if its prerequisite does not exist yet.
+COMPOSE := docker compose --env-file .env -f deploy/docker-compose.yml
+COMPOSE_LOCAL := $(COMPOSE) -f deploy/docker-compose.local.yml
 
 install:
-	@test -d backend && (cd backend && uv sync) || echo "backend/ not created yet (M0)"
-	@test -d frontend && (cd frontend && pnpm install) || echo "frontend/ not created yet (M0)"
+	cd backend && uv sync
+	cd frontend && pnpm install
 
 run:
-	@test -f deploy/docker-compose.yml || { echo "deploy/docker-compose.yml not created yet (M0)"; exit 1; }
-	docker compose -f deploy/docker-compose.yml up
+	$(COMPOSE) up -d --build
 
-test:
-	@test -f backend/pyproject.toml || { echo "backend not created yet (M0)"; exit 1; }
-	cd backend && uv run pytest
-	@test -d frontend && (cd frontend && pnpm test) || true
+run-local:
+	$(COMPOSE_LOCAL) up -d --build
+
+stop:
+	$(COMPOSE_LOCAL) down
+
+test: test-unit test-integration
+	cd frontend && pnpm test
+
+test-unit:
+	cd backend && uv run pytest -m "not integration"
+
+# Needs Docker (testcontainers), or TEST_DATABASE_URL pointing at a disposable database.
+test-integration:
+	cd backend && uv run pytest -m integration --cov=app --cov-report=term-missing
+
+e2e:
+	cd frontend && pnpm e2e
 
 lint:
-	@test -f backend/pyproject.toml || { echo "backend not created yet (M0)"; exit 1; }
 	cd backend && uv run ruff check . && uv run ruff format --check . && uv run lint-imports
-	@test -d frontend && (cd frontend && pnpm lint) || true
+	cd frontend && pnpm lint
 
 typecheck:
-	@test -f backend/pyproject.toml || { echo "backend not created yet (M0)"; exit 1; }
-	cd backend && uv run mypy --strict app
-	@test -d frontend && (cd frontend && pnpm exec tsc --noEmit) || true
+	cd backend && uv run mypy --strict app tests conftest.py
+	cd frontend && pnpm typecheck
 
 migrate:
-	@test -f backend/pyproject.toml || { echo "backend not created yet (M0)"; exit 1; }
-	cd backend && uv run alembic upgrade head
+	$(COMPOSE) run --rm migrate
+
+# Regenerate the API contract and the frontend client types from it.
+openapi:
+	cd backend && uv run python -m scripts.export_openapi
+	cd frontend && pnpm api:types
 
 new-module:
 	@test -n "$(NAME)" || { echo "usage: make new-module NAME=x"; exit 1; }
-	@echo "Scaffold script is added in M0; until then follow .claude/skills/new-module/SKILL.md"; exit 1
+	cd backend && uv run python -m scripts.new_module $(NAME)
+
+check: lint typecheck test

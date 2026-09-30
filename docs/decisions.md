@@ -9,6 +9,49 @@ Record every structural choice: context, decision, consequences. Newest first. T
 
 ---
 
+## 2026-09-30 — M0 foundation choices
+- **Context:** Spec is silent or ambiguous on the points below; each is cheap to change later.
+- **Decisions:**
+  1. **Users table:** `phone` is nullable and `keycloak_sub` (unique) is added, because owners
+     sign up in Keycloak with email and have no phone yet. `session_version` added so caretaker
+     sessions can be revoked.
+  2. **Caretaker sessions:** after a single-use link, the API issues its own HS256 session JWT
+     (PyJWT, key `LINK_SIGNING_SECRET`, audience `farm-caretaker`, 30 days, setting
+     `auth.caretaker_session_days`). Keycloak is not used for caretakers because they have no
+     password and Keycloak has no magic-link flow. Revocation: bump `users.session_version`.
+  3. **Login links:** random 256-bit tokens; only the SHA-256 hash is stored; single use via an
+     atomic `UPDATE … RETURNING`; the token travels in the URL fragment so it never reaches
+     server logs. Invites use the same scheme.
+  4. **Roles:** `users.is_admin` / `is_agronomist` are the source of truth, set by admins via
+     `/admin/users`; Keycloak realm roles are ignored. First admin via `python -m app.cli
+     make-admin`.
+  5. **Farm access:** non-members get 404 (existence not revealed), members without the role
+     get 403 `FORBIDDEN_ROLE`. Admins and agronomists have no implicit farm access (spec 2).
+  6. **Rate limits:** link requests 3 per 10 minutes per phone (spec) and 10 per 10 minutes per
+     IP (decision), in setting `auth.link_rate_limit`.
+  7. **Invite lifetime:** 7 days (`invites.ttl_days`). Invite acceptance and Telegram binding
+     are built in M5; M0 returns a shareable link.
+  8. **Extra tables:** `channel_accounts` (a user's chat id per channel) and `login_links`.
+  9. **Config location:** process config is `app/config.py` (lowest import layer) rather than
+     `app/core/config.py`, so adapters can read it without importing core.
+  10. **Modules scaffolded now:** only `identity` and `farms`; later modules are created with
+      `make new-module` in their milestone instead of empty shells.
+  11. **Compose:** GlitchTip and Uptime Kuma are deferred to M8 (not needed for the M0
+      definition of done). Extra compose secrets: `POSTGRES_PASSWORD`, `KEYCLOAK_DB_PASSWORD`,
+      `FARM_RO_PASSWORD`, `KEYCLOAK_ADMIN_*`, `APP_BASE_URL`, `SITE_ADDRESS`.
+  12. **Valkey client:** redis-py (MIT, Redis-protocol compatible) for the cache adapter and
+      Celery broker.
+  13. **pgvector:** built from the pinned `v0.8.6` tag on top of `postgis/postgis:16-3.5`,
+      since no official image ships both.
+  14. **Hindi font:** Noto Sans Devanagari (OFL) is bundled and self-hosted (~104 KB, two
+      weights) so Hindi renders on every device and offline.
+  15. **Frontend tooling:** Node 22 (Vitest 5 and jsdom need it), TypeScript 6.0 (typescript-eslint
+      does not support 7 yet), react-router 7.
+  16. **Keycloak:** Google login and SMTP are not in the realm import (they need real secrets);
+      add them in the admin console. Keycloak has no Hindi translation, so Hindi texts for the
+      login and registration pages are in the realm's `localizationTexts`.
+- **Consequences:** recorded here so M5 (Telegram) and M7 (legal, data deletion) build on them.
+
 ## 2026-09-30 — Tooling: uv (Python) and pnpm (frontend)
 - **Context:** Spec §4 names the libraries but not the package managers.
 - **Decision:** `uv` for Python dependency/venv management, `pnpm` for the frontend. Makefile and hooks assume these.

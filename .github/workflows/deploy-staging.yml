@@ -1,0 +1,68 @@
+# Builds images on every push to main, scans them, pushes to GHCR and deploys to staging.
+# Staging needs repository secrets: STAGING_HOST, STAGING_USER, STAGING_SSH_KEY,
+# STAGING_SSH_KNOWN_HOSTS. The server holds its own .env (never in the repo).
+name: Deploy staging
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency: { group: staging, cancel-in-progress: false }
+
+env:
+  IMAGE_PREFIX: ghcr.io/${{ github.repository_owner }}/farm
+  IMAGE_TAG: ${{ github.sha }}
+
+jobs:
+  images:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        include:
+          - { name: api, context: backend, file: backend/Dockerfile }
+          - { name: postgres, context: deploy/postgres, file: deploy/postgres/Dockerfile }
+          - { name: web, context: ., file: deploy/caddy/Dockerfile }
+    steps:
+      - uses: actions/checkout@v5
+      - uses: docker/login-action@v3
+        with: { registry: ghcr.io, username: "${{ github.actor }}", password: "${{ secrets.GITHUB_TOKEN }}" }
+      - uses: docker/build-push-action@v6
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.file }}
+          load: true
+          tags: ${{ env.IMAGE_PREFIX }}/${{ matrix.name }}:${{ env.IMAGE_TAG }}
+          build-args: VITE_KEYCLOAK_URL=${{ vars.STAGING_BASE_URL }}/auth
+      - name: Image scan (Trivy)
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: ${{ env.IMAGE_PREFIX }}/${{ matrix.name }}:${{ env.IMAGE_TAG }}
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+          ignore-unfixed: true
+      - run: docker push ${{ env.IMAGE_PREFIX }}/${{ matrix.name }}:${{ env.IMAGE_TAG }}
+
+  deploy:
+    needs: images
+    runs-on: ubuntu-24.04
+    if: ${{ vars.STAGING_ENABLED == 'true' }}
+    environment: staging
+    steps:
+      - uses: actions/checkout@v5
+      - name: Copy deploy files and start the new images
+        env:
+          SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.STAGING_SSH_KNOWN_HOSTS }}
+          TARGET: ${{ secrets.STAGING_USER }}@${{ secrets.STAGING_HOST }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          rsync -az --delete deploy/ "$TARGET:farm/deploy/"
+          ssh "$TARGET" "cd farm && export IMAGE_PREFIX=$IMAGE_PREFIX IMAGE_TAG=$IMAGE_TAG && \
+            docker compose --env-file .env -f deploy/docker-compose.yml pull && \
+            docker compose --env-file .env -f deploy/docker-compose.yml up -d --no-build --remove-orphans"

@@ -13,13 +13,15 @@ Spec: `docs/spec/MVP-technical-spec.md` is the single source of truth. **Section
 7. Spec silent → simplest option respecting §16, log in `docs/decisions.md`. Spec ambiguous AND costly to reverse → stop and ask.
 
 ## Commands (Makefile)
-- `make install` — uv sync (backend) + pnpm install (frontend)
-- `make run` — docker compose up (deploy/docker-compose.yml)
-- `make test` — pytest (backend) + pnpm test (frontend)
-- `make lint` — ruff check + ruff format --check + pnpm lint + import-linter
-- `make typecheck` — mypy --strict (backend) + tsc --noEmit (frontend)
-- `make migrate` — alembic upgrade head
-- `make new-module NAME=x` — scaffold a module (see skill `new-module`)
+- `make install` — uv sync (backend) + pnpm install (frontend; Node 22 via `nvm use`)
+- `make run-local` — full stack with Docker Compose (see docs/runbook.md); `make stop`
+- `make test` — backend unit + integration (Docker) + frontend unit; `make test-unit` without Docker
+- `make e2e` — Playwright at mobile width
+- `make lint` — ruff + import-linter + eslint/prettier
+- `make typecheck` — mypy --strict + tsc
+- `make migrate` — alembic upgrade head (in Compose)
+- `make openapi` — regenerate API contract and frontend client types after API changes
+- `make new-module NAME=x` — scaffold a module (skill `new-module`)
 
 ## Definition of done for any change (§16)
 - [ ] Stays inside its module boundary (import-linter passes)
