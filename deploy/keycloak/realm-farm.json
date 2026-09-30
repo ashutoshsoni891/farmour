@@ -1,0 +1,72 @@
+{
+  "realm": "farm",
+  "enabled": true,
+  "sslRequired": "external",
+  "registrationAllowed": true,
+  "registrationEmailAsUsername": true,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "rememberMe": true,
+  "verifyEmail": false,
+  "bruteForceProtected": true,
+  "permanentLockout": false,
+  "failureFactor": 5,
+  "waitIncrementSeconds": 60,
+  "maxFailureWaitSeconds": 900,
+  "passwordPolicy": "length(10) and notUsername and notEmail and passwordHistory(3) and maxLength(128)",
+  "accessTokenLifespan": 900,
+  "ssoSessionIdleTimeout": 2592000,
+  "ssoSessionMaxLifespan": 2592000,
+  "offlineSessionIdleTimeout": 2592000,
+  "revokeRefreshToken": true,
+  "refreshTokenMaxReuse": 0,
+  "internationalizationEnabled": true,
+  "supportedLocales": ["hi", "en"],
+  "defaultLocale": "hi",
+  "webAuthnPolicyPasswordlessRpEntityName": "Farm",
+  "webAuthnPolicyPasswordlessUserVerificationRequirement": "required",
+  "webAuthnPolicyPasswordlessResidentKey": "Yes",
+  "clients": [
+    {
+      "clientId": "farm-web",
+      "name": "Farm web app",
+      "enabled": true,
+      "publicClient": true,
+      "protocol": "openid-connect",
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "frontchannelLogout": true,
+      "redirectUris": ["${APP_BASE_URL}/*"],
+      "webOrigins": ["${APP_BASE_URL}"],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "${APP_BASE_URL}/*"
+      }
+    }
+  ],
+  "localizationTexts": {
+    "hi": {
+      "loginAccountTitle": "अपने खाते में लॉग इन करें",
+      "usernameOrEmail": "ईमेल",
+      "email": "ईमेल",
+      "password": "पासवर्ड",
+      "passwordConfirm": "पासवर्ड दोबारा लिखें",
+      "doLogIn": "लॉग इन करें",
+      "doRegister": "नया खाता बनाएं",
+      "noAccount": "खाता नहीं है?",
+      "registerTitle": "नया खाता बनाएं",
+      "firstName": "पहला नाम",
+      "lastName": "उपनाम",
+      "doForgotPassword": "पासवर्ड भूल गए?",
+      "backToLogin": "« लॉग इन पर वापस जाएं",
+      "rememberMe": "मुझे याद रखें",
+      "invalidUserMessage": "ईमेल या पासवर्ड गलत है।",
+      "doSubmit": "जमा करें",
+      "doCancel": "रद्द करें",
+      "doSignOut": "लॉग आउट"
+    }
+  }
+}
