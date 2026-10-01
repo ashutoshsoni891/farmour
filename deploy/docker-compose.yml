@@ -157,6 +157,7 @@ services:
       dockerfile: deploy/caddy/Dockerfile
       args:
         VITE_KEYCLOAK_URL: ${APP_BASE_URL}/auth
+        VITE_GOOGLE_MAPS_KEY: ${GOOGLE_MAPS_KEY:-}
     environment:
       SITE_ADDRESS: ${SITE_ADDRESS:-http://localhost}
     ports: ["80:80", "443:443"]

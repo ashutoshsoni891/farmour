@@ -4,9 +4,5 @@ interface ImportMetaEnv {
   readonly VITE_KEYCLOAK_URL?: string;
   readonly VITE_KEYCLOAK_REALM?: string;
   readonly VITE_KEYCLOAK_CLIENT_ID?: string;
-}
-
-interface ImportMetaEnv {
-  readonly VITE_SATELLITE_TILES_URL?: string;
-  readonly VITE_SATELLITE_ATTRIBUTION?: string;
+  readonly VITE_GOOGLE_MAPS_KEY?: string;
 }

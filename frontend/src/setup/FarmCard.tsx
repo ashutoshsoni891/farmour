@@ -35,7 +35,7 @@ export function FarmCard({
   const area = parcel.data
     ? formatArea(parcel.data.area_sqm, unit, i18n.language as Lang, bighaSqft)
     : null;
-  const unfinished = !parcel.data || !farm.water_source || !farm.goal || !farm.labour;
+  const unfinished = !parcel.data;
   return (
     <li className="flex flex-col gap-2 rounded-xl border-2 border-neutral-300 p-4">
       <Link to={`/farms/${farm.id}`} className="flex min-h-11 items-center justify-between gap-2">
@@ -51,7 +51,7 @@ export function FarmCard({
       {farm.village && <p className="text-base text-neutral-700">{farm.village}</p>}
       {unfinished && farm.my_role === "owner" && (
         <Link
-          to={`/setup/${farm.id}${parcel.data ? "?step=about" : "?step=plot"}`}
+          to={`/setup/${farm.id}`}
           className="rounded-xl bg-green-800 px-5 py-2 text-center text-lg font-semibold text-white"
         >
           {t("home.continue_setup", { name: farm.name })}

@@ -9,6 +9,23 @@ Record every structural choice: context, decision, consequences. Newest first. T
 
 ---
 
+## 2026-10-02 — Onboarding 2.0, interactive plot, Google satellite, AI agronomist
+- **Onboarding is 2 screens:** where ("I'm on my land" GPS, search, typed coordinates, tap or
+  drag the pin; terrace is a checkbox) and how big (one number in sq ft/acre/bigha; we save a
+  square at the pin). Defaults: goal both, who works self, water unknown, drainage never asked.
+  The farm page shows plain-language insights (only statements the data or a spec rule supports)
+  and an optional "Improve your plan" card (water, who works, goal, soil) that saves on one tap.
+- **Plot editing:** a saved plot (even the auto square) opens on the map as an editable shape:
+  drag corners, drag midpoints to add corners, drag the whole shape; or paste corner points
+  ("lat, long" per line). Coordinates are rounded to 8 decimals for Terra Draw.
+- **Satellite:** Google Map Tiles API (2D satellite) on the MapLibre map, default when
+  `GOOGLE_MAPS_KEY` is set at build time; session token cached per language, Google logo and
+  per-viewport imagery credit shown; street map when no key. The key is public in the browser:
+  restrict it to the app's domains and to the Map Tiles API in Google Cloud.
+- **AI agronomist (agreed, not built yet):** hybrid. The rule engine decides; AI drafts cited
+  library values (new status `ai_verified`, usable only behind `library.allow_ai_verified` with a
+  "not yet reviewed by an expert" label), explains plans and turns owner wishes into preferences.
+
 ## 2026-10-02 — M2b site intelligence choices
 - **Flow:** saving a parcel publishes `parcel.saved`; the outbox subscriber only enqueues a Celery
   task (`site.build_profile`, via `app/core/queue.py`, so modules never import the jobs layer). The

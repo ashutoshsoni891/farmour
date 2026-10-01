@@ -1,8 +1,8 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import type { TFunction } from "i18next";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useParams, useSearchParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 import { apiClient } from "../api/client";
 import type { components } from "../api/schema";
@@ -11,15 +11,16 @@ import { Screen } from "../components/Screen";
 import type { Lang } from "../i18n";
 import { FEET_PER_METRE, formatArea } from "../lib/format";
 import type { UnitPref } from "../lib/format";
-import { FoundStep } from "./FoundStep";
+import { Choice } from "./Choice";
+import { parseCorners, parsePoint } from "./coords";
 import { PlotMap } from "./PlotMap";
-import type { PlotShape } from "./PlotMap";
+import type { PlotGeometry, PlotShape } from "./PlotMap";
 
 type Farm = components["schemas"]["FarmOut"];
 type Parcel = components["schemas"]["ParcelOut"];
-type StepId = "where" | "plot" | "found" | "about";
-const STEPS: StepId[] = ["where", "plot", "found", "about"];
 const INDORE: [number, number] = [75.8577, 22.7196];
+const SQFT_PER_SQM = 10.7639104167;
+const SQFT_PER_ACRE = 43560;
 
 /** Text for an API error body, filling in numbers such as the minimum plot size. */
 function errorText(t: TFunction, error: unknown): string {
@@ -30,37 +31,11 @@ function errorText(t: TFunction, error: unknown): string {
 }
 
 const big = "min-h-14 rounded-xl border-2 px-4 text-lg font-semibold";
-const on = "border-green-800 bg-green-800 text-white";
 const off = "border-neutral-400 bg-white text-neutral-900";
+const on = "border-green-800 bg-green-800 text-white";
 const primary =
   "rounded-xl bg-green-800 px-6 py-3 text-lg font-semibold text-white disabled:opacity-40";
-
-function Choice<T extends string>(props: {
-  label: string;
-  value: T | null;
-  options: T[];
-  text: (o: T) => string;
-  onPick: (o: T) => void;
-}) {
-  return (
-    <fieldset className="flex flex-col gap-2">
-      <legend className="mb-1 text-lg font-bold">{props.label}</legend>
-      <div className="flex flex-wrap gap-2">
-        {props.options.map((o) => (
-          <button
-            key={o}
-            type="button"
-            aria-pressed={props.value === o}
-            onClick={() => props.onPick(o)}
-            className={`${big} ${props.value === o ? on : off}`}
-          >
-            {props.text(o)}
-          </button>
-        ))}
-      </div>
-    </fieldset>
-  );
-}
+const linkBtn = "min-h-11 self-start text-lg font-semibold text-green-800 underline";
 
 function useMe() {
   const { token } = useAuth();
@@ -70,7 +45,7 @@ function useMe() {
   });
 }
 
-/* ------------------------------------------------------------ step 1: where */
+/* ------------------------------------------------------------ screen 1: where */
 
 function WhereStep() {
   const { t, i18n } = useTranslation();
@@ -82,10 +57,12 @@ function WhereStep() {
   const [pin, setPin] = useState<[number, number] | null>(null);
   const [place, setPlace] = useState<{ name?: string; village?: string; district?: string }>({});
   const [center, setCenter] = useState<[number, number]>(INDORE);
-  const [siteType, setSiteType] = useState<"ground" | "terrace" | null>(null);
+  const [terrace, setTerrace] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [resolving, setResolving] = useState(false);
+  const [locating, setLocating] = useState(false);
+  const [coordText, setCoordText] = useState("");
   const api = apiClient(token);
 
   const search = async () => {
@@ -119,28 +96,52 @@ function WhereStep() {
     }
   };
 
+  const locate = () => {
+    if (!("geolocation" in navigator)) return setError(t("setup.where.gps_failed"));
+    setLocating(true);
+    setError(null);
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        setLocating(false);
+        void choose(pos.coords.longitude, pos.coords.latitude);
+      },
+      () => {
+        setLocating(false);
+        setError(t("setup.where.gps_failed"));
+      },
+      { enableHighAccuracy: true, timeout: 15000 },
+    );
+  };
+
   const next = async () => {
-    if (!pin || !siteType) return;
+    if (!pin) return;
     setBusy(true);
     setError(null);
+    // Defaults instead of questions; the owner can change them on the farm page.
     const { data, error: err } = await api.POST("/api/v1/farms", {
       body: {
         name: t("setup.default_farm_name"),
-        site_type: siteType,
+        site_type: terrace ? "terrace" : "ground",
         lat: Number(pin[1].toFixed(6)),
         lng: Number(pin[0].toFixed(6)),
+        goal: "both",
+        labour: "self",
         ...(place.village ? { village: place.village } : {}),
         ...(place.district ? { district: place.district } : {}),
       },
     });
     setBusy(false);
     if (err || !data) return setError(errorText(t, err));
-    void navigate(`/setup/${data.id}?step=plot`, { replace: true });
+    void navigate(`/setup/${data.id}`, { replace: true });
   };
 
   return (
     <>
       <h1 className="text-3xl font-bold">{t("setup.where.title")}</h1>
+      <button type="button" onClick={locate} disabled={locating} className={primary}>
+        {locating ? t("setup.where.locating") : t("setup.where.use_location")}
+      </button>
+      <p className="text-base text-neutral-700">{t("setup.where.or_search")}</p>
       <form
         className="flex gap-2"
         onSubmit={(e) => {
@@ -157,6 +158,28 @@ function WhereStep() {
         />
         <button type="submit" className={`${big} ${off}`}>
           {t("setup.where.search_button")}
+        </button>
+      </form>
+      <form
+        className="flex gap-2"
+        onSubmit={(e) => {
+          e.preventDefault();
+          const p = parsePoint(coordText);
+          if (!p) return setError(t("setup.where.coords_invalid"));
+          setError(null);
+          void choose(p[0], p[1]);
+        }}
+      >
+        <input
+          aria-label={t("setup.where.coords")}
+          placeholder={t("setup.where.coords_placeholder")}
+          value={coordText}
+          onChange={(e) => setCoordText(e.target.value)}
+          inputMode="text"
+          className="min-w-0 flex-1 rounded-lg border-2 border-neutral-400 px-3 text-lg"
+        />
+        <button type="submit" className={`${big} ${off}`}>
+          {t("setup.where.coords_go")}
         </button>
       </form>
       {results && results.length === 0 && <p>{t("setup.where.no_results")}</p>}
@@ -181,28 +204,33 @@ function WhereStep() {
           ))}
         </ul>
       )}
-      <p className="text-base text-neutral-700">{t("setup.where.hint")}</p>
       <PlotMap
         center={center}
-        zoom={pin ? 16 : 11}
+        zoom={pin ? 18 : 11}
         mode="pin"
         pin={pin}
         onPin={(lng, lat) => void choose(lng, lat)}
       />
+      <p className="text-base text-neutral-700">{t("setup.where.hint")}</p>
       {pin && (
         <p role="status" className="text-base font-semibold text-green-900">
           {t("setup.where.picked", {
             place: place.village || place.name || `${pin[1].toFixed(4)}, ${pin[0].toFixed(4)}`,
-          })}
+          })}{" "}
+          <span className="font-normal text-neutral-700">
+            ({pin[1].toFixed(5)}, {pin[0].toFixed(5)})
+          </span>
         </p>
       )}
-      <Choice
-        label={t("setup.where.site_type")}
-        value={siteType}
-        options={["ground", "terrace"] as const}
-        text={(o) => t(`setup.site.${o}`)}
-        onPick={setSiteType}
-      />
+      <label className="flex min-h-11 items-center gap-3 text-lg">
+        <input
+          type="checkbox"
+          checked={terrace}
+          onChange={(e) => setTerrace(e.target.checked)}
+          className="h-6 w-6"
+        />
+        {t("setup.where.is_terrace")}
+      </label>
       {error && (
         <p role="alert" className="font-semibold text-red-800">
           {error}
@@ -210,7 +238,7 @@ function WhereStep() {
       )}
       <button
         type="button"
-        disabled={!pin || !siteType || busy || resolving}
+        disabled={!pin || busy || resolving}
         onClick={() => void next()}
         className={primary}
       >
@@ -220,102 +248,92 @@ function WhereStep() {
   );
 }
 
-/* ------------------------------------------------------------ step 2: plot */
+/* ------------------------------------------------------------ screen 2: how big */
 
-type PlotMode = "size" | "draw" | "sides";
+type PlotMode = "area" | "draw" | "sides" | "corners";
+type AreaUnit = "sqft" | "acre" | "bigha";
 
-function PlotStep({
-  farm,
-  parcel,
-  onSaved,
-}: {
-  farm: Farm;
-  parcel: Parcel | null;
-  onSaved: () => void;
-}) {
+function PlotStep({ farm, parcel }: { farm: Farm; parcel: Parcel | null }) {
   const { t, i18n } = useTranslation();
   const { token } = useAuth();
+  const navigate = useNavigate();
   const me = useMe();
   const lang = i18n.language as Lang;
   const unitPref = (me.data?.unit_pref ?? "sqft") as UnitPref;
-  const bigha = me.data?.bigha_sqft ? Number(me.data.bigha_sqft) : null;
-  const [mode, setMode] = useState<PlotMode>("size");
-  const [lenChoice, setLenUnit] = useState<"ft" | "m" | null>(null);
-  const lenUnit = lenChoice ?? (unitPref === "sqft" ? "ft" : "m");
+  const bighaSqft = me.data?.bigha_sqft ? Number(me.data.bigha_sqft) : null;
+  const queryClient = useQueryClient();
+  const saved = parcel?.boundary as unknown as PlotGeometry | undefined;
+  // A saved plot opens on the map, ready to adjust; a new farm starts with "how big".
+  const [mode, setMode] = useState<PlotMode>(saved ? "draw" : "area");
+  const [initial, setInitial] = useState<PlotGeometry | undefined>(saved);
+  const [cornerText, setCornerText] = useState("");
+  const [areaUnit, setAreaUnit] = useState<AreaUnit>("sqft");
+  const [lenUnit, setLenUnit] = useState<"ft" | "m">("ft");
   const [v, setV] = useState<Record<string, string>>({});
   const [shape, setShape] = useState<PlotShape | null>(null);
   const [resetKey, setResetKey] = useState(0);
-  const [saved, setSaved] = useState<Parcel | null>(parcel);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const api = apiClient(token);
   const center: [number, number] = [Number(farm.lng ?? INDORE[0]), Number(farm.lat ?? INDORE[1])];
 
-  const metres = (key: string): number => {
+  const num = (key: string): number => {
     const n = Number(v[key]);
-    return Number.isFinite(n) && n > 0 ? (lenUnit === "ft" ? n / FEET_PER_METRE : n) : 0;
+    return Number.isFinite(n) && n > 0 ? n : 0;
+  };
+  const metres = (key: string) => (lenUnit === "ft" ? num(key) / FEET_PER_METRE : num(key));
+  const areaSqm = (): number => {
+    const n = num("area");
+    if (areaUnit === "acre") return (n * SQFT_PER_ACRE) / SQFT_PER_SQM;
+    if (areaUnit === "bigha") return bighaSqft ? (n * bighaSqft) / SQFT_PER_SQM : 0;
+    return n / SQFT_PER_SQM;
   };
   const showArea = (sqm: number) => {
-    const a = formatArea(sqm, unitPref, lang, bigha);
+    const a = formatArea(sqm, unitPref, lang, bighaSqft);
     return t(a.key, { n: a.n });
   };
 
   const liveSqm =
-    mode === "size"
-      ? metres("length") * metres("width")
-      : mode === "draw"
-        ? (shape?.areaSqm ?? 0)
-        : 0;
-
-  const fail = (err: unknown) => {
-    setError(errorText(t, err));
-    setBusy(false);
-  };
-  const done = (p: Parcel) => {
-    setSaved(p);
-    setBusy(false);
-    onSaved();
-  };
+    mode === "area" ? areaSqm()
+    : mode === "draw" ? (shape?.areaSqm ?? 0)
+    : 0; // prettier-ignore
 
   const save = async () => {
     setBusy(true);
     setError(null);
-    const lat = center[1];
-    const lng = center[0];
+    const [lng, lat] = center;
+    let result: { data?: Parcel | undefined; error?: unknown };
     if (mode === "draw") {
       if (!shape) return setBusy(false);
-      const { data, error: err } = await api.PUT("/api/v1/farms/{farm_id}/parcel", {
+      result = await api.PUT("/api/v1/farms/{farm_id}/parcel", {
         params: { path: { farm_id: farm.id } },
         body: { boundary: shape.geometry },
       });
-      return err || !data ? fail(err) : done(data);
-    }
-    const body =
-      mode === "size"
-        ? { shape: { kind: "rectangle" as const, lat, lng, length_m: metres("length"), width_m: metres("width"), bearing_deg: 0 } }
-        : {
-            shape: {
-              kind: "four_sides" as const, lat, lng,
-              side_ab_m: metres("ab"), side_bc_m: metres("bc"), side_cd_m: metres("cd"),
-              side_da_m: metres("da"), diagonal_ac_m: metres("diag"), bearing_deg: 0,
-            },
-          }; // prettier-ignore
-    const { data, error: err } = await api.POST(
-      "/api/v1/farms/{farm_id}/parcel/from-measurements",
-      {
+    } else {
+      // "How big" only: a square of that area, centred on the pin. Drawing refines it later.
+      const side = Math.sqrt(areaSqm());
+      const shapeBody =
+        mode === "area"
+          ? { kind: "rectangle" as const, lat, lng, length_m: side, width_m: side, bearing_deg: 0 }
+          : { kind: "rectangle" as const, lat, lng, length_m: metres("length"), width_m: metres("width"), bearing_deg: 0 }; // prettier-ignore
+      result = await api.POST("/api/v1/farms/{farm_id}/parcel/from-measurements", {
         params: { path: { farm_id: farm.id } },
-        body,
-      },
-    );
-    return err || !data ? fail(err) : done(data);
+        body: { shape: shapeBody },
+      });
+    }
+    setBusy(false);
+    if (result.error || !result.data) return setError(errorText(t, result.error));
+    // Refresh what the farm page shows (it may hold an older "no plot yet" answer).
+    await queryClient.invalidateQueries({ queryKey: ["parcel", farm.id] });
+    await queryClient.invalidateQueries({ queryKey: ["site-profile", farm.id] });
+    void navigate(`/farms/${farm.id}`, { replace: true });
   };
 
   const canSave =
-    mode === "size"
-      ? metres("length") > 0 && metres("width") > 0
-      : mode === "sides"
-        ? ["ab", "bc", "cd", "da", "diag"].every((k) => metres(k) > 0)
-        : !!shape && !shape.crossing;
+    mode === "area" ? areaSqm() > 0
+    : mode === "sides" ? num("length") > 0 && num("width") > 0
+    : mode === "corners" ? false
+    : !!shape && !shape.crossing; // prettier-ignore
 
   const numField = (key: string, label: string) => (
     <label key={key} className="flex flex-col gap-1 text-base font-semibold">
@@ -328,58 +346,58 @@ function PlotStep({
       />
     </label>
   );
+  const areaUnits: AreaUnit[] = bighaSqft ? ["sqft", "acre", "bigha"] : ["sqft", "acre"];
 
   return (
     <>
       <h1 className="text-3xl font-bold">{t("setup.plot.title")}</h1>
-      <div role="tablist" className="flex flex-wrap gap-2">
-        {(["size", "draw", "sides"] as const).map((m) => (
-          <button
-            key={m}
-            role="tab"
-            aria-selected={mode === m}
-            onClick={() => {
-              setMode(m);
-              setError(null);
-            }}
-            className={`${big} ${mode === m ? on : off}`}
-          >
-            {t(`setup.plot.mode.${m}`)}
-          </button>
-        ))}
-      </div>
-
-      {mode !== "draw" && (
-        <div role="group" className="flex gap-2">
-          {(["ft", "m"] as const).map((u) => (
-            <button
-              key={u}
-              type="button"
-              aria-pressed={lenUnit === u}
-              onClick={() => setLenUnit(u)}
-              className={`${big} ${lenUnit === u ? on : off}`}
-            >
-              {t(`setup.plot.unit_${u}`)}
-            </button>
-          ))}
-        </div>
+      {parcel && (
+        <p role="status" className="font-semibold text-green-900">
+          {t("setup.plot.current", { area: showArea(parcel.area_sqm) })}
+        </p>
       )}
 
-      {mode === "size" && (
-        <div className="grid grid-cols-2 gap-3">
-          {numField("length", t("setup.plot.length"))}
-          {numField("width", t("setup.plot.width"))}
-        </div>
+      {mode === "area" && (
+        <>
+          {numField("area", t("setup.plot.area_label"))}
+          <div role="group" className="flex flex-wrap gap-2">
+            {areaUnits.map((u) => (
+              <button
+                key={u}
+                type="button"
+                aria-pressed={areaUnit === u}
+                onClick={() => setAreaUnit(u)}
+                className={`${big} ${areaUnit === u ? on : off}`}
+              >
+                {t(`setup.plot.unit_${u}`)}
+              </button>
+            ))}
+          </div>
+        </>
       )}
+
       {mode === "sides" && (
-        <div className="grid grid-cols-2 gap-3">
-          {numField("ab", t("setup.plot.side_ab"))}
-          {numField("bc", t("setup.plot.side_bc"))}
-          {numField("cd", t("setup.plot.side_cd"))}
-          {numField("da", t("setup.plot.side_da"))}
-          <div className="col-span-2">{numField("diag", t("setup.plot.diagonal"))}</div>
-        </div>
+        <>
+          <div role="group" className="flex gap-2">
+            {(["ft", "m"] as const).map((u) => (
+              <button
+                key={u}
+                type="button"
+                aria-pressed={lenUnit === u}
+                onClick={() => setLenUnit(u)}
+                className={`${big} ${lenUnit === u ? on : off}`}
+              >
+                {t(`setup.plot.unit_${u}`)}
+              </button>
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {numField("length", t("setup.plot.length"))}
+            {numField("width", t("setup.plot.width"))}
+          </div>
+        </>
       )}
+
       {mode === "draw" && (
         <>
           <p className="text-base text-neutral-700">{t("setup.plot.draw_hint")}</p>
@@ -390,6 +408,8 @@ function PlotStep({
             pin={center}
             onShape={setShape}
             resetKey={resetKey}
+            initial={initial}
+            tall
           />
           {shape?.crossing && (
             <p role="alert" className="font-semibold text-red-800">
@@ -400,11 +420,44 @@ function PlotStep({
             type="button"
             onClick={() => {
               setShape(null);
+              setInitial(undefined);
               setResetKey((k) => k + 1);
             }}
             className={`${big} ${off} self-start`}
           >
             {t("setup.plot.clear")}
+          </button>
+        </>
+      )}
+
+      {mode === "corners" && (
+        <>
+          <label className="flex flex-col gap-1 text-base font-semibold">
+            {t("setup.plot.corners_label")}
+            <textarea
+              rows={5}
+              value={cornerText}
+              onChange={(e) => setCornerText(e.target.value)}
+              placeholder={
+                "22.84560, 75.89330\n22.84560, 75.89345\n22.84540, 75.89345\n22.84540, 75.89330"
+              }
+              className="rounded-lg border-2 border-neutral-400 px-3 py-2 font-mono text-base"
+            />
+          </label>
+          <button
+            type="button"
+            onClick={() => {
+              const poly = parseCorners(cornerText);
+              if (!poly) return setError(t("setup.plot.corners_invalid"));
+              setError(null);
+              setInitial(poly);
+              setShape(null);
+              setResetKey((k) => k + 1);
+              setMode("draw");
+            }}
+            className={`${big} ${off} self-start`}
+          >
+            {t("setup.plot.corners_show")}
           </button>
         </>
       )}
@@ -425,76 +478,31 @@ function PlotStep({
         onClick={() => void save()}
         className={primary}
       >
-        {busy ? t("setup.saving") : t("setup.plot.use")}
+        {busy ? t("setup.saving") : t("setup.plot.done")}
       </button>
-      {saved && (
-        <p role="status" className="font-semibold text-green-900">
-          {t("setup.plot.saved", { area: showArea(saved.area_sqm) })}
-        </p>
-      )}
-    </>
-  );
-}
 
-/* ------------------------------------------------------------ step 3: about */
-
-function AboutStep({ farm }: { farm: Farm }) {
-  const { t } = useTranslation();
-  const { token } = useAuth();
-  const navigate = useNavigate();
-  const [water, setWater] = useState<Farm["water_source"]>(farm.water_source);
-  const [goal, setGoal] = useState<Farm["goal"]>(farm.goal);
-  const [labour, setLabour] = useState<Farm["labour"]>(farm.labour);
-  const [error, setError] = useState<string | null>(null);
-  const [busy, setBusy] = useState(false);
-
-  const finish = async () => {
-    setBusy(true);
-    const { error: err } = await apiClient(token).PATCH("/api/v1/farms/{farm_id}", {
-      params: { path: { farm_id: farm.id } },
-      body: {
-        ...(water ? { water_source: water } : {}),
-        ...(goal ? { goal } : {}),
-        ...(labour ? { labour } : {}),
-      },
-    });
-    setBusy(false);
-    if (err) return setError(errorText(t, err));
-    void navigate("/");
-  };
-
-  return (
-    <>
-      <h1 className="text-3xl font-bold">{t("setup.about.title")}</h1>
-      <Choice
-        label={t("setup.about.water")}
-        value={water ?? null}
-        options={["bore", "well", "canal", "municipal", "rain_only"] as const}
-        text={(o) => t(`setup.water.${o}`)}
-        onPick={setWater}
-      />
-      <Choice
-        label={t("setup.about.goal")}
-        value={goal ?? null}
-        options={["home_food", "income", "both"] as const}
-        text={(o) => t(`setup.goal.${o}`)}
-        onPick={setGoal}
-      />
-      <Choice
-        label={t("setup.about.labour")}
-        value={labour ?? null}
-        options={["self", "family", "caretaker", "mixed"] as const}
-        text={(o) => t(`setup.labour.${o}`)}
-        onPick={setLabour}
-      />
-      {error && (
-        <p role="alert" className="font-semibold text-red-800">
-          {error}
-        </p>
-      )}
-      <button type="button" disabled={busy} onClick={() => void finish()} className={primary}>
-        {busy ? t("setup.saving") : t("setup.finish")}
-      </button>
+      <div className="flex flex-col gap-1">
+        {mode !== "area" && (
+          <button type="button" onClick={() => setMode("area")} className={linkBtn}>
+            {t("setup.plot.mode.area")}
+          </button>
+        )}
+        {mode !== "draw" && (
+          <button type="button" onClick={() => setMode("draw")} className={linkBtn}>
+            {t("setup.plot.mode.draw")}
+          </button>
+        )}
+        {mode !== "corners" && (
+          <button type="button" onClick={() => setMode("corners")} className={linkBtn}>
+            {t("setup.plot.mode.corners")}
+          </button>
+        )}
+        {mode !== "sides" && (
+          <button type="button" onClick={() => setMode("sides")} className={linkBtn}>
+            {t("setup.plot.mode.sides")}
+          </button>
+        )}
+      </div>
     </>
   );
 }
@@ -504,7 +512,6 @@ function AboutStep({ farm }: { farm: Farm }) {
 function Existing({ farmId }: { farmId: string }) {
   const { t } = useTranslation();
   const { token } = useAuth();
-  const [params, setParams] = useSearchParams();
   const farm = useQuery({
     queryKey: ["farm", farmId, token],
     queryFn: async () =>
@@ -524,50 +531,20 @@ function Existing({ farmId }: { farmId: string }) {
       ).data ?? null,
   });
   if (!farm.data || parcel.isPending) return <p role="status">{t("common.loading")}</p>;
-  const step = (params.get("step") as StepId | null) ?? (parcel.data ? "found" : "plot");
-  return (
-    <>
-      {step === "plot" && (
-        <PlotStep
-          farm={farm.data}
-          parcel={parcel.data ?? null}
-          onSaved={() => void parcel.refetch()}
-        />
-      )}
-      {step === "plot" && parcel.data && (
-        <button type="button" onClick={() => setParams({ step: "found" })} className={primary}>
-          {t("setup.next")}
-        </button>
-      )}
-      {step === "found" && (
-        <FoundStep farmId={farmId} onDone={() => setParams({ step: "about" })} />
-      )}
-      {step === "about" && <AboutStep farm={farm.data} />}
-      {step === "about" && (
-        <button
-          type="button"
-          onClick={() => setParams({ step: "found" })}
-          className="self-start text-lg font-semibold text-green-800 underline"
-        >
-          {t("setup.back")}
-        </button>
-      )}
-    </>
-  );
+  return <PlotStep farm={farm.data} parcel={parcel.data ?? null} />;
 }
 
 export function SetupPage() {
   const { t } = useTranslation();
   const { farmId } = useParams();
-  const [params] = useSearchParams();
-  const step: StepId = !farmId ? "where" : ((params.get("step") as StepId | null) ?? "plot");
-  const n = STEPS.indexOf(step) + 1;
   return (
     <Screen>
       <p className="text-base font-semibold text-neutral-700">
-        {t("setup.step", { n, total: STEPS.length })}
+        {t("setup.step", { n: farmId ? 2 : 1, total: 2 })}
       </p>
       {farmId ? <Existing farmId={farmId} /> : <WhereStep />}
     </Screen>
   );
 }
+
+export { Choice };

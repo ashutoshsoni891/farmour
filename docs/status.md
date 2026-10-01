@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-10-02. Source of truth for scope: `docs/spec/` (milestones in `15-build-order-and-open-questions.md`).
+Last updated: 2026-10-02 (onboarding 2.0). Source of truth for scope: `docs/spec/` (milestones in `15-build-order-and-open-questions.md`).
 Everything below runs on the local Docker stack. Nothing is pushed to GitHub yet (see "Blockers").
 
 ## Milestones
@@ -9,7 +9,7 @@ Everything below runs on the local Docker stack. Nothing is pushed to GitHub yet
 |---|---|---|---|---|
 | M0 | Foundation | Built, local | Compose stack (Postgres+PostGIS+pgvector, Valkey, SeaweedFS, Keycloak, Caddy), owner login (Keycloak, hi/en), caretaker link login, roles, farm access check, settings, outbox, adapters + fakes, CI + staging workflow files | Deploy to a staging host (no host chosen); CI never run on GitHub |
 | M1 | Crop library | Built, data empty | 65 crops, 10 recipe shells, 12 engine rules (draft); review workflow; agronomist screens (crops, recipes, review queue) | Agronomy values (every field `TODO(agronomist)`); an agronomist to approve 40 crops + 6 recipes; pests (no screen, no seed); companions/rules/varieties screens; crop-to-mandi-commodity mapping |
-| M2 | Parcel + site intelligence | Built, mostly | Setup wizard (4 steps, hi/en), draw/type/four-sides plot, place search, farm page, site profile (climate, terrain, soil, region, road distance, nearby places), confirm/change flow | Mandi prices (needs data.gov.in key); groundwater class (no cited data); gate + obstacle marking; 1 m map grid; KML upload; schemes table; curated places (KVK, FPO); the 10-location acceptance run |
+| M2 | Parcel + site intelligence | Built, mostly | 2-screen onboarding (GPS, coordinates, size only), interactive plot editing (drag corners/shape, corner points), Google satellite (needs key), farm page with insights + Improve card, place search, farm page, site profile (climate, terrain, soil, region, road distance, nearby places), confirm/change flow | Mandi prices (needs data.gov.in key); groundwater class (no cited data); gate + obstacle marking; 1 m map grid; KML upload; schemes table; curated places (KVK, FPO); the 10-location acceptance run |
 | M3 | Design engine | Not started | Rules seeded as drafts | Everything: templates, zone carving, bed tiling, crop assignment, estimates, plan view, plan editor |
 | M4 | Planner, tasks, shopping list | Not started | - | Plantings, task generation, This week screen, missed-sowing and failure rules, shopping list |
 | M5 | Telegram messaging | Not started | `Channel` interface + fake, caretaker link login | Bot, invite acceptance, daily/weekly sends, reply flows, text parser |

@@ -1,12 +1,20 @@
 import area from "@turf/area";
 import kinks from "@turf/kinks";
-import { Map as MapLibreMap, Marker, NavigationControl, setWorkerUrl } from "maplibre-gl";
+import {
+  GeolocateControl,
+  Map as MapLibreMap,
+  Marker,
+  NavigationControl,
+  setWorkerUrl,
+} from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { TerraDraw, TerraDrawPolygonMode, TerraDrawSelectMode } from "terra-draw";
 import { TerraDrawMapLibreGLAdapter } from "terra-draw-maplibre-gl-adapter";
+
+import { googleCredit, googleSatelliteEnabled, googleSession, googleTileUrl } from "./googleTiles";
 
 export type PlotGeometry = { type: "Polygon"; coordinates: number[][][] };
 export interface PlotShape {
@@ -19,8 +27,6 @@ export interface PlotShape {
 setWorkerUrl(workerUrl);
 
 const STREETS = "https://tiles.openfreemap.org/styles/liberty";
-const SATELLITE_URL = import.meta.env.VITE_SATELLITE_TILES_URL; // off unless a licensed provider is set
-const SATELLITE_ATTRIBUTION = import.meta.env.VITE_SATELLITE_ATTRIBUTION ?? "";
 
 interface Props {
   center: [number, number]; // lng, lat
@@ -32,6 +38,10 @@ interface Props {
   onShape?: (shape: PlotShape | null) => void;
   /** In "view" mode: the saved plot to show. */
   boundary?: PlotGeometry | undefined;
+  /** In "draw" mode: a shape to start from, which the user can adjust. */
+  initial?: PlotGeometry | undefined;
+  /** Taller map, for drawing. */
+  tall?: boolean;
   /** Bumped by the parent to clear the drawing and start again. */
   resetKey?: number;
 }
@@ -45,6 +55,8 @@ export function PlotMap({
   onPin,
   onShape,
   resetKey = 0,
+  tall = false,
+  initial,
 }: Props) {
   const { t } = useTranslation();
   const box = useRef<HTMLDivElement>(null);
@@ -54,11 +66,16 @@ export function PlotMap({
   const onPinRef = useRef(onPin);
   const onShapeRef = useRef(onShape);
   const modeRef = useRef(mode);
-  const [satellite, setSatellite] = useState(false);
+  const initialRef = useRef(initial);
+  const { i18n } = useTranslation();
+  const lang = (i18n.language === "en" ? "en" : "hi") as "hi" | "en";
+  const [satellite, setSatellite] = useState(googleSatelliteEnabled);
+  const [credit, setCredit] = useState("");
   useEffect(() => {
     onPinRef.current = onPin;
     onShapeRef.current = onShape;
     modeRef.current = mode;
+    initialRef.current = initial;
   });
 
   // Create the map once.
@@ -73,6 +90,13 @@ export function PlotMap({
       attributionControl: { compact: true },
     });
     map.addControl(new NavigationControl({ showCompass: false }), "top-right");
+    map.addControl(
+      new GeolocateControl({
+        positionOptions: { enableHighAccuracy: true },
+        trackUserLocation: false,
+      }),
+      "top-right",
+    );
     map.on("click", (e: { lngLat: { lng: number; lat: number } }) => {
       if (modeRef.current === "pin") onPinRef.current?.(e.lngLat.lng, e.lngLat.lat);
     });
@@ -93,7 +117,15 @@ export function PlotMap({
     markerRef.current?.remove();
     markerRef.current = null;
     if (pin) {
-      markerRef.current = new Marker({ color: "#166534" }).setLngLat(pin).addTo(map);
+      const marker = new Marker({ color: "#166534", draggable: modeRef.current === "pin" })
+        .setLngLat(pin)
+        .addTo(map);
+      // Drag the pin to fine-tune the location.
+      marker.on("dragend", () => {
+        const p = marker.getLngLat();
+        onPinRef.current?.(p.lng, p.lat);
+      });
+      markerRef.current = marker;
       map.easeTo({ center: pin, zoom: Math.max(map.getZoom(), 16), duration: 400 });
     }
   }, [pin]);
@@ -112,7 +144,7 @@ export function PlotMap({
             flags: {
               polygon: {
                 feature: {
-                  draggable: false,
+                  draggable: true, // move the whole plot
                   coordinates: { midpoints: true, draggable: true, deletable: true },
                 },
               },
@@ -121,7 +153,6 @@ export function PlotMap({
         ],
       });
       draw.start();
-      draw.setMode("polygon");
       drawRef.current = draw;
 
       const report = () => {
@@ -142,6 +173,31 @@ export function PlotMap({
         report();
       });
       draw.on("change", () => report());
+
+      // Start from a known shape (the saved plot, or typed corner points) so it can be adjusted;
+      // otherwise start drawing a new one.
+      const initial = initialRef.current;
+      if (initial) {
+        const id = crypto.randomUUID();
+        // Terra Draw accepts at most 9 decimals; ~1 mm precision is plenty.
+        const geometry = {
+          type: "Polygon" as const,
+          coordinates: initial.coordinates.map((ring) =>
+            ring.map((c) => c.map((v) => Math.round(v * 1e8) / 1e8)),
+          ),
+        };
+        const result = draw.addFeatures([
+          { id, type: "Feature", geometry, properties: { mode: "polygon" } },
+        ]);
+        if (!result[0]?.valid) console.warn("could not load plot shape:", result[0]?.reason);
+        if (result[0]?.valid) {
+          draw.setMode("select");
+          draw.selectFeature(id);
+          report();
+          return;
+        }
+      }
+      draw.setMode("polygon");
     };
     if (map.loaded()) start();
     else map.once("load", start);
@@ -189,35 +245,65 @@ export function PlotMap({
     else map.once("load", show);
   }, [mode, boundary]);
 
-  // Optional satellite layer (only when a provider URL is configured).
+  // Satellite imagery: Google Map Tiles when a key is configured (default view), street map otherwise.
   useEffect(() => {
     const map = mapRef.current;
-    if (!map || !SATELLITE_URL) return;
-    const apply = () => {
+    if (!map) return;
+    let cancelled = false;
+    let onMove: (() => void) | null = null;
+    const remove = () => {
       if (map.getLayer("satellite")) map.removeLayer("satellite");
       if (map.getSource("satellite")) map.removeSource("satellite");
+    };
+    const apply = async () => {
+      remove();
+      setCredit("");
       if (!satellite) return;
+      const session = await googleSession(lang);
+      if (cancelled) return;
+      if (!session) return setSatellite(false); // fall back to the street map quietly
       map.addSource("satellite", {
         type: "raster",
-        tiles: [SATELLITE_URL],
+        tiles: [googleTileUrl(session)],
         tileSize: 256,
-        maxzoom: 20,
-        attribution: SATELLITE_ATTRIBUTION,
+        maxzoom: 22,
       });
-      const first = map.getStyle().layers[0]?.id;
-      map.addLayer({ id: "satellite", type: "raster", source: "satellite" }, first);
+      // Under the street labels and our drawing, over the street base.
+      const firstSymbol = map.getStyle().layers.find((l) => l.type === "symbol")?.id;
+      map.addLayer({ id: "satellite", type: "raster", source: "satellite" }, firstSymbol);
+      let timer: ReturnType<typeof setTimeout> | undefined;
+      onMove = () => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          const b = map.getBounds();
+          void googleCredit(session, map.getZoom(), {
+            north: b.getNorth(),
+            south: b.getSouth(),
+            east: b.getEast(),
+            west: b.getWest(),
+          }).then((c) => {
+            if (!cancelled) setCredit(c);
+          });
+        }, 400);
+      };
+      map.on("moveend", onMove);
+      onMove();
     };
-    if (map.isStyleLoaded()) apply();
-    else map.once("load", apply);
-  }, [satellite]);
+    if (map.isStyleLoaded()) void apply();
+    else map.once("load", () => void apply());
+    return () => {
+      cancelled = true;
+      if (onMove) map.off("moveend", onMove);
+    };
+  }, [satellite, lang]);
 
   return (
     <div className="relative">
       <div
         ref={box}
-        className="h-80 w-full overflow-hidden rounded-xl border-2 border-neutral-300"
+        className={`${tall ? "h-[60vh]" : "h-80"} w-full overflow-hidden rounded-xl border-2 border-neutral-300`}
       />
-      {SATELLITE_URL && (
+      {googleSatelliteEnabled && (
         <button
           type="button"
           onClick={() => setSatellite((s) => !s)}
@@ -225,6 +311,16 @@ export function PlotMap({
         >
           {satellite ? t("setup.plot.streets") : t("setup.plot.satellite")}
         </button>
+      )}
+      {satellite && (
+        <div className="pointer-events-none absolute bottom-1 left-2 flex max-w-[70%] items-center gap-2">
+          <img
+            src="https://maps.gstatic.com/mapfiles/api-3/images/google_white5.png"
+            alt="Google"
+            className="h-4"
+          />
+          {credit && <span className="truncate text-[11px] text-white drop-shadow">{credit}</span>}
+        </div>
       )}
     </div>
   );
