@@ -1,5 +1,6 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 
 import { apiClient, errorKey } from "../api/client";
 import { useAuth } from "../auth/AuthProvider";
@@ -75,6 +76,14 @@ export function HomePage() {
             ? t("home.no_farms")
             : t("home.farms_count", { count: farms.data.length })}
         </p>
+      )}
+      {me.data?.is_agronomist && (
+        <Link
+          to="/library"
+          className="rounded-xl bg-green-800 px-6 py-3 text-center text-lg font-semibold text-white"
+        >
+          {t("home.open_library")}
+        </Link>
       )}
       <button
         type="button"

@@ -9,6 +9,24 @@ Record every structural choice: context, decision, consequences. Newest first. T
 
 ---
 
+## 2026-10-01 — M1 crop library choices
+- **Crop values:** the 65 crops are seeded as drafts with names, taxonomy, category and layer only.
+  Every agronomy value is empty (`TODO(agronomist)`); a research pass with cited public sources
+  was started but cut (plan session limit), so values arrive later in small batches or from the
+  agronomist. Recipes are name-only shells; no pests are seeded (no cited source yet).
+- **Categories:** added `oilseed` (mustard) to the §6 list; orchard, rotation, border and
+  green-manure crops have no bed layer (`layers = []`).
+- **Review gate:** submit needs the §7-required fields filled and every agronomy value to carry a
+  source (link or written note); sow windows are per region (`crop_regional`), required for the
+  region in setting `library.default_region` (malwa). Prices stay empty until the M2 mandi ingest.
+- **Approval:** a different agronomist, or the submitter after `library.self_approve_after_hours`
+  (24). Editing an approved/in-review entry sends it back to draft; each approval stores a
+  `library_revisions` snapshot and publishes `library.approved` (AI re-embedding lands in M7).
+- **Engine rules** (zone shares, bed sizes, score weights, crowding, limits) are seeded as draft
+  `rules` from the numbers the spec itself gives in §7.
+- **Dev:** `~/.farm-local.env` holds the local stack secrets (outside the repo);
+  `backend/scripts/dev_login.py` makes test users and tokens for the local stack.
+
 ## 2026-09-30 — M0 review fixes (architecture + security review)
 - **Context:** Reviews of M0 found issues that break login and outbox delivery, and several
   auth weaknesses.
