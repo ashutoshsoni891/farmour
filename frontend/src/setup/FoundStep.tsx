@@ -13,7 +13,7 @@ type Fact = components["schemas"]["FactOut"];
 type Profile = components["schemas"]["ProfileOut"];
 type Group = Fact["group"];
 
-const GROUPS: Group[] = ["region", "soil_land", "climate", "water", "markets", "nearby"];
+export const GROUPS: Group[] = ["region", "soil_land", "climate", "water", "markets", "nearby"];
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const SOILS = ["black", "red", "sandy", "clay", "loam", "mixed"];
 const DRAINAGE = ["good", "ok", "waterlogs"];
@@ -24,7 +24,7 @@ const btn = "min-h-14 rounded-xl border-2 px-4 text-lg font-semibold";
 const on = "border-green-800 bg-green-800 text-white";
 const off = "border-neutral-400 bg-white text-neutral-900";
 
-interface Row {
+export interface Row {
   key: string;
   label: string;
   lines: string[];
@@ -39,7 +39,7 @@ function monthName(code: string, lang: Lang): string {
   );
 }
 
-function buildRows(facts: Fact[], t: TFunction, lang: Lang): Row[] {
+export function buildRows(facts: Fact[], t: TFunction, lang: Lang): Row[] {
   const by = Object.fromEntries(facts.map((f) => [f.key, f]));
   const rows: Row[] = [];
   const add = (key: string, label: string, lines: string[]) => {
@@ -274,7 +274,7 @@ export function FoundStep({ farmId, onDone }: { farmId: string; onDone: () => vo
             <h2 className="mt-2 text-xl font-bold text-green-900">{t(`setup.found.group.${g}`)}</h2>
             {inGroup.map((r) => (
               <div key={`${r.key}-${r.label}`} className="border-b border-neutral-200 pb-2">
-                <p className="text-base font-semibold">{r.label}</p>
+                {g !== "region" && <p className="text-base font-semibold">{r.label}</p>}
                 {r.lines.map((line) => (
                   <p key={line} className="text-lg">
                     {line}

@@ -38,11 +38,16 @@ export function FarmCard({
   const unfinished = !parcel.data || !farm.water_source || !farm.goal || !farm.labour;
   return (
     <li className="flex flex-col gap-2 rounded-xl border-2 border-neutral-300 p-4">
-      <p className="text-xl font-bold">
-        {area
-          ? t("home.farm_area", { name: farm.name, area: t(area.key, { n: area.n }) })
-          : farm.name}
-      </p>
+      <Link to={`/farms/${farm.id}`} className="flex min-h-11 items-center justify-between gap-2">
+        <span className="text-xl font-bold">
+          {area
+            ? t("home.farm_area", { name: farm.name, area: t(area.key, { n: area.n }) })
+            : farm.name}
+        </span>
+        <span className="text-base font-semibold text-green-800 underline">
+          {t("home.open_farm")}
+        </span>
+      </Link>
       {farm.village && <p className="text-base text-neutral-700">{farm.village}</p>}
       {unfinished && farm.my_role === "owner" && (
         <Link

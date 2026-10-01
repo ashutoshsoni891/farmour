@@ -26,15 +26,26 @@ interface Props {
   center: [number, number]; // lng, lat
   zoom?: number;
   /** "pin": a tap drops the pin. "draw": the user draws the plot (a tap does not move the pin). */
-  mode: "pin" | "draw";
+  mode: "pin" | "draw" | "view";
   pin: [number, number] | null;
   onPin?: (lng: number, lat: number) => void;
   onShape?: (shape: PlotShape | null) => void;
+  /** In "view" mode: the saved plot to show. */
+  boundary?: PlotGeometry | undefined;
   /** Bumped by the parent to clear the drawing and start again. */
   resetKey?: number;
 }
 
-export function PlotMap({ center, zoom = 14, mode, pin, onPin, onShape, resetKey = 0 }: Props) {
+export function PlotMap({
+  center,
+  zoom = 14,
+  mode,
+  pin,
+  boundary,
+  onPin,
+  onShape,
+  resetKey = 0,
+}: Props) {
   const { t } = useTranslation();
   const box = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
@@ -139,6 +150,44 @@ export function PlotMap({ center, zoom = 14, mode, pin, onPin, onShape, resetKey
       drawRef.current = null;
     };
   }, [mode, resetKey]);
+
+  // Show a saved plot (read-only view).
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || mode !== "view" || !boundary) return;
+    const show = () => {
+      for (const id of ["plot-fill", "plot-line"]) if (map.getLayer(id)) map.removeLayer(id);
+      if (map.getSource("plot")) map.removeSource("plot");
+      map.addSource("plot", {
+        type: "geojson",
+        data: { type: "Feature", properties: {}, geometry: boundary },
+      });
+      map.addLayer({
+        id: "plot-fill",
+        type: "fill",
+        source: "plot",
+        paint: { "fill-color": "#166534", "fill-opacity": 0.3 },
+      });
+      map.addLayer({
+        id: "plot-line",
+        type: "line",
+        source: "plot",
+        paint: { "line-color": "#14532d", "line-width": 3 },
+      });
+      const ring = boundary.coordinates[0] ?? [];
+      const lngs = ring.map((c) => c[0] ?? 0);
+      const lats = ring.map((c) => c[1] ?? 0);
+      map.fitBounds(
+        [
+          [Math.min(...lngs), Math.min(...lats)],
+          [Math.max(...lngs), Math.max(...lats)],
+        ],
+        { padding: 40, maxZoom: 19, duration: 0 },
+      );
+    };
+    if (map.isStyleLoaded()) show();
+    else map.once("load", show);
+  }, [mode, boundary]);
 
   // Optional satellite layer (only when a provider URL is configured).
   useEffect(() => {

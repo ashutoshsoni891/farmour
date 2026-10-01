@@ -8,6 +8,7 @@ import { AuthCallbackPage } from "./pages/AuthCallbackPage";
 import { HomePage } from "./pages/HomePage";
 import { LinkLoginPage } from "./pages/LinkLoginPage";
 import { CropEditPage } from "./pages/CropEditPage";
+import { FarmPage } from "./pages/FarmPage";
 import { LibraryPage } from "./pages/LibraryPage";
 import { LoginPage } from "./pages/LoginPage";
 import { RecipeEditPage } from "./pages/RecipeEditPage";
@@ -59,6 +60,14 @@ export function App() {
         element={
           <Guarded>
             <RecipeEditPage />
+          </Guarded>
+        }
+      />
+      <Route
+        path="/farms/:id"
+        element={
+          <Guarded>
+            <FarmPage />
           </Guarded>
         }
       />

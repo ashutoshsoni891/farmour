@@ -306,5 +306,15 @@
   "setup.found.src.routing": "Road map (OSRM)",
   "setup.found.src.mandis": "Agmarknet mandis",
   "setup.found.src.cgwb": "CGWB",
-  "setup.found.src.user": "You"
+  "setup.found.src.user": "You",
+  "farm.back": "Back to my farms",
+  "farm.no_plot": "The plot is not drawn yet.",
+  "farm.setup_summary": "Your answers",
+  "farm.edit_plot": "Change the plot",
+  "farm.edit_found": "Review what we found",
+  "farm.edit_about": "Change water, goal, who works",
+  "farm.refresh": "Look up site data again",
+  "farm.refresh_started": "Looking again. Check back in about 20 seconds.",
+  "farm.plan_soon": "Your crop plan will appear here once planning is ready.",
+  "home.open_farm": "Open"
 }

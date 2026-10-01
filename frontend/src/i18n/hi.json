@@ -306,5 +306,15 @@
   "setup.found.src.routing": "सड़क का नक्शा (OSRM)",
   "setup.found.src.mandis": "Agmarknet मंडियां",
   "setup.found.src.cgwb": "CGWB",
-  "setup.found.src.user": "आप"
+  "setup.found.src.user": "आप",
+  "farm.back": "मेरे खेतों पर वापस",
+  "farm.no_plot": "प्लॉट अभी बनाया नहीं गया है।",
+  "farm.setup_summary": "आपके जवाब",
+  "farm.edit_plot": "प्लॉट बदलें",
+  "farm.edit_found": "मिली जानकारी देखें / बदलें",
+  "farm.edit_about": "पानी, मकसद, काम कौन करेगा बदलें",
+  "farm.refresh": "जानकारी दोबारा खोजें",
+  "farm.refresh_started": "दोबारा खोज रहे हैं। लगभग 20 सेकंड बाद देखें।",
+  "farm.plan_soon": "फसल योजना तैयार होने पर यहां दिखेगी।",
+  "home.open_farm": "खोलें"
 }
