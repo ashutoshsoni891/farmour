@@ -1,7 +1,7 @@
 # Farmour — farm planning platform (MVP)
 
 Farm planning platform for India (start: Malwa / Indore, MP). Owner draws land → site intelligence → deterministic design engine → weekly Hindi tasks to the caretaker on Telegram → logs and profit.
-Spec: `docs/spec/MVP-technical-spec.md` is the single source of truth. **Section 16 is binding.** Build milestones in section 15 order (M0 → M8). Anything marked "post-MVP" is NOT built.
+Spec: `docs/spec/` (index: `00-index.md`) is the source of truth. **Section 16 is binding.** Build milestones in section 15 order (M0 → M8). Anything marked "post-MVP" is NOT built.
 
 ## Rules (short form)
 1. Modular monolith (§16): every module has `api.py service.py schemas.py repository.py events.py tests/` + README. No module touches another module's tables; cross-module calls go via `service.py` or outbox events. Outside services only via `backend/app/adapters/` (interface + impl + fake + registry + config).
@@ -23,27 +23,17 @@ Spec: `docs/spec/MVP-technical-spec.md` is the single source of truth. **Section
 - `make openapi` — regenerate API contract and frontend client types after API changes
 - `make new-module NAME=x` — scaffold a module (skill `new-module`)
 
-## Definition of done for any change (§16)
-- [ ] Stays inside its module boundary (import-linter passes)
-- [ ] New outside dependency only as an adapter, passing §4 selection rules
-- [ ] Tests added; golden tests / AI evals pass where relevant
-- [ ] Migration follows expand → migrate → contract; API change additive or versioned
-- [ ] Behind a feature flag if user-facing and risky
-- [ ] Module README and `docs/decisions.md` updated when behaviour/structure changes
+## Lean mode (docs/claude-code-kickoff-prompt-lean.md)
+Features first. Do NOT write tests, CI, security scans, evals, coverage gates, monitoring or
+backup automation now (post-MVP), and don't call them blockers. Verify by running the app
+(start it, hit the endpoint or open the page). Small slices; plan mode only for bigger work.
+Read `docs/spec/00-index.md` and only the sections a task needs. Don't re-read files you just
+wrote. Reports: what works, what to try by hand, next slice, under 10 lines.
 
-## Milestone workflow
-1. Plan mode first: read the milestone (§15) and every section it touches; list files, tables, endpoints, tests, risks, questions. Wait for approval.
-2. Small, green commits with clear messages.
-3. Tests via `test-writer`; design engine always gets golden + property tests.
-4. Run `architecture-reviewer` and `security-reviewer`; fix or justify.
-5. Run `milestone-check` skill; done only when every item passes.
-6. Update `docs/decisions.md`, module READMEs, `docs/runbook.md`.
-7. Report: built, test results, spec deviations, decisions, open questions, exact next step.
-
-## Quality bar
-- Verify by running: app and tests; UI at mobile width in Hindi and English.
-- Never mark done what you haven't run. Fix code, not tests (unless the test is wrong — say so).
-- Boring, well-documented solutions. Exceeding milestone scope → stop and ask.
+## Definition of done for a slice
+- Runs (you started it and it works); module boundaries kept (`make lint` import-linter)
+- Migration follows expand → contract; new outside service only as an adapter
+- `docs/decisions.md` gets one line for any choice the spec was silent on
 
 ## Layout
 `backend/` (FastAPI; `app/{api,core,adapters,modules,jobs,db}`, `seeds/`, `tests/`), `frontend/` (React+TS PWA), `deploy/` (Compose, Caddy, backup), `docs/`. Path rules: `.claude/rules/`. Tooling: `uv` (Python), `pnpm` (frontend).

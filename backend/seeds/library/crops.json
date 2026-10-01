@@ -1,0 +1,738 @@
+{
+ "crops": [
+  {
+   "slug": "ginger",
+   "name_en": "Ginger",
+   "name_hi": "अदरक",
+   "scientific_name": "Zingiber officinale",
+   "family": "zingiberaceae",
+   "category": "spice",
+   "layers": [
+    "underground"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "turmeric",
+   "name_en": "Turmeric",
+   "name_hi": "हल्दी",
+   "scientific_name": "Curcuma longa",
+   "family": "zingiberaceae",
+   "category": "spice",
+   "layers": [
+    "underground"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "carrot",
+   "name_en": "Carrot",
+   "name_hi": "गाजर",
+   "scientific_name": "Daucus carota",
+   "family": "apiaceae",
+   "category": "root",
+   "layers": [
+    "underground"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "radish",
+   "name_en": "Radish",
+   "name_hi": "मूली",
+   "scientific_name": "Raphanus sativus",
+   "family": "brassica",
+   "category": "root",
+   "layers": [
+    "underground"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "beetroot",
+   "name_en": "Beetroot",
+   "name_hi": "चुकंदर",
+   "scientific_name": "Beta vulgaris",
+   "family": "amaranthaceae",
+   "category": "root",
+   "layers": [
+    "underground"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "onion",
+   "name_en": "Onion",
+   "name_hi": "प्याज़",
+   "scientific_name": "Allium cepa",
+   "family": "allium",
+   "category": "vegetable",
+   "layers": [
+    "underground"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "garlic",
+   "name_en": "Garlic",
+   "name_hi": "लहसुन",
+   "scientific_name": "Allium sativum",
+   "family": "allium",
+   "category": "spice",
+   "layers": [
+    "underground"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "sweet-potato",
+   "name_en": "Sweet potato",
+   "name_hi": "शकरकंद",
+   "scientific_name": "Ipomoea batatas",
+   "family": "convolvulaceae",
+   "category": "root",
+   "layers": [
+    "underground"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "colocasia",
+   "name_en": "Colocasia (arbi)",
+   "name_hi": "अरबी",
+   "scientific_name": "Colocasia esculenta",
+   "family": "araceae",
+   "category": "root",
+   "layers": [
+    "underground"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "spinach",
+   "name_en": "Spinach",
+   "name_hi": "पालक",
+   "scientific_name": "Spinacia oleracea",
+   "family": "amaranthaceae",
+   "category": "leafy",
+   "layers": [
+    "surface"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "methi",
+   "name_en": "Methi (fenugreek)",
+   "name_hi": "मेथी",
+   "scientific_name": "Trigonella foenum-graecum",
+   "family": "legume",
+   "category": "leafy",
+   "layers": [
+    "surface"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "coriander",
+   "name_en": "Coriander",
+   "name_hi": "धनिया",
+   "scientific_name": "Coriandrum sativum",
+   "family": "apiaceae",
+   "category": "leafy",
+   "layers": [
+    "surface"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "amaranth",
+   "name_en": "Amaranth",
+   "name_hi": "चौलाई (लाल साग)",
+   "scientific_name": "Amaranthus tricolor",
+   "family": "amaranthaceae",
+   "category": "leafy",
+   "layers": [
+    "surface"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "lettuce",
+   "name_en": "Lettuce",
+   "name_hi": "सलाद पत्ता",
+   "scientific_name": "Lactuca sativa",
+   "family": "asteraceae",
+   "category": "leafy",
+   "layers": [
+    "surface"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "mint",
+   "name_en": "Mint",
+   "name_hi": "पुदीना",
+   "scientific_name": "Mentha arvensis",
+   "family": "lamiaceae",
+   "category": "herb",
+   "layers": [
+    "surface"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "dill",
+   "name_en": "Dill",
+   "name_hi": "सोया (सुवा)",
+   "scientific_name": "Anethum graveolens",
+   "family": "apiaceae",
+   "category": "herb",
+   "layers": [
+    "surface"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "mustard-greens",
+   "name_en": "Mustard greens",
+   "name_hi": "सरसों का साग",
+   "scientific_name": "Brassica juncea",
+   "family": "brassica",
+   "category": "leafy",
+   "layers": [
+    "surface"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "chaulai",
+   "name_en": "Chaulai",
+   "name_hi": "चौलाई",
+   "scientific_name": "Amaranthus spp.",
+   "family": "amaranthaceae",
+   "category": "leafy",
+   "layers": [
+    "surface"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "tomato",
+   "name_en": "Tomato",
+   "name_hi": "टमाटर",
+   "scientific_name": "Solanum lycopersicum",
+   "family": "solanaceae",
+   "category": "vegetable",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "brinjal",
+   "name_en": "Brinjal",
+   "name_hi": "बैंगन",
+   "scientific_name": "Solanum melongena",
+   "family": "solanaceae",
+   "category": "vegetable",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "chilli",
+   "name_en": "Chilli",
+   "name_hi": "मिर्च",
+   "scientific_name": "Capsicum annuum",
+   "family": "solanaceae",
+   "category": "spice",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "capsicum",
+   "name_en": "Capsicum",
+   "name_hi": "शिमला मिर्च",
+   "scientific_name": "Capsicum annuum",
+   "family": "solanaceae",
+   "category": "vegetable",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "okra",
+   "name_en": "Okra",
+   "name_hi": "भिंडी",
+   "scientific_name": "Abelmoschus esculentus",
+   "family": "malvaceae",
+   "category": "vegetable",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "cabbage",
+   "name_en": "Cabbage",
+   "name_hi": "पत्ता गोभी",
+   "scientific_name": "Brassica oleracea var. capitata",
+   "family": "brassica",
+   "category": "vegetable",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "cauliflower",
+   "name_en": "Cauliflower",
+   "name_hi": "फूल गोभी",
+   "scientific_name": "Brassica oleracea var. botrytis",
+   "family": "brassica",
+   "category": "vegetable",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "knol-khol",
+   "name_en": "Knol-khol",
+   "name_hi": "गांठ गोभी",
+   "scientific_name": "Brassica oleracea var. gongylodes",
+   "family": "brassica",
+   "category": "vegetable",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "cluster-bean",
+   "name_en": "Cluster bean",
+   "name_hi": "ग्वार फली",
+   "scientific_name": "Cyamopsis tetragonoloba",
+   "family": "legume",
+   "category": "vegetable",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "bush-beans",
+   "name_en": "Bush beans",
+   "name_hi": "फ्रेंच बीन (झाड़ीदार)",
+   "scientific_name": "Phaseolus vulgaris",
+   "family": "legume",
+   "category": "vegetable",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "marigold",
+   "name_en": "Marigold",
+   "name_hi": "गेंदा",
+   "scientific_name": "Tagetes erecta",
+   "family": "asteraceae",
+   "category": "flower",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "bottle-gourd",
+   "name_en": "Bottle gourd",
+   "name_hi": "लौकी",
+   "scientific_name": "Lagenaria siceraria",
+   "family": "cucurbit",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "ridge-gourd",
+   "name_en": "Ridge gourd",
+   "name_hi": "तोरई",
+   "scientific_name": "Luffa acutangula",
+   "family": "cucurbit",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "sponge-gourd",
+   "name_en": "Sponge gourd",
+   "name_hi": "गिलकी",
+   "scientific_name": "Luffa aegyptiaca",
+   "family": "cucurbit",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "bitter-gourd",
+   "name_en": "Bitter gourd",
+   "name_hi": "करेला",
+   "scientific_name": "Momordica charantia",
+   "family": "cucurbit",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "cucumber",
+   "name_en": "Cucumber",
+   "name_hi": "खीरा",
+   "scientific_name": "Cucumis sativus",
+   "family": "cucurbit",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "pointed-gourd",
+   "name_en": "Pointed gourd",
+   "name_hi": "परवल",
+   "scientific_name": "Trichosanthes dioica",
+   "family": "cucurbit",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "ivy-gourd",
+   "name_en": "Ivy gourd",
+   "name_hi": "कुंदरू",
+   "scientific_name": "Coccinia grandis",
+   "family": "cucurbit",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "pole-beans",
+   "name_en": "Pole beans",
+   "name_hi": "फ्रेंच बीन (बेल वाली)",
+   "scientific_name": "Phaseolus vulgaris",
+   "family": "legume",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "peas",
+   "name_en": "Peas",
+   "name_hi": "मटर",
+   "scientific_name": "Pisum sativum",
+   "family": "legume",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "sem",
+   "name_en": "Sem (hyacinth bean)",
+   "name_hi": "सेम",
+   "scientific_name": "Lablab purpureus",
+   "family": "legume",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "papaya",
+   "name_en": "Papaya",
+   "name_hi": "पपीता",
+   "scientific_name": "Carica papaya",
+   "family": "caricaceae",
+   "category": "fruit_short",
+   "layers": [
+    "canopy"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "banana",
+   "name_en": "Banana",
+   "name_hi": "केला",
+   "scientific_name": "Musa spp.",
+   "family": "musaceae",
+   "category": "fruit_short",
+   "layers": [
+    "canopy"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "drumstick",
+   "name_en": "Drumstick (moringa)",
+   "name_hi": "सहजन",
+   "scientific_name": "Moringa oleifera",
+   "family": "moringaceae",
+   "category": "vegetable",
+   "layers": [
+    "canopy"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "mango",
+   "name_en": "Mango",
+   "name_hi": "आम",
+   "scientific_name": "Mangifera indica",
+   "family": "anacardiaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "guava",
+   "name_en": "Guava",
+   "name_hi": "अमरूद",
+   "scientific_name": "Psidium guajava",
+   "family": "myrtaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "custard-apple",
+   "name_en": "Custard apple",
+   "name_hi": "सीताफल",
+   "scientific_name": "Annona squamosa",
+   "family": "annonaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "lemon",
+   "name_en": "Lemon",
+   "name_hi": "नींबू",
+   "scientific_name": "Citrus spp.",
+   "family": "rutaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "pomegranate",
+   "name_en": "Pomegranate",
+   "name_hi": "अनार",
+   "scientific_name": "Punica granatum",
+   "family": "lythraceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "jamun",
+   "name_en": "Jamun",
+   "name_hi": "जामुन",
+   "scientific_name": "Syzygium cumini",
+   "family": "myrtaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "amla",
+   "name_en": "Amla",
+   "name_hi": "आंवला",
+   "scientific_name": "Phyllanthus emblica",
+   "family": "phyllanthaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "dragon-fruit",
+   "name_en": "Dragon fruit",
+   "name_hi": "ड्रैगन फ्रूट",
+   "scientific_name": "Hylocereus undatus",
+   "family": "cactaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "soybean",
+   "name_en": "Soybean",
+   "name_hi": "सोयाबीन",
+   "scientific_name": "Glycine max",
+   "family": "legume",
+   "category": "pulse",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "moong",
+   "name_en": "Moong",
+   "name_hi": "मूंग",
+   "scientific_name": "Vigna radiata",
+   "family": "legume",
+   "category": "pulse",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "urad",
+   "name_en": "Urad",
+   "name_hi": "उड़द",
+   "scientific_name": "Vigna mungo",
+   "family": "legume",
+   "category": "pulse",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "chana",
+   "name_en": "Chana (chickpea)",
+   "name_hi": "चना",
+   "scientific_name": "Cicer arietinum",
+   "family": "legume",
+   "category": "pulse",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "wheat",
+   "name_en": "Wheat",
+   "name_hi": "गेहूं",
+   "scientific_name": "Triticum aestivum",
+   "family": "poaceae",
+   "category": "cereal",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "kodo-millet",
+   "name_en": "Kodo millet",
+   "name_hi": "कोदो",
+   "scientific_name": "Paspalum scrobiculatum",
+   "family": "poaceae",
+   "category": "millet",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "kutki-millet",
+   "name_en": "Kutki (little millet)",
+   "name_hi": "कुटकी",
+   "scientific_name": "Panicum sumatrense",
+   "family": "poaceae",
+   "category": "millet",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "mustard",
+   "name_en": "Mustard",
+   "name_hi": "सरसों",
+   "scientific_name": "Brassica juncea",
+   "family": "brassica",
+   "category": "oilseed",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "lemongrass",
+   "name_en": "Lemongrass",
+   "name_hi": "लेमनग्रास",
+   "scientific_name": "Cymbopogon flexuosus",
+   "family": "poaceae",
+   "category": "border",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "curry-leaf",
+   "name_en": "Curry leaf",
+   "name_hi": "कढ़ी पत्ता",
+   "scientific_name": "Murraya koenigii",
+   "family": "rutaceae",
+   "category": "border",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "karonda",
+   "name_en": "Karonda",
+   "name_hi": "करौंदा",
+   "scientific_name": "Carissa carandas",
+   "family": "apocynaceae",
+   "category": "border",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "bamboo",
+   "name_en": "Bamboo",
+   "name_hi": "बांस",
+   "scientific_name": "Bambusa spp.",
+   "family": "poaceae",
+   "category": "border",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "vetiver",
+   "name_en": "Vetiver (khus)",
+   "name_hi": "खस",
+   "scientific_name": "Chrysopogon zizanioides",
+   "family": "poaceae",
+   "category": "border",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "dhaincha",
+   "name_en": "Dhaincha",
+   "name_hi": "ढैंचा",
+   "scientific_name": "Sesbania spp.",
+   "family": "legume",
+   "category": "green_manure",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "sunn-hemp",
+   "name_en": "Sunn hemp",
+   "name_hi": "सनई",
+   "scientific_name": "Crotalaria juncea",
+   "family": "legume",
+   "category": "green_manure",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  }
+ ]
+}

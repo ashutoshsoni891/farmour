@@ -6,6 +6,7 @@ COPY pyproject.toml uv.lock .python-version ./
 RUN uv sync --frozen --no-dev --no-install-project
 COPY alembic.ini ./
 COPY app ./app
+COPY seeds ./seeds
 RUN useradd --system --uid 10001 --no-create-home farm
 USER farm
 ENV PATH="/app/.venv/bin:$PATH"

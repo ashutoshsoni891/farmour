@@ -68,7 +68,9 @@ def upgrade() -> None:
         sa.Column("next_attempt_at", TS, server_default=sa.func.now(), nullable=False),
     )
     op.create_index(
-        "ix_outbox_pending", "outbox", ["next_attempt_at"],
+        "ix_outbox_pending",
+        "outbox",
+        ["next_attempt_at"],
         postgresql_where=sa.text("delivered_at IS NULL"),
     )
     op.create_table(
@@ -210,23 +212,43 @@ def upgrade() -> None:
     op.bulk_insert(
         settings,
         [
-            {"key": "auth.link_ttl_minutes", "value": 15,
-             "description": "Caretaker login link lifetime (spec 14)"},
-            {"key": "auth.link_rate_limit",
-             "value": {"max": 3, "window_minutes": 10, "max_per_ip": 10},
-             "description": "Link requests per phone (spec 12) and per IP (decision)"},
-            {"key": "auth.caretaker_session_days", "value": 30,
-             "description": "Caretaker session lifetime; spec silent, see decisions.md"},
-            {"key": "invites.ttl_days", "value": 7,
-             "description": "Invite link lifetime; spec silent, see decisions.md"},
+            {
+                "key": "auth.link_ttl_minutes",
+                "value": 15,
+                "description": "Caretaker login link lifetime (spec 14)",
+            },
+            {
+                "key": "auth.link_rate_limit",
+                "value": {"max": 3, "window_minutes": 10, "max_per_ip": 10},
+                "description": "Link requests per phone (spec 12) and per IP (decision)",
+            },
+            {
+                "key": "auth.caretaker_session_days",
+                "value": 30,
+                "description": "Caretaker session lifetime; spec silent, see decisions.md",
+            },
+            {
+                "key": "invites.ttl_days",
+                "value": 7,
+                "description": "Invite link lifetime; spec silent, see decisions.md",
+            },
         ],
     )
 
 
 def downgrade() -> None:
     for table in (
-        "invites", "farm_members", "farms", "organizations",
-        "login_links", "channel_accounts", "users",
-        "regions", "jobs", "outbox", "audit_log", "settings",
+        "invites",
+        "farm_members",
+        "farms",
+        "organizations",
+        "login_links",
+        "channel_accounts",
+        "users",
+        "regions",
+        "jobs",
+        "outbox",
+        "audit_log",
+        "settings",
     ):
         op.drop_table(table)

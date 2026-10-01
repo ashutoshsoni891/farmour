@@ -215,6 +215,252 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/library/crops": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Crops */
+        get: operations["list_crops_api_v1_library_crops_get"];
+        put?: never;
+        /** Create Crop */
+        post: operations["create_crop_api_v1_library_crops_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/library/crops/{crop_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Crop */
+        get: operations["get_crop_api_v1_library_crops__crop_id__get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Crop */
+        patch: operations["update_crop_api_v1_library_crops__crop_id__patch"];
+        trace?: never;
+    };
+    "/api/v1/library/recipes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Recipes */
+        get: operations["list_recipes_api_v1_library_recipes_get"];
+        put?: never;
+        /** Create Recipe */
+        post: operations["create_recipe_api_v1_library_recipes_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/library/recipes/{recipe_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Recipe */
+        patch: operations["update_recipe_api_v1_library_recipes__recipe_id__patch"];
+        trace?: never;
+    };
+    "/api/v1/library/pests": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Pests */
+        get: operations["list_pests_api_v1_library_pests_get"];
+        put?: never;
+        /** Create Pest */
+        post: operations["create_pest_api_v1_library_pests_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/library/pests/{pest_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Pest */
+        patch: operations["update_pest_api_v1_library_pests__pest_id__patch"];
+        trace?: never;
+    };
+    "/api/v1/library/rules": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Rules */
+        get: operations["list_rules_api_v1_library_rules_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/library/rules/{rule_id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /** Update Rule */
+        patch: operations["update_rule_api_v1_library_rules__rule_id__patch"];
+        trace?: never;
+    };
+    "/api/v1/library/companions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** List Companions */
+        get: operations["list_companions_api_v1_library_companions_get"];
+        /** Save Companion */
+        put: operations["save_companion_api_v1_library_companions_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/library/review": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Review Queue */
+        get: operations["review_queue_api_v1_library_review_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/library/progress": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Progress
+         * @description Approved entries per kind, for the M1 goal (40 crops, 6 recipes).
+         */
+        get: operations["progress_api_v1_library_progress_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/library/{entity}/{entry_id}/submit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Submit */
+        post: operations["submit_api_v1_library__entity___entry_id__submit_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/library/{entity}/{entry_id}/approve": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Approve */
+        post: operations["approve_api_v1_library__entity___entry_id__approve_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/library/{entity}/{entry_id}/retire": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Retire */
+        post: operations["retire_api_v1_library__entity___entry_id__retire_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/admin/settings": {
         parameters: {
             query?: never;
@@ -294,6 +540,371 @@ export interface components {
              * @default false
              */
             revoke_sessions: boolean;
+        };
+        /** CompanionIn */
+        CompanionIn: {
+            /** Crop A */
+            crop_a: string;
+            /** Crop B */
+            crop_b: string;
+            /**
+             * Relation
+             * @enum {string}
+             */
+            relation: "good" | "avoid";
+            /** Reason En */
+            reason_en?: string | null;
+            /** Reason Hi */
+            reason_hi?: string | null;
+            /**
+             * Sources
+             * @default {}
+             */
+            sources: {
+                [key: string]: components["schemas"]["Source"][];
+            };
+        };
+        /** CompanionOut */
+        CompanionOut: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Crop A */
+            crop_a: string;
+            /** Crop B */
+            crop_b: string;
+            /**
+             * Relation
+             * @enum {string}
+             */
+            relation: "good" | "avoid";
+            /** Reason En */
+            reason_en: string | null;
+            /** Reason Hi */
+            reason_hi: string | null;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "draft" | "in_review" | "approved" | "retired";
+            /** Sources */
+            sources: {
+                [key: string]: unknown;
+            };
+        };
+        /** CropCreate */
+        CropCreate: {
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Scientific Name */
+            scientific_name?: string | null;
+            /** Family */
+            family?: string | null;
+            /**
+             * Category
+             * @enum {string}
+             */
+            category: "vegetable" | "leafy" | "root" | "spice" | "fruit_tree" | "fruit_short" | "pulse" | "cereal" | "millet" | "oilseed" | "herb" | "border" | "green_manure" | "flower";
+            /** Layers */
+            layers?: ("underground" | "surface" | "middle" | "climber" | "canopy")[] | null;
+            /** Seasons */
+            seasons?: ("kharif" | "rabi" | "zaid" | "perennial")[] | null;
+            /** Nursery Days */
+            nursery_days?: number | null;
+            /** Days To First Harvest */
+            days_to_first_harvest?: number | null;
+            /** Harvest Span Days */
+            harvest_span_days?: number | null;
+            /** Spacing Row Cm */
+            spacing_row_cm?: number | null;
+            /** Spacing Plant Cm */
+            spacing_plant_cm?: number | null;
+            /** Rows Per 1 2M Bed */
+            rows_per_1_2m_bed?: number | null;
+            /** Height Max Cm */
+            height_max_cm?: number | null;
+            /** Root Depth Cm */
+            root_depth_cm?: number | null;
+            /** Sun */
+            sun?: ("full" | "partial" | "shade_tolerant") | null;
+            /** Water Need */
+            water_need?: ("low" | "medium" | "high") | null;
+            /** Water L Per Sqm Day */
+            water_l_per_sqm_day?: {
+                [key: string]: number;
+            } | null;
+            /** Heat Tolerance C */
+            heat_tolerance_c?: number | null;
+            /** Cold Tolerance C */
+            cold_tolerance_c?: number | null;
+            /** Waterlogging Tolerant */
+            waterlogging_tolerant?: boolean | null;
+            /** Terrace Ok */
+            terrace_ok?: boolean | null;
+            /** Min Container Depth Cm */
+            min_container_depth_cm?: number | null;
+            /** Expected Yield Kg Per Sqm */
+            expected_yield_kg_per_sqm?: number | string | null;
+            /** Unit To Kg */
+            unit_to_kg?: {
+                [key: string]: number;
+            } | null;
+            /** Years To Bear */
+            years_to_bear?: number | string | null;
+            /** Lifespan Years */
+            lifespan_years?: number | null;
+            /** Tree Spacing M */
+            tree_spacing_m?: number | string | null;
+            /** Canopy Diameter M */
+            canopy_diameter_m?: number | string | null;
+            /** Low Care */
+            low_care?: boolean | null;
+            /** Regional */
+            regional?: {
+                [key: string]: components["schemas"]["RegionalData"];
+            } | null;
+            /** Sources */
+            sources?: {
+                [key: string]: components["schemas"]["Source"][];
+            } | null;
+            /** Source Notes */
+            source_notes?: string | null;
+            /** Todo */
+            todo?: string[] | null;
+            /** Slug */
+            slug: string;
+        };
+        /** CropOut */
+        CropOut: {
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "draft" | "in_review" | "approved" | "retired";
+            /** Revision */
+            revision: number;
+            /** Submitted By */
+            submitted_by: string | null;
+            /** Submitted At */
+            submitted_at: string | null;
+            /** Approved By */
+            approved_by: string | null;
+            /** Approved At */
+            approved_at: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /**
+             * Missing For Review
+             * @default []
+             */
+            missing_for_review: string[];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Slug */
+            slug: string;
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Scientific Name */
+            scientific_name: string | null;
+            /** Family */
+            family: string | null;
+            /**
+             * Category
+             * @enum {string}
+             */
+            category: "vegetable" | "leafy" | "root" | "spice" | "fruit_tree" | "fruit_short" | "pulse" | "cereal" | "millet" | "oilseed" | "herb" | "border" | "green_manure" | "flower";
+            /** Layers */
+            layers: ("underground" | "surface" | "middle" | "climber" | "canopy")[];
+            /** Seasons */
+            seasons: ("kharif" | "rabi" | "zaid" | "perennial")[];
+            /** Nursery Days */
+            nursery_days: number | null;
+            /** Days To First Harvest */
+            days_to_first_harvest: number | null;
+            /** Harvest Span Days */
+            harvest_span_days: number | null;
+            /** Spacing Row Cm */
+            spacing_row_cm: number | null;
+            /** Spacing Plant Cm */
+            spacing_plant_cm: number | null;
+            /** Rows Per 1 2M Bed */
+            rows_per_1_2m_bed: number | null;
+            /** Height Max Cm */
+            height_max_cm: number | null;
+            /** Root Depth Cm */
+            root_depth_cm: number | null;
+            /** Sun */
+            sun: ("full" | "partial" | "shade_tolerant") | null;
+            /** Water Need */
+            water_need: ("low" | "medium" | "high") | null;
+            /** Water L Per Sqm Day */
+            water_l_per_sqm_day: {
+                [key: string]: number;
+            } | null;
+            /** Heat Tolerance C */
+            heat_tolerance_c: number | null;
+            /** Cold Tolerance C */
+            cold_tolerance_c: number | null;
+            /** Waterlogging Tolerant */
+            waterlogging_tolerant: boolean | null;
+            /** Terrace Ok */
+            terrace_ok: boolean | null;
+            /** Min Container Depth Cm */
+            min_container_depth_cm: number | null;
+            /** Expected Yield Kg Per Sqm */
+            expected_yield_kg_per_sqm: string | null;
+            /** Unit To Kg */
+            unit_to_kg: {
+                [key: string]: number;
+            } | null;
+            /** Years To Bear */
+            years_to_bear: string | null;
+            /** Lifespan Years */
+            lifespan_years: number | null;
+            /** Tree Spacing M */
+            tree_spacing_m: string | null;
+            /** Canopy Diameter M */
+            canopy_diameter_m: string | null;
+            /** Low Care */
+            low_care: boolean | null;
+            /** Regional */
+            regional: {
+                [key: string]: components["schemas"]["RegionalData"];
+            };
+            /** Sources */
+            sources: {
+                [key: string]: unknown;
+            };
+            /** Source Notes */
+            source_notes: string | null;
+            /** Todo */
+            todo: string[];
+        };
+        /** CropSummary */
+        CropSummary: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Slug */
+            slug: string;
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /**
+             * Category
+             * @enum {string}
+             */
+            category: "vegetable" | "leafy" | "root" | "spice" | "fruit_tree" | "fruit_short" | "pulse" | "cereal" | "millet" | "oilseed" | "herb" | "border" | "green_manure" | "flower";
+            /** Layers */
+            layers: ("underground" | "surface" | "middle" | "climber" | "canopy")[];
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "draft" | "in_review" | "approved" | "retired";
+            /** Revision */
+            revision: number;
+            /** Todo Count */
+            todo_count: number;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
+        /** CropUpdate */
+        CropUpdate: {
+            /** Name En */
+            name_en?: string | null;
+            /** Name Hi */
+            name_hi?: string | null;
+            /** Scientific Name */
+            scientific_name?: string | null;
+            /** Family */
+            family?: string | null;
+            /** Category */
+            category?: ("vegetable" | "leafy" | "root" | "spice" | "fruit_tree" | "fruit_short" | "pulse" | "cereal" | "millet" | "oilseed" | "herb" | "border" | "green_manure" | "flower") | null;
+            /** Layers */
+            layers?: ("underground" | "surface" | "middle" | "climber" | "canopy")[] | null;
+            /** Seasons */
+            seasons?: ("kharif" | "rabi" | "zaid" | "perennial")[] | null;
+            /** Nursery Days */
+            nursery_days?: number | null;
+            /** Days To First Harvest */
+            days_to_first_harvest?: number | null;
+            /** Harvest Span Days */
+            harvest_span_days?: number | null;
+            /** Spacing Row Cm */
+            spacing_row_cm?: number | null;
+            /** Spacing Plant Cm */
+            spacing_plant_cm?: number | null;
+            /** Rows Per 1 2M Bed */
+            rows_per_1_2m_bed?: number | null;
+            /** Height Max Cm */
+            height_max_cm?: number | null;
+            /** Root Depth Cm */
+            root_depth_cm?: number | null;
+            /** Sun */
+            sun?: ("full" | "partial" | "shade_tolerant") | null;
+            /** Water Need */
+            water_need?: ("low" | "medium" | "high") | null;
+            /** Water L Per Sqm Day */
+            water_l_per_sqm_day?: {
+                [key: string]: number;
+            } | null;
+            /** Heat Tolerance C */
+            heat_tolerance_c?: number | null;
+            /** Cold Tolerance C */
+            cold_tolerance_c?: number | null;
+            /** Waterlogging Tolerant */
+            waterlogging_tolerant?: boolean | null;
+            /** Terrace Ok */
+            terrace_ok?: boolean | null;
+            /** Min Container Depth Cm */
+            min_container_depth_cm?: number | null;
+            /** Expected Yield Kg Per Sqm */
+            expected_yield_kg_per_sqm?: number | string | null;
+            /** Unit To Kg */
+            unit_to_kg?: {
+                [key: string]: number;
+            } | null;
+            /** Years To Bear */
+            years_to_bear?: number | string | null;
+            /** Lifespan Years */
+            lifespan_years?: number | null;
+            /** Tree Spacing M */
+            tree_spacing_m?: number | string | null;
+            /** Canopy Diameter M */
+            canopy_diameter_m?: number | string | null;
+            /** Low Care */
+            low_care?: boolean | null;
+            /** Regional */
+            regional?: {
+                [key: string]: components["schemas"]["RegionalData"];
+            } | null;
+            /** Sources */
+            sources?: {
+                [key: string]: components["schemas"]["Source"][];
+            } | null;
+            /** Source Notes */
+            source_notes?: string | null;
+            /** Todo */
+            todo?: string[] | null;
         };
         /** FarmCreate */
         FarmCreate: {
@@ -411,6 +1022,17 @@ export interface components {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
+        /** Ingredient */
+        Ingredient: {
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi?: string | null;
+            /** Qty */
+            qty?: number | null;
+            /** Unit */
+            unit?: string | null;
+        };
         /** InviteCreate */
         InviteCreate: {
             /** Phone */
@@ -524,6 +1146,384 @@ export interface components {
             /** Caretaker Sees Money */
             caretaker_sees_money: boolean;
         };
+        /** Page[CropSummary] */
+        Page_CropSummary_: {
+            /** Items */
+            items: components["schemas"]["CropSummary"][];
+            /** Next Cursor */
+            next_cursor?: string | null;
+        };
+        /** PestCreate */
+        PestCreate: {
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Crop Slugs */
+            crop_slugs?: string[] | null;
+            /** Symptoms En */
+            symptoms_en?: string | null;
+            /** Symptoms Hi */
+            symptoms_hi?: string | null;
+            /** Months */
+            months?: number[] | null;
+            /** Recipe Slugs */
+            recipe_slugs?: string[] | null;
+            /** Escalate If */
+            escalate_if?: string | null;
+            /** Sources */
+            sources?: {
+                [key: string]: components["schemas"]["Source"][];
+            } | null;
+            /** Source Notes */
+            source_notes?: string | null;
+            /** Todo */
+            todo?: string[] | null;
+            /** Slug */
+            slug: string;
+        };
+        /** PestFields */
+        PestFields: {
+            /** Name En */
+            name_en?: string | null;
+            /** Name Hi */
+            name_hi?: string | null;
+            /** Crop Slugs */
+            crop_slugs?: string[] | null;
+            /** Symptoms En */
+            symptoms_en?: string | null;
+            /** Symptoms Hi */
+            symptoms_hi?: string | null;
+            /** Months */
+            months?: number[] | null;
+            /** Recipe Slugs */
+            recipe_slugs?: string[] | null;
+            /** Escalate If */
+            escalate_if?: string | null;
+            /** Sources */
+            sources?: {
+                [key: string]: components["schemas"]["Source"][];
+            } | null;
+            /** Source Notes */
+            source_notes?: string | null;
+            /** Todo */
+            todo?: string[] | null;
+        };
+        /** PestOut */
+        PestOut: {
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "draft" | "in_review" | "approved" | "retired";
+            /** Revision */
+            revision: number;
+            /** Submitted By */
+            submitted_by: string | null;
+            /** Submitted At */
+            submitted_at: string | null;
+            /** Approved By */
+            approved_by: string | null;
+            /** Approved At */
+            approved_at: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /**
+             * Missing For Review
+             * @default []
+             */
+            missing_for_review: string[];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Slug */
+            slug: string;
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Crop Slugs */
+            crop_slugs: string[];
+            /** Symptoms En */
+            symptoms_en: string | null;
+            /** Symptoms Hi */
+            symptoms_hi: string | null;
+            /** Months */
+            months: number[];
+            /** Recipe Slugs */
+            recipe_slugs: string[];
+            /** Escalate If */
+            escalate_if: string | null;
+            /** Sources */
+            sources: {
+                [key: string]: unknown;
+            };
+            /** Source Notes */
+            source_notes: string | null;
+            /** Todo */
+            todo: string[];
+        };
+        /** RecipeCreate */
+        RecipeCreate: {
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Ingredients */
+            ingredients?: components["schemas"]["Ingredient"][] | null;
+            /** Per Area Sqm */
+            per_area_sqm?: number | string | null;
+            /** Steps En */
+            steps_en?: string[] | null;
+            /** Steps Hi */
+            steps_hi?: string[] | null;
+            /** Ferment Days */
+            ferment_days?: number | null;
+            /** Shelf Life Days */
+            shelf_life_days?: number | null;
+            /** Apply Every Days */
+            apply_every_days?: number | null;
+            /** Apply Method */
+            apply_method?: string | null;
+            /** Safety Notes En */
+            safety_notes_en?: string | null;
+            /** Safety Notes Hi */
+            safety_notes_hi?: string | null;
+            /** Sources */
+            sources?: {
+                [key: string]: components["schemas"]["Source"][];
+            } | null;
+            /** Source Notes */
+            source_notes?: string | null;
+            /** Todo */
+            todo?: string[] | null;
+            /** Slug */
+            slug: string;
+        };
+        /** RecipeFields */
+        RecipeFields: {
+            /** Name En */
+            name_en?: string | null;
+            /** Name Hi */
+            name_hi?: string | null;
+            /** Ingredients */
+            ingredients?: components["schemas"]["Ingredient"][] | null;
+            /** Per Area Sqm */
+            per_area_sqm?: number | string | null;
+            /** Steps En */
+            steps_en?: string[] | null;
+            /** Steps Hi */
+            steps_hi?: string[] | null;
+            /** Ferment Days */
+            ferment_days?: number | null;
+            /** Shelf Life Days */
+            shelf_life_days?: number | null;
+            /** Apply Every Days */
+            apply_every_days?: number | null;
+            /** Apply Method */
+            apply_method?: string | null;
+            /** Safety Notes En */
+            safety_notes_en?: string | null;
+            /** Safety Notes Hi */
+            safety_notes_hi?: string | null;
+            /** Sources */
+            sources?: {
+                [key: string]: components["schemas"]["Source"][];
+            } | null;
+            /** Source Notes */
+            source_notes?: string | null;
+            /** Todo */
+            todo?: string[] | null;
+        };
+        /** RecipeOut */
+        RecipeOut: {
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "draft" | "in_review" | "approved" | "retired";
+            /** Revision */
+            revision: number;
+            /** Submitted By */
+            submitted_by: string | null;
+            /** Submitted At */
+            submitted_at: string | null;
+            /** Approved By */
+            approved_by: string | null;
+            /** Approved At */
+            approved_at: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /**
+             * Missing For Review
+             * @default []
+             */
+            missing_for_review: string[];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Slug */
+            slug: string;
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Ingredients */
+            ingredients: components["schemas"]["Ingredient"][];
+            /** Per Area Sqm */
+            per_area_sqm: string | null;
+            /** Steps En */
+            steps_en: string[];
+            /** Steps Hi */
+            steps_hi: string[];
+            /** Ferment Days */
+            ferment_days: number | null;
+            /** Shelf Life Days */
+            shelf_life_days: number | null;
+            /** Apply Every Days */
+            apply_every_days: number | null;
+            /** Apply Method */
+            apply_method: string | null;
+            /** Safety Notes En */
+            safety_notes_en: string | null;
+            /** Safety Notes Hi */
+            safety_notes_hi: string | null;
+            /** Sources */
+            sources: {
+                [key: string]: unknown;
+            };
+            /** Source Notes */
+            source_notes: string | null;
+            /** Todo */
+            todo: string[];
+        };
+        /** RegionalData */
+        RegionalData: {
+            /**
+             * Sow Windows
+             * @default []
+             */
+            sow_windows: components["schemas"]["SowWindow"][];
+            /**
+             * Agmarknet Commodity
+             * @default []
+             */
+            agmarknet_commodity: string[];
+            /** Price Mandi Paise Per Kg */
+            price_mandi_paise_per_kg?: number | null;
+            /** Price Direct Paise Per Kg */
+            price_direct_paise_per_kg?: number | null;
+            /** Price Updated On */
+            price_updated_on?: string | null;
+            /**
+             * Sources
+             * @default {}
+             */
+            sources: {
+                [key: string]: components["schemas"]["Source"][];
+            };
+        };
+        /** ReviewItem */
+        ReviewItem: {
+            /**
+             * Entity
+             * @enum {string}
+             */
+            entity: "crop" | "recipe" | "pest" | "rule";
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Key */
+            key: string;
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Submitted By */
+            submitted_by: string | null;
+            /** Submitted At */
+            submitted_at: string | null;
+            /** Can Approve */
+            can_approve: boolean;
+            /** Blocked Reason */
+            blocked_reason: string | null;
+        };
+        /** RuleOut */
+        RuleOut: {
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "draft" | "in_review" | "approved" | "retired";
+            /** Revision */
+            revision: number;
+            /** Submitted By */
+            submitted_by: string | null;
+            /** Submitted At */
+            submitted_at: string | null;
+            /** Approved By */
+            approved_by: string | null;
+            /** Approved At */
+            approved_at: string | null;
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+            /**
+             * Missing For Review
+             * @default []
+             */
+            missing_for_review: string[];
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Code */
+            code: string;
+            /** Description */
+            description: string;
+            /** Params */
+            params: {
+                [key: string]: unknown;
+            };
+            /** Applies To */
+            applies_to: string;
+            /** Sources */
+            sources: {
+                [key: string]: unknown;
+            };
+            /** Source Notes */
+            source_notes: string | null;
+        };
+        /** RuleUpdate */
+        RuleUpdate: {
+            /** Description */
+            description?: string | null;
+            /** Params */
+            params?: {
+                [key: string]: unknown;
+            } | null;
+            /** Sources */
+            sources?: {
+                [key: string]: components["schemas"]["Source"][];
+            } | null;
+            /** Source Notes */
+            source_notes?: string | null;
+        };
         /** SessionOut */
         SessionOut: {
             /** Access Token */
@@ -550,6 +1550,30 @@ export interface components {
         SettingUpdate: {
             /** Value */
             value: unknown;
+        };
+        /**
+         * Source
+         * @description Where a value came from: a public document (url) or an agronomist's own judgement.
+         */
+        Source: {
+            /** Url */
+            url?: string | null;
+            /** Title */
+            title: string;
+            /** Note */
+            note?: string | null;
+        };
+        /** SowWindow */
+        SowWindow: {
+            /** From */
+            from: string;
+            /** To */
+            to: string;
+            /**
+             * Method
+             * @enum {string}
+             */
+            method: "direct" | "transplant";
         };
         /** UserPage */
         UserPage: {
@@ -1048,6 +2072,556 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["InviteOut"];
                 };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_crops_api_v1_library_crops_get: {
+        parameters: {
+            query?: {
+                status?: string | null;
+                q?: string | null;
+                category?: string | null;
+                cursor?: string | null;
+                limit?: number;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Page_CropSummary_"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    create_crop_api_v1_library_crops_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CropCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CropOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_crop_api_v1_library_crops__crop_id__get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                crop_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CropOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_crop_api_v1_library_crops__crop_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                crop_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CropUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CropOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_recipes_api_v1_library_recipes_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RecipeOut"][];
+                };
+            };
+        };
+    };
+    create_recipe_api_v1_library_recipes_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RecipeCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RecipeOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_recipe_api_v1_library_recipes__recipe_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                recipe_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RecipeFields"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RecipeOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_pests_api_v1_library_pests_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PestOut"][];
+                };
+            };
+        };
+    };
+    create_pest_api_v1_library_pests_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PestCreate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PestOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    update_pest_api_v1_library_pests__pest_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                pest_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["PestFields"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PestOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_rules_api_v1_library_rules_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleOut"][];
+                };
+            };
+        };
+    };
+    update_rule_api_v1_library_rules__rule_id__patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                rule_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["RuleUpdate"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["RuleOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    list_companions_api_v1_library_companions_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanionOut"][];
+                };
+            };
+        };
+    };
+    save_companion_api_v1_library_companions_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["CompanionIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CompanionOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    review_queue_api_v1_library_review_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewItem"][];
+                };
+            };
+        };
+    };
+    progress_api_v1_library_progress_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: number;
+                    };
+                };
+            };
+        };
+    };
+    submit_api_v1_library__entity___entry_id__submit_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                entity: "crops" | "recipes" | "pests" | "rules";
+                entry_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    approve_api_v1_library__entity___entry_id__approve_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                entity: "crops" | "recipes" | "pests" | "rules";
+                entry_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    retire_api_v1_library__entity___entry_id__retire_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                entity: "crops" | "recipes" | "pests" | "rules";
+                entry_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Validation Error */
             422: {

@@ -42,3 +42,12 @@ async def require_admin(principal: CurrentUser) -> Principal:
 
 
 AdminUser = Annotated[Principal, Depends(require_admin)]
+
+
+async def require_agronomist(principal: CurrentUser) -> Principal:
+    if not principal.is_agronomist:
+        raise forbidden_role()
+    return principal
+
+
+AgronomistUser = Annotated[Principal, Depends(require_agronomist)]

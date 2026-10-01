@@ -1,0 +1,163 @@
+{
+ "rules": [
+  {
+   "code": "engine.bed",
+   "description": "Bed layout defaults",
+   "applies_to": "engine",
+   "params": {
+    "bed_width_m": 1.2,
+    "path_width_m": 0.6,
+    "max_bed_length_m": 10,
+    "cross_path_m": 0.6,
+    "min_bed_area_sqm": 2,
+    "min_bed_width_m": 0.9,
+    "trellis_height_m": 2.1,
+    "bed_axis_tolerance_deg": 15
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.parcel",
+   "description": "Parcel validation limits",
+   "applies_to": "engine",
+   "params": {
+    "min_area_sqm": 5,
+    "max_area_sqm": 20250,
+    "min_side_m": 1,
+    "obstacle_buffer_m": 0.5
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.border",
+   "description": "Border width by template",
+   "applies_to": "engine",
+   "params": {
+    "S": 0.6,
+    "M": 1.0,
+    "L": 2.0
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.template.T",
+   "description": "Zone shares: terrace",
+   "applies_to": "engine",
+   "params": {
+    "applies_when": "site_type = terrace",
+    "beds": 55,
+    "orchard": 0,
+    "rotation": 0,
+    "border": 0,
+    "water": 0,
+    "utility_nursery": 10,
+    "paths": 35
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.template.S",
+   "description": "Zone shares: small plot (<150 sqm)",
+   "applies_to": "engine",
+   "params": {
+    "beds": 65,
+    "orchard": 12,
+    "rotation": 0,
+    "border": 10,
+    "water": 0,
+    "utility_nursery": 13,
+    "paths": 0
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.template.M",
+   "description": "Zone shares: medium (150-2,000 sqm)",
+   "applies_to": "engine",
+   "params": {
+    "beds": 45,
+    "orchard": 20,
+    "rotation": 0,
+    "border": 10,
+    "water": 5,
+    "utility_nursery": 12,
+    "paths": 8
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.template.L",
+   "description": "Zone shares: large (2,000-20,250 sqm)",
+   "applies_to": "engine",
+   "params": {
+    "beds": 35,
+    "orchard": 25,
+    "rotation": 20,
+    "border": 8,
+    "water": 7,
+    "utility_nursery": 5,
+    "paths": 0
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.zone_share_adjust",
+   "description": "Owner zone share adjustment",
+   "applies_to": "engine",
+   "params": {
+    "max_points": 10
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.score",
+   "description": "Crop score weights",
+   "applies_to": "engine",
+   "params": {
+    "value": 0.4,
+    "diversity": 0.3,
+    "ease": 0.2,
+    "water": -0.1,
+    "goal_income_value": 0.55,
+    "goal_home_food_diversity": 0.45,
+    "repeat_diversity": 0.3
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.crowding",
+   "description": "Multilayer crowding factors (agronomist to confirm)",
+   "applies_to": "engine",
+   "params": {
+    "underground": 0.7,
+    "surface": 0.7,
+    "middle": 0.8,
+    "climber": 0.8
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.min_crops",
+   "description": "Minimum distinct crops per season",
+   "applies_to": "engine",
+   "params": {
+    "M": 6,
+    "L": 6,
+    "S": 4,
+    "T": 4
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.terrace",
+   "description": "Terrace media rules",
+   "applies_to": "engine",
+   "params": {
+    "load_safety_factor": 0.8,
+    "wet_media_density_kg_m3": 550,
+    "heavy_planter_distance_m": 1
+   },
+   "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  }
+ ]
+}

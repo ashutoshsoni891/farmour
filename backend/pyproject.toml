@@ -10,6 +10,7 @@ dependencies = [
     "celery>=5.6.3",
     "fastapi>=0.142.1",
     "httpx>=0.28.1",
+    "pgvector>=0.5.0",
     "pydantic>=2.13.5",
     "pydantic-settings>=2.15.0",
     "pyjwt[crypto]>=2.15.1",
@@ -46,6 +47,7 @@ select = ["E", "F", "W", "I", "B", "UP", "S", "ASYNC", "RUF", "SIM", "PT"]
 ignore = ["B008"]  # FastAPI Depends() in defaults
 
 [tool.ruff.lint.per-file-ignores]
+"scripts/dev_login.py" = ["S", "E501"]  # local dev helper only
 "tests/**" = ["S101", "S105", "S106"]
 "app/modules/*/tests/**" = ["S101", "S105", "S106"]
 
@@ -56,7 +58,7 @@ plugins = ["pydantic.mypy"]
 exclude = ["app/db/migrations/"]
 
 [[tool.mypy.overrides]]
-module = ["celery.*", "boto3.*", "botocore.*", "testcontainers.*"]
+module = ["celery.*", "boto3.*", "botocore.*", "testcontainers.*", "pgvector.*"]
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
@@ -104,3 +106,9 @@ name = "Module farms owns its tables"
 type = "protected"
 protected_modules = ["app.modules.farms.repository", "app.modules.farms.models"]
 allowed_importers = ["app.modules.farms"]
+
+[[tool.importlinter.contracts]]
+name = "Module library owns its tables"
+type = "protected"
+protected_modules = ["app.modules.library.repository", "app.modules.library.models"]
+allowed_importers = ["app.modules.library"]

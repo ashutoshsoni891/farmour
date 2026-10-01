@@ -1,0 +1,64 @@
+{
+ "recipes": [
+  {
+   "slug": "jeevamrut",
+   "name_en": "Jeevamrut",
+   "name_hi": "जीवामृत",
+   "source_notes": "Name only. Ingredients, quantities, steps and safety notes pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "beejamrut",
+   "name_en": "Beejamrut",
+   "name_hi": "बीजामृत",
+   "source_notes": "Name only. Ingredients, quantities, steps and safety notes pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "ghanjeevamrut",
+   "name_en": "Ghanjeevamrut",
+   "name_hi": "घनजीवामृत",
+   "source_notes": "Name only. Ingredients, quantities, steps and safety notes pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "neemastra",
+   "name_en": "Neemastra",
+   "name_hi": "नीमास्त्र",
+   "source_notes": "Name only. Ingredients, quantities, steps and safety notes pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "brahmastra",
+   "name_en": "Brahmastra",
+   "name_hi": "ब्रह्मास्त्र",
+   "source_notes": "Name only. Ingredients, quantities, steps and safety notes pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "agniastra",
+   "name_en": "Agniastra",
+   "name_hi": "अग्नि अस्त्र",
+   "source_notes": "Name only. Ingredients, quantities, steps and safety notes pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "dashparni-ark",
+   "name_en": "Dashparni ark",
+   "name_hi": "दशपर्णी अर्क",
+   "source_notes": "Name only. Ingredients, quantities, steps and safety notes pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "vermicompost",
+   "name_en": "Vermicompost",
+   "name_hi": "केंचुआ खाद (वर्मीकम्पोस्ट)",
+   "source_notes": "Name only. Ingredients, quantities, steps and safety notes pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "panchagavya",
+   "name_en": "Panchagavya",
+   "name_hi": "पंचगव्य",
+   "source_notes": "Name only. Ingredients, quantities, steps and safety notes pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "sour-buttermilk-spray",
+   "name_en": "Sour buttermilk spray",
+   "name_hi": "खट्टी छाछ का छिड़काव",
+   "source_notes": "Name only. Ingredients, quantities, steps and safety notes pending agronomist input (TODO(agronomist))."
+  }
+ ]
+}
