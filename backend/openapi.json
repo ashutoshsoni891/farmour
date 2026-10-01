@@ -1645,6 +1645,319 @@
         }
       }
     },
+    "/api/v1/farms/{farm_id}/parcel": {
+      "get": {
+        "tags": [
+          "parcel"
+        ],
+        "summary": "Get Parcel",
+        "operationId": "get_parcel_api_v1_farms__farm_id__parcel_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParcelOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "parcel"
+        ],
+        "summary": "Save Parcel",
+        "description": "Save the drawn boundary (GeoJSON, WGS84); returns the measured area and perimeter.",
+        "operationId": "save_parcel_api_v1_farms__farm_id__parcel_put",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParcelSave"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParcelOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/farms/{farm_id}/parcel/from-measurements": {
+      "post": {
+        "tags": [
+          "parcel"
+        ],
+        "summary": "From Measurements",
+        "description": "Build the plot from a length x width rectangle or four sides plus a diagonal.",
+        "operationId": "from_measurements_api_v1_farms__farm_id__parcel_from_measurements_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MeasurementsSave"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ParcelOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/geo/search": {
+      "get": {
+        "tags": [
+          "geo"
+        ],
+        "summary": "Search",
+        "operationId": "search_api_v1_geo_search_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 2,
+              "maxLength": 120,
+              "title": "Q"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "en",
+                "hi"
+              ],
+              "type": "string",
+              "default": "en",
+              "title": "Lang"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PlaceOut"
+                  },
+                  "title": "Response Search Api V1 Geo Search Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/geo/reverse": {
+      "get": {
+        "tags": [
+          "geo"
+        ],
+        "summary": "Reverse",
+        "operationId": "reverse_api_v1_geo_reverse_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "maximum": 90,
+              "minimum": -90,
+              "title": "Lat"
+            }
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "maximum": 180,
+              "minimum": -180,
+              "title": "Lng"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "en",
+                "hi"
+              ],
+              "type": "string",
+              "default": "en",
+              "title": "Lang"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "anyOf": [
+                    {
+                      "$ref": "#/components/schemas/PlaceOut"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "title": "Response Reverse Api V1 Geo Reverse Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/admin/settings": {
       "get": {
         "tags": [
@@ -4203,6 +4516,77 @@
         "type": "object",
         "title": "FarmUpdate"
       },
+      "FourSides": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "four_sides",
+            "title": "Kind",
+            "default": "four_sides"
+          },
+          "lat": {
+            "type": "number",
+            "maximum": 90.0,
+            "minimum": -90.0,
+            "title": "Lat"
+          },
+          "lng": {
+            "type": "number",
+            "maximum": 180.0,
+            "minimum": -180.0,
+            "title": "Lng"
+          },
+          "side_ab_m": {
+            "type": "number",
+            "maximum": 1000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Side Ab M"
+          },
+          "side_bc_m": {
+            "type": "number",
+            "maximum": 1000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Side Bc M"
+          },
+          "side_cd_m": {
+            "type": "number",
+            "maximum": 1000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Side Cd M"
+          },
+          "side_da_m": {
+            "type": "number",
+            "maximum": 1000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Side Da M"
+          },
+          "diagonal_ac_m": {
+            "type": "number",
+            "maximum": 1500.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Diagonal Ac M"
+          },
+          "bearing_deg": {
+            "type": "number",
+            "maximum": 360.0,
+            "minimum": -360.0,
+            "title": "Bearing Deg",
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "lat",
+          "lng",
+          "side_ab_m",
+          "side_bc_m",
+          "side_cd_m",
+          "side_da_m",
+          "diagonal_ac_m"
+        ],
+        "title": "FourSides"
+      },
       "HTTPValidationError": {
         "properties": {
           "detail": {
@@ -4523,6 +4907,157 @@
         "type": "object",
         "title": "MeUpdate"
       },
+      "MeasurementsSave": {
+        "properties": {
+          "north_bearing_deg": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 360.0,
+                "minimum": -360.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "North Bearing Deg"
+          },
+          "soil_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "black",
+                  "red",
+                  "sandy",
+                  "clay",
+                  "loam",
+                  "mixed",
+                  "unknown"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Soil Type"
+          },
+          "soil_depth_cm": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 1000.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Soil Depth Cm"
+          },
+          "drainage": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "good",
+                  "ok",
+                  "waterlogs"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Drainage"
+          },
+          "slope_dir": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "N",
+                  "NE",
+                  "E",
+                  "SE",
+                  "S",
+                  "SW",
+                  "W",
+                  "NW"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slope Dir"
+          },
+          "terrace_load_kg_per_sqm": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 2000.0,
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Terrace Load Kg Per Sqm"
+          },
+          "gate": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gate"
+          },
+          "obstacles": {
+            "anyOf": [
+              {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Obstacles"
+          },
+          "shape": {
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Rectangle"
+              },
+              {
+                "$ref": "#/components/schemas/FourSides"
+              }
+            ],
+            "title": "Shape",
+            "discriminator": {
+              "propertyName": "kind",
+              "mapping": {
+                "four_sides": "#/components/schemas/FourSides",
+                "rectangle": "#/components/schemas/Rectangle"
+              }
+            }
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "shape"
+        ],
+        "title": "MeasurementsSave"
+      },
       "MemberOut": {
         "properties": {
           "user_id": {
@@ -4591,6 +5126,302 @@
           "items"
         ],
         "title": "Page[CropSummary]"
+      },
+      "ParcelOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "farm_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Farm Id"
+          },
+          "boundary": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Boundary"
+          },
+          "gate": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gate"
+          },
+          "area_sqm": {
+            "type": "number",
+            "title": "Area Sqm"
+          },
+          "perimeter_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Perimeter M"
+          },
+          "north_bearing_deg": {
+            "type": "number",
+            "title": "North Bearing Deg"
+          },
+          "soil_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "black",
+                  "red",
+                  "sandy",
+                  "clay",
+                  "loam",
+                  "mixed",
+                  "unknown"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Soil Type"
+          },
+          "soil_depth_cm": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Soil Depth Cm"
+          },
+          "drainage": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "good",
+                  "ok",
+                  "waterlogs"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Drainage"
+          },
+          "slope_dir": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slope Dir"
+          },
+          "terrace_load_kg_per_sqm": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Terrace Load Kg Per Sqm"
+          },
+          "obstacles": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Obstacles"
+          },
+          "warnings": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Warnings",
+            "default": []
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Updated At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "farm_id",
+          "boundary",
+          "gate",
+          "area_sqm",
+          "perimeter_m",
+          "north_bearing_deg",
+          "soil_type",
+          "soil_depth_cm",
+          "drainage",
+          "slope_dir",
+          "terrace_load_kg_per_sqm",
+          "obstacles",
+          "updated_at"
+        ],
+        "title": "ParcelOut"
+      },
+      "ParcelSave": {
+        "properties": {
+          "north_bearing_deg": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 360.0,
+                "minimum": -360.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "North Bearing Deg"
+          },
+          "soil_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "black",
+                  "red",
+                  "sandy",
+                  "clay",
+                  "loam",
+                  "mixed",
+                  "unknown"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Soil Type"
+          },
+          "soil_depth_cm": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 1000.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Soil Depth Cm"
+          },
+          "drainage": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "good",
+                  "ok",
+                  "waterlogs"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Drainage"
+          },
+          "slope_dir": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "N",
+                  "NE",
+                  "E",
+                  "SE",
+                  "S",
+                  "SW",
+                  "W",
+                  "NW"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Slope Dir"
+          },
+          "terrace_load_kg_per_sqm": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 2000.0,
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Terrace Load Kg Per Sqm"
+          },
+          "gate": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Gate"
+          },
+          "obstacles": {
+            "anyOf": [
+              {
+                "items": {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Obstacles"
+          },
+          "boundary": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Boundary"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "boundary"
+        ],
+        "title": "ParcelSave"
       },
       "PestCreate": {
         "properties": {
@@ -5085,6 +5916,65 @@
           "todo"
         ],
         "title": "PestOut"
+      },
+      "PlaceOut": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "lat": {
+            "type": "number",
+            "title": "Lat"
+          },
+          "lng": {
+            "type": "number",
+            "title": "Lng"
+          },
+          "village": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Village"
+          },
+          "district": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "District"
+          },
+          "state": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "State"
+          }
+        },
+        "type": "object",
+        "required": [
+          "name",
+          "lat",
+          "lng",
+          "village",
+          "district",
+          "state"
+        ],
+        "title": "PlaceOut"
       },
       "RecipeCreate": {
         "properties": {
@@ -5740,6 +6630,56 @@
           "todo"
         ],
         "title": "RecipeOut"
+      },
+      "Rectangle": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "const": "rectangle",
+            "title": "Kind",
+            "default": "rectangle"
+          },
+          "lat": {
+            "type": "number",
+            "maximum": 90.0,
+            "minimum": -90.0,
+            "title": "Lat"
+          },
+          "lng": {
+            "type": "number",
+            "maximum": 180.0,
+            "minimum": -180.0,
+            "title": "Lng"
+          },
+          "length_m": {
+            "type": "number",
+            "maximum": 1000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Length M"
+          },
+          "width_m": {
+            "type": "number",
+            "maximum": 1000.0,
+            "exclusiveMinimum": 0.0,
+            "title": "Width M"
+          },
+          "bearing_deg": {
+            "type": "number",
+            "maximum": 360.0,
+            "minimum": -360.0,
+            "title": "Bearing Deg",
+            "default": 0
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "lat",
+          "lng",
+          "length_m",
+          "width_m"
+        ],
+        "title": "Rectangle"
       },
       "RegionalData": {
         "properties": {

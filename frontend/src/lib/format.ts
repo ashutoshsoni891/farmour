@@ -22,3 +22,24 @@ export function formatDayMonth(date: Date, lang: Lang): string {
     timeZone: "Asia/Kolkata",
   }).format(date);
 }
+
+const SQFT_PER_SQM = 10.7639104167;
+export type UnitPref = "sqft" | "acre" | "bigha" | "sqm";
+
+/** Area in the user's preferred unit (bigha only when the user has set its size). */
+export function formatArea(
+  sqm: number,
+  unit: UnitPref,
+  lang: Lang,
+  bighaSqft?: number | null,
+): { key: string; n: string } {
+  const sqft = sqm * SQFT_PER_SQM;
+  if (unit === "bigha" && bighaSqft && bighaSqft > 0) {
+    return { key: "area.bigha", n: formatNumber(sqft / bighaSqft, lang, 2) };
+  }
+  if (unit === "acre") return { key: "area.acre", n: formatNumber(sqft / 43560, lang, 3) };
+  if (unit === "sqm") return { key: "area.sqm", n: formatNumber(sqm, lang, 1) };
+  return { key: "area.sqft", n: formatNumber(sqft, lang, 0) };
+}
+
+export const FEET_PER_METRE = 3.28083989501;

@@ -20,6 +20,7 @@ x-app-env: &app-env
   TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
   TELEGRAM_WEBHOOK_SECRET: ${TELEGRAM_WEBHOOK_SECRET:-}
   GLITCHTIP_DSN: ${GLITCHTIP_DSN:-}
+  GEOCODER_USER_AGENT: ${GEOCODER_USER_AGENT:-farmour/0.1 (farm planning app; set GEOCODER_USER_AGENT with a contact)}
 
 x-app: &app
   image: ${IMAGE_PREFIX:-farm}/api:${IMAGE_TAG:-dev}

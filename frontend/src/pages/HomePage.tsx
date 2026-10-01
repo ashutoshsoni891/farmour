@@ -5,6 +5,8 @@ import { Link } from "react-router";
 import { apiClient, errorKey } from "../api/client";
 import { useAuth } from "../auth/AuthProvider";
 import { Screen } from "../components/Screen";
+import type { UnitPref } from "../lib/format";
+import { FarmCard } from "../setup/FarmCard";
 import { isLang, savedLang, setLang } from "../i18n";
 import type { Lang } from "../i18n";
 
@@ -70,13 +72,25 @@ export function HomePage() {
           {me.data.name ? t("home.greeting", { name: me.data.name }) : t("home.greeting_no_name")}
         </h1>
       )}
-      {farms.data && (
-        <p className="text-lg">
-          {farms.data.length === 0
-            ? t("home.no_farms")
-            : t("home.farms_count", { count: farms.data.length })}
-        </p>
+      {farms.data?.length === 0 && <p className="text-lg">{t("home.no_farms")}</p>}
+      {farms.data && farms.data.length > 0 && (
+        <ul className="flex flex-col gap-3">
+          {farms.data.map((f) => (
+            <FarmCard
+              key={f.id}
+              farm={f}
+              unit={(me.data?.unit_pref ?? "sqft") as UnitPref}
+              bighaSqft={me.data?.bigha_sqft ? Number(me.data.bigha_sqft) : null}
+            />
+          ))}
+        </ul>
       )}
+      <Link
+        to="/setup"
+        className="rounded-xl border-2 border-green-800 px-6 py-3 text-center text-lg font-semibold text-green-900"
+      >
+        {t("home.add_farm")}
+      </Link>
       {me.data?.is_agronomist && (
         <Link
           to="/library"

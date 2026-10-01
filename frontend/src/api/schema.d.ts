@@ -461,6 +461,81 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/farms/{farm_id}/parcel": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Get Parcel */
+        get: operations["get_parcel_api_v1_farms__farm_id__parcel_get"];
+        /**
+         * Save Parcel
+         * @description Save the drawn boundary (GeoJSON, WGS84); returns the measured area and perimeter.
+         */
+        put: operations["save_parcel_api_v1_farms__farm_id__parcel_put"];
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/farms/{farm_id}/parcel/from-measurements": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * From Measurements
+         * @description Build the plot from a length x width rectangle or four sides plus a diagonal.
+         */
+        post: operations["from_measurements_api_v1_farms__farm_id__parcel_from_measurements_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/geo/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Search */
+        get: operations["search_api_v1_geo_search_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/geo/reverse": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** Reverse */
+        get: operations["reverse_api_v1_geo_reverse_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/admin/settings": {
         parameters: {
             query?: never;
@@ -1017,6 +1092,33 @@ export interface components {
             /** Name */
             name?: string | null;
         };
+        /** FourSides */
+        FourSides: {
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            kind: "four_sides";
+            /** Lat */
+            lat: number;
+            /** Lng */
+            lng: number;
+            /** Side Ab M */
+            side_ab_m: number;
+            /** Side Bc M */
+            side_bc_m: number;
+            /** Side Cd M */
+            side_cd_m: number;
+            /** Side Da M */
+            side_da_m: number;
+            /** Diagonal Ac M */
+            diagonal_ac_m: number;
+            /**
+             * Bearing Deg
+             * @default 0
+             */
+            bearing_deg: number;
+        };
         /** HTTPValidationError */
         HTTPValidationError: {
             /** Detail */
@@ -1126,6 +1228,31 @@ export interface components {
             /** Bigha Sqft */
             bigha_sqft?: number | string | null;
         };
+        /** MeasurementsSave */
+        MeasurementsSave: {
+            /** North Bearing Deg */
+            north_bearing_deg?: number | null;
+            /** Soil Type */
+            soil_type?: ("black" | "red" | "sandy" | "clay" | "loam" | "mixed" | "unknown") | null;
+            /** Soil Depth Cm */
+            soil_depth_cm?: number | null;
+            /** Drainage */
+            drainage?: ("good" | "ok" | "waterlogs") | null;
+            /** Slope Dir */
+            slope_dir?: ("N" | "NE" | "E" | "SE" | "S" | "SW" | "W" | "NW") | null;
+            /** Terrace Load Kg Per Sqm */
+            terrace_load_kg_per_sqm?: number | null;
+            /** Gate */
+            gate?: {
+                [key: string]: unknown;
+            } | null;
+            /** Obstacles */
+            obstacles?: {
+                [key: string]: unknown;
+            }[] | null;
+            /** Shape */
+            shape: components["schemas"]["Rectangle"] | components["schemas"]["FourSides"];
+        };
         /** MemberOut */
         MemberOut: {
             /**
@@ -1152,6 +1279,84 @@ export interface components {
             items: components["schemas"]["CropSummary"][];
             /** Next Cursor */
             next_cursor?: string | null;
+        };
+        /** ParcelOut */
+        ParcelOut: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Farm Id
+             * Format: uuid
+             */
+            farm_id: string;
+            /** Boundary */
+            boundary: {
+                [key: string]: unknown;
+            };
+            /** Gate */
+            gate: {
+                [key: string]: unknown;
+            } | null;
+            /** Area Sqm */
+            area_sqm: number;
+            /** Perimeter M */
+            perimeter_m: number | null;
+            /** North Bearing Deg */
+            north_bearing_deg: number;
+            /** Soil Type */
+            soil_type: ("black" | "red" | "sandy" | "clay" | "loam" | "mixed" | "unknown") | null;
+            /** Soil Depth Cm */
+            soil_depth_cm: number | null;
+            /** Drainage */
+            drainage: ("good" | "ok" | "waterlogs") | null;
+            /** Slope Dir */
+            slope_dir: string | null;
+            /** Terrace Load Kg Per Sqm */
+            terrace_load_kg_per_sqm: number | null;
+            /** Obstacles */
+            obstacles: {
+                [key: string]: unknown;
+            }[];
+            /**
+             * Warnings
+             * @default []
+             */
+            warnings: string[];
+            /**
+             * Updated At
+             * Format: date-time
+             */
+            updated_at: string;
+        };
+        /** ParcelSave */
+        ParcelSave: {
+            /** North Bearing Deg */
+            north_bearing_deg?: number | null;
+            /** Soil Type */
+            soil_type?: ("black" | "red" | "sandy" | "clay" | "loam" | "mixed" | "unknown") | null;
+            /** Soil Depth Cm */
+            soil_depth_cm?: number | null;
+            /** Drainage */
+            drainage?: ("good" | "ok" | "waterlogs") | null;
+            /** Slope Dir */
+            slope_dir?: ("N" | "NE" | "E" | "SE" | "S" | "SW" | "W" | "NW") | null;
+            /** Terrace Load Kg Per Sqm */
+            terrace_load_kg_per_sqm?: number | null;
+            /** Gate */
+            gate?: {
+                [key: string]: unknown;
+            } | null;
+            /** Obstacles */
+            obstacles?: {
+                [key: string]: unknown;
+            }[] | null;
+            /** Boundary */
+            boundary: {
+                [key: string]: unknown;
+            };
         };
         /** PestCreate */
         PestCreate: {
@@ -1267,6 +1472,21 @@ export interface components {
             source_notes: string | null;
             /** Todo */
             todo: string[];
+        };
+        /** PlaceOut */
+        PlaceOut: {
+            /** Name */
+            name: string;
+            /** Lat */
+            lat: number;
+            /** Lng */
+            lng: number;
+            /** Village */
+            village: string | null;
+            /** District */
+            district: string | null;
+            /** State */
+            state: string | null;
         };
         /** RecipeCreate */
         RecipeCreate: {
@@ -1406,6 +1626,27 @@ export interface components {
             source_notes: string | null;
             /** Todo */
             todo: string[];
+        };
+        /** Rectangle */
+        Rectangle: {
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            kind: "rectangle";
+            /** Lat */
+            lat: number;
+            /** Lng */
+            lng: number;
+            /** Length M */
+            length_m: number;
+            /** Width M */
+            width_m: number;
+            /**
+             * Bearing Deg
+             * @default 0
+             */
+            bearing_deg: number;
         };
         /** RegionalData */
         RegionalData: {
@@ -2622,6 +2863,172 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_parcel_api_v1_farms__farm_id__parcel_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ParcelOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    save_parcel_api_v1_farms__farm_id__parcel_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ParcelSave"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ParcelOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    from_measurements_api_v1_farms__farm_id__parcel_from_measurements_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["MeasurementsSave"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ParcelOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    search_api_v1_geo_search_get: {
+        parameters: {
+            query: {
+                q: string;
+                lang?: "en" | "hi";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlaceOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    reverse_api_v1_geo_reverse_get: {
+        parameters: {
+            query: {
+                lat: number;
+                lng: number;
+                lang?: "en" | "hi";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlaceOut"] | null;
+                };
             };
             /** @description Validation Error */
             422: {

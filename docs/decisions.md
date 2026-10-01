@@ -9,6 +9,23 @@ Record every structural choice: context, decision, consequences. Newest first. T
 
 ---
 
+## 2026-10-01 — M2a setup wizard choices
+- **Lean wizard (3 steps now, site-data card in M2b):** where (search or pin + ground/terrace) →
+  plot size (type length × width, draw on map, or four sides + diagonal) → three taps (water,
+  goal, labour). Gate defaults to the south edge, obstacles and budget are left to the plan editor,
+  May water is "not sure" by default. Plots are saved per step; `/setup/:farmId` resumes.
+- **Parcel limits** live in setting `parcel.limits` (5 sq m to 20,250 sq m, shortest side 1 m).
+  Metric work is done in EPSG:32643; the live area while drawing is geodesic (turf), so it can
+  differ from the saved area by well under 1%.
+- **Place search** goes through the API (`/geo/search`, `/geo/reverse`) to Nominatim with an
+  identifying User-Agent (`GEOCODER_USER_AGENT`), 1 request/second and a cache; set a real contact
+  in `.env`. Swap to a self-hosted Nominatim/Photon through `NOMINATIM_URL`.
+- **Map:** MapLibre with OpenFreeMap streets; satellite is off unless `VITE_SATELLITE_TILES_URL`
+  is set at build time (licence check before commercial use). The MapLibre worker is bundled as
+  a file so the strict Content-Security-Policy needs no `unsafe-inline`; the policy is applied to
+  app pages only (Keycloak sends its own).
+- **Not yet:** the 1 m grid at high zoom, obstacle/gate marking, and the site-data card (M2b).
+
 ## 2026-10-01 — M1 crop library choices
 - **Crop values:** the 65 crops are seeded as drafts with names, taxonomy, category and layer only.
   Every agronomy value is empty (`TODO(agronomist)`); a research pass with cited public sources

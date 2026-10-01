@@ -11,6 +11,7 @@ import { CropEditPage } from "./pages/CropEditPage";
 import { LibraryPage } from "./pages/LibraryPage";
 import { LoginPage } from "./pages/LoginPage";
 import { RecipeEditPage } from "./pages/RecipeEditPage";
+import { SetupPage } from "./setup/SetupPage";
 
 function Root() {
   const { ready, token } = useAuth();
@@ -58,6 +59,22 @@ export function App() {
         element={
           <Guarded>
             <RecipeEditPage />
+          </Guarded>
+        }
+      />
+      <Route
+        path="/setup"
+        element={
+          <Guarded>
+            <SetupPage />
+          </Guarded>
+        }
+      />
+      <Route
+        path="/setup/:farmId"
+        element={
+          <Guarded>
+            <SetupPage />
           </Guarded>
         }
       />

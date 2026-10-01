@@ -44,6 +44,10 @@ class Config(BaseSettings):
     storage_adapter: str = "s3"
     token_verifier_adapter: str = "keycloak"  # noqa: S105 — adapter name, not a secret
     channel_adapter: str = "fake"  # telegram arrives in M5
+    geocode_adapter: str = "nominatim"
+    nominatim_url: str = "https://nominatim.openstreetmap.org"
+    # Nominatim policy: identify the application and give a contact. Set a real one in .env.
+    geocoder_user_agent: str = "farmour/0.1 (farm planning app; contact: set GEOCODER_USER_AGENT)"
 
     @model_validator(mode="after")
     def _secrets_are_real(self) -> "Config":

@@ -8,7 +8,8 @@ from sqlalchemy.ext.asyncio import create_async_engine
 import app.core.models
 import app.modules.farms.models
 import app.modules.identity.models
-import app.modules.library.models  # noqa: F401
+import app.modules.library.models
+import app.modules.parcel.models  # noqa: F401
 from app.config import get_config
 from app.db.base import Base
 
