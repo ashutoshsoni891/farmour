@@ -20,6 +20,9 @@ x-app-env: &app-env
   TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
   TELEGRAM_WEBHOOK_SECRET: ${TELEGRAM_WEBHOOK_SECRET:-}
   GLITCHTIP_DSN: ${GLITCHTIP_DSN:-}
+  OSRM_URL: ${OSRM_URL:-http://osrm:5000}
+  SITE_SOURCES: ${SITE_SOURCES:-open_meteo,open_meteo_dem,soilgrids,osm_places}
+  DATA_GOV_IN_API_KEY: ${DATA_GOV_IN_API_KEY:-}
   GEOCODER_USER_AGENT: ${GEOCODER_USER_AGENT:-farmour/0.1 (farm planning app; set GEOCODER_USER_AGENT with a contact)}
 
 x-app: &app
@@ -164,8 +167,47 @@ services:
     deploy: { resources: { limits: { memory: 256m } } }
     restart: unless-stopped
 
+  # ---- Road routing (optional: `docker compose --profile routing up -d`) ----
+  # Downloads the Madhya Pradesh OpenStreetMap extract (openstreetmap.fr, about 140 MB),
+  # prepares it once (needs a few GB RAM for several minutes) and serves OSRM on :5000.
+  # Without it the site profile falls back to labelled straight-line distances.
+  osrm-download:
+    profiles: ["routing"]
+    image: curlimages/curl:8.22.0
+    user: root
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >-
+        [ -s /data/region.osm.pbf ] || { curl -fsSL --retry 3 -o /data/region.osm.pbf.part
+        https://download.openstreetmap.fr/extracts/asia/india/madhya_pradesh.osm.pbf
+        && mv /data/region.osm.pbf.part /data/region.osm.pbf; }
+    volumes: [osrmdata:/data]
+    restart: "no"
+
+  osrm-prepare:
+    profiles: ["routing"]
+    image: ghcr.io/project-osrm/osrm-backend:v5.27.1
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - >-
+        [ -f /data/region.osrm.mldgr ] || (osrm-extract -p /opt/car.lua /data/region.osm.pbf
+        && osrm-partition /data/region.osrm && osrm-customize /data/region.osrm)
+    volumes: [osrmdata:/data]
+    depends_on: { osrm-download: { condition: service_completed_successfully } }
+    restart: "no"
+
+  osrm:
+    profiles: ["routing"]
+    image: ghcr.io/project-osrm/osrm-backend:v5.27.1
+    command: ["osrm-routed", "--algorithm", "mld", "--max-table-size", "50", "/data/region.osrm"]
+    volumes: [osrmdata:/data]
+    depends_on: { osrm-prepare: { condition: service_completed_successfully } }
+    deploy: { resources: { limits: { memory: 2g } } }
+    restart: unless-stopped
+
 volumes:
   pgdata: {}
   s3data: {}
   caddy_data: {}
   caddy_config: {}
+  osrmdata: {}

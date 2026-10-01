@@ -1,6 +1,7 @@
 """Public entry point of the parcel module: save, read and measure a farm's plot."""
 
 import uuid
+from dataclasses import dataclass
 from typing import Any
 
 from geoalchemy2.shape import to_shape
@@ -134,3 +135,36 @@ async def save_from_measurements(
 
 async def parcel_exists(session: AsyncSession, farm_id: uuid.UUID) -> bool:
     return await repo.get_for_farm(session, farm_id) is not None
+
+
+@dataclass(frozen=True)
+class ParcelSummary:
+    lat: float
+    lng: float
+    area_sqm: float
+
+
+async def parcel_summary(session: AsyncSession, farm_id: uuid.UUID) -> ParcelSummary | None:
+    parcel = await repo.get_for_farm(session, farm_id)
+    if parcel is None:
+        return None
+    centre = to_shape(parcel.boundary).centroid
+    return ParcelSummary(lat=centre.y, lng=centre.x, area_sqm=float(parcel.area_sqm))
+
+
+async def set_site_options(
+    session: AsyncSession,
+    farm_id: uuid.UUID,
+    *,
+    soil_type: str | None = None,
+    drainage: str | None = None,
+    slope_dir: str | None = None,
+) -> None:
+    """Copy confirmed site facts onto the parcel, which the design engine reads."""
+    parcel = await repo.get_for_farm(session, farm_id)
+    if parcel is None:
+        return
+    for name, value in (("soil_type", soil_type), ("drainage", drainage), ("slope_dir", slope_dir)):
+        if value is not None:
+            setattr(parcel, name, value)
+    await session.flush()

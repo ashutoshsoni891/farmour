@@ -11,13 +11,14 @@ import { Screen } from "../components/Screen";
 import type { Lang } from "../i18n";
 import { FEET_PER_METRE, formatArea } from "../lib/format";
 import type { UnitPref } from "../lib/format";
+import { FoundStep } from "./FoundStep";
 import { PlotMap } from "./PlotMap";
 import type { PlotShape } from "./PlotMap";
 
 type Farm = components["schemas"]["FarmOut"];
 type Parcel = components["schemas"]["ParcelOut"];
-type StepId = "where" | "plot" | "about";
-const STEPS: StepId[] = ["where", "plot", "about"];
+type StepId = "where" | "plot" | "found" | "about";
+const STEPS: StepId[] = ["where", "plot", "found", "about"];
 const INDORE: [number, number] = [75.8577, 22.7196];
 
 /** Text for an API error body, filling in numbers such as the minimum plot size. */
@@ -84,6 +85,7 @@ function WhereStep() {
   const [siteType, setSiteType] = useState<"ground" | "terrace" | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
+  const [resolving, setResolving] = useState(false);
   const api = apiClient(token);
 
   const search = async () => {
@@ -100,13 +102,21 @@ function WhereStep() {
     setPin([lng, lat]);
     setCenter([lng, lat]);
     setResults(null);
-    if (known) return setPlace(known);
-    setPlace({});
+    setPlace(known ?? {});
+    setResolving(true);
+    // The district is looked up in English whatever the display language: the region table
+    // is keyed by the English district name ("Indore"), not "इन्दौर ज़िला".
     const { data } = await api.GET("/api/v1/geo/reverse", {
-      params: { query: { lat, lng, lang } },
+      params: { query: { lat, lng, lang: "en" } },
     });
-    if (data)
-      setPlace({ name: data.name, village: data.village ?? "", district: data.district ?? "" });
+    setResolving(false);
+    if (data) {
+      setPlace((p) => ({
+        name: p.name ?? data.name,
+        village: p.village || data.village || "",
+        district: data.district ?? p.district ?? "",
+      }));
+    }
   };
 
   const next = async () => {
@@ -200,7 +210,7 @@ function WhereStep() {
       )}
       <button
         type="button"
-        disabled={!pin || !siteType || busy}
+        disabled={!pin || !siteType || busy || resolving}
         onClick={() => void next()}
         className={primary}
       >
@@ -514,7 +524,7 @@ function Existing({ farmId }: { farmId: string }) {
       ).data ?? null,
   });
   if (!farm.data || parcel.isPending) return <p role="status">{t("common.loading")}</p>;
-  const step = (params.get("step") as StepId | null) ?? (parcel.data ? "about" : "plot");
+  const step = (params.get("step") as StepId | null) ?? (parcel.data ? "found" : "plot");
   return (
     <>
       {step === "plot" && (
@@ -525,15 +535,18 @@ function Existing({ farmId }: { farmId: string }) {
         />
       )}
       {step === "plot" && parcel.data && (
-        <button type="button" onClick={() => setParams({ step: "about" })} className={primary}>
+        <button type="button" onClick={() => setParams({ step: "found" })} className={primary}>
           {t("setup.next")}
         </button>
+      )}
+      {step === "found" && (
+        <FoundStep farmId={farmId} onDone={() => setParams({ step: "about" })} />
       )}
       {step === "about" && <AboutStep farm={farm.data} />}
       {step === "about" && (
         <button
           type="button"
-          onClick={() => setParams({ step: "plot" })}
+          onClick={() => setParams({ step: "found" })}
           className="self-start text-lg font-semibold text-green-800 underline"
         >
           {t("setup.back")}

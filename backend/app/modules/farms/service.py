@@ -3,6 +3,7 @@
 import hashlib
 import secrets
 import uuid
+from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -27,9 +28,11 @@ from app.modules.farms.schemas import (
 from app.modules.identity.schemas import Principal
 
 __all__ = [
+    "FarmLocation",
     "Membership",
     "create_farm",
     "delete_farm",
+    "farm_location",
     "get_farm",
     "invite_caretaker",
     "list_members",
@@ -184,3 +187,24 @@ async def invite_caretaker(session: AsyncSession, m: Membership, data: InviteCre
         expires_at=invite.expires_at,
         invite_url=url,
     )
+
+
+@dataclass(frozen=True)
+class FarmLocation:
+    farm_id: uuid.UUID
+    lat: float
+    lng: float
+    district: str | None
+    village: str | None
+    site_type: str | None
+
+
+async def farm_location(session: AsyncSession, farm_id: uuid.UUID) -> FarmLocation | None:
+    """Where a farm is, for background jobs (no membership check: callers are trusted jobs)."""
+    farm = await repo.get_farm(session, farm_id)
+    if farm is None or farm.lat is None or farm.lng is None:
+        return None
+    return FarmLocation(
+        farm_id=farm.id, lat=float(farm.lat), lng=float(farm.lng), district=farm.district,
+        village=farm.village, site_type=farm.site_type,
+    )  # fmt: skip

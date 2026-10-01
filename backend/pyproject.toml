@@ -50,6 +50,9 @@ select = ["E", "F", "W", "I", "B", "UP", "S", "ASYNC", "RUF", "SIM", "PT"]
 ignore = ["B008"]  # FastAPI Depends() in defaults
 
 [tool.ruff.lint.per-file-ignores]
+"app/adapters/sitedata/*" = ["E501"]  # table-like fact lists
+"app/adapters/routing/*" = ["E501"]
+"app/modules/site/service.py" = ["E501"]  # table-like fact assembly
 "scripts/dev_login.py" = ["S", "E501"]  # local dev helper only
 "tests/**" = ["S101", "S105", "S106"]
 "app/modules/*/tests/**" = ["S101", "S105", "S106"]
@@ -121,3 +124,9 @@ name = "Module parcel owns its tables"
 type = "protected"
 protected_modules = ["app.modules.parcel.repository", "app.modules.parcel.models"]
 allowed_importers = ["app.modules.parcel"]
+
+[[tool.importlinter.contracts]]
+name = "Module site owns its tables"
+type = "protected"
+protected_modules = ["app.modules.site.repository", "app.modules.site.models"]
+allowed_importers = ["app.modules.site"]

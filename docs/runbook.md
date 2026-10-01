@@ -19,6 +19,14 @@
 admin console to http://127.0.0.1:8081/auth/admin (user `KEYCLOAK_ADMIN_USER`). Neither is
 reachable through Caddy.
 
+## Optional: road routing and mandi prices
+- `docker compose --env-file ~/.farm-local.env -f deploy/docker-compose.yml --profile routing up -d osrm`
+  downloads and prepares the Madhya Pradesh map once (several minutes, a few GB of RAM; pause
+  other services if memory is tight), then serves OSRM. Without it distances are estimates.
+- Mandi prices: set `DATA_GOV_IN_API_KEY` in `.env`, restart `api worker beat`, then
+  `docker exec farm-api-1 python -m app.cli ingest-mandi` (also runs daily at 06:30 IST).
+- `python -m app.cli load-site-data` (district -> region) and `build-site-profile <farm_id>`.
+
 ## Everyday
 - `make check` — lint, types, all tests (integration tests start a Postgres container).
 - `make test-unit` — fast tests without Docker. `make e2e` — Playwright at mobile width.

@@ -502,6 +502,47 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/farms/{farm_id}/site-profile": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Profile
+         * @description Facts found for the land, each with source, date and confidence.
+         */
+        get: operations["get_profile_api_v1_farms__farm_id__site_profile_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        /**
+         * Answer
+         * @description Looks right (confirm), Change (edit) or Not sure (reject). The owner's answer always wins.
+         */
+        patch: operations["answer_api_v1_farms__farm_id__site_profile_patch"];
+        trace?: never;
+    };
+    "/api/v1/farms/{farm_id}/site-profile/refresh": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** Refresh */
+        post: operations["refresh_api_v1_farms__farm_id__site_profile_refresh_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/geo/search": {
         parameters: {
             query?: never;
@@ -615,6 +656,40 @@ export interface components {
              * @default false
              */
             revoke_sessions: boolean;
+        };
+        /** Answer */
+        Answer: {
+            /** Key */
+            key: string;
+            /**
+             * Action
+             * @enum {string}
+             */
+            action: "confirm" | "edit" | "reject";
+            /** Value */
+            value?: unknown;
+        };
+        /** AnswerBatch */
+        AnswerBatch: {
+            /** Items */
+            items: components["schemas"]["Answer"][];
+        };
+        /** BuildOut */
+        BuildOut: {
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "none" | "running" | "done" | "failed";
+            /** Finished At */
+            finished_at?: string | null;
+            /**
+             * Sources
+             * @default {}
+             */
+            sources: {
+                [key: string]: unknown;
+            };
         };
         /** CompanionIn */
         CompanionIn: {
@@ -980,6 +1055,38 @@ export interface components {
             source_notes?: string | null;
             /** Todo */
             todo?: string[] | null;
+        };
+        /** FactOut */
+        FactOut: {
+            /** Key */
+            key: string;
+            /**
+             * Group
+             * @enum {string}
+             */
+            group: "region" | "soil_land" | "climate" | "water" | "markets" | "nearby";
+            /** Value */
+            value: unknown;
+            /** Unit */
+            unit: string | null;
+            /** Source */
+            source: string;
+            /** Method */
+            method: string | null;
+            /** Confidence */
+            confidence: number;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "derived" | "confirmed" | "edited" | "rejected";
+            /**
+             * Fetched At
+             * Format: date-time
+             */
+            fetched_at: string;
+            /** Attribution */
+            attribution: string | null;
         };
         /** FarmCreate */
         FarmCreate: {
@@ -1487,6 +1594,16 @@ export interface components {
             district: string | null;
             /** State */
             state: string | null;
+        };
+        /** ProfileOut */
+        ProfileOut: {
+            build: components["schemas"]["BuildOut"];
+            /** Facts */
+            facts: components["schemas"]["FactOut"][];
+            /** Questions */
+            questions: string[];
+            /** Attributions */
+            attributions: string[];
         };
         /** RecipeCreate */
         RecipeCreate: {
@@ -2963,6 +3080,103 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ParcelOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_profile_api_v1_farms__farm_id__site_profile_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfileOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    answer_api_v1_farms__farm_id__site_profile_patch: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AnswerBatch"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ProfileOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    refresh_api_v1_farms__farm_id__site_profile_refresh_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            202: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown;
                 };
             };
             /** @description Validation Error */

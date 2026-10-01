@@ -9,7 +9,8 @@ import app.core.models
 import app.modules.farms.models
 import app.modules.identity.models
 import app.modules.library.models
-import app.modules.parcel.models  # noqa: F401
+import app.modules.parcel.models
+import app.modules.site.models  # noqa: F401
 from app.config import get_config
 from app.db.base import Base
 

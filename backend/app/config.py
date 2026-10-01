@@ -45,6 +45,12 @@ class Config(BaseSettings):
     token_verifier_adapter: str = "keycloak"  # noqa: S105 — adapter name, not a secret
     channel_adapter: str = "fake"  # telegram arrives in M5
     geocode_adapter: str = "nominatim"
+    routing_adapter: str = "osrm"
+    osrm_url: str = "http://osrm:5000"
+    # Comma list of site data sources; "none" switches all off (the wizard then asks questions).
+    site_sources: str = "open_meteo,open_meteo_dem,soilgrids,osm_places"
+    mandi_adapter: str = "data_gov_in"
+    data_gov_in_api_key: SecretStr = SecretStr("")
     nominatim_url: str = "https://nominatim.openstreetmap.org"
     # Nominatim policy: identify the application and give a contact. Set a real one in .env.
     geocoder_user_agent: str = "farmour/0.1 (farm planning app; contact: set GEOCODER_USER_AGENT)"

@@ -9,6 +9,32 @@ Record every structural choice: context, decision, consequences. Newest first. T
 
 ---
 
+## 2026-10-02 — M2b site intelligence choices
+- **Flow:** saving a parcel publishes `parcel.saved`; the outbox subscriber only enqueues a Celery
+  task (`site.build_profile`, via `app/core/queue.py`, so modules never import the jobs layer). The
+  worker runs the sources in parallel with a 20 s budget (3 s kept for local lookups and routing),
+  caches results per 0.01° cell and source in `geo_cache`, and never overwrites a fact the owner
+  confirmed or edited. Facts keep source, method, date, confidence and attribution.
+- **Sources now:** Open-Meteo (10-year climate normals; elevation + slope from 5 points ~90 m
+  apart, low confidence for plots smaller than the DEM cell), SoilGrids (texture, pH, organic
+  carbon; texture and the extras are separate requests because the extras are slow; the public API
+  allows about 5 calls/minute, so the cell cache matters), OpenStreetMap via Overpass (input shops,
+  nurseries, cold storage; low confidence), a curated district -> region table (Malwa districts),
+  and self-hosted OSRM for road distance to Indore and to the 3 nearest mandis.
+- **Honest gaps:** groundwater class has a table but no data yet (no cited CGWB figures; the row
+  stays absent, never guessed); mandi prices need `DATA_GOV_IN_API_KEY` (ingest is skipped without
+  it); when OSRM is down distances are labelled "estimated, straight line x 1.3" (setting
+  `site.road_factor`); no `schemes` table, no WorldCover, no transport-rate (spec gives no value).
+- **Soil/drainage questions:** asked only when soil is missing or low confidence (below
+  `site.low_confidence`, 0.5), and drainage only when soil is clay/black or unknown. Answers are
+  copied onto the parcel for the design engine.
+- **Routing:** OSRM runs from the openstreetmap.fr Madhya Pradesh extract (~140 MB). The Geofabrik
+  Central Zone file (~350 MB) ran out of memory on an 7.5 GB Docker host while building the graph.
+  Optional compose profile `routing`; first prepare takes several minutes.
+- **District lookup:** the wizard always resolves the district in English ("Indore"), because Hindi
+  place search returns "इन्दौर ज़िला", which cannot match the region table.
+- **Schedule:** daily mandi ingest at 06:30 IST; a few new mandis are geocoded per run (Nominatim).
+
 ## 2026-10-01 — M2a setup wizard choices
 - **Lean wizard (3 steps now, site-data card in M2b):** where (search or pin + ground/terrace) →
   plot size (type length × width, draw on map, or four sides + diagonal) → three taps (water,

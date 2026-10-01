@@ -1,0 +1,6 @@
+{
+  "note": "Curated district -> region lookup. Malwa plateau districts of Madhya Pradesh; agronomist to review the list.",
+  "state": "Madhya Pradesh",
+  "region": "malwa",
+  "districts": ["Indore", "Dewas", "Ujjain", "Dhar", "Ratlam", "Mandsaur", "Neemuch", "Shajapur", "Rajgarh", "Agar Malwa"]
+}

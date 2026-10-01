@@ -5,6 +5,7 @@ import importlib.util
 import pkgutil
 
 from celery import Celery
+from celery.schedules import crontab
 
 import app.modules
 from app.config import get_config
@@ -26,7 +27,9 @@ def load_event_subscribers() -> list[str]:
 
 
 cfg = get_config()
-celery = Celery("farm", broker=cfg.valkey_url, backend=None, include=["app.jobs.outbox"])
+celery = Celery(
+    "farm", broker=cfg.valkey_url, backend=None, include=["app.jobs.outbox", "app.jobs.site"]
+)
 celery.conf.update(
     task_default_queue="default",
     task_acks_late=True,
@@ -35,6 +38,11 @@ celery.conf.update(
     enable_utc=True,
     beat_schedule={
         "deliver-outbox": {"task": "outbox.deliver", "schedule": 5.0},
+        # Daily mandi prices at 06:30 IST (the app timezone); skipped when no API key is set.
+        "ingest-mandi-prices": {
+            "task": "site.ingest_mandi_prices",
+            "schedule": crontab(hour=6, minute=30),
+        },
     },
 )
 load_event_subscribers()
