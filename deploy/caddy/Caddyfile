@@ -34,7 +34,7 @@
 
 	handle {
 		# Our policy applies to the app pages only; Keycloak sets its own.
-		header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://tile.googleapis.com https://maps.gstatic.com; font-src 'self'; connect-src 'self' https://tiles.openfreemap.org https://tile.googleapis.com; worker-src 'self' blob:; child-src blob:; frame-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+		header Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tiles.openfreemap.org https://tile.googleapis.com https://maps.gstatic.com https://services.arcgisonline.com; font-src 'self'; connect-src 'self' https://tiles.openfreemap.org https://tile.googleapis.com https://services.arcgisonline.com; worker-src 'self' blob:; child-src blob:; frame-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
 		root * /srv
 		try_files {path} /index.html
 		file_server

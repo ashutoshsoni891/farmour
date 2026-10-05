@@ -160,6 +160,7 @@ services:
       args:
         VITE_KEYCLOAK_URL: ${APP_BASE_URL}/auth
         VITE_GOOGLE_MAPS_KEY: ${GOOGLE_MAPS_KEY:-}
+        VITE_DEV_IMAGERY: ${DEV_IMAGERY:-}
     environment:
       SITE_ADDRESS: ${SITE_ADDRESS:-http://localhost}
     ports: ["80:80", "443:443"]

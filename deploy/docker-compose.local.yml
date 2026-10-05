@@ -1,6 +1,10 @@
 # Local-only additions: bind Postgres and the Keycloak admin console to 127.0.0.1 for dev tools.
 # Never used on staging or prod.
 services:
+  caddy:
+    build:
+      args:
+        VITE_DEV_IMAGERY: esri
   postgres:
     ports: ["127.0.0.1:5432:5432"]
   keycloak:

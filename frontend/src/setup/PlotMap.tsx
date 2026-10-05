@@ -1,7 +1,9 @@
 import area from "@turf/area";
 import kinks from "@turf/kinks";
 import {
+  FullscreenControl,
   GeolocateControl,
+  ScaleControl,
   Map as MapLibreMap,
   Marker,
   NavigationControl,
@@ -15,6 +17,7 @@ import { TerraDraw, TerraDrawPolygonMode, TerraDrawSelectMode } from "terra-draw
 import { TerraDrawMapLibreGLAdapter } from "terra-draw-maplibre-gl-adapter";
 
 import { googleCredit, googleSatelliteEnabled, googleSession, googleTileUrl } from "./googleTiles";
+import { ESRI_CREDIT, ESRI_TILES, satelliteAvailable } from "./imagery";
 
 export type PlotGeometry = { type: "Polygon"; coordinates: number[][][] };
 export interface PlotShape {
@@ -69,7 +72,8 @@ export function PlotMap({
   const initialRef = useRef(initial);
   const { i18n } = useTranslation();
   const lang = (i18n.language === "en" ? "en" : "hi") as "hi" | "en";
-  const [satellite, setSatellite] = useState(googleSatelliteEnabled);
+  const [satellite, setSatellite] = useState(satelliteAvailable);
+  const [provider, setProvider] = useState<"google" | "esri" | null>(null);
   const [credit, setCredit] = useState("");
   useEffect(() => {
     onPinRef.current = onPin;
@@ -90,6 +94,8 @@ export function PlotMap({
       attributionControl: { compact: true },
     });
     map.addControl(new NavigationControl({ showCompass: false }), "top-right");
+    map.addControl(new FullscreenControl(), "top-right");
+    map.addControl(new ScaleControl({ unit: "metric" }), "bottom-right");
     map.addControl(
       new GeolocateControl({
         positionOptions: { enableHighAccuracy: true },
@@ -126,7 +132,7 @@ export function PlotMap({
         onPinRef.current?.(p.lng, p.lat);
       });
       markerRef.current = marker;
-      map.easeTo({ center: pin, zoom: Math.max(map.getZoom(), 16), duration: 400 });
+      map.easeTo({ center: pin, zoom: Math.max(map.getZoom(), 18), duration: 400 });
     }
   }, [pin]);
 
@@ -259,9 +265,24 @@ export function PlotMap({
       remove();
       setCredit("");
       if (!satellite) return;
-      const session = await googleSession(lang);
+      const session = googleSatelliteEnabled ? await googleSession(lang) : null;
       if (cancelled) return;
-      if (!session) return setSatellite(false); // fall back to the street map quietly
+      if (!session && !satelliteAvailable) return setSatellite(false);
+      if (!session) {
+        // Development imagery (Esri). Past zoom 19 it is stretched rather than blank.
+        setProvider("esri");
+        setCredit(ESRI_CREDIT);
+        map.addSource("satellite", {
+          type: "raster",
+          tiles: [ESRI_TILES],
+          tileSize: 256,
+          maxzoom: 19,
+        });
+        const firstLabel = map.getStyle().layers.find((l) => l.type === "symbol")?.id;
+        map.addLayer({ id: "satellite", type: "raster", source: "satellite" }, firstLabel);
+        return;
+      }
+      setProvider("google");
       map.addSource("satellite", {
         type: "raster",
         tiles: [googleTileUrl(session)],
@@ -303,7 +324,7 @@ export function PlotMap({
         ref={box}
         className={`${tall ? "h-[60vh]" : "h-80"} w-full overflow-hidden rounded-xl border-2 border-neutral-300`}
       />
-      {googleSatelliteEnabled && (
+      {satelliteAvailable && (
         <button
           type="button"
           onClick={() => setSatellite((s) => !s)}
@@ -314,11 +335,13 @@ export function PlotMap({
       )}
       {satellite && (
         <div className="pointer-events-none absolute bottom-1 left-2 flex max-w-[70%] items-center gap-2">
-          <img
-            src="https://maps.gstatic.com/mapfiles/api-3/images/google_white5.png"
-            alt="Google"
-            className="h-4"
-          />
+          {provider === "google" && (
+            <img
+              src="https://maps.gstatic.com/mapfiles/api-3/images/google_white5.png"
+              alt="Google"
+              className="h-4"
+            />
+          )}
           {credit && <span className="truncate text-[11px] text-white drop-shadow">{credit}</span>}
         </div>
       )}

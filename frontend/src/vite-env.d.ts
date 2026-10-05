@@ -5,4 +5,5 @@ interface ImportMetaEnv {
   readonly VITE_KEYCLOAK_REALM?: string;
   readonly VITE_KEYCLOAK_CLIENT_ID?: string;
   readonly VITE_GOOGLE_MAPS_KEY?: string;
+  readonly VITE_DEV_IMAGERY?: string;
 }
