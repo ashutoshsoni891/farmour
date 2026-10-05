@@ -88,8 +88,10 @@ services:
     # Idempotent: an existing bucket counts as success.
     command:
       - >-
+        for i in 1 2 3 4 5 6 7 8 9 10; do
         out=$$(echo 's3.bucket.create -name ${S3_BUCKET:-farm-files}' | weed shell -master=seaweedfs:9333 2>&1);
-        echo "$$out"; echo "$$out" | grep -qE 'created bucket|already exists'
+        echo "$$out" | grep -qE 'created bucket|already exists' && { echo ok; exit 0; };
+        sleep 3; done; echo "$$out"; exit 1
     restart: "no"
 
   keycloak:
