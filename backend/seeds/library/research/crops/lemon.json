@@ -1,0 +1,76 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 5,
+  "years_to_bear": 3,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 2.5,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_acidlime.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "Healthy seedlings are planted during June to December at 5 to 6 m spacing",
+        "note": "Acid lime (kagzi nimbu), the common Indian lime.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_acidlime.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "Healthy seedlings are planted during June to December at 5 to 6 m spacing",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_acidlime.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "The crop starts bearing from 3rd year after planting",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_acidlime.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "After establishment of the crop, irrigation is given at 7 – 10 days interval.",
+        "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_acidlime.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "The crop yields about 25 t/ha/year",
+        "note": "25 t/ha = 2.5 kg/m² of orchard (a bearing orchard).",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Batch 4 (trees, border and flowers). Planting windows are the source's months (Tamil Nadu or Kerala) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "12-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_acidlime.html",
+            "title": "TNAU Agritech Portal, fruit crops",
+            "quote": "Healthy seedlings are planted during June to December at 5 to 6 m spacing",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  }
+}

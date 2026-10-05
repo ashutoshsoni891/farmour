@@ -1,0 +1,66 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 5,
+  "years_to_bear": 2,
+  "water_need": "low",
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_guava.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "The planting is distributed from June - December.",
+        "note": "A perennial tree; planting months.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_guava.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "A spacing 5 - 6m in either way is generally followed.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_guava.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "Layers come to bearing in 2 - 3 years",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_guava.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "afterwards once in 10 days or as and when necessary",
+        "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Batch 4 (trees, border and flowers). Planting windows are the source's months (Tamil Nadu or Kerala) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "12-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_guava.html",
+            "title": "TNAU Agritech Portal, fruit crops",
+            "quote": "The planting is distributed from June - December.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  }
+}

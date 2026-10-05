@@ -1,0 +1,57 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 9,
+  "water_need": "medium",
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://celkau.in/crops/fruits/Mango/climate.php",
+        "title": "Kerala Agricultural University, fruit crop package (climate)",
+        "quote": "Plant with the onset of monsoon showers",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://celkau.in/crops/fruits/Mango/seedspacing.php",
+        "title": "Kerala Agricultural University, fruit crop package (seedspacing)",
+        "quote": "Square method of planting/ Hexagonal method of planting 9 m x 9 m",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://celkau.in/crops/fruits/Mango/aftercultivation.php",
+        "title": "Kerala Agricultural University, fruit crop package (aftercultivation)",
+        "quote": "Irrigate twice a week during summer months till the plants are 4-5 years old.",
+        "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Batch 4 (trees, border and flowers). Planting windows are the source's months (Tamil Nadu or Kerala) until a Malwa source is found. Years to first fruit not found in a checkable source yet.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "07-01",
+          "to": "09-30",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://celkau.in/crops/fruits/Mango/climate.php",
+            "title": "Kerala Agricultural University, fruit crop package (climate)",
+            "quote": "Plant with the onset of monsoon showers",
+            "note": "Monsoon planting, read as July to September.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  }
+}

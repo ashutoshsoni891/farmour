@@ -733,6 +733,52 @@
    "category": "green_manure",
    "layers": [],
    "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "chrysanthemum",
+   "name_en": "Chrysanthemum",
+   "name_hi": "गुलदाउदी",
+   "scientific_name": "Chrysanthemum morifolium",
+   "family": "asteraceae",
+   "category": "flower",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Agronomy values come from cited research files or an agronomist."
+  },
+  {
+   "slug": "tuberose",
+   "name_en": "Tuberose",
+   "name_hi": "रजनीगंधा",
+   "scientific_name": "Agave amica (Polianthes tuberosa)",
+   "family": "asparagaceae",
+   "category": "flower",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Agronomy values come from cited research files or an agronomist."
+  },
+  {
+   "slug": "gladiolus",
+   "name_en": "Gladiolus",
+   "name_hi": "ग्लेडियोलस",
+   "scientific_name": "Gladiolus spp.",
+   "family": "iridaceae",
+   "category": "flower",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Agronomy values come from cited research files or an agronomist."
+  },
+  {
+   "slug": "rose",
+   "name_en": "Rose",
+   "name_hi": "गुलाब",
+   "scientific_name": "Rosa spp.",
+   "family": "rosaceae",
+   "category": "flower",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Agronomy values come from cited research files or an agronomist."
   }
  ]
 }

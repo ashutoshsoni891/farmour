@@ -14,19 +14,19 @@ IDENTITY_FIELDS = {
     "source_notes", "todo", "sources", "regional", "unit_to_kg",
 }  # fmt: skip
 
-CROP_ALWAYS = ["family", "seasons", "sun", "water_need"]
+# Required before review = what the design engine actually uses (decision 2026-10-06). Sun, height
+# and canopy are welcome but optional: trees go in the open north strip and spacing drives layout.
+CROP_ALWAYS = ["family", "seasons", "water_need"]
 CROP_BED = [
-    "days_to_first_harvest",
-    "harvest_span_days",
-    "spacing_plant_cm",
-    "height_max_cm",
-    "expected_yield_kg_per_sqm",
-    "waterlogging_tolerant",
-]  # fmt: skip  (terrace_ok no longer required: terraces are out of scope, decision 2026-10-05)
-CROP_TREE = ["tree_spacing_m", "canopy_diameter_m", "years_to_bear", "height_max_cm"]
+    "days_to_first_harvest", "harvest_span_days", "spacing_plant_cm",
+    "expected_yield_kg_per_sqm", "waterlogging_tolerant",
+]  # fmt: skip
+CROP_TREE = ["tree_spacing_m", "years_to_bear"]
+CROP_BORDER = ["spacing_plant_cm"]
 CROP_FIELD = ["days_to_first_harvest", "spacing_row_cm", "spacing_plant_cm",
               "expected_yield_kg_per_sqm"]  # fmt: skip
-TREE_CATEGORIES = {"fruit_tree"}
+TREE_CATEGORIES = {"fruit_tree", "fruit_short"}
+BORDER_CATEGORIES = {"border"}
 
 
 def _empty(v: Any) -> bool:
@@ -42,6 +42,8 @@ def crop_missing(data: dict[str, Any], region_slug: str) -> list[str]:
     required = list(CROP_ALWAYS)
     if data.get("category") in TREE_CATEGORIES:
         required += CROP_TREE
+    elif data.get("category") in BORDER_CATEGORIES:
+        required += CROP_BORDER
     elif data.get("layers"):
         required += CROP_BED
     else:

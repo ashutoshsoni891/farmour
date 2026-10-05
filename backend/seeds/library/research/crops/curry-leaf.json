@@ -1,0 +1,56 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "spacing_plant_cm": 120,
+  "days_to_first_harvest": 300,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.54,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_curry%20leaf.html",
+        "title": "TNAU Agritech Portal: curry leaf",
+        "quote": "One year old seedlings are suitable for planting.",
+        "note": "Perennial bush.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_curry%20leaf.html",
+        "title": "TNAU Agritech Portal: curry leaf",
+        "quote": "at a spacing of 1.2 to 1.5 m",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_curry%20leaf.html",
+        "title": "TNAU Agritech Portal: curry leaf",
+        "quote": "Ten to twelve months after planting the first harvest starts.",
+        "note": "10 months = 300 days.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_curry%20leaf.html",
+        "title": "TNAU Agritech Portal: curry leaf",
+        "quote": "then the irrigation is given once in a week",
+        "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_curry%20leaf.html",
+        "title": "TNAU Agritech Portal: curry leaf",
+        "quote": "III year : Yield 5400 kg/ha",
+        "note": "Third-year leaf yield 5400 kg/ha = 0.54 kg/m²; it rises in later years.",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Border/hedge plant (batch 4). No planting months in the source."
+}

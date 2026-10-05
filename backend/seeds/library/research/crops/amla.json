@@ -1,0 +1,66 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 6,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 2.7,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_amla.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "Planting is done during July-August with a spacing of 6 x 6 m",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_amla.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "Planting is done during July-August with a spacing of 6 x 6 m",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_amla.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "No irrigation is required during rainy and winter season.",
+        "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_amla.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "The crop yields about 100 kg/tree annually.",
+        "note": "100 kg per tree on 6 m x 6 m = 2.7 kg/m².",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Batch 4 (trees, border and flowers). Planting windows are the source's months (Tamil Nadu or Kerala) until a Malwa source is found. Years to first fruit not found in a checkable source yet.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "07-01",
+          "to": "08-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_amla.html",
+            "title": "TNAU Agritech Portal, fruit crops",
+            "quote": "Planting is done during July-August with a spacing of 6 x 6 m",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  }
+}

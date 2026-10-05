@@ -1,0 +1,46 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 5,
+  "years_to_bear": 2,
+  "water_need": "low",
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_minorfruits.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "Balanagar, Mammoth, Atemoya, APK-1 5 x 5 m",
+        "note": "Perennial tree; no planting months in this source.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_minorfruits.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "Balanagar, Mammoth, Atemoya, APK-1 5 x 5 m",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/view/126236",
+        "title": "ICAR Indian Horticulture: Thar Amrit custard apple",
+        "quote": "Thar Amrit variety of Custard apple is precocious, regular bearer, and starts bearing in 2nd year.",
+        "note": "One early variety; others may take longer.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/view/126236",
+        "title": "ICAR Indian Horticulture: Thar Amrit custard apple",
+        "quote": "under rainfed semi-arid conditions of western India",
+        "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Batch 4 (trees, border and flowers). Planting windows are the source's months (Tamil Nadu or Kerala) until a Malwa source is found. No planting months in the sources."
+}

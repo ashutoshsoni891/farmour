@@ -1,0 +1,106 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 60,
+  "harvest_span_days": 120,
+  "spacing_row_cm": 30,
+  "spacing_plant_cm": 30,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 2.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20chrysanthemum.html",
+        "title": "TNAU Agritech Portal, flower crops",
+        "quote": "Planting during June - July at 30 x 30 cm spacing",
+        "note": "June-July planting = kharif.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20chrysanthemum.html",
+        "title": "TNAU Agritech Portal, flower crops",
+        "quote": "Harvesting of the flowers starts from 3rd month onwards at 4 days intervals.",
+        "note": "Start of the 3rd month = about 60 days.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20chrysanthemum.html",
+        "title": "TNAU Agritech Portal, flower crops",
+        "quote": "The duration is 6 - 8 months for plant crop",
+        "note": "6 months (180 days) - 60 = 120 days of picking.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20chrysanthemum.html",
+        "title": "TNAU Agritech Portal, flower crops",
+        "quote": "Planting during June - July at 30 x 30 cm spacing",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20chrysanthemum.html",
+        "title": "TNAU Agritech Portal, flower crops",
+        "quote": "Planting during June - July at 30 x 30 cm spacing",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20chrysanthemum.html",
+        "title": "TNAU Agritech Portal, flower crops",
+        "quote": "Irrigation is done twice a week in the first month and subsequently at weekly intervals.",
+        "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20chrysanthemum.html",
+        "title": "TNAU Agritech Portal, flower crops",
+        "quote": "Well drained red loamy soil with pH of 6 to 7.",
+        "note": "Needs well-drained soil (interpreted).",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20chrysanthemum.html",
+        "title": "TNAU Agritech Portal, flower crops",
+        "quote": "An average yield of 20 t/ha from plant crop",
+        "note": "20 t/ha = 2.0 kg/m² of flowers.",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Batch 4 (trees, border and flowers). Planting windows are the source's months (Tamil Nadu or Kerala) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_commercial%20chrysanthemum.html",
+            "title": "TNAU Agritech Portal, flower crops",
+            "quote": "Planting during June - July at 30 x 30 cm spacing",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  }
+}

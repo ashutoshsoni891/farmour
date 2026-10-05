@@ -1,0 +1,80 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 10,
+  "years_to_bear": 6,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.6,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_jamun.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "can be planted both in spring i.e. February -March and the monsoon season i.e. July-August.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_jamun.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "Pits of 1 x 1 x 1 m size are dug at the distance of 10m both ways.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_jamun.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "grafted or budded trees come into bearing in 6 to 7 years",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_jamun.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "Young trees require 8 to 10 irrigations in a year.",
+        "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_jamun.html",
+        "title": "TNAU Agritech Portal, fruit crops",
+        "quote": "from a grafted one 60 to 70 kg per year",
+        "note": "60 kg per tree on 10 m x 10 m = 0.6 kg/m².",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Batch 4 (trees, border and flowers). Planting windows are the source's months (Tamil Nadu or Kerala) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "02-01",
+          "to": "03-31",
+          "method": "transplant"
+        },
+        {
+          "from": "07-01",
+          "to": "08-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_jamun.html",
+            "title": "TNAU Agritech Portal, fruit crops",
+            "quote": "can be planted both in spring i.e. February -March and the monsoon season i.e. July-August.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  }
+}
