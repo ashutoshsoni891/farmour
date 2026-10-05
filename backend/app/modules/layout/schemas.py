@@ -4,7 +4,7 @@ import uuid
 from datetime import date, datetime
 from typing import Any, Literal
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, Field
 
 PlanStatus = Literal["draft", "active", "archived"]
 
@@ -67,6 +67,10 @@ class PlanWarning(BaseModel):
 
 class PlanOut(BaseModel):
     id: uuid.UUID
+    option: str | None
+    custom: bool = False  # the owner resized land uses, changed bed size or swapped a crop
+    bed_size: str = "standard"
+    share_delta: dict[str, int] = {}  # owner's change to the option's land use, in points
     farm_id: uuid.UUID
     version: int
     status: PlanStatus
@@ -85,3 +89,64 @@ class PlanOut(BaseModel):
     path_width_m: float | None = None
     machan_guide: list[dict[str, Any]] = []
     created_at: datetime
+
+
+Level = Literal["low", "medium", "high"]
+
+
+class OptionMetrics(BaseModel):
+    beds: int
+    bed_area_sqm: float
+    crops_total: int
+    crops_min_season: int
+    harvest_kg: float
+    water_index: float  # relative: bed area x water need x days in the ground
+    work_index: float  # relative: bed area x days under crops (sowing, care, picking)
+    plantings: int = 0
+
+
+class OptionOut(BaseModel):
+    plan_id: uuid.UUID
+    option: str
+    status: PlanStatus
+    custom: bool
+    recommended: bool
+    suits: list[str]  # why it suits this farm: "goal", "labour", "water"
+    metrics: OptionMetrics
+    levels: dict[str, Level]  # harvest, water, work compared across the options
+    land_use: dict[str, float]  # zone kind -> share of the plot (0-1)
+
+
+class OptionsOut(BaseModel):
+    batch: int | None
+    active_plan_id: uuid.UUID | None
+    options: list[OptionOut]
+
+
+ZoneShare = Literal["orchard", "water", "utility_nursery", "rotation"]
+BedSize = Literal["narrow", "standard", "wide"]
+
+
+class AdjustIn(BaseModel):
+    """Owner's changes to an option: land use in percentage points, and bed size."""
+
+    model_config = ConfigDict(extra="forbid")
+    share_delta: dict[ZoneShare, int] = {}
+    bed_size: BedSize = "standard"
+
+
+class SwapIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    season_label: str = Field(min_length=1, max_length=20)
+    layer: Literal["underground", "surface", "middle", "climber"]
+    crop_slug: str = Field(min_length=1, max_length=60)
+
+
+class AlternativeOut(BaseModel):
+    crop: CropRef
+    current: bool
+    planned_sow: date
+    harvest_start: date
+    harvest_end: date
+    plant_count: int
+    expected_yield_kg: float

@@ -157,13 +157,18 @@ def assign(
     goal: str | None,
     drainage: str | None,
     p: PlantingParams,
+    weights: dict[str, float] | None = None,
 ) -> PlantingResult:
-    pairs = {frozenset((a, b)): rel for a, b, rel in companions if a != b}
-    weights = dict(p.weights)
-    if goal == "income":
-        weights["value"] = p.goal_income_value
-    elif goal == "home_food":
-        weights["diversity"] = p.goal_home_food_diversity
+    """Fill every bed. `weights` (a plan option's score weights) replaces the goal shift."""
+    pairs = _pairs(companions)
+    if weights is None:
+        weights = dict(p.weights)
+        if goal == "income":
+            weights["value"] = p.goal_income_value
+        elif goal == "home_food":
+            weights["diversity"] = p.goal_home_food_diversity
+    else:
+        weights = {**p.weights, **weights}
     by_slug = {c.slug: c for c in crops}
     usable = [c for c in sorted(crops, key=lambda c: c.slug) if _complete(c)]
     use_price = bool(usable) and all(c.price_paise_per_kg for c in usable)
@@ -192,12 +197,8 @@ def assign(
                 candidates = [
                     by_slug[s] for s, d in sorted(sow.items())
                     if d is not None
-                    and s not in in_bed
-                    and (by_slug[s].height_max_cm or 0) <= p.tall_crop_cm
-                    and not (drainage == "waterlogs" and not bed.raised
-                             and not by_slug[s].waterlogging_tolerant)
-                    and by_slug[s].family not in previous.get(bed.code, set())
-                    and not any(pairs.get(frozenset((s, o))) == "avoid" for o in in_bed)
+                    and _allowed(by_slug[s], bed, in_bed, previous.get(bed.code, set()),
+                                 drainage, pairs, p)
                 ]  # fmt: skip
                 if not candidates:
                     continue
@@ -227,27 +228,7 @@ def assign(
                     why = {"key": "plan.why.yield"}
                 else:
                     why = {"key": "plan.why.fits"}
-                rows = (
-                    max(1, int(bed.width_m * 100 // best.spacing_row_cm))
-                    if best.spacing_row_cm
-                    else 1
-                )
-                per_row = max(1, int(bed.length_m * 100 // (best.spacing_plant_cm or 1)))
-                result.plantings.append(
-                    Planting(
-                        bed=bed.code, slot=slot, layer=layer, crop=best.slug,
-                        planned_sow=sown,
-                        harvest_start=sown + timedelta(days=best.days_to_first_harvest or 0),
-                        harvest_end=_done(best, sown),
-                        plant_count=rows * per_row,
-                        spacing_cm=best.spacing_plant_cm or 0,
-                        expected_yield_kg=round(
-                            bed.area_sqm * (best.yield_kg_per_sqm or 0)
-                            * p.crowding.get(layer, 1.0), 2,
-                        ),
-                        why=why,
-                    )
-                )  # fmt: skip
+                result.plantings.append(_planting(bed, slot, layer, best, sown, why, p))
                 busy[(bed.code, layer)] = _done(best, sown)
                 in_bed.append(best.slug)
                 used[best.slug] = used.get(best.slug, 0) + 1
@@ -266,6 +247,85 @@ def assign(
     if not result.plantings:
         result.warnings.append({"code": "NO_CROPS", "message_key": "warn.no_crops"})
     return result
+
+
+def _pairs(companions: list[tuple[str, str, str]]) -> dict[frozenset[str], str]:
+    return {frozenset((a, b)): rel for a, b, rel in companions if a != b}
+
+
+def _allowed(
+    c: CropSpec,
+    bed: BedSpec,
+    in_bed: list[str],
+    previous_families: set[str],
+    drainage: str | None,
+    pairs: dict[frozenset[str], str],
+    p: PlantingParams,
+) -> bool:
+    """Spec 7 hard rules for one crop in one bed (layer and sow date are checked by the caller)."""
+    return (
+        c.slug not in in_bed
+        and (c.height_max_cm or 0) <= p.tall_crop_cm
+        and not (drainage == "waterlogs" and not bed.raised and not c.waterlogging_tolerant)
+        and (c.family or c.slug) not in previous_families
+        and not any(pairs.get(frozenset((c.slug, o))) == "avoid" for o in in_bed)
+    )
+
+
+def _planting(
+    bed: BedSpec,
+    slot: SeasonSlot,
+    layer: str,
+    crop: CropSpec,
+    sown: date,
+    why: dict[str, Any],
+    p: PlantingParams,
+) -> Planting:
+    rows = max(1, int(bed.width_m * 100 // crop.spacing_row_cm)) if crop.spacing_row_cm else 1
+    per_row = max(1, int(bed.length_m * 100 // (crop.spacing_plant_cm or 1)))
+    return Planting(
+        bed=bed.code, slot=slot, layer=layer, crop=crop.slug, planned_sow=sown,
+        harvest_start=sown + timedelta(days=crop.days_to_first_harvest or 0),
+        harvest_end=_done(crop, sown), plant_count=rows * per_row,
+        spacing_cm=crop.spacing_plant_cm or 0,
+        expected_yield_kg=round(
+            bed.area_sqm * (crop.yield_kg_per_sqm or 0) * p.crowding.get(layer, 1.0), 2
+        ),
+        why=why,
+    )  # fmt: skip
+
+
+def alternatives(
+    bed: BedSpec,
+    layer: str,
+    slot: SeasonSlot,
+    crops: list[CropSpec],
+    companions: list[tuple[str, str, str]],
+    *,
+    others_in_bed: list[str],
+    previous_families: set[str],
+    free_from: date | None,
+    must_end_by: date | None,
+    drainage: str | None,
+    p: PlantingParams,
+) -> list[Planting]:
+    """Every crop that could go in this bed layer in this season instead of the planned one:
+    same hard rules as the engine, a sow date after the layer is free, and a harvest that ends
+    before the next crop in that layer goes in."""
+    if layer == "climber" and not bed.has_trellis:
+        return []
+    pairs = _pairs(companions)
+    out = []
+    for c in sorted(crops, key=lambda c: c.slug):
+        if not _complete(c) or layer not in c.layers:
+            continue
+        if not _allowed(c, bed, others_in_bed, previous_families, drainage, pairs, p):
+            continue
+        sown = first_sow(c, slot, free_from)
+        if sown is None or (must_end_by is not None and _done(c, sown) > must_end_by):
+            continue
+        out.append(_planting(bed, slot, layer, c, sown, {"key": "plan.why.owner"}, p))
+    return out
 
 
 def _value(c: CropSpec, use_price: bool) -> float:

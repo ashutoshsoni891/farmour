@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import type { components } from "../api/schema";
@@ -8,11 +9,13 @@ import { ZONE_COLORS } from "../setup/PlotMap";
 import { BedPicture } from "./BedPicture";
 import { BedTimeline } from "./BedTimeline";
 import { MachanGuide } from "./MachanGuide";
+import { SwapPicker } from "./SwapPicker";
 import type { GuideStep } from "./MachanGuide";
 import { cropStyle, plantingsOf } from "./cropStyle";
 
 type Plan = components["schemas"]["PlanOut"];
 type Planting = components["schemas"]["PlantingOut"];
+type Alternative = components["schemas"]["AlternativeOut"];
 
 /** "rabi 2026-27" -> "रबी 2026-27" */
 export function seasonText(label: string, season: string, t: (k: string) => string): string {
@@ -64,11 +67,18 @@ interface Props {
   onCloseBed: () => void;
   highlight: string | null;
   onHighlight: (slug: string | null) => void;
+  /** Owner only: crops that may replace one bed layer, and the swap itself. */
+  loadAlternatives?:
+    ((code: string, season: string, layer: string) => Promise<Alternative[]>) | undefined;
+  onSwap?:
+    ((code: string, season: string, layer: string, slug: string) => Promise<void>) | undefined;
 }
 
 export function PlanView(props: Props) {
   const { plan, owner, hasPlot, planning, onBuild, unit, lang, bighaSqft } = props;
+  const { loadAlternatives, onSwap } = props;
   const { t } = useTranslation();
+  const [swapLayer, setSwapLayer] = useState<string | null>(null);
 
   if (!plan) {
     return (
@@ -198,6 +208,7 @@ export function PlanView(props: Props) {
             </button>
           </div>
           <BedPicture
+            onChange={props.loadAlternatives && season ? setSwapLayer : undefined}
             bed={bed}
             rows={bedRows}
             trellisM={plan.trellis_height_m ?? null}
@@ -205,6 +216,18 @@ export function PlanView(props: Props) {
             pathM={plan.path_width_m ?? null}
             lang={lang}
           />
+          {swapLayer && season && loadAlternatives && onSwap && (
+            <SwapPicker
+              key={`${bed.code}-${season.label}-${swapLayer}`}
+              load={() => loadAlternatives(bed.code, season.label, swapLayer)}
+              onPick={async (slug) => {
+                await onSwap(bed.code, season.label, swapLayer, slug);
+                setSwapLayer(null);
+              }}
+              onClose={() => setSwapLayer(null)}
+              lang={lang}
+            />
+          )}
           <BedTimeline rows={allBedRows} start={plan.start_date} lang={lang} />
         </div>
       )}

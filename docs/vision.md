@@ -37,8 +37,10 @@ The owner's own answer always overrides what the system found or suggested.
 The goal is the main input to the plan, asked once and editable later. Examples of goals the
 owner may have (the final list is config, not code): earn the most income, earn steadily with
 little labour and risk, grow the family's own food and build the soil, or a mix.
-- The plan engine produces 2-3 candidate plans for the same land with the trade-offs shown
-  (income, labour, water, upfront cost, risk). The owner picks one; the choice can change later.
+- The plan engine produces five plan options for the same land (Most income, Balanced, Low work,
+  Family food and soil, Water saver) with the trade-offs shown (harvest, water, work; money once
+  cost data exists). The owner picks one, can change land use, bed size or a crop, and can switch
+  later. (Built 2026-10-06.)
 - The goal also steers which schemes are shown and which structures (drip, polyhouse, orchard)
   are suggested.
 

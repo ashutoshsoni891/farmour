@@ -734,7 +734,7 @@
           "plan"
         ],
         "summary": "Get Plan",
-        "description": "The farm's latest plan (zones and beds as GeoJSON).",
+        "description": "A plan by id; else the active plan; else the recommended option of the latest build.",
         "operationId": "get_plan_api_v1_farms__farm_id__plan_get",
         "security": [
           {
@@ -742,6 +742,247 @@
           }
         ],
         "parameters": [
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          },
+          {
+            "name": "plan_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Plan Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/farms/{farm_id}/plan/options": {
+      "get": {
+        "tags": [
+          "plan"
+        ],
+        "summary": "List Options",
+        "description": "The plan options built side by side, with comparison figures.",
+        "operationId": "list_options_api_v1_farms__farm_id__plan_options_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OptionsOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "plan"
+        ],
+        "summary": "Build Options",
+        "description": "Build every plan option for the farm's plot (owner only).",
+        "operationId": "build_options_api_v1_farms__farm_id__plan_options_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OptionsOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/adjust": {
+      "post": {
+        "tags": [
+          "plan"
+        ],
+        "summary": "Adjust",
+        "description": "Re-run an option with the owner's land-use changes and bed size (a new draft).",
+        "operationId": "adjust_api_v1_farms__farm_id__plan__plan_id__adjust_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Plan Id"
+            }
+          },
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdjustIn"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/lock": {
+      "post": {
+        "tags": [
+          "plan"
+        ],
+        "summary": "Lock",
+        "description": "Make this plan the farm's active plan.",
+        "operationId": "lock_api_v1_farms__farm_id__plan__plan_id__lock_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Plan Id"
+            }
+          },
           {
             "name": "farm_id",
             "in": "path",
@@ -775,20 +1016,131 @@
             }
           }
         }
-      },
-      "post": {
+      }
+    },
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/beds/{code}/alternatives": {
+      "get": {
         "tags": [
           "plan"
         ],
-        "summary": "Generate Plan",
-        "description": "Build a new draft plan from the farm's plot (owner only).",
-        "operationId": "generate_plan_api_v1_farms__farm_id__plan_post",
+        "summary": "Alternatives",
+        "description": "Crops that could go in this bed layer and season instead (every rule checked).",
+        "operationId": "alternatives_api_v1_farms__farm_id__plan__plan_id__beds__code__alternatives_get",
         "security": [
           {
             "HTTPBearer": []
           }
         ],
         "parameters": [
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Plan Id"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Code"
+            }
+          },
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          },
+          {
+            "name": "season_label",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Season Label"
+            }
+          },
+          {
+            "name": "layer",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Layer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AlternativeOut"
+                  },
+                  "title": "Response Alternatives Api V1 Farms  Farm Id  Plan  Plan Id  Beds  Code  Alternatives Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/beds/{code}/layers": {
+      "put": {
+        "tags": [
+          "plan"
+        ],
+        "summary": "Swap",
+        "description": "Put the owner's chosen crop in a bed layer.",
+        "operationId": "swap_api_v1_farms__farm_id__plan__plan_id__beds__code__layers_put",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Plan Id"
+            }
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Code"
+            }
+          },
           {
             "name": "farm_id",
             "in": "path",
@@ -800,8 +1152,18 @@
             }
           }
         ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SwapIn"
+              }
+            }
+          }
+        },
         "responses": {
-          "201": {
+          "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
@@ -2296,6 +2658,40 @@
   },
   "components": {
     "schemas": {
+      "AdjustIn": {
+        "properties": {
+          "share_delta": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "propertyNames": {
+              "enum": [
+                "orchard",
+                "water",
+                "utility_nursery",
+                "rotation"
+              ]
+            },
+            "type": "object",
+            "title": "Share Delta",
+            "default": {}
+          },
+          "bed_size": {
+            "type": "string",
+            "enum": [
+              "narrow",
+              "standard",
+              "wide"
+            ],
+            "title": "Bed Size",
+            "default": "standard"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "AdjustIn",
+        "description": "Owner's changes to an option: land use in percentage points, and bed size."
+      },
       "AdminUserOut": {
         "properties": {
           "id": {
@@ -2422,6 +2818,51 @@
         "additionalProperties": false,
         "type": "object",
         "title": "AdminUserUpdate"
+      },
+      "AlternativeOut": {
+        "properties": {
+          "crop": {
+            "$ref": "#/components/schemas/CropRef"
+          },
+          "current": {
+            "type": "boolean",
+            "title": "Current"
+          },
+          "planned_sow": {
+            "type": "string",
+            "format": "date",
+            "title": "Planned Sow"
+          },
+          "harvest_start": {
+            "type": "string",
+            "format": "date",
+            "title": "Harvest Start"
+          },
+          "harvest_end": {
+            "type": "string",
+            "format": "date",
+            "title": "Harvest End"
+          },
+          "plant_count": {
+            "type": "integer",
+            "title": "Plant Count"
+          },
+          "expected_yield_kg": {
+            "type": "number",
+            "title": "Expected Yield Kg"
+          }
+        },
+        "type": "object",
+        "required": [
+          "crop",
+          "current",
+          "planned_sow",
+          "harvest_start",
+          "harvest_end",
+          "plant_count",
+          "expected_yield_kg"
+        ],
+        "title": "AlternativeOut"
       },
       "Answer": {
         "properties": {
@@ -5615,6 +6056,167 @@
         ],
         "title": "MemberUpdate"
       },
+      "OptionMetrics": {
+        "properties": {
+          "beds": {
+            "type": "integer",
+            "title": "Beds"
+          },
+          "bed_area_sqm": {
+            "type": "number",
+            "title": "Bed Area Sqm"
+          },
+          "crops_total": {
+            "type": "integer",
+            "title": "Crops Total"
+          },
+          "crops_min_season": {
+            "type": "integer",
+            "title": "Crops Min Season"
+          },
+          "harvest_kg": {
+            "type": "number",
+            "title": "Harvest Kg"
+          },
+          "water_index": {
+            "type": "number",
+            "title": "Water Index"
+          },
+          "work_index": {
+            "type": "number",
+            "title": "Work Index"
+          },
+          "plantings": {
+            "type": "integer",
+            "title": "Plantings",
+            "default": 0
+          }
+        },
+        "type": "object",
+        "required": [
+          "beds",
+          "bed_area_sqm",
+          "crops_total",
+          "crops_min_season",
+          "harvest_kg",
+          "water_index",
+          "work_index"
+        ],
+        "title": "OptionMetrics"
+      },
+      "OptionOut": {
+        "properties": {
+          "plan_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Plan Id"
+          },
+          "option": {
+            "type": "string",
+            "title": "Option"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "active",
+              "archived"
+            ],
+            "title": "Status"
+          },
+          "custom": {
+            "type": "boolean",
+            "title": "Custom"
+          },
+          "recommended": {
+            "type": "boolean",
+            "title": "Recommended"
+          },
+          "suits": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Suits"
+          },
+          "metrics": {
+            "$ref": "#/components/schemas/OptionMetrics"
+          },
+          "levels": {
+            "additionalProperties": {
+              "type": "string",
+              "enum": [
+                "low",
+                "medium",
+                "high"
+              ]
+            },
+            "type": "object",
+            "title": "Levels"
+          },
+          "land_use": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Land Use"
+          }
+        },
+        "type": "object",
+        "required": [
+          "plan_id",
+          "option",
+          "status",
+          "custom",
+          "recommended",
+          "suits",
+          "metrics",
+          "levels",
+          "land_use"
+        ],
+        "title": "OptionOut"
+      },
+      "OptionsOut": {
+        "properties": {
+          "batch": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Batch"
+          },
+          "active_plan_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active Plan Id"
+          },
+          "options": {
+            "items": {
+              "$ref": "#/components/schemas/OptionOut"
+            },
+            "type": "array",
+            "title": "Options"
+          }
+        },
+        "type": "object",
+        "required": [
+          "batch",
+          "active_plan_id",
+          "options"
+        ],
+        "title": "OptionsOut"
+      },
       "Page_CropSummary_": {
         "properties": {
           "items": {
@@ -6499,6 +7101,35 @@
             "format": "uuid",
             "title": "Id"
           },
+          "option": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Option"
+          },
+          "custom": {
+            "type": "boolean",
+            "title": "Custom",
+            "default": false
+          },
+          "bed_size": {
+            "type": "string",
+            "title": "Bed Size",
+            "default": "standard"
+          },
+          "share_delta": {
+            "additionalProperties": {
+              "type": "integer"
+            },
+            "type": "object",
+            "title": "Share Delta",
+            "default": {}
+          },
           "farm_id": {
             "type": "string",
             "format": "uuid",
@@ -6624,6 +7255,7 @@
         "type": "object",
         "required": [
           "id",
+          "option",
           "farm_id",
           "version",
           "status",
@@ -8031,6 +8663,40 @@
           "method"
         ],
         "title": "SowWindow"
+      },
+      "SwapIn": {
+        "properties": {
+          "season_label": {
+            "type": "string",
+            "maxLength": 20,
+            "minLength": 1,
+            "title": "Season Label"
+          },
+          "layer": {
+            "type": "string",
+            "enum": [
+              "underground",
+              "surface",
+              "middle",
+              "climber"
+            ],
+            "title": "Layer"
+          },
+          "crop_slug": {
+            "type": "string",
+            "maxLength": 60,
+            "minLength": 1,
+            "title": "Crop Slug"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "season_label",
+          "layer",
+          "crop_slug"
+        ],
+        "title": "SwapIn"
       },
       "UserPage": {
         "properties": {

@@ -12,6 +12,61 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.modules.layout.models import Bed, BedLayer, Plan, Zone
 
 
+async def get_plan(session: AsyncSession, farm_id: uuid.UUID, plan_id: uuid.UUID) -> Plan | None:
+    return await session.scalar(select(Plan).where(Plan.id == plan_id, Plan.farm_id == farm_id))
+
+
+async def active_plan(session: AsyncSession, farm_id: uuid.UUID) -> Plan | None:
+    return await session.scalar(
+        select(Plan).where(Plan.farm_id == farm_id, Plan.status == "active").limit(1)
+    )
+
+
+async def latest_batch(session: AsyncSession, farm_id: uuid.UUID) -> list[Plan]:
+    top = await session.scalar(
+        select(func.max(Plan.batch)).where(Plan.farm_id == farm_id, Plan.status != "archived")
+    )
+    if top is None:
+        return []
+    return list(
+        await session.scalars(
+            select(Plan)
+            .where(Plan.farm_id == farm_id, Plan.batch == top, Plan.status != "archived")
+            .order_by(Plan.version)
+        )
+    )
+
+
+async def next_batch(session: AsyncSession, farm_id: uuid.UUID) -> int:
+    top = await session.scalar(select(func.max(Plan.batch)).where(Plan.farm_id == farm_id))
+    return (top or 0) + 1
+
+
+async def set_active(session: AsyncSession, farm_id: uuid.UUID, plan_id: uuid.UUID) -> None:
+    await session.execute(
+        update(Plan)
+        .where(Plan.farm_id == farm_id, Plan.status == "active", Plan.id != plan_id)
+        .values(status="archived")
+    )
+    await session.execute(update(Plan).where(Plan.id == plan_id).values(status="active"))
+
+
+async def bed_in_plan(session: AsyncSession, plan_id: uuid.UUID, code: str) -> Bed | None:
+    return await session.scalar(
+        select(Bed)
+        .join(Zone, Bed.zone_id == Zone.id)
+        .where(Zone.plan_id == plan_id, Bed.code == code)
+    )
+
+
+async def layers_of_bed(session: AsyncSession, bed_id: uuid.UUID) -> list[BedLayer]:
+    return list(
+        await session.scalars(
+            select(BedLayer).where(BedLayer.bed_id == bed_id).order_by(BedLayer.planned_sow)
+        )
+    )
+
+
 async def latest_plan(session: AsyncSession, farm_id: uuid.UUID) -> Plan | None:
     return await session.scalar(
         select(Plan)
@@ -27,6 +82,7 @@ async def next_version(session: AsyncSession, farm_id: uuid.UUID) -> int:
 
 
 async def archive_drafts(session: AsyncSession, farm_id: uuid.UUID) -> None:
+    """Archive the farm's draft plans (the active plan is kept)."""
     await session.execute(
         update(Plan)
         .where(Plan.farm_id == farm_id, Plan.status == "draft")
@@ -44,10 +100,13 @@ async def add_plan(
     inputs: dict[str, Any],
     summary: dict[str, Any],
     created_by: uuid.UUID | None,
+    option: str | None = None,
+    batch: int | None = None,
 ) -> Plan:
     plan = Plan(
         id=uuid.uuid4(), farm_id=farm_id, version=version, status="draft", start_date=start_date,
         engine_version=engine_version, inputs=inputs, summary=summary, created_by=created_by,
+        option=option, batch=batch,
     )  # fmt: skip
     session.add(plan)
     await session.flush()

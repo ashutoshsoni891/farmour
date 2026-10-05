@@ -15,6 +15,8 @@ import { GROUPS, buildRows } from "../setup/FoundStep";
 import { insights } from "../setup/insights";
 import { PlotMap } from "../setup/PlotMap";
 import type { PlotGeometry, PlotLayout } from "../setup/PlotMap";
+import { PlanEditor } from "../plan/PlanEditor";
+import { PlanOptions } from "../plan/PlanOptions";
 import { PlanView, SeasonTabs } from "../plan/PlanView";
 import { bedColours, plantingsOf } from "../plan/cropStyle";
 
@@ -34,6 +36,7 @@ export function FarmPage() {
   const api = apiClient(token);
   const [notice, setNotice] = useState<string | null>(null);
   const [planning, setPlanning] = useState(false);
+  const [planId, setPlanId] = useState<string | null>(null);
   const [bed, setBed] = useState<string | null>(null);
   const [seasonIndex, setSeasonIndex] = useState(0);
   const [highlight, setHighlight] = useState<string | null>(null);
@@ -58,11 +61,24 @@ export function FarmPage() {
       (await api.GET("/api/v1/farms/{farm_id}/parcel", { params: { path: { farm_id: id } } }))
         .data ?? null,
   });
-  const plan = useQuery({
-    queryKey: ["plan", id, token],
+  const options = useQuery({
+    queryKey: ["plan-options", id, token],
     queryFn: async () =>
-      (await api.GET("/api/v1/farms/{farm_id}/plan", { params: { path: { farm_id: id } } })).data ??
-      null,
+      (
+        await api.GET("/api/v1/farms/{farm_id}/plan/options", {
+          params: { path: { farm_id: id } },
+        })
+      ).data ?? null,
+  });
+  // The plan on screen: the one the owner tapped, else the server's pick (active or recommended).
+  const plan = useQuery({
+    queryKey: ["plan", id, token, planId],
+    queryFn: async () =>
+      (
+        await api.GET("/api/v1/farms/{farm_id}/plan", {
+          params: { path: { farm_id: id }, query: planId ? { plan_id: planId } : {} },
+        })
+      ).data ?? null,
   });
   const mapLayout = useMemo(() => {
     const p = plan.data;
@@ -163,16 +179,79 @@ export function FarmPage() {
       await saved();
     }
   };
+  const reload = async (nextPlanId: string | null) => {
+    setBed(null);
+    setPlanId(nextPlanId);
+    await queryClient.invalidateQueries({ queryKey: ["plan-options", id] });
+    await queryClient.invalidateQueries({ queryKey: ["plan", id] });
+  };
   const buildPlan = async () => {
     setPlanning(true);
     setNotice(null);
-    const { response, error } = await api.POST("/api/v1/farms/{farm_id}/plan", {
+    const { response, error } = await api.POST("/api/v1/farms/{farm_id}/plan/options", {
       params: { path: { farm_id: id } },
     });
     setPlanning(false);
-    setBed(null);
-    if (response.ok) await queryClient.invalidateQueries({ queryKey: ["plan", id] });
+    if (response.ok) await reload(null);
     else setNotice(t(errorKey(error)));
+  };
+  const redraw = async (
+    delta: Partial<Record<"orchard" | "water" | "rotation" | "utility_nursery", number>>,
+    bedSize: "narrow" | "standard" | "wide",
+  ) => {
+    if (!plan.data) return;
+    setPlanning(true);
+    setNotice(null);
+    const { data, error } = await api.POST("/api/v1/farms/{farm_id}/plan/{plan_id}/adjust", {
+      params: { path: { farm_id: id, plan_id: plan.data.id } },
+      body: { share_delta: delta, bed_size: bedSize },
+    });
+    setPlanning(false);
+    if (data) await reload(data.id);
+    else setNotice(t(errorKey(error)));
+  };
+  const lock = async () => {
+    if (!plan.data) return;
+    setPlanning(true);
+    const { data, error } = await api.POST("/api/v1/farms/{farm_id}/plan/{plan_id}/lock", {
+      params: { path: { farm_id: id, plan_id: plan.data.id } },
+    });
+    setPlanning(false);
+    if (data) {
+      setNotice(t("editor.locked"));
+      await reload(data.id);
+    } else setNotice(t(errorKey(error)));
+  };
+  const loadAlternatives = async (code: string, season: string, layer: string) => {
+    if (!plan.data) return [];
+    const { data } = await api.GET(
+      "/api/v1/farms/{farm_id}/plan/{plan_id}/beds/{code}/alternatives",
+      {
+        params: {
+          path: { farm_id: id, plan_id: plan.data.id, code },
+          query: { season_label: season, layer },
+        },
+      },
+    );
+    return data ?? [];
+  };
+  const swapCrop = async (code: string, season: string, layer: string, slug: string) => {
+    if (!plan.data) return;
+    const { response, error } = await api.PUT(
+      "/api/v1/farms/{farm_id}/plan/{plan_id}/beds/{code}/layers",
+      {
+        params: { path: { farm_id: id, plan_id: plan.data.id, code } },
+        body: {
+          season_label: season,
+          layer: layer as "underground" | "surface" | "middle" | "climber",
+          crop_slug: slug,
+        },
+      },
+    );
+    if (response.ok) {
+      await queryClient.invalidateQueries({ queryKey: ["plan", id] });
+      await queryClient.invalidateQueries({ queryKey: ["plan-options", id] });
+    } else setNotice(t(errorKey(error)));
   };
   const refresh = async () => {
     const { response } = await api.POST("/api/v1/farms/{farm_id}/site-profile/refresh", {
@@ -195,6 +274,31 @@ export function FarmPage() {
         </p>
       </header>
 
+      {options.data && options.data.options.length > 0 && (
+        <PlanOptions
+          options={options.data}
+          selected={plan.data?.id ?? null}
+          onSelect={(pid) => {
+            setBed(null);
+            setPlanId(pid);
+          }}
+          lang={lang}
+        />
+      )}
+      {owner && plan.data && (
+        <PlanEditor
+          key={plan.data.id}
+          plan={plan.data}
+          busy={planning}
+          onRedraw={(d, b) => void redraw(d, b)}
+          onLock={() => void lock()}
+        />
+      )}
+      {notice && (
+        <p role="status" className="font-semibold text-green-900">
+          {notice}
+        </p>
+      )}
       {plan.data && plan.data.seasons.length > 0 && (
         <SeasonTabs plan={plan.data} index={seasonIndex} onPick={setSeasonIndex} />
       )}
@@ -232,6 +336,8 @@ export function FarmPage() {
         unit={unit}
         lang={lang}
         bighaSqft={me.data?.bigha_sqft ? Number(me.data.bigha_sqft) : null}
+        loadAlternatives={owner ? loadAlternatives : undefined}
+        onSwap={owner ? swapCrop : undefined}
       />
 
       <section className="flex flex-col gap-2">

@@ -19,7 +19,9 @@ export function BedPicture({
   widthM,
   pathM,
   lang,
+  onChange,
 }: {
+  onChange?: ((layer: string) => void) | undefined;
   bed: Bed;
   rows: Planting[];
   trellisM: number | null;
@@ -206,6 +208,15 @@ export function BedPicture({
                 </span>
               ) : (
                 <span className="text-base text-neutral-500">{t("picture.empty")}</span>
+              )}
+              {onChange && (
+                <button
+                  type="button"
+                  onClick={() => onChange(layer)}
+                  className="ml-auto min-h-11 shrink-0 rounded-lg border-2 border-sky-700 px-2 text-sm font-semibold text-sky-900"
+                >
+                  {r ? t("swap.change") : t("swap.add")}
+                </button>
               )}
             </li>
           );

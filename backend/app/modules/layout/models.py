@@ -35,6 +35,8 @@ class Plan(IdMixin, TimestampMixin, CreatedByMixin, Base):
     engine_version: Mapped[str] = mapped_column(String(20))
     inputs: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default="{}")
     summary: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default="{}")
+    option: Mapped[str | None] = mapped_column(String(20))  # plan option code (engine.options)
+    batch: Mapped[int | None]  # plans built together share a batch number
     __table_args__ = (
         CheckConstraint("status in ('draft','active','archived')", name="status"),
         CheckConstraint("version >= 1", name="version"),

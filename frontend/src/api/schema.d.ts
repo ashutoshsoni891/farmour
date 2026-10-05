@@ -224,15 +224,115 @@ export interface paths {
         };
         /**
          * Get Plan
-         * @description The farm's latest plan (zones and beds as GeoJSON).
+         * @description A plan by id; else the active plan; else the recommended option of the latest build.
          */
         get: operations["get_plan_api_v1_farms__farm_id__plan_get"];
         put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/farms/{farm_id}/plan/options": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
         /**
-         * Generate Plan
-         * @description Build a new draft plan from the farm's plot (owner only).
+         * List Options
+         * @description The plan options built side by side, with comparison figures.
          */
-        post: operations["generate_plan_api_v1_farms__farm_id__plan_post"];
+        get: operations["list_options_api_v1_farms__farm_id__plan_options_get"];
+        put?: never;
+        /**
+         * Build Options
+         * @description Build every plan option for the farm's plot (owner only).
+         */
+        post: operations["build_options_api_v1_farms__farm_id__plan_options_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/adjust": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Adjust
+         * @description Re-run an option with the owner's land-use changes and bed size (a new draft).
+         */
+        post: operations["adjust_api_v1_farms__farm_id__plan__plan_id__adjust_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/lock": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Lock
+         * @description Make this plan the farm's active plan.
+         */
+        post: operations["lock_api_v1_farms__farm_id__plan__plan_id__lock_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/beds/{code}/alternatives": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Alternatives
+         * @description Crops that could go in this bed layer and season instead (every rule checked).
+         */
+        get: operations["alternatives_api_v1_farms__farm_id__plan__plan_id__beds__code__alternatives_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/beds/{code}/layers": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        /**
+         * Swap
+         * @description Put the owner's chosen crop in a bed layer.
+         */
+        put: operations["swap_api_v1_farms__farm_id__plan__plan_id__beds__code__layers_put"];
+        post?: never;
         delete?: never;
         options?: never;
         head?: never;
@@ -639,6 +739,25 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /**
+         * AdjustIn
+         * @description Owner's changes to an option: land use in percentage points, and bed size.
+         */
+        AdjustIn: {
+            /**
+             * Share Delta
+             * @default {}
+             */
+            share_delta: {
+                [key: string]: number;
+            };
+            /**
+             * Bed Size
+             * @default standard
+             * @enum {string}
+             */
+            bed_size: "narrow" | "standard" | "wide";
+        };
         /** AdminUserOut */
         AdminUserOut: {
             /**
@@ -680,6 +799,31 @@ export interface components {
              * @default false
              */
             revoke_sessions: boolean;
+        };
+        /** AlternativeOut */
+        AlternativeOut: {
+            crop: components["schemas"]["CropRef"];
+            /** Current */
+            current: boolean;
+            /**
+             * Planned Sow
+             * Format: date
+             */
+            planned_sow: string;
+            /**
+             * Harvest Start
+             * Format: date
+             */
+            harvest_start: string;
+            /**
+             * Harvest End
+             * Format: date
+             */
+            harvest_end: string;
+            /** Plant Count */
+            plant_count: number;
+            /** Expected Yield Kg */
+            expected_yield_kg: number;
         };
         /** Answer */
         Answer: {
@@ -1449,6 +1593,67 @@ export interface components {
             /** Caretaker Sees Money */
             caretaker_sees_money: boolean;
         };
+        /** OptionMetrics */
+        OptionMetrics: {
+            /** Beds */
+            beds: number;
+            /** Bed Area Sqm */
+            bed_area_sqm: number;
+            /** Crops Total */
+            crops_total: number;
+            /** Crops Min Season */
+            crops_min_season: number;
+            /** Harvest Kg */
+            harvest_kg: number;
+            /** Water Index */
+            water_index: number;
+            /** Work Index */
+            work_index: number;
+            /**
+             * Plantings
+             * @default 0
+             */
+            plantings: number;
+        };
+        /** OptionOut */
+        OptionOut: {
+            /**
+             * Plan Id
+             * Format: uuid
+             */
+            plan_id: string;
+            /** Option */
+            option: string;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "draft" | "active" | "archived";
+            /** Custom */
+            custom: boolean;
+            /** Recommended */
+            recommended: boolean;
+            /** Suits */
+            suits: string[];
+            metrics: components["schemas"]["OptionMetrics"];
+            /** Levels */
+            levels: {
+                [key: string]: "low" | "medium" | "high";
+            };
+            /** Land Use */
+            land_use: {
+                [key: string]: number;
+            };
+        };
+        /** OptionsOut */
+        OptionsOut: {
+            /** Batch */
+            batch: number | null;
+            /** Active Plan Id */
+            active_plan_id: string | null;
+            /** Options */
+            options: components["schemas"]["OptionOut"][];
+        };
         /** Page[CropSummary] */
         Page_CropSummary_: {
             /** Items */
@@ -1671,6 +1876,25 @@ export interface components {
              * Format: uuid
              */
             id: string;
+            /** Option */
+            option: string | null;
+            /**
+             * Custom
+             * @default false
+             */
+            custom: boolean;
+            /**
+             * Bed Size
+             * @default standard
+             */
+            bed_size: string;
+            /**
+             * Share Delta
+             * @default {}
+             */
+            share_delta: {
+                [key: string]: number;
+            };
             /**
              * Farm Id
              * Format: uuid
@@ -2128,6 +2352,18 @@ export interface components {
              * @enum {string}
              */
             method: "direct" | "transplant";
+        };
+        /** SwapIn */
+        SwapIn: {
+            /** Season Label */
+            season_label: string;
+            /**
+             * Layer
+             * @enum {string}
+             */
+            layer: "underground" | "surface" | "middle" | "climber";
+            /** Crop Slug */
+            crop_slug: string;
         };
         /** UserPage */
         UserPage: {
@@ -2658,7 +2894,9 @@ export interface operations {
     };
     get_plan_api_v1_farms__farm_id__plan_get: {
         parameters: {
-            query?: never;
+            query?: {
+                plan_id?: string | null;
+            };
             header?: never;
             path: {
                 farm_id: string;
@@ -2687,7 +2925,38 @@ export interface operations {
             };
         };
     };
-    generate_plan_api_v1_farms__farm_id__plan_post: {
+    list_options_api_v1_farms__farm_id__plan_options_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OptionsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    build_options_api_v1_farms__farm_id__plan_options_post: {
         parameters: {
             query?: never;
             header?: never;
@@ -2700,6 +2969,147 @@ export interface operations {
         responses: {
             /** @description Successful Response */
             201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["OptionsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    adjust_api_v1_farms__farm_id__plan__plan_id__adjust_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                plan_id: string;
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AdjustIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    lock_api_v1_farms__farm_id__plan__plan_id__lock_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                plan_id: string;
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    alternatives_api_v1_farms__farm_id__plan__plan_id__beds__code__alternatives_get: {
+        parameters: {
+            query: {
+                season_label: string;
+                layer: string;
+            };
+            header?: never;
+            path: {
+                plan_id: string;
+                code: string;
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AlternativeOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    swap_api_v1_farms__farm_id__plan__plan_id__beds__code__layers_put: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                plan_id: string;
+                code: string;
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SwapIn"];
+            };
+        };
+        responses: {
+            /** @description Successful Response */
+            200: {
                 headers: {
                     [name: string]: unknown;
                 };

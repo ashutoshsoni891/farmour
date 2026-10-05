@@ -233,6 +233,101 @@
     ]
    },
    "source_notes": "AI research 2026-10-06. Each step quotes TNAU or KAU; the Hindi text is a translation. Post spacing and rope pattern are not given by these sources: a local builder or agronomist should confirm. Frame height shown in the picture uses the engine.bed trellis_height_m default."
+  },
+  {
+   "code": "engine.options",
+   "description": "Plan options built side by side for every farm",
+   "applies_to": "engine",
+   "params": {
+    "order": [
+     "income",
+     "balanced",
+     "low_work",
+     "family_food",
+     "water_saver"
+    ],
+    "options": {
+     "income": {
+      "share_delta": {
+       "orchard": -10,
+       "rotation": -10,
+       "beds": 20
+      },
+      "weights": {
+       "value": 0.55,
+       "diversity": 0.2,
+       "ease": 0.15,
+       "water": -0.1
+      },
+      "for": {
+       "goal": [
+        "income"
+       ]
+      }
+     },
+     "balanced": {
+      "share_delta": {},
+      "weights": {},
+      "for": {
+       "goal": [
+        "both"
+       ]
+      }
+     },
+     "low_work": {
+      "share_delta": {
+       "orchard": 10,
+       "beds": -10
+      },
+      "weights": {
+       "value": 0.3,
+       "diversity": 0.2,
+       "ease": 0.4,
+       "water": -0.1
+      },
+      "for": {
+       "labour": [
+        "caretaker"
+       ]
+      }
+     },
+     "family_food": {
+      "share_delta": {
+       "rotation": 5,
+       "beds": -5
+      },
+      "weights": {
+       "value": 0.25,
+       "diversity": 0.45,
+       "ease": 0.2,
+       "water": -0.1
+      },
+      "for": {
+       "goal": [
+        "home_food"
+       ]
+      }
+     },
+     "water_saver": {
+      "share_delta": {
+       "water": 5,
+       "beds": -5
+      },
+      "weights": {
+       "value": 0.35,
+       "diversity": 0.25,
+       "ease": 0.2,
+       "water": -0.3
+      },
+      "for": {
+       "water_source": [
+        "rain_only"
+       ]
+      }
+     }
+    }
+   },
+   "source_notes": "Product defaults (decision 2026-10-06), not crop facts: zone share changes in percentage points of the plot (beds is the target used to decide when optional zones are dropped) (kept within the spec's +/-10 points) and score weights per option. Agronomist to review."
   }
  ]
 }

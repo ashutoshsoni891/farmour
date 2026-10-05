@@ -1,25 +1,38 @@
 """Layout module public entry point: build and read a farm's plan (spec section 7)."""
 
 import asyncio
-from datetime import datetime
+import dataclasses
+import uuid
+from datetime import date, datetime
+from typing import Any
 from zoneinfo import ZoneInfo
 
+from geoalchemy2.shape import to_shape
+from pyproj import Geod
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.errors import AppError, not_found
 from app.core.settings_store import get_setting
 from app.modules.farms import service as farms_service
+from app.modules.farms.schemas import FarmOut
 from app.modules.farms.service import Membership
 from app.modules.layout import engine, planting
 from app.modules.layout import repository as repo
 from app.modules.layout.models import Plan
 from app.modules.layout.schemas import (
+    AdjustIn,
+    AlternativeOut,
     BedOut,
     CropRef,
+    Level,
+    OptionMetrics,
+    OptionOut,
+    OptionsOut,
     PlanOut,
     PlantingOut,
     PlanWarning,
     SeasonOut,
+    SwapIn,
     ZoneOut,
 )
 from app.modules.library import service as library
@@ -119,6 +132,10 @@ async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
     summary = plan.summary
     return PlanOut(
         id=plan.id,
+        option=plan.option,
+        custom=bool(summary.get("custom")),
+        bed_size=str(plan.inputs.get("bed_size", "standard")),
+        share_delta={k: int(v) for k, v in (plan.inputs.get("owner_delta") or {}).items()},
         farm_id=plan.farm_id,
         version=plan.version,
         status=plan.status,
@@ -167,39 +184,90 @@ async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
     )  # fmt: skip
 
 
-async def get_plan(session: AsyncSession, m: Membership) -> PlanOut:
-    plan = await repo.latest_plan(session, m.farm_id)
-    if plan is None:
-        raise not_found("plan")
-    return await _out(session, plan)
+OPTION_ZONES = ("orchard", "water", "utility_nursery", "rotation")
 
 
-async def generate_plan(session: AsyncSession, m: Membership) -> PlanOut:
-    """Build a new draft plan (layout: zones and beds) from the farm's plot."""
+async def _options_rule(session: AsyncSession) -> dict[str, Any]:
+    rule = (await library.engine_rules(session)).get("engine.options")
+    if not rule:
+        raise AppError("RULES_MISSING", 500, {"rule": "engine.options"})
+    return rule
+
+
+def _suits(option: dict[str, Any], farm: FarmOut) -> list[str]:
+    """Why an option suits this farm: its goal, who works it, its water."""
+    match = option.get("for", {})
+    out = []
+    if farm.goal and farm.goal in match.get("goal", []):
+        out.append("goal")
+    if farm.labour and farm.labour in match.get("labour", []):
+        out.append("labour")
+    if farm.water_source and farm.water_source in match.get("water_source", []):
+        out.append("water")
+    return out
+
+
+async def _bed_widths(session: AsyncSession) -> dict[str, float]:
+    raw = await get_setting(session, "layout.bed_widths")
+    return {k: float(v) for k, v in raw.items()}
+
+
+async def _build(
+    session: AsyncSession,
+    m: Membership,
+    *,
+    option: str,
+    batch: int,
+    owner_delta: dict[str, int] | None = None,
+    bed_size: str = "standard",
+) -> Plan:
+    """Run the engine for one plan option (plus the owner's changes) and store the plan."""
     if not await parcel_service.parcel_exists(session, m.farm_id):
         raise AppError("PARCEL_REQUIRED", 409)
     parcel = await parcel_service.get_parcel(session, m)
-    params = await _params(session)
-    site = engine.SiteInputs(
-        boundary=parcel.boundary,
-        north_bearing_deg=parcel.north_bearing_deg,
-        gate=parcel.gate,
-        slope_dir=parcel.slope_dir,
-        drainage=parcel.drainage,
-        soil_type=parcel.soil_type,
-        obstacles=parcel.obstacles,
+    farm = await farms_service.get_farm(session, m)
+    options = (await _options_rule(session))["options"]
+    if option not in options:
+        raise AppError("UNKNOWN_OPTION", 422, {"option": option})
+    spec = options[option]
+    owner_delta = {k: int(v) for k, v in (owner_delta or {}).items() if k in OPTION_ZONES}
+    max_points = int(
+        (await library.engine_rules(session))
+        .get("engine.zone_share_adjust", {})
+        .get("max_points", 10)
     )
+    if any(abs(v) > max_points for v in owner_delta.values()):
+        raise AppError("SHARE_CHANGE_TOO_BIG", 422, {"max_points": max_points})
+    widths = await _bed_widths(session)
+    if bed_size not in widths:
+        raise AppError("UNKNOWN_BED_SIZE", 422, {"bed_size": bed_size})
+
+    base = await _params(session)
+    shares = {
+        t: {
+            k: max(0.0, v + spec.get("share_delta", {}).get(k, 0) + owner_delta.get(k, 0))
+            if k in (*OPTION_ZONES, "beds") else v
+            for k, v in zone_shares.items()
+        }
+        for t, zone_shares in base.shares.items()
+    }  # fmt: skip
+    params = dataclasses.replace(base, shares=shares, bed_width_m=widths[bed_size])
+    site = engine.SiteInputs(
+        boundary=parcel.boundary, north_bearing_deg=parcel.north_bearing_deg, gate=parcel.gate,
+        slope_dir=parcel.slope_dir, drainage=parcel.drainage, soil_type=parcel.soil_type,
+        obstacles=parcel.obstacles,
+    )  # fmt: skip
     try:
         result = await asyncio.to_thread(engine.generate, site, params)
     except engine.LayoutError as exc:
         raise AppError(exc.code, 422, exc.details) from exc
 
-    # 8. crops per bed, layer and season
-    farm = await farms_service.get_farm(session, m)
+    # 8. crops per bed, layer and season, with this option's score weights
     start_date = datetime.now(IST).date()
     crops = await library.engine_crops(session)
     companions = await library.engine_companions(session)
     crop_ids = {c.slug: c.id for c in crops}
+    specs = {c.slug: _crop_spec(c) for c in crops}
     bed_specs = [
         planting.BedSpec(
             code=b.code, area_sqm=b.geom.area, length_m=b.length_m, width_m=b.width_m,
@@ -209,25 +277,57 @@ async def generate_plan(session: AsyncSession, m: Membership) -> PlanOut:
     ]  # fmt: skip
     crop_plan = planting.assign(
         bed_specs,
-        [_crop_spec(c) for c in crops],
+        list(specs.values()),
         [(c.crop_a, c.crop_b, c.relation) for c in companions],
         start=start_date,
         template=result.template,
         goal=farm.goal,
         drainage=parcel.drainage,
         p=await _planting_params(session),
+        weights={k: float(v) for k, v in spec.get("weights", {}).items()} or None,
     )
+    per_season: dict[str, set[str]] = {}
+    for pl in crop_plan.plantings:
+        per_season.setdefault(pl.slot.label, set()).add(pl.crop)
+    metrics = {
+        "beds": len(result.beds),
+        "bed_area_sqm": round(sum(b.geom.area for b in result.beds), 1),
+        "crops_total": len({pl.crop for pl in crop_plan.plantings}),
+        "crops_min_season": min((len(v) for v in per_season.values()), default=0),
+        "harvest_kg": round(sum(pl.expected_yield_kg for pl in crop_plan.plantings), 1),
+        "water_index": round(
+            sum(
+                next(b.area_sqm for b in bed_specs if b.code == pl.bed)
+                * planting.WATER_LEVEL.get(specs[pl.crop].water_need or "medium", 0.5)
+                * (pl.harvest_end - pl.planned_sow).days
+                for pl in crop_plan.plantings
+            ) / 1000, 1,
+        ),
+        # bed area under crops over the year: what has to be sown, weeded, watered and picked
+        "work_index": round(
+            sum(
+                next(b.area_sqm for b in bed_specs if b.code == pl.bed)
+                * (pl.harvest_end - pl.planned_sow).days
+                for pl in crop_plan.plantings
+            ) / 1000, 1,
+        ),
+        "plantings": len(crop_plan.plantings),
+    }  # fmt: skip
 
-    await repo.archive_drafts(session, m.farm_id)
     plan = await repo.add_plan(
         session,
         farm_id=m.farm_id,
         version=await repo.next_version(session, m.farm_id),
         start_date=start_date,
         engine_version=engine.ENGINE_VERSION,
+        option=option,
+        batch=batch,
         inputs={
             "parcel_updated_at": parcel.updated_at.isoformat(),
             "area_sqm": parcel.area_sqm,
+            "option": option,
+            "owner_delta": owner_delta,
+            "bed_size": bed_size,
             "params": {k: v for k, v in params.__dict__.items()},
         },
         summary={
@@ -251,6 +351,8 @@ async def generate_plan(session: AsyncSession, m: Membership) -> PlanOut:
             ],
             "uses_ai_checked": crop_plan.uses_ai_verified,
             "crops": sorted({pl.crop for pl in crop_plan.plantings}),
+            "metrics": metrics,
+            "custom": bool(owner_delta) or bed_size != "standard",
         },
         created_by=m.user_id,
     )
@@ -276,5 +378,238 @@ async def generate_plan(session: AsyncSession, m: Membership) -> PlanOut:
             plant_count=pl.plant_count, spacing_cm=pl.spacing_cm,
             expected_yield_kg=pl.expected_yield_kg, why=pl.why,
         )  # fmt: skip
+    await session.flush()
+    return plan
+
+
+def _levels(values: list[float]) -> list[Level]:
+    """low / medium / high for each value against the middle option (more than 15% either side
+    of the median; decision 2026-10-06)."""
+    ordered = sorted(values)
+    mid = ordered[len(ordered) // 2] if ordered else 0
+    out: list[Level] = []
+    for v in values:
+        out.append("low" if v < 0.85 * mid else "high" if v > 1.15 * mid else "medium")
+    return out
+
+
+async def list_options(session: AsyncSession, m: Membership) -> OptionsOut:
+    plans = await repo.latest_batch(session, m.farm_id)
+    active = await repo.active_plan(session, m.farm_id)
+    if active and all(p.id != active.id for p in plans):
+        plans = [active, *plans]
+    rule = await _options_rule(session)
+    order = list(rule.get("order", []))
+    farm = await farms_service.get_farm(session, m)
+    plans = [p for p in plans if p.option and p.summary.get("metrics")]
+    plans.sort(key=lambda p: (order.index(p.option) if p.option in order else 99, p.version))
+    suits = {p.id: _suits(rule["options"].get(p.option or "", {}), farm) for p in plans}
+    goal_match = next((p.option for p in plans if "goal" in suits[p.id]), None)
+    recommended = goal_match or next((p.option for p in plans if suits[p.id]), "balanced")
+    metrics = [OptionMetrics(**p.summary["metrics"]) for p in plans]
+    harvest = _levels([x.harvest_kg for x in metrics])
+    water = _levels([x.water_index for x in metrics])
+    work = _levels([x.work_index for x in metrics])
+    out = []
+    for i, p in enumerate(plans):
+        total = float(p.summary.get("area_sqm") or 1)
+        land: dict[str, float] = {}
+        for z in p.summary.get("zones", []):
+            land[z["kind"]] = round(land.get(z["kind"], 0) + z["area_sqm"] / total, 3)
+        out.append(
+            OptionOut(
+                plan_id=p.id, option=p.option or "", status=p.status,
+                custom=bool(p.summary.get("custom")),
+                recommended=p.option == recommended and not p.summary.get("custom"),
+                suits=suits[p.id], metrics=metrics[i],
+                levels={"harvest": harvest[i], "water": water[i], "work": work[i]},
+                land_use=land,
+            )
+        )  # fmt: skip
+    return OptionsOut(
+        batch=plans[-1].batch if plans else None,
+        active_plan_id=active.id if active else None,
+        options=out,
+    )
+
+
+async def build_options(session: AsyncSession, m: Membership) -> OptionsOut:
+    """Build every plan option side by side (spec 7 engine, one run per option)."""
+    rule = await _options_rule(session)
+    await repo.archive_drafts(session, m.farm_id)
+    batch = await repo.next_batch(session, m.farm_id)
+    for option in rule.get("order", []):
+        await _build(session, m, option=option, batch=batch)
+    return await list_options(session, m)
+
+
+async def _plan_or_404(session: AsyncSession, m: Membership, plan_id: uuid.UUID) -> Plan:
+    plan = await repo.get_plan(session, m.farm_id, plan_id)
+    if plan is None:
+        raise not_found("plan")
+    return plan
+
+
+async def get_plan(
+    session: AsyncSession, m: Membership, plan_id: uuid.UUID | None = None
+) -> PlanOut:
+    """A given plan, else the active plan, else the recommended option of the latest build."""
+    if plan_id:
+        return await _out(session, await _plan_or_404(session, m, plan_id))
+    plan = await repo.active_plan(session, m.farm_id)
+    if plan is None:
+        options = await list_options(session, m)
+        pick = next((o for o in options.options if o.recommended), None) or next(
+            iter(options.options), None
+        )
+        plan = await repo.get_plan(session, m.farm_id, pick.plan_id) if pick else None
+    plan = plan or await repo.latest_plan(session, m.farm_id)
+    if plan is None:
+        raise not_found("plan")
+    return await _out(session, plan)
+
+
+async def adjust(
+    session: AsyncSession, m: Membership, plan_id: uuid.UUID, data: AdjustIn
+) -> PlanOut:
+    """Re-run an option with the owner's land-use changes and bed size; a new draft plan."""
+    source = await _plan_or_404(session, m, plan_id)
+    plan = await _build(
+        session, m, option=source.option or "balanced",
+        batch=source.batch or await repo.next_batch(session, m.farm_id),
+        owner_delta={str(k): v for k, v in data.share_delta.items()}, bed_size=data.bed_size,
+    )  # fmt: skip
+    return await _out(session, plan)
+
+
+async def lock(session: AsyncSession, m: Membership, plan_id: uuid.UUID) -> PlanOut:
+    """Make this plan the farm's active plan (the previous active one is archived)."""
+    plan = await _plan_or_404(session, m, plan_id)
+    await repo.set_active(session, m.farm_id, plan.id)
+    await session.flush()
+    await session.refresh(plan)
+    return await _out(session, plan)
+
+
+_GEOD = Geod(ellps="WGS84")
+
+
+async def _bed_context(
+    session: AsyncSession,
+    m: Membership,
+    plan_id: uuid.UUID,
+    code: str,
+    season_label: str,
+    layer: str,
+) -> tuple[Plan, Any, planting.BedSpec, planting.SeasonSlot, dict[str, Any]]:
+    plan = await _plan_or_404(session, m, plan_id)
+    bed = await repo.bed_in_plan(session, plan.id, code)
+    if bed is None:
+        raise not_found("bed")
+    slots = [
+        planting.SeasonSlot(s["season"], s["label"], date.fromisoformat(s["begin"]),
+                            date.fromisoformat(s["end"]))
+        for s in plan.summary.get("seasons", [])
+    ]  # fmt: skip
+    slot = next((s for s in slots if s.label == season_label), None)
+    if slot is None:
+        raise AppError("UNKNOWN_SEASON", 422, {"season": season_label})
+    area = abs(_GEOD.geometry_area_perimeter(to_shape(bed.geom))[0])
+    spec = planting.BedSpec(
+        code=bed.code, area_sqm=area, length_m=float(bed.length_m), width_m=float(bed.width_m),
+        raised=bed.raised, has_trellis=bed.has_trellis,
+    )  # fmt: skip
+    rows = await repo.layers_of_bed(session, bed.id)
+    crops = {c.slug: c for c in await library.engine_crops(session)}
+    by_id = {c.id: c for c in crops.values()}
+    idx = [s.label for s in slots].index(slot.label)
+    prev_label = slots[idx - 1].label if idx > 0 else None
+    same_layer = sorted((r for r in rows if r.layer == layer), key=lambda r: r.planned_sow)
+    current = next((r for r in same_layer if r.season_label == season_label), None)
+    before = [
+        r for r in same_layer if r.season_label != season_label and r.planned_sow < slot.begin
+    ]
+    after = [r for r in same_layer if r.season_label != season_label and r.planned_sow > slot.begin]
+    ctx = {
+        "crops": crops,
+        "current": current,
+        "others": [by_id[r.crop_id].slug for r in rows
+                   if r.season_label == season_label and r.layer != layer and r.crop_id in by_id],
+        "previous_families": {
+            by_id[r.crop_id].family or by_id[r.crop_id].slug
+            for r in rows if r.season_label == prev_label and r.crop_id in by_id
+        },
+        "free_from": before[-1].harvest_end if before and before[-1].harvest_end else None,
+        "must_end_by": after[0].planned_sow if after else None,
+    }  # fmt: skip
+    return plan, bed, spec, slot, ctx
+
+
+async def alternatives(
+    session: AsyncSession,
+    m: Membership,
+    plan_id: uuid.UUID,
+    code: str,
+    season_label: str,
+    layer: str,
+) -> list[AlternativeOut]:
+    """Crops that could replace the planned one in this bed layer and season."""
+    _plan, _bed, spec, slot, ctx = await _bed_context(
+        session, m, plan_id, code, season_label, layer
+    )
+    parcel = await parcel_service.get_parcel(session, m)
+    companions = await library.engine_companions(session)
+    options = planting.alternatives(
+        spec, layer, slot, [_crop_spec(c) for c in ctx["crops"].values()],
+        [(c.crop_a, c.crop_b, c.relation) for c in companions],
+        others_in_bed=ctx["others"], previous_families=ctx["previous_families"],
+        free_from=ctx["free_from"], must_end_by=ctx["must_end_by"], drainage=parcel.drainage,
+        p=await _planting_params(session),
+    )  # fmt: skip
+    current = ctx["current"]
+    out = []
+    for o in options:
+        c = ctx["crops"][o.crop]
+        out.append(
+            AlternativeOut(
+                crop=CropRef(id=c.id, slug=c.slug, name_en=c.name_en, name_hi=c.name_hi,
+                             ai_checked=c.status == "ai_verified"),
+                current=bool(current and current.crop_id == c.id),
+                planned_sow=o.planned_sow, harvest_start=o.harvest_start,
+                harvest_end=o.harvest_end, plant_count=o.plant_count,
+                expected_yield_kg=o.expected_yield_kg,
+            )
+        )  # fmt: skip
+    return out
+
+
+async def swap(
+    session: AsyncSession, m: Membership, plan_id: uuid.UUID, code: str, data: SwapIn
+) -> PlanOut:
+    """Put the owner's chosen crop in a bed layer (only crops that pass every rule there)."""
+    allowed = await alternatives(session, m, plan_id, code, data.season_label, data.layer)
+    pick = next((a for a in allowed if a.crop.slug == data.crop_slug), None)
+    if pick is None:
+        raise AppError("CROP_NOT_ALLOWED_HERE", 422, {"crop": data.crop_slug})
+    plan, bed, _spec, slot, ctx = await _bed_context(
+        session, m, plan_id, code, data.season_label, data.layer
+    )
+    crop = ctx["crops"][data.crop_slug]
+    values = {
+        "crop_id": crop.id, "planned_sow": pick.planned_sow, "harvest_start": pick.harvest_start,
+        "harvest_end": pick.harvest_end, "plant_count": pick.plant_count,
+        "spacing_cm": crop.spacing_plant_cm or 0, "expected_yield_kg": pick.expected_yield_kg,
+        "why": {"key": "plan.why.owner"},
+    }  # fmt: skip
+    current = ctx["current"]
+    if current is not None:
+        for k, v in values.items():
+            setattr(current, k, v)
+    else:
+        await repo.add_bed_layer(
+            session, bed_id=bed.id, layer=data.layer, season=slot.season,
+            season_label=slot.label, **values,
+        )  # fmt: skip
+    plan.summary = {**plan.summary, "custom": True}
     await session.flush()
     return await _out(session, plan)
