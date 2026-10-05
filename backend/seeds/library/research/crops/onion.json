@@ -1,0 +1,80 @@
+{
+  "nursery_days": 45,
+  "spacing_row_cm": 15,
+  "spacing_plant_cm": 10,
+  "height_max_cm": 46,
+  "sun": "full",
+  "water_need": "medium",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.5,
+  "sources": {
+    "nursery_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bellaryonion.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Plant 45 days old seedlings",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://celkau.in/crops/vegetables/onion/seedspacing.php",
+        "title": "Kerala Agricultural University, crop package (seedspacing)",
+        "quote": "Spacing 15 – 20 x 10 cm",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://celkau.in/crops/vegetables/onion/seedspacing.php",
+        "title": "Kerala Agricultural University, crop package (seedspacing)",
+        "quote": "Spacing 15 – 20 x 10 cm",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://plants.ces.ncsu.edu/plants/allium-cepa/",
+        "title": "NC State Extension Plant Toolbox",
+        "quote": "Height: 1 ft. 0 in. - 1 ft. 6 in.",
+        "note": "1 ft 6 in = 46 cm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "sun": [
+      {
+        "url": "https://celkau.in/crops/vegetables/onion/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "Open sunlight is essential for good yield",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://celkau.in/crops/vegetables/onion/aftercultivation.php",
+        "title": "Kerala Agricultural University, crop package (aftercultivation)",
+        "quote": "Need based irrigation must be given.",
+        "note": "Interpreted: the source recommends regular irrigation every few days in summer; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://celkau.in/crops/vegetables/onion/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "The crop will not tolerate water logging.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bellaryonion.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "The crop yields about 15 – 18 t/ha in 140 – 150 days.",
+        "note": "15 t/ha = 1.5 kg/m².",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 2 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Seasons, sow windows, days to harvest and harvest period are missing: no national or Malwa source found yet (onion is a major Malwa crop; ICAR-DOGR is the source to try)."
+}

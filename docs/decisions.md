@@ -198,3 +198,8 @@ Record every structural choice: context, decision, consequences. Newest first. T
   5. `terrace_ok` is no longer required for review (terraces out of scope).
   6. Malwa sow windows use national ICAR-IIVR months until a Malwa-specific source is found.
 - **Consequences:** Batch 1: tomato, brinjal, okra `ai_verified`; chilli and bottle gourd drafts (no source for the picking period). Sources: ICAR-IIVR, Kerala Agricultural University, NC State Extension.
+
+## 2026-10-05 — Research batch 2
+- **Result:** cucumber, radish, peas and bottle gourd (picking period added) are `ai_verified`; onion stays a draft (no national/Malwa source for seasons, sow windows and harvest timing; ICAR-DOGR to try); chilli still lacks a picking period.
+- **Rules added:** TNAU Agritech pages are a source; picking periods may come from TNAU fertigation stage tables (noted on the value); a crop listed by NC State as "Full sun ... Partial Shade" is stored as `sun: partial`; cucumber sow windows are TNAU (Tamil Nadu) months because the ICAR-IIVR page was unavailable; the ICAR-IIVR pea yield line is mislabelled on the site and was not used.
+- **Deferred to batch 3:** methi, coriander and spinach. Leafy crops are cut several times, so "first harvest" and "picking period" need a defined meaning first; seed-spice sources (ICAR-NRCSS) for methi and coriander. The `spinach` seed entry is *Spinacia oleracea*, but Indian palak is usually *Beta vulgaris* var. *bengalensis*; to settle before researching it.

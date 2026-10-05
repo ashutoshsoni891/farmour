@@ -1,0 +1,126 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "days_to_first_harvest": 90,
+  "harvest_span_days": 20,
+  "spacing_row_cm": 30,
+  "spacing_plant_cm": 10,
+  "height_max_cm": 46,
+  "sun": "partial",
+  "water_need": "medium",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 0.8,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://icariivr.org.in/pea-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "Sowing Time Winter (October-November)",
+        "note": "Winter sowing = rabi.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://icariivr.org.in/pea-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "Harvesting 90-110 days after sowing",
+        "note": "TNAU gives 75 days for the Nilgiris/plains; the national figure is used.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://icariivr.org.in/pea-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "Harvesting 90-110 days after sowing",
+        "note": "110 - 90 = 20 days of picking.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://icariivr.org.in/pea-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "Spacing of 30 x 10 cm",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://icariivr.org.in/pea-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "Spacing of 30 x 10 cm",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://plants.ces.ncsu.edu/plants/pisum-sativum/",
+        "title": "NC State Extension Plant Toolbox",
+        "quote": "Height: 1 ft. 0 in. - 1 ft. 6 in.",
+        "note": "1 ft 6 in = 46 cm (bush types; tall types need support).",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "sun": [
+      {
+        "url": "https://plants.ces.ncsu.edu/plants/pisum-sativum/",
+        "title": "NC State Extension Plant Toolbox",
+        "quote": "Light: Full sun (6 or more hours of direct sunlight a day) Partial Shade (Direct sunlight only part of the day, 2-6 hours)",
+        "note": "Grows in full sun or partial shade.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://icariivr.org.in/pea-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "Moderate irrigation,especially during flowering and pod filling",
+        "note": "Source says moderate irrigation.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://icariivr.org.in/pea-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "Loamy ,well drained Soil with pH 6.0-7.5",
+        "note": "Needs well-drained soil, so not waterlogging tolerant (interpreted).",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_peas.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Yield 8 -12 t/ha of pods can be obtained.",
+        "note": "8 t/ha green pods = 0.8 kg/m². The ICAR-IIVR page's yield line is mislabelled ('green chilli') and was not used.",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 2 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are national ICAR-IIVR months (no Malwa-specific source found yet).",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "10-01",
+          "to": "11-30",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://icariivr.org.in/pea-2/",
+            "title": "ICAR-IIVR cultivation details",
+            "quote": "Sowing Time Winter (October-November)",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  }
+}

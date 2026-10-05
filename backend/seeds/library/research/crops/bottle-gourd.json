@@ -4,6 +4,7 @@
     "zaid"
   ],
   "days_to_first_harvest": 60,
+  "harvest_span_days": 45,
   "spacing_row_cm": 200,
   "spacing_plant_cm": 75,
   "height_max_cm": 150,
@@ -26,6 +27,15 @@
         "url": "https://celkau.in/crops/vegetables/bottle%20gourd/harvesting.php",
         "title": "Kerala Agricultural University, crop package (harvesting)",
         "quote": "The fruits are ready for harvest 60-120 days after sowing depending on the variety.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bottlegourd.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Harvesting stage 45",
+        "note": "From the TNAU fertigation schedule (hybrid): the harvesting stage lasts 45 days.",
         "checked_on": "2026-10-05"
       }
     ],
@@ -89,6 +99,7 @@
       }
     ]
   },
+  "source_notes": "AI research batch 1 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are national ICAR-IIVR months (no Malwa-specific source found yet).",
   "regional": {
     "malwa": {
       "sow_windows": [
@@ -114,6 +125,5 @@
         ]
       }
     }
-  },
-  "source_notes": "AI research batch 1 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are national ICAR-IIVR months (no Malwa-specific source found yet)."
+  }
 }
