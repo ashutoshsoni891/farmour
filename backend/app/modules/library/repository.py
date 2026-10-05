@@ -69,6 +69,18 @@ async def list_crops(
     return list(await session.scalars(stmt))
 
 
+async def crops_with_status(session: AsyncSession, statuses: list[str]) -> list[Crop]:
+    return list(
+        await session.scalars(select(Crop).where(Crop.status.in_(statuses)).order_by(Crop.slug))
+    )
+
+
+async def crops_by_ids(session: AsyncSession, ids: list[uuid.UUID]) -> list[Crop]:
+    if not ids:
+        return []
+    return list(await session.scalars(select(Crop).where(Crop.id.in_(ids))))
+
+
 async def crop_slug_map(session: AsyncSession) -> dict[str, uuid.UUID]:
     rows = await session.execute(select(Crop.slug, Crop.id))
     return {slug: cid for slug, cid in rows.tuples()}

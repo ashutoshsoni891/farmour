@@ -158,6 +158,26 @@
     "heavy_planter_distance_m": 1
    },
    "source_notes": "Spec section 7 (default; agronomist to confirm)"
+  },
+  {
+   "code": "engine.seasons",
+   "description": "Season calendar used to group plantings",
+   "applies_to": "engine",
+   "params": {
+    "kharif": {
+     "from": "06-01",
+     "to": "10-15"
+    },
+    "rabi": {
+     "from": "10-16",
+     "to": "02-28"
+    },
+    "zaid": {
+     "from": "03-01",
+     "to": "05-31"
+    }
+   },
+   "source_notes": "Common Indian season convention (kharif = monsoon, rabi = winter, zaid = summer); the boundaries are a planning convention, not a crop fact. Agronomist to confirm."
   }
  ]
 }

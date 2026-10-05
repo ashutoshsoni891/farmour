@@ -66,3 +66,25 @@ class Bed(IdMixin, Base):
     raised: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
     orientation_deg: Mapped[Decimal] = mapped_column(Numeric(6, 2), default=0, server_default="0")
     has_trellis: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
+
+
+class BedLayer(IdMixin, Base):
+    """One crop in one layer of one bed for one season of the plan (spec section 5)."""
+
+    __tablename__ = "bed_layers"
+    bed_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("beds.id", ondelete="CASCADE"), index=True)
+    layer: Mapped[str] = mapped_column(String(12))
+    season: Mapped[str] = mapped_column(String(10))
+    season_label: Mapped[str] = mapped_column(String(20))
+    crop_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("crops.id"))
+    planned_sow: Mapped[date] = mapped_column(Date)
+    plant_count: Mapped[int] = mapped_column(Integer)
+    spacing_cm: Mapped[int] = mapped_column(Integer)
+    expected_yield_kg: Mapped[Decimal] = mapped_column(Numeric(10, 2))
+    why: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default="{}")
+    __table_args__ = (
+        CheckConstraint(
+            "layer in ('underground','surface','middle','climber','canopy')", name="layer"
+        ),
+        CheckConstraint("season in ('kharif','rabi','zaid','perennial')", name="season"),
+    )

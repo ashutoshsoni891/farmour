@@ -64,6 +64,10 @@ interface Props {
   resetKey?: number;
   /** In "view" mode: the planned zones and beds to show on the plot. */
   layout?: PlotLayout | undefined;
+  /** In "view" mode with a layout: called with a bed's code when the owner taps it. */
+  onBedClick?: ((code: string) => void) | undefined;
+  /** Bed code to highlight. */
+  selectedBed?: string | null | undefined;
 }
 
 export function PlotMap({
@@ -78,6 +82,8 @@ export function PlotMap({
   tall = false,
   initial,
   layout,
+  onBedClick,
+  selectedBed = null,
 }: Props) {
   const { t } = useTranslation();
   const box = useRef<HTMLDivElement>(null);
@@ -86,6 +92,7 @@ export function PlotMap({
   const markerRef = useRef<Marker | null>(null);
   const onPinRef = useRef(onPin);
   const onShapeRef = useRef(onShape);
+  const onBedClickRef = useRef(onBedClick);
   const modeRef = useRef(mode);
   const initialRef = useRef(initial);
   const { i18n } = useTranslation();
@@ -96,6 +103,7 @@ export function PlotMap({
   useEffect(() => {
     onPinRef.current = onPin;
     onShapeRef.current = onShape;
+    onBedClickRef.current = onBedClick;
     modeRef.current = mode;
     initialRef.current = initial;
   });
@@ -273,7 +281,7 @@ export function PlotMap({
   useEffect(() => {
     const map = mapRef.current;
     if (!map || mode !== "view") return;
-    const ids = ["layout-zones", "layout-beds", "layout-bed-codes"];
+    const ids = ["layout-zones", "layout-beds-hit", "layout-beds", "layout-bed-codes"];
     const clear = () => {
       for (const id of ids) if (map.getLayer(id)) map.removeLayer(id);
       for (const id of ["layout-zones", "layout-beds", "layout-bed-points"])
@@ -318,6 +326,13 @@ export function PlotMap({
           })),
         },
       });
+      // A filled layer so a bed can be tapped; the selected bed is drawn brighter.
+      map.addLayer({
+        id: "layout-beds-hit",
+        type: "fill",
+        source: "layout-beds",
+        paint: { "fill-color": "#facc15", "fill-opacity": 0 },
+      });
       map.addLayer({
         id: "layout-beds",
         type: "line",
@@ -354,10 +369,36 @@ export function PlotMap({
         paint: { "text-color": "#ffffff", "text-halo-color": "#14532d", "text-halo-width": 1.5 },
       });
     };
+    const onClick = (e: { features?: { properties: Record<string, unknown> }[] }) => {
+      const code = e.features?.[0]?.properties["code"];
+      if (typeof code === "string") onBedClickRef.current?.(code);
+    };
+    const pointer = () => (map.getCanvas().style.cursor = "pointer");
+    const plain = () => (map.getCanvas().style.cursor = "");
+    map.on("click", "layout-beds-hit", onClick);
+    map.on("mouseenter", "layout-beds-hit", pointer);
+    map.on("mouseleave", "layout-beds-hit", plain);
     if (map.isStyleLoaded()) show();
     else map.once("load", show);
-    return clear;
+    return () => {
+      map.off("click", "layout-beds-hit", onClick);
+      map.off("mouseenter", "layout-beds-hit", pointer);
+      map.off("mouseleave", "layout-beds-hit", plain);
+      clear();
+    };
   }, [mode, layout]);
+
+  // Highlight the selected bed.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !map.getLayer("layout-beds-hit")) return;
+    map.setPaintProperty("layout-beds-hit", "fill-opacity", [
+      "case",
+      ["==", ["get", "code"], selectedBed ?? ""],
+      0.8,
+      0,
+    ] as never);
+  }, [selectedBed, layout]);
 
   // Satellite imagery: Google Map Tiles when a key is configured (default view), street map otherwise.
   useEffect(() => {

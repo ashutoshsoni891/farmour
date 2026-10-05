@@ -219,3 +219,17 @@ Record every structural choice: context, decision, consequences. Newest first. T
 - **Bed rules:** beds are tiled from the zone's west edge; B1, B2... are numbered from the gate side; trellis on every second column; raised beds when drainage is "waterlogs" or soil is black or clay; slivers under the minimum bed area or narrower than the minimum bed width are dropped.
 - **Obstacles:** only the largest connected part of the plot is planned (warning if the plot is split).
 - **Not verified yet:** golden and property tests (deferred by lean mode); checked on a 1-acre, 600 m2, rotated 2-acre, narrow strip and waterlogged test plot by running the engine and looking at one on the map.
+
+## 2026-10-06 — M3 slice 2: crops per bed, layer and season (engine 0.2.0)
+- **What:** `bed_layers` table (migration 0007), pure `planting.py`, plan API returns seasons and plantings, farm page shows "What grows when" by season, a reason per crop, and tapping a bed shows its whole year.
+- **Spec 7 followed:** layers underground -> surface -> middle -> climber (climber only on trellis beds); hard rules: library status (approved, plus AI-checked while `library.allow_ai_verified` is on), sow window reachable, height <= `layout.tall_crop_cm` (2 m), waterlogging (raised beds exempt), no same family in a bed in consecutive seasons, no "avoid" pair in a bed; score value/diversity/ease/water with goal weights; greedy with slug tie-break; warning when fewer than `engine.min_crops` crops in a season.
+- **Deviations / additions (spec silent or unworkable):**
+  1. A layer stays busy until the crop's first harvest + picking period; the next crop in that layer is sown on or after that date (otherwise seasons overlapped).
+  2. Eligibility follows each crop's own sow windows; season names (`engine.seasons` rule: kharif 1 Jun-15 Oct, rabi 16 Oct-28 Feb, zaid 1 Mar-31 May, a planning convention) only group plantings.
+  3. Diversity is 1 for a crop's first use in a season, then 1 minus its share of that layer's beds. The spec's flat 0.3 for repeats let one crop take nearly every bed. `engine.score.repeat_diversity` is no longer used.
+  4. With no local prices loaded, value = expected yield only (warning NO_PRICES).
+  5. A "good" companion in the bed adds `layout.good_companion_bonus` (0.1) to the score.
+- **Crop combinations data:** one pair so far, tomato + okra "good" (FAO AGRIS record of a two-summer field study in Peshawar), `ai_verified`. No "avoid" pairs: no checkable source found yet. More pairs need an agronomist or further research.
+- **Data fix:** tomato height is now 1.5 m (TNAU staking advice) instead of NC State's whole-species range of 10 ft, which would have kept tomato out of beds. Research files now refresh untouched `ai_verified` entries on load.
+- **Local stack:** `library.allow_ai_verified` set to true so the demo plans use AI-checked crops; plans then show "not yet reviewed by an expert".
+- **Known limits:** every bed in a season is sown on the same first date (staggering is planner work, M4); a short leftover of a season at the plan start (e.g. "Kharif 2026", 5-15 Oct) shows as its own season; with 9 AI-checked crops every season is below the 6-crop target.

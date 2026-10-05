@@ -3704,6 +3704,40 @@
         ],
         "title": "CropOut"
       },
+      "CropRef": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "slug": {
+            "type": "string",
+            "title": "Slug"
+          },
+          "name_en": {
+            "type": "string",
+            "title": "Name En"
+          },
+          "name_hi": {
+            "type": "string",
+            "title": "Name Hi"
+          },
+          "ai_checked": {
+            "type": "boolean",
+            "title": "Ai Checked"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "slug",
+          "name_en",
+          "name_hi",
+          "ai_checked"
+        ],
+        "title": "CropRef"
+      },
       "CropSummary": {
         "properties": {
           "id": {
@@ -6502,7 +6536,7 @@
           },
           "warnings": {
             "items": {
-              "$ref": "#/components/schemas/Warning_"
+              "$ref": "#/components/schemas/PlanWarning"
             },
             "type": "array",
             "title": "Warnings"
@@ -6520,6 +6554,24 @@
             },
             "type": "array",
             "title": "Beds"
+          },
+          "seasons": {
+            "items": {
+              "$ref": "#/components/schemas/SeasonOut"
+            },
+            "type": "array",
+            "title": "Seasons"
+          },
+          "plantings": {
+            "items": {
+              "$ref": "#/components/schemas/PlantingOut"
+            },
+            "type": "array",
+            "title": "Plantings"
+          },
+          "uses_ai_checked": {
+            "type": "boolean",
+            "title": "Uses Ai Checked"
           },
           "created_at": {
             "type": "string",
@@ -6540,9 +6592,95 @@
           "warnings",
           "zones",
           "beds",
+          "seasons",
+          "plantings",
+          "uses_ai_checked",
           "created_at"
         ],
         "title": "PlanOut"
+      },
+      "PlanWarning": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message_key": {
+            "type": "string",
+            "title": "Message Key"
+          },
+          "params": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Params",
+            "default": {}
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "message_key"
+        ],
+        "title": "PlanWarning"
+      },
+      "PlantingOut": {
+        "properties": {
+          "bed_code": {
+            "type": "string",
+            "title": "Bed Code"
+          },
+          "season": {
+            "type": "string",
+            "title": "Season"
+          },
+          "season_label": {
+            "type": "string",
+            "title": "Season Label"
+          },
+          "layer": {
+            "type": "string",
+            "title": "Layer"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/CropRef"
+          },
+          "planned_sow": {
+            "type": "string",
+            "format": "date",
+            "title": "Planned Sow"
+          },
+          "plant_count": {
+            "type": "integer",
+            "title": "Plant Count"
+          },
+          "spacing_cm": {
+            "type": "integer",
+            "title": "Spacing Cm"
+          },
+          "expected_yield_kg": {
+            "type": "number",
+            "title": "Expected Yield Kg"
+          },
+          "why": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Why"
+          }
+        },
+        "type": "object",
+        "required": [
+          "bed_code",
+          "season",
+          "season_label",
+          "layer",
+          "crop",
+          "planned_sow",
+          "plant_count",
+          "spacing_cm",
+          "expected_yield_kg",
+          "why"
+        ],
+        "title": "PlantingOut"
       },
       "ProfileOut": {
         "properties": {
@@ -7633,6 +7771,36 @@
         "type": "object",
         "title": "RuleUpdate"
       },
+      "SeasonOut": {
+        "properties": {
+          "season": {
+            "type": "string",
+            "title": "Season"
+          },
+          "label": {
+            "type": "string",
+            "title": "Label"
+          },
+          "begin": {
+            "type": "string",
+            "format": "date",
+            "title": "Begin"
+          },
+          "end": {
+            "type": "string",
+            "format": "date",
+            "title": "End"
+          }
+        },
+        "type": "object",
+        "required": [
+          "season",
+          "label",
+          "begin",
+          "end"
+        ],
+        "title": "SeasonOut"
+      },
       "SessionOut": {
         "properties": {
           "access_token": {
@@ -7864,24 +8032,6 @@
           "type"
         ],
         "title": "ValidationError"
-      },
-      "Warning_": {
-        "properties": {
-          "code": {
-            "type": "string",
-            "title": "Code"
-          },
-          "message_key": {
-            "type": "string",
-            "title": "Message Key"
-          }
-        },
-        "type": "object",
-        "required": [
-          "code",
-          "message_key"
-        ],
-        "title": "Warning_"
       },
       "ZoneOut": {
         "properties": {

@@ -9,7 +9,7 @@ from shapely.geometry import Polygon, mapping
 from sqlalchemy import func, select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.modules.layout.models import Bed, Plan, Zone
+from app.modules.layout.models import Bed, BedLayer, Plan, Zone
 
 
 async def latest_plan(session: AsyncSession, farm_id: uuid.UUID) -> Plan | None:
@@ -84,7 +84,23 @@ async def add_bed(
         orientation_deg=round(orientation_deg, 2), has_trellis=has_trellis,
     )  # fmt: skip
     session.add(bed)
+    await session.flush()
     return bed
+
+
+async def add_bed_layer(session: AsyncSession, **values: Any) -> None:
+    session.add(BedLayer(id=uuid.uuid4(), **values))
+
+
+async def bed_layers_of(session: AsyncSession, plan_id: uuid.UUID) -> list[tuple[str, BedLayer]]:
+    rows = await session.execute(
+        select(Bed.code, BedLayer)
+        .join(Bed, BedLayer.bed_id == Bed.id)
+        .join(Zone, Bed.zone_id == Zone.id)
+        .where(Zone.plan_id == plan_id)
+        .order_by(BedLayer.planned_sow, BedLayer.season_label)
+    )
+    return [(code, layer) for code, layer in rows.tuples()]
 
 
 async def zones_of(session: AsyncSession, plan_id: uuid.UUID) -> list[Zone]:

@@ -17,9 +17,12 @@ from app.modules.library.schemas import (
     CompanionIn,
     CompanionOut,
     CropCreate,
+    CropName,
     CropOut,
     CropSummary,
     CropUpdate,
+    EngineCompanion,
+    EngineCrop,
     Page,
     PestCreate,
     PestFields,
@@ -525,6 +528,59 @@ async def engine_rules(session: AsyncSession) -> dict[str, dict[str, Any]]:
     return {r.code: dict(r.params) for r in rows}
 
 
+async def engine_crops(session: AsyncSession, region_slug: str | None = None) -> list[EngineCrop]:
+    """Crops the engine may plan with (approved, plus AI-checked while the beta flag is on), with
+    the sow windows and prices of one region (default: `library.default_region`)."""
+    region = region_slug or await _default_region(session)
+    slugs = await repo.region_slugs(session)
+    crops = await repo.crops_with_status(session, await engine_statuses(session))
+    regional = await repo.regional_for(session, [c.id for c in crops])
+    out = []
+    for c in crops:
+        local = next((r for r in regional.get(c.id, []) if slugs.get(r.region_id) == region), None)
+        out.append(
+            EngineCrop(
+                id=c.id, slug=c.slug, name_en=c.name_en, name_hi=c.name_hi, status=c.status,
+                family=c.family, category=c.category, layers=list(c.layers),
+                seasons=list(c.seasons), sow_windows=list(local.sow_windows) if local else [],
+                nursery_days=c.nursery_days, days_to_first_harvest=c.days_to_first_harvest,
+                harvest_span_days=c.harvest_span_days, spacing_row_cm=c.spacing_row_cm,
+                spacing_plant_cm=c.spacing_plant_cm, height_max_cm=c.height_max_cm,
+                water_need=c.water_need, waterlogging_tolerant=c.waterlogging_tolerant,
+                expected_yield_kg_per_sqm=(
+                    float(c.expected_yield_kg_per_sqm)
+                    if c.expected_yield_kg_per_sqm is not None else None
+                ),
+                low_care=c.low_care,
+                price_direct_paise_per_kg=local.price_direct_paise_per_kg if local else None,
+                price_mandi_paise_per_kg=local.price_mandi_paise_per_kg if local else None,
+            )
+        )  # fmt: skip
+    return out
+
+
+async def engine_companions(session: AsyncSession) -> list[EngineCompanion]:
+    """Crop pairs the engine may use (same status rule as crops)."""
+    ids = {v: k for k, v in (await repo.crop_slug_map(session)).items()}
+    rows = await repo.list_companions(session, await engine_statuses(session))
+    return [
+        EngineCompanion(
+            crop_a=ids[r.crop_a], crop_b=ids[r.crop_b], relation=r.relation,
+            reason_en=r.reason_en, reason_hi=r.reason_hi, status=r.status,
+        )
+        for r in rows
+        if r.crop_a in ids and r.crop_b in ids
+    ]  # fmt: skip
+
+
+async def crop_names(session: AsyncSession, ids: list[uuid.UUID]) -> dict[uuid.UUID, CropName]:
+    rows = await repo.crops_by_ids(session, ids)
+    return {
+        c.id: CropName(id=c.id, slug=c.slug, name_en=c.name_en, name_hi=c.name_hi, status=c.status)
+        for c in rows
+    }
+
+
 async def engine_statuses(session: AsyncSession) -> list[str]:
     """Statuses the design engine may use: approved, plus AI-checked entries while the beta flag
     `library.allow_ai_verified` is on (plans then say "not yet reviewed by an expert")."""
@@ -539,13 +595,51 @@ async def load_seed(session: AsyncSession) -> dict[str, int]:
 
     counts = await seed.load(session)
     counts.update(await load_research(session, seed.read_research()))
+    counts.update(await load_companion_research(session, seed.read_companions()))
+    return counts
+
+
+def _checked(sources: dict[str, Any]) -> bool:
+    entries = [e for group in sources.values() for e in group]
+    return bool(entries) and all(e.get("quote") and e.get("checked_on") for e in entries)
+
+
+async def load_companion_research(
+    session: AsyncSession, pairs: list[dict[str, Any]]
+) -> dict[str, int]:
+    """Crop pairs from AI research. A pair whose every source was checked is `ai_verified`;
+    pairs an agronomist has taken into review or approved are left alone."""
+    counts = {"companions_ai_verified": 0, "companions_draft": 0, "companions_skipped": 0}
+    crops = await repo.crop_slug_map(session)
+    for pair in pairs:
+        if pair["crop_a"] not in crops or pair["crop_b"] not in crops:
+            counts["companions_skipped"] += 1
+            continue
+        a, b = sorted((crops[pair["crop_a"]], crops[pair["crop_b"]]))
+        row = await repo.get_companion_pair(session, a, b)
+        if row is not None and row.status not in ("draft", "ai_verified"):
+            counts["companions_skipped"] += 1
+            continue
+        status = "ai_verified" if _checked(pair["sources"]) else "draft"
+        values = {
+            "relation": pair["relation"], "reason_en": pair.get("reason_en"),
+            "reason_hi": pair.get("reason_hi"), "sources": pair["sources"], "status": status,
+        }  # fmt: skip
+        if row is None:
+            await repo.add_all(session, Companion(crop_a=a, crop_b=b, **values))
+        else:
+            for k, v in values.items():
+                setattr(row, k, v)
+        counts[f"companions_{'ai_verified' if status == 'ai_verified' else 'draft'}"] += 1
+    await session.flush()
     return counts
 
 
 async def load_research(session: AsyncSession, files: dict[str, dict[str, Any]]) -> dict[str, int]:
     """Fill draft crops from AI research files (seeds/library/research/crops/<slug>.json).
 
-    Only empty fields and fields without a source are filled, so an agronomist's edits survive.
+    For drafts only empty fields and fields without a source are filled, so an agronomist's edits
+    survive; entries still `ai_verified` (untouched since the check) take the file's values.
     A crop becomes `ai_verified` when nothing is missing for review and every source was
     confirmed by the check pass (quote + checked_on); otherwise it stays a draft whose todo list
     says what is missing. Entries in review, approved or retired are never touched.
@@ -559,15 +653,22 @@ async def load_research(session: AsyncSession, files: dict[str, dict[str, Any]])
             continue
         found = _dump(CropUpdate.model_validate(raw))
         current = await _crop_data(session, crop)
-        changes = {
-            k: v for k, v in found.items()
-            if k not in ("regional", "sources") and current.get(k) in (None, [], {}, "")
-        }  # fmt: skip
-        changes["sources"] = {**(found.get("sources") or {}), **(crop.sources or {})}
-        regional = {
-            r: v for r, v in (found.get("regional") or {}).items()
-            if not (current["regional"].get(r) or {}).get("sow_windows")
-        }  # fmt: skip
+        if crop.status == "ai_verified":
+            # Untouched since the AI check (any human edit reopens it as a draft): the research
+            # file is still the source of truth, so corrections in it are applied.
+            changes = {k: v for k, v in found.items() if k not in ("regional", "sources")}
+            changes["sources"] = found.get("sources") or {}
+            regional = dict(found.get("regional") or {})
+        else:
+            changes = {
+                k: v for k, v in found.items()
+                if k not in ("regional", "sources") and current.get(k) in (None, [], {}, "")
+            }  # fmt: skip
+            changes["sources"] = {**(found.get("sources") or {}), **(crop.sources or {})}
+            regional = {
+                r: v for r, v in (found.get("regional") or {}).items()
+                if not (current["regional"].get(r) or {}).get("sow_windows")
+            }  # fmt: skip
         await _apply_crop_fields(session, crop, {**changes, "regional": regional}, crop.created_by)
         data = await _crop_data(session, crop)
         problems = workflow.crop_missing(data, region) + workflow.unchecked_sources(data)

@@ -9,7 +9,7 @@
   "harvest_span_days": 50,
   "spacing_row_cm": 60,
   "spacing_plant_cm": 45,
-  "height_max_cm": 305,
+  "height_max_cm": 150,
   "sun": "full",
   "water_need": "medium",
   "waterlogging_tolerant": false,
@@ -67,10 +67,10 @@
     ],
     "height_max_cm": [
       {
-        "url": "https://plants.ces.ncsu.edu/plants/solanum-lycopersicum/",
-        "title": "NC State Extension Plant Toolbox",
-        "quote": "Height: 1 ft. 0 in. - 10 ft. 0 in.",
-        "note": "10 ft = 305 cm (tall, staked varieties).",
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_tomato_cultural%20practices.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Stake the plants 30 days after planting with 1 - 1.5 m tall stakes",
+        "note": "Staked height 1.5 m (upper end of the stake length). The NC State range (up to 10 ft) is for the whole species and was not used.",
         "checked_on": "2026-10-05"
       }
     ],

@@ -16,7 +16,7 @@ from shapely.geometry import Point, Polygon, box, shape
 from shapely.geometry.base import BaseGeometry
 from shapely.ops import transform
 
-ENGINE_VERSION = "0.1.0"
+ENGINE_VERSION = "0.2.0"  # 0.2: crops per bed, layer and season
 
 _TO_UTM = Transformer.from_crs("EPSG:4326", "EPSG:32643", always_xy=True)
 _TO_WGS = Transformer.from_crs("EPSG:32643", "EPSG:4326", always_xy=True)

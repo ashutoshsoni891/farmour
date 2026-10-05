@@ -38,6 +38,12 @@ def read_research(seed_dir: Path = SEED_DIR) -> dict[str, dict[str, Any]]:
     }
 
 
+def read_companions(seed_dir: Path = SEED_DIR) -> list[dict[str, Any]]:
+    """AI-researched crop pairs (seeds/library/research/companions.json)."""
+    path = seed_dir / "research" / "companions.json"
+    return list(json.loads(path.read_text(encoding="utf-8"))["companions"]) if path.exists() else []
+
+
 async def load(session: AsyncSession, seed_dir: Path = SEED_DIR) -> dict[str, int]:
     counts = {"created": 0, "updated": 0, "skipped": 0}
 

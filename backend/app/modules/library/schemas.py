@@ -316,3 +316,47 @@ class ReviewItem(BaseModel):
 class Page[T](BaseModel):
     items: list[T]
     next_cursor: str | None = None
+
+
+class EngineCrop(BaseModel):
+    """What the design engine needs about one crop, for one region (read-only snapshot)."""
+
+    id: uuid.UUID
+    slug: str
+    name_en: str
+    name_hi: str
+    status: Status
+    family: str | None
+    category: str
+    layers: list[str]
+    seasons: list[str]
+    sow_windows: list[dict[str, Any]]
+    nursery_days: int | None
+    days_to_first_harvest: int | None
+    harvest_span_days: int | None
+    spacing_row_cm: int | None
+    spacing_plant_cm: int | None
+    height_max_cm: int | None
+    water_need: str | None
+    waterlogging_tolerant: bool | None
+    expected_yield_kg_per_sqm: float | None
+    low_care: bool | None
+    price_direct_paise_per_kg: int | None
+    price_mandi_paise_per_kg: int | None
+
+
+class EngineCompanion(BaseModel):
+    crop_a: str  # slug
+    crop_b: str
+    relation: Literal["good", "avoid"]
+    reason_en: str | None
+    reason_hi: str | None
+    status: Status
+
+
+class CropName(BaseModel):
+    id: uuid.UUID
+    slug: str
+    name_en: str
+    name_hi: str
+    status: Status

@@ -29,9 +29,38 @@ class BedOut(BaseModel):
     geometry: dict[str, Any]
 
 
-class Warning_(BaseModel):
+class CropRef(BaseModel):
+    id: uuid.UUID
+    slug: str
+    name_en: str
+    name_hi: str
+    ai_checked: bool  # AI-checked library entry, not yet reviewed by an expert
+
+
+class SeasonOut(BaseModel):
+    season: str
+    label: str
+    begin: date
+    end: date
+
+
+class PlantingOut(BaseModel):
+    bed_code: str
+    season: str
+    season_label: str
+    layer: str
+    crop: CropRef
+    planned_sow: date
+    plant_count: int
+    spacing_cm: int
+    expected_yield_kg: float
+    why: dict[str, Any]
+
+
+class PlanWarning(BaseModel):
     code: str
     message_key: str
+    params: dict[str, Any] = {}
 
 
 class PlanOut(BaseModel):
@@ -43,7 +72,10 @@ class PlanOut(BaseModel):
     engine_version: str
     template: str
     area_sqm: float
-    warnings: list[Warning_]
+    warnings: list[PlanWarning]
     zones: list[ZoneOut]
     beds: list[BedOut]
+    seasons: list[SeasonOut]
+    plantings: list[PlantingOut]
+    uses_ai_checked: bool
     created_at: datetime

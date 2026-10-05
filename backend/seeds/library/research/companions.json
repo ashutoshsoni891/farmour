@@ -1,0 +1,22 @@
+{
+  "companions": [
+    {
+      "crop_a": "tomato",
+      "crop_b": "okra",
+      "relation": "good",
+      "reason_en": "Grown together, tomato gave more fruit than when grown alone.",
+      "reason_hi": "साथ उगाने पर टमाटर की उपज अकेले उगाने से ज़्यादा रही।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agris.fao.org/search/en/records/6472434c53aa8c896303e694",
+            "title": "FAO AGRIS: Growth and yield of tomato in various intercrop combinations (Sarhad Journal of Agriculture, 2004)",
+            "quote": "their combination gave maximum yield of tomato (27.61 tha-1) compared to that of as a sole crop (20.34 t ha-1)",
+            "note": "Two summer seasons in Peshawar (Pakistan); not yet tested in Malwa.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -995,6 +995,22 @@ export interface components {
             /** Todo */
             todo: string[];
         };
+        /** CropRef */
+        CropRef: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Slug */
+            slug: string;
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Ai Checked */
+            ai_checked: boolean;
+        };
         /** CropSummary */
         CropSummary: {
             /**
@@ -1679,16 +1695,63 @@ export interface components {
             /** Area Sqm */
             area_sqm: number;
             /** Warnings */
-            warnings: components["schemas"]["Warning_"][];
+            warnings: components["schemas"]["PlanWarning"][];
             /** Zones */
             zones: components["schemas"]["ZoneOut"][];
             /** Beds */
             beds: components["schemas"]["BedOut"][];
+            /** Seasons */
+            seasons: components["schemas"]["SeasonOut"][];
+            /** Plantings */
+            plantings: components["schemas"]["PlantingOut"][];
+            /** Uses Ai Checked */
+            uses_ai_checked: boolean;
             /**
              * Created At
              * Format: date-time
              */
             created_at: string;
+        };
+        /** PlanWarning */
+        PlanWarning: {
+            /** Code */
+            code: string;
+            /** Message Key */
+            message_key: string;
+            /**
+             * Params
+             * @default {}
+             */
+            params: {
+                [key: string]: unknown;
+            };
+        };
+        /** PlantingOut */
+        PlantingOut: {
+            /** Bed Code */
+            bed_code: string;
+            /** Season */
+            season: string;
+            /** Season Label */
+            season_label: string;
+            /** Layer */
+            layer: string;
+            crop: components["schemas"]["CropRef"];
+            /**
+             * Planned Sow
+             * Format: date
+             */
+            planned_sow: string;
+            /** Plant Count */
+            plant_count: number;
+            /** Spacing Cm */
+            spacing_cm: number;
+            /** Expected Yield Kg */
+            expected_yield_kg: number;
+            /** Why */
+            why: {
+                [key: string]: unknown;
+            };
         };
         /** ProfileOut */
         ProfileOut: {
@@ -1977,6 +2040,23 @@ export interface components {
             /** Source Notes */
             source_notes?: string | null;
         };
+        /** SeasonOut */
+        SeasonOut: {
+            /** Season */
+            season: string;
+            /** Label */
+            label: string;
+            /**
+             * Begin
+             * Format: date
+             */
+            begin: string;
+            /**
+             * End
+             * Format: date
+             */
+            end: string;
+        };
         /** SessionOut */
         SessionOut: {
             /** Access Token */
@@ -2051,13 +2131,6 @@ export interface components {
             input?: unknown;
             /** Context */
             ctx?: Record<string, never>;
-        };
-        /** Warning_ */
-        Warning_: {
-            /** Code */
-            code: string;
-            /** Message Key */
-            message_key: string;
         };
         /** ZoneOut */
         ZoneOut: {
