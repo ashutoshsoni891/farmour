@@ -14,7 +14,7 @@ from sqlalchemy import (
     String,
     func,
 )
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy.dialects.postgresql import ARRAY, JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base, CreatedByMixin, IdMixin, SoftDeleteMixin, TimestampMixin
@@ -44,6 +44,9 @@ class Farm(IdMixin, TimestampMixin, CreatedByMixin, SoftDeleteMixin, Base):
     water_summer_lpd: Mapped[int | None] = mapped_column(Integer)
     electricity: Mapped[bool | None] = mapped_column(Boolean)
     livestock: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
+    # farming methods the owner wants (multilayer, orchard, flowers, natural, polyhouse, integrated)
+    methods: Mapped[list[str]] = mapped_column(ARRAY(String), default=list, server_default="{}")
+    budget_band: Mapped[str | None] = mapped_column(String(6))
     region_id: Mapped[uuid.UUID | None] = mapped_column(ForeignKey("regions.id"))
     organization_id: Mapped[uuid.UUID | None] = mapped_column(ForeignKey("organizations.id"))
     metadata_: Mapped[dict[str, Any]] = mapped_column(
@@ -51,7 +54,8 @@ class Farm(IdMixin, TimestampMixin, CreatedByMixin, SoftDeleteMixin, Base):
     )
     __table_args__ = (
         CheckConstraint("site_type in ('ground','terrace')", name="site_type"),
-        CheckConstraint("goal in ('home_food','income','both')", name="goal"),
+        CheckConstraint("goal in ('home_food','income','both','low_work')", name="goal"),
+        CheckConstraint("budget_band in ('low','medium','high')", name="budget_band"),
         CheckConstraint("labour in ('self','family','caretaker','mixed')", name="labour"),
         CheckConstraint(
             "water_source in ('bore','well','canal','municipal','rain_only')", name="water_source"

@@ -326,7 +326,9 @@ function PlotStep({ farm, parcel }: { farm: Farm; parcel: Parcel | null }) {
     // Refresh what the farm page shows (it may hold an older "no plot yet" answer).
     await queryClient.invalidateQueries({ queryKey: ["parcel", farm.id] });
     await queryClient.invalidateQueries({ queryKey: ["site-profile", farm.id] });
-    void navigate(`/farms/${farm.id}`, { replace: true });
+    // First time: ask what the owner wants (step 3); after that, back to the farm.
+    const firstTime = !farm.budget_band && farm.methods.length === 0;
+    void navigate(firstTime ? `/setup/${farm.id}/goal` : `/farms/${farm.id}`, { replace: true });
   };
 
   const canSave =
@@ -540,7 +542,7 @@ export function SetupPage() {
   return (
     <Screen>
       <p className="text-base font-semibold text-neutral-700">
-        {t("setup.step", { n: farmId ? 2 : 1, total: 2 })}
+        {t("setup.step", { n: farmId ? 2 : 1, total: 3 })}
       </p>
       {farmId ? <Existing farmId={farmId} /> : <WhereStep />}
     </Screen>

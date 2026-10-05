@@ -8,7 +8,9 @@ from pydantic import BaseModel, ConfigDict, Field, field_validator
 from app.core.phone import normalise_indian_phone
 
 SiteType = Literal["ground", "terrace"]
-Goal = Literal["home_food", "income", "both"]
+Goal = Literal["home_food", "income", "both", "low_work"]
+Method = Literal["multilayer", "orchard", "flowers", "natural", "polyhouse", "integrated"]
+BudgetBand = Literal["low", "medium", "high"]
 Labour = Literal["self", "family", "caretaker", "mixed"]
 WaterSource = Literal["bore", "well", "canal", "municipal", "rain_only"]
 Role = Literal["owner", "caretaker"]
@@ -29,6 +31,8 @@ class FarmFields(BaseModel):
     water_summer_lpd: int | None = Field(default=None, ge=0)
     electricity: bool | None = None
     livestock: bool | None = None
+    methods: list[Method] | None = None
+    budget_band: BudgetBand | None = None
 
 
 class FarmCreate(FarmFields):
@@ -58,6 +62,8 @@ class FarmOut(BaseModel):
     water_summer_lpd: int | None
     electricity: bool | None
     livestock: bool
+    methods: list[Method] = []
+    budget_band: BudgetBand | None = None
     created_at: datetime
 
 

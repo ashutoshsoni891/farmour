@@ -1334,7 +1334,7 @@ export interface components {
             /** Lng */
             lng?: number | string | null;
             /** Goal */
-            goal?: ("home_food" | "income" | "both") | null;
+            goal?: ("home_food" | "income" | "both" | "low_work") | null;
             /** Budget Setup Paise */
             budget_setup_paise?: number | null;
             /** Budget Monthly Paise */
@@ -1349,6 +1349,10 @@ export interface components {
             electricity?: boolean | null;
             /** Livestock */
             livestock?: boolean | null;
+            /** Methods */
+            methods?: ("multilayer" | "orchard" | "flowers" | "natural" | "polyhouse" | "integrated")[] | null;
+            /** Budget Band */
+            budget_band?: ("low" | "medium" | "high") | null;
             /** Name */
             name: string;
         };
@@ -1380,7 +1384,7 @@ export interface components {
             /** Lng */
             lng: string | null;
             /** Goal */
-            goal: ("home_food" | "income" | "both") | null;
+            goal: ("home_food" | "income" | "both" | "low_work") | null;
             /** Budget Setup Paise */
             budget_setup_paise: number | null;
             /** Budget Monthly Paise */
@@ -1395,6 +1399,13 @@ export interface components {
             electricity: boolean | null;
             /** Livestock */
             livestock: boolean;
+            /**
+             * Methods
+             * @default []
+             */
+            methods: ("multilayer" | "orchard" | "flowers" | "natural" | "polyhouse" | "integrated")[];
+            /** Budget Band */
+            budget_band?: ("low" | "medium" | "high") | null;
             /**
              * Created At
              * Format: date-time
@@ -1414,7 +1425,7 @@ export interface components {
             /** Lng */
             lng?: number | string | null;
             /** Goal */
-            goal?: ("home_food" | "income" | "both") | null;
+            goal?: ("home_food" | "income" | "both" | "low_work") | null;
             /** Budget Setup Paise */
             budget_setup_paise?: number | null;
             /** Budget Monthly Paise */
@@ -1429,6 +1440,10 @@ export interface components {
             electricity?: boolean | null;
             /** Livestock */
             livestock?: boolean | null;
+            /** Methods */
+            methods?: ("multilayer" | "orchard" | "flowers" | "natural" | "polyhouse" | "integrated")[] | null;
+            /** Budget Band */
+            budget_band?: ("low" | "medium" | "high") | null;
             /** Name */
             name?: string | null;
         };

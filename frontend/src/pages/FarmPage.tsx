@@ -24,7 +24,7 @@ import { bedColours, plantingsOf } from "../plan/cropStyle";
 type Fact = components["schemas"]["FactOut"];
 type FarmUpdate = components["schemas"]["FarmUpdate"];
 const WATER = ["bore", "well", "canal", "municipal", "rain_only"] as const;
-const GOALS = ["home_food", "income", "both"] as const;
+const GOALS = ["income", "low_work", "home_food", "both"] as const;
 const LABOUR = ["self", "family", "caretaker", "mixed"] as const;
 const SOILS = ["black", "red", "sandy", "clay", "loam", "mixed"] as const;
 
@@ -441,6 +441,12 @@ export function FarmPage() {
             text={(o) => t(`setup.found.soil.${o}`)}
             onPick={(o) => void setSoil(o)}
           />
+          <Link
+            to={`/setup/${id}/goal`}
+            className="min-h-11 text-lg font-semibold text-green-800 underline"
+          >
+            {t("farm.edit_goal")}
+          </Link>
           <Link
             to={`/setup/${id}`}
             className="min-h-11 text-lg font-semibold text-green-800 underline"

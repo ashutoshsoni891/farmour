@@ -262,6 +262,9 @@
       "for": {
        "goal": [
         "income"
+       ],
+       "methods": [
+        "polyhouse"
        ]
       }
      },
@@ -286,8 +289,14 @@
        "water": -0.1
       },
       "for": {
+       "goal": [
+        "low_work"
+       ],
        "labour": [
         "caretaker"
+       ],
+       "methods": [
+        "orchard"
        ]
       }
      },
@@ -305,6 +314,10 @@
       "for": {
        "goal": [
         "home_food"
+       ],
+       "methods": [
+        "natural",
+        "integrated"
        ]
       }
      },

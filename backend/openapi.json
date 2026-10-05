@@ -5009,7 +5009,8 @@
                 "enum": [
                   "home_food",
                   "income",
-                  "both"
+                  "both",
+                  "low_work"
                 ]
               },
               {
@@ -5110,6 +5111,44 @@
               }
             ],
             "title": "Livestock"
+          },
+          "methods": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "multilayer",
+                    "orchard",
+                    "flowers",
+                    "natural",
+                    "polyhouse",
+                    "integrated"
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Methods"
+          },
+          "budget_band": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Budget Band"
           },
           "name": {
             "type": "string",
@@ -5212,7 +5251,8 @@
                 "enum": [
                   "home_food",
                   "income",
-                  "both"
+                  "both",
+                  "low_work"
                 ]
               },
               {
@@ -5303,6 +5343,38 @@
           "livestock": {
             "type": "boolean",
             "title": "Livestock"
+          },
+          "methods": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "multilayer",
+                "orchard",
+                "flowers",
+                "natural",
+                "polyhouse",
+                "integrated"
+              ]
+            },
+            "type": "array",
+            "title": "Methods",
+            "default": []
+          },
+          "budget_band": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Budget Band"
           },
           "created_at": {
             "type": "string",
@@ -5415,7 +5487,8 @@
                 "enum": [
                   "home_food",
                   "income",
-                  "both"
+                  "both",
+                  "low_work"
                 ]
               },
               {
@@ -5516,6 +5589,44 @@
               }
             ],
             "title": "Livestock"
+          },
+          "methods": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "multilayer",
+                    "orchard",
+                    "flowers",
+                    "natural",
+                    "polyhouse",
+                    "integrated"
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Methods"
+          },
+          "budget_band": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "low",
+                  "medium",
+                  "high"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Budget Band"
           },
           "name": {
             "anyOf": [

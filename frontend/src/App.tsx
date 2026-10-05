@@ -12,6 +12,7 @@ import { FarmPage } from "./pages/FarmPage";
 import { LibraryPage } from "./pages/LibraryPage";
 import { LoginPage } from "./pages/LoginPage";
 import { RecipeEditPage } from "./pages/RecipeEditPage";
+import { GoalStep } from "./setup/GoalStep";
 import { SetupPage } from "./setup/SetupPage";
 
 function Root() {
@@ -84,6 +85,14 @@ export function App() {
         element={
           <Guarded>
             <SetupPage />
+          </Guarded>
+        }
+      />
+      <Route
+        path="/setup/:farmId/goal"
+        element={
+          <Guarded>
+            <GoalStep />
           </Guarded>
         }
       />

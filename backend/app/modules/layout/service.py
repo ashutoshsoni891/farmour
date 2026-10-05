@@ -206,6 +206,8 @@ def _suits(option: dict[str, Any], farm: FarmOut) -> list[str]:
         out.append("labour")
     if farm.water_source and farm.water_source in match.get("water_source", []):
         out.append("water")
+    if set(farm.methods or []) & set(match.get("methods", [])):
+        out.append("methods")
     return out
 
 
