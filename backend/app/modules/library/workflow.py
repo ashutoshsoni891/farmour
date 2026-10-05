@@ -17,8 +17,8 @@ IDENTITY_FIELDS = {
 CROP_ALWAYS = ["family", "seasons", "sun", "water_need"]
 CROP_BED = [
     "days_to_first_harvest", "harvest_span_days", "spacing_plant_cm", "height_max_cm",
-    "expected_yield_kg_per_sqm", "terrace_ok", "waterlogging_tolerant",
-]  # fmt: skip
+    "expected_yield_kg_per_sqm", "waterlogging_tolerant",
+]  # fmt: skip  (terrace_ok no longer required: terraces are out of scope, decision 2026-10-05)
 CROP_TREE = ["tree_spacing_m", "canopy_diameter_m", "years_to_bear", "height_max_cm"]
 CROP_FIELD = ["days_to_first_harvest", "spacing_row_cm", "spacing_plant_cm",
               "expected_yield_kg_per_sqm"]  # fmt: skip
@@ -117,3 +117,20 @@ def can_approve(
     if approver_id == submitted_by and too_soon:
         return ApprovalCheck(False, "self_approval_too_soon")
     return ApprovalCheck(True)
+
+
+def _unchecked(sources: dict[str, Any], prefix: str = "") -> list[str]:
+    return [
+        f"unchecked:{prefix}{field}"
+        for field, entries in sources.items()
+        if not entries or any(not (e.get("quote") and e.get("checked_on")) for e in entries)
+    ]
+
+
+def unchecked_sources(data: dict[str, Any]) -> list[str]:
+    """Fields whose sources were not confirmed by the AI check (quote + checked_on), including
+    regional sources. Empty = every cited value was found in its source."""
+    problems = _unchecked(data.get("sources") or {})
+    for region, values in (data.get("regional") or {}).items():
+        problems += _unchecked(values.get("sources") or {}, f"{region}.")
+    return problems

@@ -30,6 +30,14 @@ def _fill(entry: Any, values: dict[str, Any]) -> bool:
     return changed
 
 
+def read_research(seed_dir: Path = SEED_DIR) -> dict[str, dict[str, Any]]:
+    """AI research files, one per crop: {slug: values in the CropUpdate shape}."""
+    folder = seed_dir / "research" / "crops"
+    return {
+        p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted(folder.glob("*.json"))
+    }
+
+
 async def load(session: AsyncSession, seed_dir: Path = SEED_DIR) -> dict[str, int]:
     counts = {"created": 0, "updated": 0, "skipped": 0}
 

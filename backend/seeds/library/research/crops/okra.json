@@ -1,0 +1,129 @@
+{
+  "seasons": [
+    "kharif",
+    "zaid"
+  ],
+  "days_to_first_harvest": 45,
+  "harvest_span_days": 40,
+  "spacing_row_cm": 60,
+  "spacing_plant_cm": 45,
+  "height_max_cm": 152,
+  "sun": "full",
+  "water_need": "medium",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://icariivr.org.in/okra-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "Spring–summer: Jan–Feb; Kharif: June–July",
+        "note": "Spring-summer mapped to zaid.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://icariivr.org.in/okra-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "45–60 days after sowing; harvest tender pods",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://celkau.in/crops/vegetables/okra/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "The crop starts yielding about 60 days after planting and extends to about 100 days.",
+        "note": "100 - 60 = 40 days of picking.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://icariivr.org.in/okra-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "60 × 45 cm",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://icariivr.org.in/okra-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "60 × 45 cm",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://plants.ces.ncsu.edu/plants/abelmoschus-esculentus/",
+        "title": "NC State Extension Plant Toolbox",
+        "quote": "Height: 3 ft. 0 in. - 5 ft. 0 in.",
+        "note": "5 ft = 152 cm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "sun": [
+      {
+        "url": "https://plants.ces.ncsu.edu/plants/abelmoschus-esculentus/",
+        "title": "NC State Extension Plant Toolbox",
+        "quote": "Light: Full sun (6 or more hours of direct sunlight a day)",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://celkau.in/crops/vegetables/okra/aftercultivation.php",
+        "title": "Kerala Agricultural University, crop package (aftercultivation)",
+        "quote": "So it is better to irrigate the crop at an interval of 2 to 3 days in summer.",
+        "note": "Interpreted: the source recommends regular irrigation every few days in summer; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://celkau.in/crops/vegetables/okra/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "But the crop cannot tolerate excessive moisture or poorly aerated soils.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://icariivr.org.in/okra-2/",
+        "title": "ICAR-IIVR cultivation details",
+        "quote": "10–12 t/ha (early crop); 16–18 t/ha (main season)",
+        "note": "10 t/ha = 1.0 kg/m².",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "01-01",
+          "to": "02-28",
+          "method": "direct"
+        },
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://icariivr.org.in/okra-2/",
+            "title": "ICAR-IIVR cultivation details",
+            "quote": "Spring–summer: Jan–Feb; Kharif: June–July",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  },
+  "source_notes": "AI research batch 1 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are national ICAR-IIVR months (no Malwa-specific source found yet)."
+}

@@ -38,7 +38,10 @@ function RecipeForm({
     label: t(`library.field.${key}`),
     value: form.values[key],
     onChange: (v: unknown) => form.set(key, v),
-    source: { value: form.sources[key] ?? "", onChange: (s: string) => form.setSource(key, s), field: key },
+    source: {
+      value: form.sources[key] ?? "", onChange: (s: string) => form.setSource(key, s), field: key,
+      quote: form.quotes[key],
+    },
   }); // prettier-ignore
 
   const setIngredient = (i: number, patch: Partial<Ingredient>) => {

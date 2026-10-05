@@ -6,6 +6,8 @@ export interface SourceEntry {
   url?: string | null;
   title: string;
   note?: string | null;
+  quote?: string | null;
+  checked_on?: string | null;
 }
 export type SourceDict = Record<string, SourceEntry[]>;
 
@@ -48,6 +50,15 @@ export function useEntryForm(initial: Values, initialSources: SourceDict) {
     setSourcesDirty((d) => new Set(d).add(key));
   }, []);
 
+  // What the AI check found in each cited source, shown to the reviewing agronomist.
+  const quotes = useMemo(
+    () =>
+      Object.fromEntries(
+        Object.entries(initialSources).map(([k, v]) => [k, v[0]?.quote ?? undefined]),
+      ) as Record<string, string | undefined>,
+    [initialSources],
+  );
+
   const isDirty = dirty.size > 0 || sourcesDirty.size > 0;
   const patch = useMemo(() => {
     const body: Values = {};
@@ -66,13 +77,15 @@ export function useEntryForm(initial: Values, initialSources: SourceDict) {
     return body;
   }, [dirty, sourcesDirty, values, sources, initialSources]);
 
-  return { values, sources, set, setSource, isDirty, patch };
+  return { values, sources, quotes, set, setSource, isDirty, patch };
 }
 
 interface RowProps {
   label: string;
   htmlFor: string;
-  source?: { value: string; onChange: (text: string) => void; field: string } | undefined;
+  source?:
+    | { value: string; onChange: (text: string) => void; field: string; quote?: string | undefined }
+    | undefined;
   children: ReactNode;
 }
 
@@ -92,6 +105,11 @@ export function Row({ label, htmlFor, source, children }: RowProps) {
           onChange={(e) => source.onChange(e.target.value)}
           className="rounded-lg border border-neutral-300 px-3 text-base text-neutral-700"
         />
+      )}
+      {source?.quote && (
+        <p className="text-sm text-neutral-600 italic">
+          {t("library.source_quote")}: “{source.quote}”
+        </p>
       )}
     </div>
   );

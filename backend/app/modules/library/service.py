@@ -35,7 +35,8 @@ from app.modules.library.schemas import (
 CROP_EDITABLE = [f for f in CropUpdate.model_fields if f != "regional"]
 RECIPE_EDITABLE = list(RecipeFields.model_fields)
 APPROVED = ["approved"]
-ALL_STATUSES = ["draft", "in_review", "approved", "retired"]
+ALL_STATUSES = ["draft", "ai_verified", "in_review", "approved", "retired"]
+OPEN = ("draft", "ai_verified", "in_review")  # statuses that show what is still missing
 
 
 def _statuses(principal: Principal) -> list[str]:
@@ -78,7 +79,7 @@ async def _crop_data(session: AsyncSession, crop: Crop) -> dict[str, Any]:
 
 async def _crop_out(session: AsyncSession, crop: Crop, *, with_missing: bool) -> CropOut:
     missing: list[str] = []
-    if with_missing and crop.status in ("draft", "in_review"):
+    if with_missing and crop.status in OPEN:
         missing = workflow.crop_missing(
             await _crop_data(session, crop), await _default_region(session)
         )
@@ -124,7 +125,7 @@ async def get_crop(session: AsyncSession, principal: Principal, crop_id: uuid.UU
 
 
 async def _apply_crop_fields(
-    session: AsyncSession, crop: Crop, changes: dict[str, Any], actor: uuid.UUID
+    session: AsyncSession, crop: Crop, changes: dict[str, Any], actor: uuid.UUID | None
 ) -> None:
     regional = changes.pop("regional", None)
     for field, value in changes.items():
@@ -175,8 +176,9 @@ async def update_crop(
 
 
 def _back_to_draft(entry: Crop | Recipe | Pest | Rule) -> None:
-    """Editing an approved or in-review entry reopens it; plans keep their pinned revision."""
-    if entry.status in ("approved", "in_review"):
+    """Editing an approved, AI-checked or in-review entry reopens it; plans keep their pinned
+    revision."""
+    if entry.status in ("approved", "ai_verified", "in_review"):
         entry.status = "draft"
         entry.submitted_by = entry.submitted_at = None
 
@@ -186,7 +188,7 @@ def _back_to_draft(entry: Crop | Recipe | Pest | Rule) -> None:
 
 def _recipe_out(recipe: Recipe, *, with_missing: bool) -> RecipeOut:
     missing = []
-    if with_missing and recipe.status in ("draft", "in_review"):
+    if with_missing and recipe.status in OPEN:
         missing = workflow.recipe_missing({n: getattr(recipe, n) for n in RECIPE_EDITABLE})
     data = {n: getattr(recipe, n) for n in RecipeOut.model_fields if hasattr(recipe, n)}
     data["missing_for_review"] = missing
@@ -252,9 +254,7 @@ async def _pest_out(session: AsyncSession, pest: Pest, *, with_missing: bool) ->
     data["crop_slugs"] = [crops[c] for c in pest.crop_ids if c in crops]
     data["recipe_slugs"] = [recipes[r] for r in pest.recipe_ids if r in recipes]
     data["missing_for_review"] = (
-        workflow.pest_missing(data)
-        if with_missing and pest.status in ("draft", "in_review")
-        else []
+        workflow.pest_missing(data) if with_missing and pest.status in OPEN else []
     )
     return PestOut.model_validate(data)
 
@@ -410,7 +410,7 @@ async def submit(
 ) -> None:
     _need_agronomist(principal)
     entry = await _entry(session, entity, entity_id)
-    if entry.status != "draft":
+    if entry.status not in ("draft", "ai_verified"):
         raise AppError("NOT_A_DRAFT", 409)
     missing = await _missing(session, entity, entry)
     if missing:
@@ -518,8 +518,59 @@ async def progress(session: AsyncSession) -> dict[str, int]:
     return await repo.count_approved(session)
 
 
+async def engine_statuses(session: AsyncSession) -> list[str]:
+    """Statuses the design engine may use: approved, plus AI-checked entries while the beta flag
+    `library.allow_ai_verified` is on (plans then say "not yet reviewed by an expert")."""
+    allow = bool(await get_setting(session, "library.allow_ai_verified"))
+    return ["approved", "ai_verified"] if allow else ["approved"]
+
+
 async def load_seed(session: AsyncSession) -> dict[str, int]:
-    """Load the bundled seed files as drafts (CLI: python -m app.cli load-library)."""
+    """Load the bundled seed files as drafts, then the AI research files
+    (CLI: python -m app.cli load-library)."""
     from app.modules.library import seed
 
-    return await seed.load(session)
+    counts = await seed.load(session)
+    counts.update(await load_research(session, seed.read_research()))
+    return counts
+
+
+async def load_research(session: AsyncSession, files: dict[str, dict[str, Any]]) -> dict[str, int]:
+    """Fill draft crops from AI research files (seeds/library/research/crops/<slug>.json).
+
+    Only empty fields and fields without a source are filled, so an agronomist's edits survive.
+    A crop becomes `ai_verified` when nothing is missing for review and every source was
+    confirmed by the check pass (quote + checked_on); otherwise it stays a draft whose todo list
+    says what is missing. Entries in review, approved or retired are never touched.
+    """
+    counts = {"ai_verified": 0, "research_draft": 0, "research_skipped": 0}
+    region = await _default_region(session)
+    for slug, raw in files.items():
+        crop = await repo.get_crop_by_slug(session, slug)
+        if crop is None or crop.status not in ("draft", "ai_verified"):
+            counts["research_skipped"] += 1
+            continue
+        found = _dump(CropUpdate.model_validate(raw))
+        current = await _crop_data(session, crop)
+        changes = {
+            k: v for k, v in found.items()
+            if k not in ("regional", "sources") and current.get(k) in (None, [], {}, "")
+        }  # fmt: skip
+        changes["sources"] = {**(found.get("sources") or {}), **(crop.sources or {})}
+        regional = {
+            r: v for r, v in (found.get("regional") or {}).items()
+            if not (current["regional"].get(r) or {}).get("sow_windows")
+        }  # fmt: skip
+        await _apply_crop_fields(session, crop, {**changes, "regional": regional}, crop.created_by)
+        data = await _crop_data(session, crop)
+        problems = workflow.crop_missing(data, region) + workflow.unchecked_sources(data)
+        if problems:
+            crop.status = "draft"
+            crop.todo = [f"TODO(agronomist): {p}" for p in problems]
+            counts["research_draft"] += 1
+        else:
+            crop.status = "ai_verified"
+            crop.todo = ["TODO(agronomist): review AI-checked values"]
+            counts["ai_verified"] += 1
+    await session.flush()
+    return counts

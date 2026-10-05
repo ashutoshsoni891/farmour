@@ -8,7 +8,7 @@ import { useAuth } from "../auth/AuthProvider";
 import { Screen } from "../components/Screen";
 
 type Tab = "crops" | "recipes" | "review";
-const STATUSES = ["draft", "in_review", "approved", "retired"];
+const STATUSES = ["draft", "ai_verified", "in_review", "approved", "retired"];
 const chip = "rounded-full bg-neutral-200 px-3 py-0.5 text-sm font-semibold";
 
 function useApi() {

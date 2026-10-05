@@ -1,6 +1,6 @@
 # Project status
 
-Last updated: 2026-10-02 (onboarding 2.0). Source of truth for scope: `docs/spec/` (milestones in `15-build-order-and-open-questions.md`).
+Last updated: 2026-10-05 (vision and scope discussion; see `docs/vision.md`). Source of truth for scope: `docs/spec/` (milestones in `15-build-order-and-open-questions.md`).
 Everything below runs on the local Docker stack. Nothing is pushed to GitHub yet (see "Blockers").
 
 ## Milestones
@@ -8,7 +8,7 @@ Everything below runs on the local Docker stack. Nothing is pushed to GitHub yet
 | # | Milestone | State | What exists | What is missing |
 |---|---|---|---|---|
 | M0 | Foundation | Built, local | Compose stack (Postgres+PostGIS+pgvector, Valkey, SeaweedFS, Keycloak, Caddy), owner login (Keycloak, hi/en), caretaker link login, roles, farm access check, settings, outbox, adapters + fakes, CI + staging workflow files | Deploy to a staging host (no host chosen); CI never run on GitHub |
-| M1 | Crop library | Built, data empty | 65 crops, 10 recipe shells, 12 engine rules (draft); review workflow; agronomist screens (crops, recipes, review queue) | Agronomy values (every field `TODO(agronomist)`); an agronomist to approve 40 crops + 6 recipes; pests (no screen, no seed); companions/rules/varieties screens; crop-to-mandi-commodity mapping |
+| M1 | Crop library | Built, data starting | 65 crops, 10 recipe shells, 12 engine rules (draft); review workflow; agronomist screens (crops, recipes, review queue); `ai_verified` status + beta flag; research batch 1 (tomato, brinjal, okra AI-checked; chilli, bottle gourd drafts) | Agronomy values for the other crops; an agronomist to approve 40 crops + 6 recipes; pests (no screen, no seed); companions/rules/varieties screens; crop-to-mandi-commodity mapping |
 | M2 | Parcel + site intelligence | Built, mostly | 2-screen onboarding (GPS, coordinates, size only), interactive plot editing (drag corners/shape, corner points), Google satellite (needs key), farm page with insights + Improve card, place search, farm page, site profile (climate, terrain, soil, region, road distance, nearby places), confirm/change flow | Mandi prices (needs data.gov.in key); groundwater class (no cited data); gate + obstacle marking; 1 m map grid; KML upload; schemes table; curated places (KVK, FPO); the 10-location acceptance run |
 | M3 | Design engine | Not started | Rules seeded as drafts | Everything: templates, zone carving, bed tiling, crop assignment, estimates, plan view, plan editor |
 | M4 | Planner, tasks, shopping list | Not started | - | Plantings, task generation, This week screen, missed-sowing and failure rules, shopping list |
@@ -35,7 +35,13 @@ Everything below runs on the local Docker stack. Nothing is pushed to GitHub yet
 2. **Agronomy data**: no values exist yet. M3 cannot choose crops without them. Needs an agronomist, or small cited-research batches.
 3. **Staging host** (Oracle free VM / own machine + tunnel / small VPS) and a real `.env`.
 4. **Keys**: `DATA_GOV_IN_API_KEY` (mandi prices), a real `GEOCODER_USER_AGENT` contact; later a Telegram bot token (M5) and an LLM choice (M7).
-5. **Satellite tiles**: off until a licensed provider is chosen.
+5. **Satellite tiles**: off until a licensed provider is chosen (Google Map Tiles planned; needs a key). Comparing Google, Mapbox and MapTiler on the real plots is pending.
+6. **Open vision questions** (see `docs/vision.md`): the cut-off sixth pillar, and the home-screen pitch.
+
+## Direction (decided 2026-10-05)
+- Scope: 1 bigha and up; owner + caretaker or owner-farmer; first beta on the owner's own land.
+- New pillars: goal-driven competing plans, government schemes and benefits (cited, "may be eligible").
+- Next slices: research batches 2-3 (cucumber, methi, spinach, coriander, radish, onion, peas; chilli and bottle gourd picking period; jeevamrut and one pest spray); schemes seed; then M3.
 
 ## Known gaps and debts (not blocking)
 

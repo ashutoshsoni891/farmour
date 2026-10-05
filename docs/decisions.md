@@ -172,3 +172,29 @@ Record every structural choice: context, decision, consequences. Newest first. T
 - **Context:** §13's Login screen mentions phone OTP; §2/§4 say owners use Keycloak and caretakers use one-time messaging links, with no SMS cost.
 - **Decision:** Follow §2/§4.
 - **Consequences:** `/auth/otp/*` endpoints implement the caretaker single-use link flow despite their names.
+
+## 2026-10-05 — Scope: 1 bigha and up; owner + caretaker or owner-farmer
+- **Context:** Spec §1 says "terrace to about 2 acres". The first user is a land owner with 1 bigha or more, and the caretaker may be the owner.
+- **Decision:** Target 1 bigha to a few acres. Terrace and kitchen gardens are out of scope. A farm may have no separate caretaker (the owner works it). Spec text is not edited; this entry and `docs/vision.md` override §1 on size.
+- **Consequences:** Plots are large enough for satellite basemaps to be useful; plot templates T/S can be dropped later.
+
+## 2026-10-05 — Plans follow the owner's goal; offer competing plans
+- **Context:** The owner wants the land used to its potential according to their own goal (income, low labour, self-sufficiency).
+- **Decision:** M3 should produce 2-3 candidate plans per goal with trade-offs; the owner picks. The goal is an engine input, not a label. Spec §7 to be checked when M3 starts.
+- **Consequences:** Needs a goal vocabulary in settings/library, not hard-coded.
+
+## 2026-10-05 — Government schemes are a product pillar
+- **Context:** Subsidies, loans and rebates decide whether structures (drip, polyhouse, orchard, solar pump) pay back.
+- **Decision:** Build the `schemes` table already in spec §17 with a status (`draft`/`ai_verified`/`approved`), a source URL and `last_verified`; match by plan and goal; wording "may be eligible"; subsidy only shown beside setup cost, never subtracted (§17). No in-app applications in the MVP.
+- **Consequences:** A cited schemes seed (about 10-15 national and MP schemes) after the first crop batch; matching after M3; "apply by" tasks in M4.
+
+## 2026-10-05 — `ai_verified` library status and AI research batches
+- **Context:** No agronomist yet; M3 needs crop values. Decided earlier: AI drafts cited values, usable only behind a beta flag.
+- **Decision:**
+  1. New status `ai_verified` between `draft` and `in_review` (migration 0005, expand; status columns widened to 12 chars). Setting `library.allow_ai_verified` (default false) lets the engine use these entries (`service.engine_statuses`). Editing an `ai_verified` entry reopens it as a draft; agronomists can submit it for normal review.
+  2. Each source may carry `quote` (the sentence that states the value) and `checked_on`. `scripts/check_research.py` opens every cited page and sets `checked_on` only when the quote is really on it. The fetch tool used during research rewords text, so only the script's check counts.
+  3. `load-library` also loads `seeds/library/research/crops/*.json`: fills empty fields of drafts only; the crop becomes `ai_verified` when nothing is missing for review and every source is checked, otherwise it stays a draft with the gaps in `todo`.
+  4. Value rules: ranges are stored at their lower bound (the full range is in the quote); `days_to_first_harvest` counts from bed planting (transplant date for nursery crops, matching spec §8); transplant sow windows are the source's nursery-sowing months shifted by the nursery days; windows that would cross 31 December are cut there; `water_need` is an interpretation of irrigation advice (flagged in the source note).
+  5. `terrace_ok` is no longer required for review (terraces out of scope).
+  6. Malwa sow windows use national ICAR-IIVR months until a Malwa-specific source is found.
+- **Consequences:** Batch 1: tomato, brinjal, okra `ai_verified`; chilli and bottle gourd drafts (no source for the picking period). Sources: ICAR-IIVR, Kerala Agricultural University, NC State Extension.

@@ -7,7 +7,7 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, HttpUrl, field_validator
 
-Status = Literal["draft", "in_review", "approved", "retired"]
+Status = Literal["draft", "ai_verified", "in_review", "approved", "retired"]
 Category = Literal[
     "vegetable", "leafy", "root", "spice", "fruit_tree", "fruit_short", "pulse", "cereal",
     "millet", "oilseed", "herb", "border", "green_manure", "flower",
@@ -27,6 +27,10 @@ class Source(BaseModel):
     url: HttpUrl | None = None
     title: str = Field(min_length=1, max_length=300)
     note: str | None = Field(default=None, max_length=1000)
+    # Set by the AI research pass: the sentence in the source that states the value, and the day a
+    # second pass opened the source and found it. Both present = the value is "ai_verified".
+    quote: str | None = Field(default=None, max_length=1000)
+    checked_on: date | None = None
 
 
 Sources = dict[str, list[Source]]

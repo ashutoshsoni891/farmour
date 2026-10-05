@@ -59,9 +59,16 @@ export function EntryActions({ entity, id, status, dirty, missing, onSave, onCha
     }
   };
 
-  const shown = problems.length ? problems : status === "draft" ? missing : [];
+  const shown = problems.length
+    ? problems
+    : status === "draft" || status === "ai_verified"
+      ? missing
+      : [];
   return (
     <div className="sticky bottom-0 -mx-4 flex flex-col gap-3 border-t-2 border-neutral-300 bg-white px-4 py-3">
+      {status === "ai_verified" && (
+        <p className="rounded-lg bg-sky-50 p-3 text-base">{t("library.ai_verified_note")}</p>
+      )}
       {shown.length > 0 && (
         <details className="rounded-lg bg-amber-50 p-3 text-base">
           <summary className="min-h-11 cursor-pointer font-semibold">
@@ -89,7 +96,7 @@ export function EntryActions({ entity, id, status, dirty, missing, onSave, onCha
         >
           {t("library.save")}
         </button>
-        {status === "draft" && (
+        {(status === "draft" || status === "ai_verified") && (
           <button
             type="button"
             disabled={busy}

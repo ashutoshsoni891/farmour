@@ -738,7 +738,7 @@ export interface components {
              * Status
              * @enum {string}
              */
-            status: "draft" | "in_review" | "approved" | "retired";
+            status: "draft" | "ai_verified" | "in_review" | "approved" | "retired";
             /** Sources */
             sources: {
                 [key: string]: unknown;
@@ -834,7 +834,7 @@ export interface components {
              * Status
              * @enum {string}
              */
-            status: "draft" | "in_review" | "approved" | "retired";
+            status: "draft" | "ai_verified" | "in_review" | "approved" | "retired";
             /** Revision */
             revision: number;
             /** Submitted By */
@@ -966,7 +966,7 @@ export interface components {
              * Status
              * @enum {string}
              */
-            status: "draft" | "in_review" | "approved" | "retired";
+            status: "draft" | "ai_verified" | "in_review" | "approved" | "retired";
             /** Revision */
             revision: number;
             /** Todo Count */
@@ -1527,7 +1527,7 @@ export interface components {
              * Status
              * @enum {string}
              */
-            status: "draft" | "in_review" | "approved" | "retired";
+            status: "draft" | "ai_verified" | "in_review" | "approved" | "retired";
             /** Revision */
             revision: number;
             /** Submitted By */
@@ -1683,7 +1683,7 @@ export interface components {
              * Status
              * @enum {string}
              */
-            status: "draft" | "in_review" | "approved" | "retired";
+            status: "draft" | "ai_verified" | "in_review" | "approved" | "retired";
             /** Revision */
             revision: number;
             /** Submitted By */
@@ -1824,7 +1824,7 @@ export interface components {
              * Status
              * @enum {string}
              */
-            status: "draft" | "in_review" | "approved" | "retired";
+            status: "draft" | "ai_verified" | "in_review" | "approved" | "retired";
             /** Revision */
             revision: number;
             /** Submitted By */
@@ -1920,6 +1920,10 @@ export interface components {
             title: string;
             /** Note */
             note?: string | null;
+            /** Quote */
+            quote?: string | null;
+            /** Checked On */
+            checked_on?: string | null;
         };
         /** SowWindow */
         SowWindow: {

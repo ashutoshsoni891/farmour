@@ -28,11 +28,11 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base, CreatedByMixin, IdMixin, TimestampMixin
 
-STATUSES = "('draft','in_review','approved','retired')"
+STATUSES = "('draft','ai_verified','in_review','approved','retired')"
 
 
 class ReviewMixin(CreatedByMixin):
-    status: Mapped[str] = mapped_column(String(10), default="draft", server_default="draft")
+    status: Mapped[str] = mapped_column(String(12), default="draft", server_default="draft")
     revision: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
     sources: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default="{}")
     source_notes: Mapped[str | None] = mapped_column(Text)

@@ -2520,6 +2520,7 @@
             "type": "string",
             "enum": [
               "draft",
+              "ai_verified",
               "in_review",
               "approved",
               "retired"
@@ -3041,6 +3042,7 @@
             "type": "string",
             "enum": [
               "draft",
+              "ai_verified",
               "in_review",
               "approved",
               "retired"
@@ -3607,6 +3609,7 @@
             "type": "string",
             "enum": [
               "draft",
+              "ai_verified",
               "in_review",
               "approved",
               "retired"
@@ -6052,6 +6055,7 @@
             "type": "string",
             "enum": [
               "draft",
+              "ai_verified",
               "in_review",
               "approved",
               "retired"
@@ -6753,6 +6757,7 @@
             "type": "string",
             "enum": [
               "draft",
+              "ai_verified",
               "in_review",
               "approved",
               "retired"
@@ -7202,6 +7207,7 @@
             "type": "string",
             "enum": [
               "draft",
+              "ai_verified",
               "in_review",
               "approved",
               "retired"
@@ -7488,6 +7494,30 @@
               }
             ],
             "title": "Note"
+          },
+          "quote": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 1000
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Quote"
+          },
+          "checked_on": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checked On"
           }
         },
         "additionalProperties": false,
