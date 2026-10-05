@@ -728,6 +728,102 @@
         }
       }
     },
+    "/api/v1/farms/{farm_id}/plan": {
+      "get": {
+        "tags": [
+          "plan"
+        ],
+        "summary": "Get Plan",
+        "description": "The farm's latest plan (zones and beds as GeoJSON).",
+        "operationId": "get_plan_api_v1_farms__farm_id__plan_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "plan"
+        ],
+        "summary": "Generate Plan",
+        "description": "Build a new draft plan from the farm's plot (owner only).",
+        "operationId": "generate_plan_api_v1_farms__farm_id__plan_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlanOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/library/crops": {
       "get": {
         "tags": [
@@ -2370,6 +2466,62 @@
           "items"
         ],
         "title": "AnswerBatch"
+      },
+      "BedOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "zone_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Zone Id"
+          },
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "length_m": {
+            "type": "number",
+            "title": "Length M"
+          },
+          "width_m": {
+            "type": "number",
+            "title": "Width M"
+          },
+          "raised": {
+            "type": "boolean",
+            "title": "Raised"
+          },
+          "has_trellis": {
+            "type": "boolean",
+            "title": "Has Trellis"
+          },
+          "orientation_deg": {
+            "type": "number",
+            "title": "Orientation Deg"
+          },
+          "geometry": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Geometry"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "zone_id",
+          "code",
+          "length_m",
+          "width_m",
+          "raised",
+          "has_trellis",
+          "orientation_deg",
+          "geometry"
+        ],
+        "title": "BedOut"
       },
       "BuildOut": {
         "properties": {
@@ -6306,6 +6458,92 @@
         ],
         "title": "PlaceOut"
       },
+      "PlanOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "farm_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Farm Id"
+          },
+          "version": {
+            "type": "integer",
+            "title": "Version"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "active",
+              "archived"
+            ],
+            "title": "Status"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "title": "Start Date"
+          },
+          "engine_version": {
+            "type": "string",
+            "title": "Engine Version"
+          },
+          "template": {
+            "type": "string",
+            "title": "Template"
+          },
+          "area_sqm": {
+            "type": "number",
+            "title": "Area Sqm"
+          },
+          "warnings": {
+            "items": {
+              "$ref": "#/components/schemas/Warning_"
+            },
+            "type": "array",
+            "title": "Warnings"
+          },
+          "zones": {
+            "items": {
+              "$ref": "#/components/schemas/ZoneOut"
+            },
+            "type": "array",
+            "title": "Zones"
+          },
+          "beds": {
+            "items": {
+              "$ref": "#/components/schemas/BedOut"
+            },
+            "type": "array",
+            "title": "Beds"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "farm_id",
+          "version",
+          "status",
+          "start_date",
+          "engine_version",
+          "template",
+          "area_sqm",
+          "warnings",
+          "zones",
+          "beds",
+          "created_at"
+        ],
+        "title": "PlanOut"
+      },
       "ProfileOut": {
         "properties": {
           "build": {
@@ -7626,6 +7864,66 @@
           "type"
         ],
         "title": "ValidationError"
+      },
+      "Warning_": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message_key": {
+            "type": "string",
+            "title": "Message Key"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "message_key"
+        ],
+        "title": "Warning_"
+      },
+      "ZoneOut": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "Id"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "label": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label"
+          },
+          "area_sqm": {
+            "type": "number",
+            "title": "Area Sqm"
+          },
+          "geometry": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Geometry"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "label",
+          "area_sqm",
+          "geometry"
+        ],
+        "title": "ZoneOut"
       }
     },
     "securitySchemes": {

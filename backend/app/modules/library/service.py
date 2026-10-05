@@ -518,6 +518,13 @@ async def progress(session: AsyncSession) -> dict[str, int]:
     return await repo.count_approved(session)
 
 
+async def engine_rules(session: AsyncSession) -> dict[str, dict[str, Any]]:
+    """Engine parameters by rule code (e.g. `engine.bed`). Rules still in draft are used: they hold
+    the spec defaults until an agronomist adjusts them; retired rules are ignored."""
+    rows = await repo.list_rules(session, ["draft", "ai_verified", "in_review", "approved"])
+    return {r.code: dict(r.params) for r in rows}
+
+
 async def engine_statuses(session: AsyncSession) -> list[str]:
     """Statuses the design engine may use: approved, plus AI-checked entries while the beta flag
     `library.allow_ai_verified` is on (plans then say "not yet reviewed by an expert")."""

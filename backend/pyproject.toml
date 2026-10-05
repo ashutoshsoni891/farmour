@@ -130,3 +130,9 @@ name = "Module site owns its tables"
 type = "protected"
 protected_modules = ["app.modules.site.repository", "app.modules.site.models"]
 allowed_importers = ["app.modules.site"]
+
+[[tool.importlinter.contracts]]
+name = "Module layout owns its tables"
+type = "protected"
+protected_modules = ["app.modules.layout.repository", "app.modules.layout.models"]
+allowed_importers = ["app.modules.layout"]

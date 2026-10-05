@@ -8,6 +8,7 @@ from sqlalchemy.ext.asyncio import create_async_engine
 import app.core.models
 import app.modules.farms.models
 import app.modules.identity.models
+import app.modules.layout.models
 import app.modules.library.models
 import app.modules.parcel.models
 import app.modules.site.models  # noqa: F401

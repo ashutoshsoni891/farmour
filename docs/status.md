@@ -10,7 +10,7 @@ Everything below runs on the local Docker stack. Nothing is pushed to GitHub yet
 | M0 | Foundation | Built, local | Compose stack (Postgres+PostGIS+pgvector, Valkey, SeaweedFS, Keycloak, Caddy), owner login (Keycloak, hi/en), caretaker link login, roles, farm access check, settings, outbox, adapters + fakes, CI + staging workflow files | Deploy to a staging host (no host chosen); CI never run on GitHub |
 | M1 | Crop library | Built, data starting | 65 crops, 10 recipe shells, 12 engine rules (draft); review workflow; agronomist screens (crops, recipes, review queue); `ai_verified` status + beta flag; research batches 1-3 (9 crops AI-checked: tomato, brinjal, okra, bottle gourd, cucumber, radish, peas, methi, coriander; chilli, onion and palak drafts) | Agronomy values for the other crops; an agronomist to approve 40 crops + 6 recipes; pests (no screen, no seed); companions/rules/varieties screens; crop-to-mandi-commodity mapping |
 | M2 | Parcel + site intelligence | Built, mostly | 2-screen onboarding (GPS, coordinates, size only), interactive plot editing (drag corners/shape, corner points), Google satellite (needs key), farm page with insights + Improve card, place search, farm page, site profile (climate, terrain, soil, region, road distance, nearby places), confirm/change flow | Mandi prices (needs data.gov.in key); groundwater class (no cited data); gate + obstacle marking; 1 m map grid; KML upload; schemes table; curated places (KVK, FPO); the 10-location acceptance run |
-| M3 | Design engine | Not started | Rules seeded as drafts | Everything: templates, zone carving, bed tiling, crop assignment, estimates, plan view, plan editor |
+| M3 | Design engine | In progress | Layout engine (zones + beds from the plot, version 0.1.0), plan API, plan drawn on the farm page | Crop assignment per bed and season, water check, estimates, plan editor (zone shares), terrace template (dropped), golden/property tests |
 | M4 | Planner, tasks, shopping list | Not started | - | Plantings, task generation, This week screen, missed-sowing and failure rules, shopping list |
 | M5 | Telegram messaging | Not started | `Channel` interface + fake, caretaker link login | Bot, invite acceptance, daily/weekly sends, reply flows, text parser |
 | M6 | Records and money | Not started | - | Logs (online + offline), profit, plan vs actual |
@@ -41,7 +41,7 @@ Everything below runs on the local Docker stack. Nothing is pushed to GitHub yet
 ## Direction (decided 2026-10-05)
 - Scope: 1 bigha and up; owner + caretaker or owner-farmer; first beta on the owner's own land.
 - New pillars: goal-driven competing plans, government schemes and benefits (cited, "may be eligible").
-- Next slices: jeevamrut and one pest spray (recipes loader); schemes seed; then M3 (fruit trees and the remaining crops come later).
+- Next slices: M3 slice 2 (crop assignment from AI-checked crops, with a one-line reason per crop), slice 3 (quantities, water, estimates), then the This week card (M4); recipes loader, schemes seed and the remaining crops in between.
 
 ## Known gaps and debts (not blocking)
 

@@ -20,6 +20,21 @@ import { googleCredit, googleSatelliteEnabled, googleSession, googleTileUrl } fr
 import { ESRI_CREDIT, ESRI_TILES, satelliteAvailable } from "./imagery";
 
 export type PlotGeometry = { type: "Polygon"; coordinates: number[][][] };
+/** A planned layout to draw over the plot: zones filled by kind, beds outlined with their codes. */
+export interface PlotLayout {
+  zones: { kind: string; geometry: PlotGeometry }[];
+  beds: { code: string; geometry: PlotGeometry }[];
+}
+export const ZONE_COLORS: Record<string, string> = {
+  beds: "#16a34a",
+  orchard: "#166534",
+  rotation: "#ca8a04",
+  border: "#78716c",
+  water: "#0284c7",
+  utility: "#7c3aed",
+  nursery: "#db2777",
+  path: "#e7e5e4",
+};
 export interface PlotShape {
   geometry: PlotGeometry;
   areaSqm: number;
@@ -47,6 +62,8 @@ interface Props {
   tall?: boolean;
   /** Bumped by the parent to clear the drawing and start again. */
   resetKey?: number;
+  /** In "view" mode: the planned zones and beds to show on the plot. */
+  layout?: PlotLayout | undefined;
 }
 
 export function PlotMap({
@@ -60,6 +77,7 @@ export function PlotMap({
   resetKey = 0,
   tall = false,
   initial,
+  layout,
 }: Props) {
   const { t } = useTranslation();
   const box = useRef<HTMLDivElement>(null);
@@ -250,6 +268,96 @@ export function PlotMap({
     if (map.isStyleLoaded()) show();
     else map.once("load", show);
   }, [mode, boundary]);
+
+  // The planned layout (zones and beds) over the plot.
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || mode !== "view") return;
+    const ids = ["layout-zones", "layout-beds", "layout-bed-codes"];
+    const clear = () => {
+      for (const id of ids) if (map.getLayer(id)) map.removeLayer(id);
+      for (const id of ["layout-zones", "layout-beds", "layout-bed-points"])
+        if (map.getSource(id)) map.removeSource(id);
+    };
+    const show = () => {
+      clear();
+      if (!layout) return;
+      map.addSource("layout-zones", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: layout.zones.map((z) => ({
+            type: "Feature",
+            properties: { kind: z.kind },
+            geometry: z.geometry,
+          })),
+        },
+      });
+      map.addLayer({
+        id: "layout-zones",
+        type: "fill",
+        source: "layout-zones",
+        paint: {
+          "fill-color": [
+            "match",
+            ["get", "kind"],
+            ...Object.entries(ZONE_COLORS).flat(),
+            "#16a34a",
+          ] as never,
+          "fill-opacity": 0.45,
+        },
+      });
+      map.addSource("layout-beds", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: layout.beds.map((b) => ({
+            type: "Feature",
+            properties: { code: b.code },
+            geometry: b.geometry,
+          })),
+        },
+      });
+      map.addLayer({
+        id: "layout-beds",
+        type: "line",
+        source: "layout-beds",
+        paint: { "line-color": "#ffffff", "line-width": 1.2 },
+      });
+      map.addSource("layout-bed-points", {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: layout.beds.map((b) => {
+            const ring = b.geometry.coordinates[0] ?? [];
+            const n = Math.max(ring.length - 1, 1);
+            const lng = ring.slice(0, n).reduce((a, c) => a + (c[0] ?? 0), 0) / n;
+            const lat = ring.slice(0, n).reduce((a, c) => a + (c[1] ?? 0), 0) / n;
+            return {
+              type: "Feature" as const,
+              properties: { code: b.code },
+              geometry: { type: "Point" as const, coordinates: [lng, lat] },
+            };
+          }),
+        },
+      });
+      map.addLayer({
+        id: "layout-bed-codes",
+        type: "symbol",
+        source: "layout-bed-points",
+        minzoom: 19,
+        layout: {
+          "text-field": ["get", "code"],
+          "text-font": ["Noto Sans Regular"],
+          "text-size": 12,
+        },
+        paint: { "text-color": "#ffffff", "text-halo-color": "#14532d", "text-halo-width": 1.5 },
+      });
+    };
+    if (map.isStyleLoaded()) show();
+    else map.once("load", show);
+    return clear;
+  }, [mode, layout]);
 
   // Satellite imagery: Google Map Tiles when a key is configured (default view), street map otherwise.
   useEffect(() => {

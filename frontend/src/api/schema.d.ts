@@ -215,6 +215,30 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/farms/{farm_id}/plan": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get Plan
+         * @description The farm's latest plan (zones and beds as GeoJSON).
+         */
+        get: operations["get_plan_api_v1_farms__farm_id__plan_get"];
+        put?: never;
+        /**
+         * Generate Plan
+         * @description Build a new draft plan from the farm's plot (owner only).
+         */
+        post: operations["generate_plan_api_v1_farms__farm_id__plan_post"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/library/crops": {
         parameters: {
             query?: never;
@@ -673,6 +697,35 @@ export interface components {
         AnswerBatch: {
             /** Items */
             items: components["schemas"]["Answer"][];
+        };
+        /** BedOut */
+        BedOut: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Zone Id
+             * Format: uuid
+             */
+            zone_id: string;
+            /** Code */
+            code: string;
+            /** Length M */
+            length_m: number;
+            /** Width M */
+            width_m: number;
+            /** Raised */
+            raised: boolean;
+            /** Has Trellis */
+            has_trellis: boolean;
+            /** Orientation Deg */
+            orientation_deg: number;
+            /** Geometry */
+            geometry: {
+                [key: string]: unknown;
+            };
         };
         /** BuildOut */
         BuildOut: {
@@ -1595,6 +1648,48 @@ export interface components {
             /** State */
             state: string | null;
         };
+        /** PlanOut */
+        PlanOut: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /**
+             * Farm Id
+             * Format: uuid
+             */
+            farm_id: string;
+            /** Version */
+            version: number;
+            /**
+             * Status
+             * @enum {string}
+             */
+            status: "draft" | "active" | "archived";
+            /**
+             * Start Date
+             * Format: date
+             */
+            start_date: string;
+            /** Engine Version */
+            engine_version: string;
+            /** Template */
+            template: string;
+            /** Area Sqm */
+            area_sqm: number;
+            /** Warnings */
+            warnings: components["schemas"]["Warning_"][];
+            /** Zones */
+            zones: components["schemas"]["ZoneOut"][];
+            /** Beds */
+            beds: components["schemas"]["BedOut"][];
+            /**
+             * Created At
+             * Format: date-time
+             */
+            created_at: string;
+        };
         /** ProfileOut */
         ProfileOut: {
             build: components["schemas"]["BuildOut"];
@@ -1956,6 +2051,31 @@ export interface components {
             input?: unknown;
             /** Context */
             ctx?: Record<string, never>;
+        };
+        /** Warning_ */
+        Warning_: {
+            /** Code */
+            code: string;
+            /** Message Key */
+            message_key: string;
+        };
+        /** ZoneOut */
+        ZoneOut: {
+            /**
+             * Id
+             * Format: uuid
+             */
+            id: string;
+            /** Kind */
+            kind: string;
+            /** Label */
+            label: string | null;
+            /** Area Sqm */
+            area_sqm: number;
+            /** Geometry */
+            geometry: {
+                [key: string]: unknown;
+            };
         };
     };
     responses: never;
@@ -2433,6 +2553,68 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["InviteOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    get_plan_api_v1_farms__farm_id__plan_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    generate_plan_api_v1_farms__farm_id__plan_post: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PlanOut"];
                 };
             };
             /** @description Validation Error */
