@@ -1,4 +1,9 @@
 {
+  "seasons": [
+    "rabi"
+  ],
+  "days_to_first_harvest": 110,
+  "harvest_span_days": 10,
   "nursery_days": 45,
   "spacing_row_cm": 15,
   "spacing_plant_cm": 10,
@@ -8,6 +13,33 @@
   "waterlogging_tolerant": false,
   "expected_yield_kg_per_sqm": 1.5,
   "sources": {
+    "seasons": [
+      {
+        "url": "https://icar.org.in/en/node/7153",
+        "title": "ICAR news: onion variety Bhima Red (source: ICAR-DOGR, Pune)",
+        "quote": "for rabi in Madhya Pradesh and Maharashtra",
+        "note": "Variety Bhima Red; rabi is the main onion season in Madhya Pradesh.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://icar.org.in/en/node/7153",
+        "title": "ICAR news: onion variety Bhima Red (source: ICAR-DOGR, Pune)",
+        "quote": "in 110-120 days after transplanting in late kharif and rabi seasons",
+        "note": "Time to maturity of one variety (Bhima Red); onion is harvested once, so the bulb is ready 110 days after transplanting.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://icar.org.in/en/node/7153",
+        "title": "ICAR news: onion variety Bhima Red (source: ICAR-DOGR, Pune)",
+        "quote": "in 110-120 days after transplanting in late kharif and rabi seasons",
+        "note": "120 - 110 = 10 days in which the bulbs mature (single harvest).",
+        "checked_on": "2026-10-05"
+      }
+    ],
     "nursery_days": [
       {
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bellaryonion.html",
@@ -76,5 +108,5 @@
       }
     ]
   },
-  "source_notes": "AI research batch 2 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Seasons, sow windows, days to harvest and harvest period are missing: no national or Malwa source found yet (onion is a major Malwa crop; ICAR-DOGR is the source to try)."
+  "source_notes": "AI research batch 2 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are missing: the ICAR-DOGR site (dogr.icar.gov.in) could not be opened from the research machine, so its season pages were not verified."
 }

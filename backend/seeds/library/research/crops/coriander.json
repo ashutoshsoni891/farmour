@@ -1,0 +1,132 @@
+{
+  "seasons": [
+    "kharif",
+    "rabi"
+  ],
+  "days_to_first_harvest": 30,
+  "harvest_span_days": 10,
+  "spacing_row_cm": 20,
+  "spacing_plant_cm": 15,
+  "height_max_cm": 61,
+  "sun": "partial",
+  "water_need": "medium",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 0.6,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "June - July and October - November",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "For leaf, pull out the plants when they are 30-40 days old.",
+        "note": "Leafy crop: the whole plant is pulled or cut when ready, so days_to_first_harvest is the lower end of the source range and harvest_span_days the difference to the upper end.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "For leaf, pull out the plants when they are 30-40 days old.",
+        "note": "40 - 30 = 10 days (plants pulled once).",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Sow the split seeds at a spacing of 20 x 15 cm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Sow the split seeds at a spacing of 20 x 15 cm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://plants.ces.ncsu.edu/plants/coriandrum-sativum/",
+        "title": "NC State Extension Plant Toolbox",
+        "quote": "Height: 1 ft. 0 in. - 2 ft. 0 in.",
+        "note": "2 ft = 61 cm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "sun": [
+      {
+        "url": "https://plants.ces.ncsu.edu/plants/coriandrum-sativum/",
+        "title": "NC State Extension Plant Toolbox",
+        "quote": "Light: Full sun (6 or more hours of direct sunlight a day) Partial Shade (Direct sunlight only part of the day, 2-6 hours)",
+        "note": "Grows in full sun or partial shade.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "subsequent irrigations at 7-10 days interval",
+        "note": "Interpreted: the source recommends regular irrigation every few days in summer; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Well drained silt or loamy soils are suited for cultivation.",
+        "note": "Needs well-drained soil, so not waterlogging tolerant (interpreted).",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Leaf yield : 6-7 t/ha",
+        "note": "6 t/ha = 0.6 kg/m².",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 3 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Leaf crop. Sow windows are TNAU months, not Malwa-specific.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        },
+        {
+          "from": "10-01",
+          "to": "11-30",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
+            "title": "TNAU Agritech Portal, horticulture",
+            "quote": "June - July and October - November",
+            "note": "Tamil Nadu (TNAU) months for coriander; no Malwa-specific source yet.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  }
+}

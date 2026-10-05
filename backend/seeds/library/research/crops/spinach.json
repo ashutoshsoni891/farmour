@@ -1,0 +1,88 @@
+{
+  "seasons": [
+    "kharif",
+    "rabi",
+    "zaid"
+  ],
+  "days_to_first_harvest": 30,
+  "harvest_span_days": 60,
+  "spacing_row_cm": 20,
+  "spacing_plant_cm": 10,
+  "expected_yield_kg_per_sqm": 2.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://icariivr.org.in/spinach/",
+        "title": "ICAR-IIVR spinach beet (palak) variety page",
+        "quote": "Suitable for round-the-year cultivation.",
+        "note": "Variety Kashi Baramasi (Uttar Pradesh); mapped to all three seasons.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_minor%20vegetables.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "First harvest of leaves one month after sowing.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_minor%20vegetables.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Total duration 3 months",
+        "note": "3 months total minus 1 month to first harvest = 60 days of repeated leaf cutting.",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_minor%20vegetables.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Seeds 20 - 25 kg/ha 20 x 10 cm",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_minor%20vegetables.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Seeds 20 - 25 kg/ha 20 x 10 cm",
+        "checked_on": "2026-10-05"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_minor%20vegetables.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Total duration 3 months 20000 kg/ha",
+        "note": "20000 kg/ha = 2.0 kg/m².",
+        "checked_on": "2026-10-05"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 3 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Indian palak (Beta vulgaris var. bengalensis), cut repeatedly. Sun, water need, height and waterlogging tolerance have no source yet.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "08-01",
+          "to": "11-30",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://icariivr.org.in/spinach/",
+            "title": "ICAR-IIVR spinach beet (palak) variety page",
+            "quote": "Yield 500–800 q/ha (August–November sowing)",
+            "note": "Best-yield sowing period for variety Kashi Baramasi (Uttar Pradesh).",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  }
+}
