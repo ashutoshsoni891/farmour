@@ -339,6 +339,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/benefits": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Benefits
+         * @description Government schemes and benefits this plan may be eligible for ("may be eligible").
+         */
+        get: operations["benefits_api_v1_farms__farm_id__plan__plan_id__benefits_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/library/crops": {
         parameters: {
             query?: never;
@@ -2281,6 +2301,59 @@ export interface components {
             /** Source Notes */
             source_notes?: string | null;
         };
+        /**
+         * SchemeOut
+         * @description A scheme the farm may be eligible for. Never "you qualify": the department decides.
+         */
+        SchemeOut: {
+            /** Code */
+            code: string;
+            /** Level */
+            level: string;
+            /** State */
+            state: string | null;
+            /** Benefit Type */
+            benefit_type: string;
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Gives En */
+            gives_en: string;
+            /** Gives Hi */
+            gives_hi: string;
+            /** Eligibility En */
+            eligibility_en: string;
+            /** Eligibility Hi */
+            eligibility_hi: string;
+            /** Documents */
+            documents: {
+                [key: string]: unknown;
+            }[];
+            /** Apply En */
+            apply_en: string | null;
+            /** Apply Hi */
+            apply_hi: string | null;
+            /** Apply Url */
+            apply_url: string | null;
+            /** Sources */
+            sources: components["schemas"]["SchemeSource"][];
+            /** Checked On */
+            checked_on: string | null;
+            /** Ai Checked */
+            ai_checked: boolean;
+            /** Reasons */
+            reasons: string[];
+            /** Conditions */
+            conditions: string[];
+        };
+        /** SchemeSource */
+        SchemeSource: {
+            /** Url */
+            url: string | null;
+            /** Title */
+            title: string;
+        };
         /** SeasonOut */
         SeasonOut: {
             /** Season */
@@ -3115,6 +3188,38 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PlanOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    benefits_api_v1_farms__farm_id__plan__plan_id__benefits_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                plan_id: string;
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SchemeOut"][];
                 };
             };
             /** @description Validation Error */

@@ -1,4 +1,5 @@
-"""Check pass for AI research files (seeds/library/research/crops/*.json, companions.json).
+"""Check pass for AI research files (seeds/library/research/crops/*.json, companions.json, and
+seeds/site/schemes.json).
 
 For every cited source, open the page and confirm the quoted sentence is really on it. Found ->
 `checked_on` is set to today; not found -> `checked_on` is removed, so the loader keeps the crop a
@@ -56,11 +57,12 @@ def main() -> int:
     args = parser.parse_args()
     today, cache = date.today().isoformat(), {}  # type: ignore[var-annotated]
     manual: set[str] = set()
-    paths = [*sorted(FOLDER.glob("*.json")), FOLDER.parent / "companions.json"]
+    schemes = FOLDER.parents[2] / "site" / "schemes.json"
+    paths = [*sorted(FOLDER.glob("*.json")), FOLDER.parent / "companions.json", schemes]
     for path in [p for p in paths if p.exists()]:
         data = json.loads(path.read_text(encoding="utf-8"))
         ok = bad = 0
-        entries = data.get("companions", [data])
+        entries = data.get("companions") or data.get("schemes") or [data]
         for src in [s for entry in entries for s in _sources(entry)]:
             url, quote = src.get("url"), src.get("quote")
             if not url or not quote:

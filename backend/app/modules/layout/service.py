@@ -38,6 +38,8 @@ from app.modules.layout.schemas import (
 from app.modules.library import service as library
 from app.modules.library.schemas import EngineCrop
 from app.modules.parcel import service as parcel_service
+from app.modules.site import service as site_service
+from app.modules.site.schemas import SchemeOut
 
 IST = ZoneInfo("Asia/Kolkata")
 TEMPLATES = ("S", "M", "L")
@@ -613,3 +615,24 @@ async def swap(
     plan.summary = {**plan.summary, "custom": True}
     await session.flush()
     return await _out(session, plan)
+
+
+ZONE_TAGS = {"beds": "beds", "orchard": "orchard", "water": "pond", "utility": "utility",
+             "nursery": "nursery", "rotation": "rotation"}  # fmt: skip
+
+
+async def benefits(session: AsyncSession, m: Membership, plan_id: uuid.UUID) -> list[SchemeOut]:
+    """Government schemes this plan and farm may be eligible for (vision pillar 6)."""
+    plan = await _plan_or_404(session, m, plan_id)
+    farm = await farms_service.get_farm(session, m)
+    kinds = {z.get("kind") for z in plan.summary.get("zones", [])}
+    tags = {"all", *(ZONE_TAGS[k] for k in kinds if k in ZONE_TAGS)}
+    if farm.goal:
+        tags.add(f"goal:{farm.goal}")
+    if plan.option:
+        tags.add(f"option:{plan.option}")
+    facts = {
+        "electricity": farm.electricity, "water_source": farm.water_source,
+        "labour": farm.labour, "goal": farm.goal,
+    }  # fmt: skip
+    return await site_service.schemes_for(session, tags, facts)

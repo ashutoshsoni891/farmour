@@ -1186,6 +1186,69 @@
         }
       }
     },
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/benefits": {
+      "get": {
+        "tags": [
+          "plan"
+        ],
+        "summary": "Benefits",
+        "description": "Government schemes and benefits this plan may be eligible for (\"may be eligible\").",
+        "operationId": "benefits_api_v1_farms__farm_id__plan__plan_id__benefits_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Plan Id"
+            }
+          },
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SchemeOut"
+                  },
+                  "title": "Response Benefits Api V1 Farms  Farm Id  Plan  Plan Id  Benefits Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/library/crops": {
       "get": {
         "tags": [
@@ -8470,6 +8533,184 @@
         "additionalProperties": false,
         "type": "object",
         "title": "RuleUpdate"
+      },
+      "SchemeOut": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "level": {
+            "type": "string",
+            "title": "Level"
+          },
+          "state": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "State"
+          },
+          "benefit_type": {
+            "type": "string",
+            "title": "Benefit Type"
+          },
+          "name_en": {
+            "type": "string",
+            "title": "Name En"
+          },
+          "name_hi": {
+            "type": "string",
+            "title": "Name Hi"
+          },
+          "gives_en": {
+            "type": "string",
+            "title": "Gives En"
+          },
+          "gives_hi": {
+            "type": "string",
+            "title": "Gives Hi"
+          },
+          "eligibility_en": {
+            "type": "string",
+            "title": "Eligibility En"
+          },
+          "eligibility_hi": {
+            "type": "string",
+            "title": "Eligibility Hi"
+          },
+          "documents": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Documents"
+          },
+          "apply_en": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Apply En"
+          },
+          "apply_hi": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Apply Hi"
+          },
+          "apply_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Apply Url"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SchemeSource"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "checked_on": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checked On"
+          },
+          "ai_checked": {
+            "type": "boolean",
+            "title": "Ai Checked"
+          },
+          "reasons": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Reasons"
+          },
+          "conditions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Conditions"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "level",
+          "state",
+          "benefit_type",
+          "name_en",
+          "name_hi",
+          "gives_en",
+          "gives_hi",
+          "eligibility_en",
+          "eligibility_hi",
+          "documents",
+          "apply_en",
+          "apply_hi",
+          "apply_url",
+          "sources",
+          "checked_on",
+          "ai_checked",
+          "reasons",
+          "conditions"
+        ],
+        "title": "SchemeOut",
+        "description": "A scheme the farm may be eligible for. Never \"you qualify\": the department decides."
+      },
+      "SchemeSource": {
+        "properties": {
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url",
+          "title"
+        ],
+        "title": "SchemeSource"
       },
       "SeasonOut": {
         "properties": {

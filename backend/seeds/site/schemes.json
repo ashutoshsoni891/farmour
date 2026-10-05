@@ -1,0 +1,474 @@
+{
+  "schemes": [
+    {
+      "code": "pm-kisan",
+      "level": "central",
+      "benefit_type": "direct_benefit",
+      "name_en": "PM-KISAN (income support)",
+      "name_hi": "पीएम-किसान (आय सहायता)",
+      "gives_en": "Rs 6,000 a year per farmer family, paid in three instalments of Rs 2,000.",
+      "gives_hi": "हर किसान परिवार को साल में 6,000 रुपये, 2,000 रुपये की तीन किस्तों में।",
+      "eligibility_en": "Families with cultivable land in their own names (some groups are excluded).",
+      "eligibility_hi": "जिन परिवारों के नाम पर खेती की ज़मीन है (कुछ वर्ग शामिल नहीं हैं)।",
+      "documents": [
+        {
+          "en": "Land record in your name",
+          "hi": "आपके नाम पर ज़मीन का रिकॉर्ड"
+        }
+      ],
+      "apply_en": "PM-KISAN portal or your patwari / agriculture office",
+      "apply_hi": "पीएम-किसान पोर्टल या पटवारी / कृषि कार्यालय",
+      "apply_url": "https://pmkisan.gov.in",
+      "rule": {
+        "tags_any": [
+          "all"
+        ],
+        "needs_land_in_name": true
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://pune.gov.in/?p=31980",
+            "title": "District Pune (Govt of Maharashtra) scheme page: PM-KISAN",
+            "quote": "Financial benefit of Rs. 6000 per annum per family payable in three equal installments of Rs 2000 each, every four months.",
+            "checked_on": "2026-10-05"
+          }
+        ],
+        "eligibility": [
+          {
+            "url": "https://pune.gov.in/?p=31980",
+            "title": "District Pune (Govt of Maharashtra) scheme page: PM-KISAN",
+            "quote": "All landholding farmers’ families, which have cultivable land holding in their names are eligible to get benefit under the scheme.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "kcc-miss",
+      "level": "central",
+      "benefit_type": "interest_rebate",
+      "name_en": "Kisan Credit Card with interest support",
+      "name_hi": "किसान क्रेडिट कार्ड (ब्याज सहायता)",
+      "gives_en": "Crop loans through a Kisan Credit Card at a subsidised interest rate, about 4% if repaid on time.",
+      "gives_hi": "किसान क्रेडिट कार्ड से रियायती ब्याज पर फ़सल ऋण; समय पर चुकाने पर लगभग 4% ब्याज।",
+      "eligibility_en": "Farmers taking short-term crop loans from a bank through KCC.",
+      "eligibility_hi": "बैंक से किसान क्रेडिट कार्ड द्वारा अल्पकालिक फ़सल ऋण लेने वाले किसान।",
+      "documents": [],
+      "apply_en": "Your bank branch",
+      "apply_hi": "आपकी बैंक शाखा",
+      "apply_url": null,
+      "rule": {
+        "tags_any": [
+          "all"
+        ]
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://www.pmindia.gov.in/?p=16616276",
+            "title": "PM India: Cabinet approves continuation of Modified Interest Subvention Scheme",
+            "quote": "MISS is a Central Sector Scheme aimed at ensuring the availability of short-term credit to farmers at an affordable interest rate through Kisan Credit card (KCC).",
+            "checked_on": "2026-10-05"
+          },
+          {
+            "url": "https://www.pmindia.gov.in/?p=16616276",
+            "title": "PM India: Cabinet approves continuation of Modified Interest Subvention Scheme",
+            "quote": "farmers repaying loans promptly are eligible for an incentive of up to 3% as Prompt Repayment Incentive (PRI) effectively reducing their interest rate on KCC loans to 4%.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "pmfby",
+      "level": "central",
+      "benefit_type": "insurance",
+      "name_en": "PM Fasal Bima Yojana (crop insurance)",
+      "name_hi": "प्रधानमंत्री फ़सल बीमा योजना",
+      "gives_en": "Crop insurance where you pay at most 2% of the sum insured for kharif, 1.5% for rabi and 5% for horticultural crops.",
+      "gives_hi": "फ़सल बीमा: आप खरीफ़ में अधिकतम 2%, रबी में 1.5% और बागवानी फ़सलों में 5% प्रीमियम देते हैं।",
+      "eligibility_en": "Farmers growing notified crops in a notified area for the season.",
+      "eligibility_hi": "अधिसूचित क्षेत्र में अधिसूचित फ़सल उगाने वाले किसान।",
+      "documents": [],
+      "apply_en": "Bank, common service centre or the PMFBY portal",
+      "apply_hi": "बैंक, जन सेवा केंद्र या PMFBY पोर्टल",
+      "apply_url": "https://pmfby.gov.in",
+      "rule": {
+        "tags_any": [
+          "beds",
+          "rotation"
+        ]
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://hojai.assam.gov.in/scheme-page/pradhan-mantri-fasal-bima-yojana",
+            "title": "District Hojai (Govt of Assam) scheme page: PMFBY",
+            "quote": "It envisages a uniform premium of only 2 per cent to be paid by farmers for Kharif crops, and 1.5 per cent for Rabi crops.",
+            "checked_on": "2026-10-05"
+          },
+          {
+            "url": "https://hojai.assam.gov.in/scheme-page/pradhan-mantri-fasal-bima-yojana",
+            "title": "District Hojai (Govt of Assam) scheme page: PMFBY",
+            "quote": "The premium for annual commercial and horticultural crops will be 5 per cent.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "pmksy-pdmc",
+      "level": "central",
+      "benefit_type": "subsidy",
+      "name_en": "PMKSY Per Drop More Crop (drip and sprinkler)",
+      "name_hi": "पीएमकेएसवाई पर ड्रॉप मोर क्रॉप (ड्रिप और स्प्रिंकलर)",
+      "gives_en": "Help with the cost of drip or sprinkler irrigation. The share depends on your farm size and the state; check it on the MPFSTS portal.",
+      "gives_hi": "ड्रिप या स्प्रिंकलर सिंचाई की लागत में मदद। हिस्सा खेत के आकार और राज्य पर निर्भर है; MPFSTS पोर्टल पर देखें।",
+      "eligibility_en": "Farmers installing micro irrigation; in Madhya Pradesh through the horticulture department.",
+      "eligibility_hi": "सूक्ष्म सिंचाई लगाने वाले किसान; मध्यप्रदेश में उद्यानिकी विभाग के माध्यम से।",
+      "documents": [],
+      "apply_en": "MPFSTS portal (MP horticulture department)",
+      "apply_hi": "MPFSTS पोर्टल (मध्यप्रदेश उद्यानिकी विभाग)",
+      "apply_url": "https://mpfsts.mp.gov.in/mphd/",
+      "rule": {
+        "tags_any": [
+          "beds",
+          "orchard"
+        ]
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://hortidept.nagaland.gov.in/?p=125",
+            "title": "Department of Horticulture, Nagaland: Per Drop More Crop",
+            "quote": "Increase the area under micro irrigation technologies to enhance water use efficiency in the country.",
+            "checked_on": "2026-10-05"
+          },
+          {
+            "url": "https://pmksy.gov.in/microirrigation/index.aspx",
+            "title": "PMKSY Micro Irrigation portal, Ministry of Agriculture & Farmers Welfare",
+            "quote": "Revised Guidelines of PMKSY Per Drop More Crop (Micro Irrigation)",
+            "checked_on": "2026-10-05"
+          }
+        ],
+        "apply": [
+          {
+            "url": "https://mphorticulture.gov.in",
+            "title": "Horticulture and Food Processing Department, Madhya Pradesh",
+            "quote": "पर ड्रॉप मोर क्रॉप PDMC (PMKSY)",
+            "note": "Listed under central schemes by the MP horticulture department.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "pm-kusum-b",
+      "level": "central",
+      "benefit_type": "subsidy",
+      "name_en": "PM-KUSUM: solar pump (Component B)",
+      "name_hi": "पीएम-कुसुम: सोलर पंप (घटक B)",
+      "gives_en": "A standalone solar pump up to 7.5 HP where there is no grid power; the Centre pays 30% of the cost and the state at least 30%.",
+      "gives_hi": "बिना बिजली कनेक्शन वाली जगह 7.5 HP तक का सोलर पंप; केंद्र 30% और राज्य कम से कम 30% लागत देता है।",
+      "eligibility_en": "Individual farmers in off-grid areas (no grid supply).",
+      "eligibility_hi": "जहाँ बिजली ग्रिड नहीं है, वहाँ के किसान।",
+      "documents": [],
+      "apply_en": "State nodal agency for PM-KUSUM (in MP, the renewable energy department)",
+      "apply_hi": "राज्य की पीएम-कुसुम नोडल एजेंसी (मध्यप्रदेश में नवीन एवं नवकरणीय ऊर्जा विभाग)",
+      "apply_url": "https://pmkusum.mnre.gov.in",
+      "rule": {
+        "tags_any": [
+          "all"
+        ],
+        "farm": {
+          "electricity": [
+            false
+          ]
+        },
+        "farm_any": {
+          "water_source": [
+            "bore",
+            "well"
+          ]
+        }
+      },
+      "sources": {
+        "eligibility": [
+          {
+            "url": "https://mnre.gov.in/?p=22280",
+            "title": "Ministry of New and Renewable Energy: PM-KUSUM",
+            "quote": "Individual farmers will be supported to install standalone solar Agriculture pumps of capacity up to 7.5 HP in off-grid areas, where grid supply is not available.",
+            "checked_on": "2026-10-05"
+          }
+        ],
+        "gives": [
+          {
+            "url": "https://mnre.gov.in/?p=22280",
+            "title": "Ministry of New and Renewable Energy: PM-KUSUM",
+            "quote": "CFA of 30% of the benchmark cost or the tender cast, whichever is lower, of the stand-alone solar Agriculture pump will be provided.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "midh-new-garden",
+      "level": "central",
+      "benefit_type": "subsidy",
+      "name_en": "MIDH: new fruit garden",
+      "name_hi": "एमआईडीएच: नया फल बाग",
+      "gives_en": "40% of the cost of setting up a new fruit garden (planting material, inputs, irrigation), paid over 3 years.",
+      "gives_hi": "नया फल बाग लगाने की लागत का 40% (पौधे, सामग्री, सिंचाई), 3 साल में।",
+      "eligibility_en": "Farmers establishing new gardens of fruit crops.",
+      "eligibility_hi": "नए फल बाग लगाने वाले किसान।",
+      "documents": [],
+      "apply_en": "District horticulture office or the MPFSTS portal",
+      "apply_hi": "ज़िला उद्यानिकी कार्यालय या MPFSTS पोर्टल",
+      "apply_url": "https://mpfsts.mp.gov.in/mphd/",
+      "rule": {
+        "tags_any": [
+          "orchard"
+        ]
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://shm.tg.nic.in/Scheme.html",
+            "title": "State Horticulture Mission, Telangana: MIDH components",
+            "quote": "Under this programme 40% subsidy is given to the farmers for establishing new gardens.",
+            "note": "MIDH norms as published by a state horticulture mission (Telangana); MP implements the same mission.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "midh-farm-pond",
+      "level": "central",
+      "benefit_type": "subsidy",
+      "name_en": "MIDH: farm pond / water harvesting",
+      "name_hi": "एमआईडीएच: खेत तालाब / जल संग्रहण",
+      "gives_en": "50% help with the cost of a water harvesting structure such as a farm pond.",
+      "gives_hi": "खेत तालाब जैसी जल संग्रहण संरचना की लागत में 50% मदद।",
+      "eligibility_en": "Farmers creating a water source for horticulture crops.",
+      "eligibility_hi": "बागवानी फ़सलों के लिए पानी का स्रोत बनाने वाले किसान।",
+      "documents": [],
+      "apply_en": "District horticulture office or the MPFSTS portal",
+      "apply_hi": "ज़िला उद्यानिकी कार्यालय या MPFSTS पोर्टल",
+      "apply_url": "https://mpfsts.mp.gov.in/mphd/",
+      "rule": {
+        "tags_any": [
+          "pond"
+        ]
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://shm.tg.nic.in/Scheme.html",
+            "title": "State Horticulture Mission, Telangana: MIDH components",
+            "quote": "50% assistance is provided on prorate basis for Water Harvesting System of various sizes.",
+            "note": "MIDH norms as published by a state horticulture mission (Telangana).",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "midh-protected",
+      "level": "central",
+      "benefit_type": "subsidy",
+      "name_en": "MIDH: polyhouse and net house",
+      "name_hi": "एमआईडीएच: पॉलीहाउस और नेट हाउस",
+      "gives_en": "50% help with building a naturally ventilated polyhouse or net house, and its planting material.",
+      "gives_hi": "प्राकृतिक हवादार पॉलीहाउस या नेट हाउस बनाने और पौध सामग्री में 50% मदद।",
+      "eligibility_en": "Farmers growing high-value vegetables or flowers under protection.",
+      "eligibility_hi": "संरक्षित खेती में क़ीमती सब्ज़ियाँ या फूल उगाने वाले किसान।",
+      "documents": [],
+      "apply_en": "District horticulture office or the MPFSTS portal",
+      "apply_hi": "ज़िला उद्यानिकी कार्यालय या MPFSTS पोर्टल",
+      "apply_url": "https://mpfsts.mp.gov.in/mphd/",
+      "rule": {
+        "tags_any": [
+          "goal:income",
+          "option:income"
+        ]
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://shm.tg.nic.in/Scheme.html",
+            "title": "State Horticulture Mission, Telangana: MIDH components",
+            "quote": "50% assistance is provided towards construction of naturally ventilated poly houses, net houses, and plant material of high value vegetables and flowers.",
+            "note": "MIDH norms as published by a state horticulture mission (Telangana).",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "aif",
+      "level": "central",
+      "benefit_type": "interest_rebate",
+      "name_en": "Agriculture Infrastructure Fund",
+      "name_hi": "कृषि अवसंरचना कोष",
+      "gives_en": "3% a year interest support on loans up to Rs 2 crore for storage, pack houses and other post-harvest infrastructure.",
+      "gives_hi": "भंडारण, पैक हाउस और कटाई के बाद की सुविधाओं के लिए 2 करोड़ रुपये तक के ऋण पर 3% सालाना ब्याज सहायता।",
+      "eligibility_en": "Farmers, FPOs, cooperatives, self-help groups and agri-entrepreneurs.",
+      "eligibility_hi": "किसान, एफपीओ, सहकारी समितियाँ, स्वयं सहायता समूह और कृषि उद्यमी।",
+      "documents": [],
+      "apply_en": "Your nearby agriculture office or bank",
+      "apply_hi": "नज़दीकी कृषि कार्यालय या बैंक",
+      "apply_url": "https://agriinfra.dac.gov.in",
+      "rule": {
+        "tags_any": [
+          "utility",
+          "goal:income"
+        ]
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://agriculture.uk.gov.in/scheme/agriculture-infrastructure-fund-aif/",
+            "title": "Agriculture Department Uttarakhand: Agriculture Infrastructure Fund",
+            "quote": "there is a provision of providing interest subsidy of 3 percent on all types of loans up to a limit of Rs 2 crore.",
+            "checked_on": "2026-10-05"
+          }
+        ],
+        "eligibility": [
+          {
+            "url": "https://pmindia.gov.in/?p=7711291",
+            "title": "PM India: Cabinet approves Agriculture Infrastructure Fund",
+            "quote": "Farmers, Joint Liability Groups",
+            "checked_on": "2026-10-05"
+          }
+        ],
+        "apply": [
+          {
+            "url": "https://agriculture.uk.gov.in/scheme/agriculture-infrastructure-fund-aif/",
+            "title": "Agriculture Department Uttarakhand: Agriculture Infrastructure Fund",
+            "quote": "Please visit your nearby Agriculture Office.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "nmnf",
+      "level": "central",
+      "benefit_type": "training",
+      "name_en": "National Mission on Natural Farming",
+      "name_hi": "राष्ट्रीय प्राकृतिक खेती मिशन",
+      "gives_en": "Training on natural farming and making inputs like jeevamrit, with local Krishi Sakhis helping farmers in village clusters.",
+      "gives_hi": "प्राकृतिक खेती और जीवामृत जैसे आदान बनाने का प्रशिक्षण; गाँव के क्लस्टरों में कृषि सखियों की मदद।",
+      "eligibility_en": "Willing farmers in the selected village clusters.",
+      "eligibility_hi": "चुने गए गाँव क्लस्टरों के इच्छुक किसान।",
+      "documents": [],
+      "apply_en": "Your Krishi Vigyan Kendra (KVK) or block agriculture office",
+      "apply_hi": "कृषि विज्ञान केंद्र (KVK) या ब्लॉक कृषि कार्यालय",
+      "apply_url": null,
+      "rule": {
+        "tags_any": [
+          "all"
+        ]
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://www.pmindia.gov.in/en/news_updates/launch-of-national-mission-on-natural-farming/",
+            "title": "PM India: Launch of National Mission on Natural Farming",
+            "quote": "willing farmers will be trained in Model Demonstration Farms on the NF package of practices, preparation of NF inputs, etc.",
+            "checked_on": "2026-10-05"
+          },
+          {
+            "url": "https://www.pmindia.gov.in/en/news_updates/launch-of-national-mission-on-natural-farming/",
+            "title": "PM India: Launch of National Mission on Natural Farming",
+            "quote": "30,000 Krishi Sakhis/ CRPs will be deployed for awareness generation, mobilisation and handholding of willing farmers in the clusters.",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "mp-fruit-area",
+      "level": "state",
+      "state": "Madhya Pradesh",
+      "benefit_type": "subsidy",
+      "name_en": "MP: fruit area expansion (state scheme)",
+      "name_hi": "मध्यप्रदेश: फल क्षेत्र विस्तार (राज्य योजना)",
+      "gives_en": "State support for planting fruit orchards. The amount is not on the department's page; check the MPFSTS portal.",
+      "gives_hi": "फल बाग लगाने के लिए राज्य की सहायता। राशि विभाग के पेज पर नहीं है; MPFSTS पोर्टल पर देखें।",
+      "eligibility_en": "Farmers in Madhya Pradesh planting fruit trees.",
+      "eligibility_hi": "फलदार पेड़ लगाने वाले मध्यप्रदेश के किसान।",
+      "documents": [],
+      "apply_en": "MPFSTS portal (MP horticulture department)",
+      "apply_hi": "MPFSTS पोर्टल (मध्यप्रदेश उद्यानिकी विभाग)",
+      "apply_url": "https://mpfsts.mp.gov.in/mphd/",
+      "rule": {
+        "tags_any": [
+          "orchard"
+        ]
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://mphorticulture.gov.in",
+            "title": "Horticulture and Food Processing Department, Madhya Pradesh",
+            "quote": "राज्य योजनाएं फल क्षेत्र विस्तार मसाला क्षेत्र विस्तार संरक्षित खेती",
+            "note": "State schemes listed by the MP horticulture department.",
+            "checked_on": "2026-10-05"
+          }
+        ],
+        "apply": [
+          {
+            "url": "https://mpfsts.mp.gov.in/mphd/",
+            "title": "MP Farmers Subsidy Tracking System (MPFSTS)",
+            "quote": "उद्यानिकी एवं खाद्य प्रसंस्करण विभाग मध्यप्रदेश फार्मर्स सब्सिडी ट्रैकिंग सिस्टम",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    },
+    {
+      "code": "mp-protected",
+      "level": "state",
+      "state": "Madhya Pradesh",
+      "benefit_type": "subsidy",
+      "name_en": "MP: protected cultivation (state scheme)",
+      "name_hi": "मध्यप्रदेश: संरक्षित खेती (राज्य योजना)",
+      "gives_en": "State support for protected cultivation (polyhouse, shade net). The amount is not on the department's page; check the MPFSTS portal.",
+      "gives_hi": "संरक्षित खेती (पॉलीहाउस, शेड नेट) के लिए राज्य की सहायता। राशि विभाग के पेज पर नहीं है; MPFSTS पोर्टल पर देखें।",
+      "eligibility_en": "Farmers in Madhya Pradesh setting up protected cultivation.",
+      "eligibility_hi": "संरक्षित खेती लगाने वाले मध्यप्रदेश के किसान।",
+      "documents": [],
+      "apply_en": "MPFSTS portal (MP horticulture department)",
+      "apply_hi": "MPFSTS पोर्टल (मध्यप्रदेश उद्यानिकी विभाग)",
+      "apply_url": "https://mpfsts.mp.gov.in/mphd/",
+      "rule": {
+        "tags_any": [
+          "goal:income",
+          "option:income"
+        ]
+      },
+      "sources": {
+        "gives": [
+          {
+            "url": "https://mphorticulture.gov.in",
+            "title": "Horticulture and Food Processing Department, Madhya Pradesh",
+            "quote": "राज्य योजनाएं फल क्षेत्र विस्तार मसाला क्षेत्र विस्तार संरक्षित खेती",
+            "note": "State schemes listed by the MP horticulture department.",
+            "checked_on": "2026-10-05"
+          }
+        ],
+        "apply": [
+          {
+            "url": "https://mpfsts.mp.gov.in/mphd/",
+            "title": "MP Farmers Subsidy Tracking System (MPFSTS)",
+            "quote": "उद्यानिकी एवं खाद्य प्रसंस्करण विभाग मध्यप्रदेश फार्मर्स सब्सिडी ट्रैकिंग सिस्टम",
+            "checked_on": "2026-10-05"
+          }
+        ]
+      }
+    }
+  ]
+}

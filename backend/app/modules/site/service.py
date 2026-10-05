@@ -22,7 +22,16 @@ from app.modules.farms.service import Membership, farm_location
 from app.modules.parcel.service import parcel_summary, set_site_options
 from app.modules.site import repository as repo
 from app.modules.site.models import SiteFact
-from app.modules.site.schemas import Answer, AnswerBatch, BuildOut, FactOut, Group, ProfileOut
+from app.modules.site.schemas import (
+    Answer,
+    AnswerBatch,
+    BuildOut,
+    FactOut,
+    Group,
+    ProfileOut,
+    SchemeOut,
+    SchemeSource,
+)
 
 log = logging.getLogger(__name__)
 
@@ -366,4 +375,66 @@ async def load_seed(session: AsyncSession) -> dict[str, int]:
     """Load curated lookups (district -> region). Safe to re-run."""
     from app.modules.site import seed
 
-    return await seed.load(session)
+    counts = await seed.load(session)
+    counts.update(await seed.load_schemes(session))
+    return counts
+
+
+def scheme_matches(
+    rule: dict[str, Any], tags: set[str], farm: dict[str, Any]
+) -> tuple[bool, list[str]]:
+    """Does a scheme's structured rule match this plan and farm? Returns (match, conditions the
+    owner must still check). Unknown farm facts do not exclude a scheme; they become conditions."""
+    wanted = set(rule.get("tags_any", []))
+    if wanted and not (wanted & tags or "all" in wanted):
+        return False, []
+    conditions: list[str] = []
+    for group in ("farm", "farm_any"):
+        for key, allowed in (rule.get(group) or {}).items():
+            value = farm.get(key)
+            if value is None:
+                conditions.append(f"check.{key}")
+            elif value not in allowed:
+                return False, []
+            else:
+                conditions.append(f"farm:{key}")
+    if rule.get("needs_land_in_name"):
+        conditions.append("check.land_in_name")
+    return True, conditions
+
+
+async def schemes_for(
+    session: AsyncSession, tags: set[str], farm: dict[str, Any]
+) -> list[SchemeOut]:
+    """Schemes the farm may be eligible for, given its plan (tags) and facts. Shown as "may be
+    eligible": the department decides. AI-checked and approved entries only."""
+    state = str(await get_setting(session, "site.default_state"))
+    out = []
+    for row in await repo.schemes(session, ["ai_verified", "approved"]):
+        if row.state and row.state != state:
+            continue
+        ok, conditions = scheme_matches(row.rule, tags, farm)
+        if not ok:
+            continue
+        farm_reasons = [c for c in conditions if c.startswith("farm:")]
+        conditions = [c for c in conditions if not c.startswith("farm:")]
+        reasons = sorted((set(row.rule.get("tags_any", [])) & tags) - {"all"}) + farm_reasons
+        reasons = reasons or ["all"]
+        out.append(
+            SchemeOut(
+                code=row.code, level=row.level, state=row.state, benefit_type=row.benefit_type,
+                name_en=row.name_en, name_hi=row.name_hi, gives_en=row.gives_en,
+                gives_hi=row.gives_hi, eligibility_en=row.eligibility_en,
+                eligibility_hi=row.eligibility_hi, documents=row.documents,
+                apply_en=row.apply_en, apply_hi=row.apply_hi, apply_url=row.apply_url,
+                sources=[
+                    SchemeSource(url=e.get("url"), title=e.get("title", ""))
+                    for group in row.sources.values() for e in group
+                ],
+                checked_on=row.checked_on, ai_checked=row.status == "ai_verified",
+                reasons=reasons, conditions=conditions,
+            )
+        )  # fmt: skip
+    order = {"direct_benefit": 0, "subsidy": 1, "interest_rebate": 2, "insurance": 3,
+             "loan": 4, "training": 5}  # fmt: skip
+    return sorted(out, key=lambda x: (order.get(x.benefit_type, 9), x.code))

@@ -56,7 +56,8 @@ little labour and risk, grow the family's own food and build the soil, or a mix.
 5. **Combination intelligence:** which crop goes with which, where and when (layers, companions,
    rotation). Core of the design engine (M3).
 6. **Schemes and benefits:** government schemes, subsidies, loans and rebates matched to the
-   owner's goal and plan, shown with documents needed and where to apply.
+   owner's goal and plan, shown with documents needed and where to apply. (Built 2026-10-06: 12
+   cited central and MP schemes, matched to the plan; see decisions.)
    - Same pattern as the crop library: cited source, `last_verified` date, status
      `draft` / `ai_verified` / `approved`; eligibility stored as structured rules the engine
      matches; AI only explains.

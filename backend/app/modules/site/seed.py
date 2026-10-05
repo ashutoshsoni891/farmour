@@ -1,13 +1,16 @@
 """Curated lookup data for site intelligence (backend/seeds/site)."""
 
 import json
+from datetime import date
 from pathlib import Path
+from typing import Any
 
+from sqlalchemy import select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.site import repository as repo
-from app.modules.site.models import DistrictRegion
+from app.modules.site.models import DistrictRegion, Scheme
 
 SEED_DIR = Path(__file__).resolve().parents[3] / "seeds" / "site"
 
@@ -26,3 +29,42 @@ async def load(session: AsyncSession) -> dict[str, int]:
         )
         added += int(getattr(result, "rowcount", 0) or 0)
     return {"districts": added}
+
+
+def _checked(sources: dict[str, Any]) -> tuple[bool, date | None]:
+    entries = [e for group in sources.values() for e in group]
+    dates = [e.get("checked_on") for e in entries]
+    ok = bool(entries) and all(e.get("quote") and e.get("checked_on") for e in entries)
+    return ok, min(date.fromisoformat(d) for d in dates) if ok and dates else None
+
+
+async def load_schemes(session: AsyncSession) -> dict[str, int]:
+    """Schemes from seeds/site/schemes.json. A scheme whose every source was checked is
+    `ai_verified`; entries an agronomist has taken into review or approved are left alone."""
+    path = SEED_DIR / "schemes.json"
+    if not path.exists():
+        return {"schemes": 0}
+    counts = {"schemes_ai_verified": 0, "schemes_draft": 0, "schemes_skipped": 0}
+    fields = (
+        "level", "state", "benefit_type", "name_en", "name_hi", "gives_en", "gives_hi",
+        "eligibility_en", "eligibility_hi", "documents", "apply_en", "apply_hi", "apply_url",
+        "rule", "sources",
+    )  # fmt: skip
+    for item in json.loads(path.read_text(encoding="utf-8"))["schemes"]:
+        row = await session.scalar(select(Scheme).where(Scheme.code == item["code"]))
+        if row is not None and row.status not in ("draft", "ai_verified"):
+            counts["schemes_skipped"] += 1
+            continue
+        ok, checked_on = _checked(item.get("sources", {}))
+        values = {f: item.get(f) for f in fields}
+        values.update(status="ai_verified" if ok else "draft", checked_on=checked_on)
+        if values["documents"] is None:
+            values["documents"] = []
+        if row is None:
+            session.add(Scheme(code=item["code"], **values))
+        else:
+            for k, v in values.items():
+                setattr(row, k, v)
+        counts["schemes_ai_verified" if ok else "schemes_draft"] += 1
+    await session.flush()
+    return counts

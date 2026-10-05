@@ -123,3 +123,43 @@ class GroundwaterBlock(IdMixin, Base):
             name="category",
         ),
     )
+
+
+class Scheme(IdMixin, TimestampMixin, Base):
+    """Government schemes and benefits (spec 17 `schemes`, extended by docs/vision.md pillar 6).
+
+    Every statement has a cited source; `status` follows the crop library (draft -> ai_verified ->
+    approved). Eligibility is structured (`rule`) so the plan can be matched without an LLM."""
+
+    __tablename__ = "schemes"
+    code: Mapped[str] = mapped_column(String(40), unique=True)
+    level: Mapped[str] = mapped_column(String(10))
+    state: Mapped[str | None] = mapped_column(String(60))
+    benefit_type: Mapped[str] = mapped_column(String(20))
+    name_en: Mapped[str] = mapped_column(Text)
+    name_hi: Mapped[str] = mapped_column(Text)
+    gives_en: Mapped[str] = mapped_column(Text)
+    gives_hi: Mapped[str] = mapped_column(Text)
+    eligibility_en: Mapped[str] = mapped_column(Text)
+    eligibility_hi: Mapped[str] = mapped_column(Text)
+    documents: Mapped[list[dict[str, Any]]] = mapped_column(
+        JSONB, default=list, server_default="[]"
+    )
+    apply_en: Mapped[str | None] = mapped_column(Text)
+    apply_hi: Mapped[str | None] = mapped_column(Text)
+    apply_url: Mapped[str | None] = mapped_column(Text)
+    rule: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default="{}")
+    sources: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default="{}")
+    checked_on: Mapped[date | None] = mapped_column(Date)
+    status: Mapped[str] = mapped_column(String(12), default="draft", server_default="draft")
+    __table_args__ = (
+        CheckConstraint("level in ('central','state','district')", name="level"),
+        CheckConstraint(
+            "benefit_type in ('subsidy','loan','interest_rebate','insurance',"
+            "'direct_benefit','training')",
+            name="benefit_type",
+        ),
+        CheckConstraint(
+            "status in ('draft','ai_verified','in_review','approved','retired')", name="status"
+        ),
+    )

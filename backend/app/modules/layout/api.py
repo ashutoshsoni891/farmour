@@ -14,6 +14,7 @@ from app.modules.layout.schemas import (
     PlanOut,
     SwapIn,
 )
+from app.modules.site.schemas import SchemeOut
 
 router = APIRouter(prefix="/farms/{farm_id}/plan", tags=["plan"])
 
@@ -77,3 +78,11 @@ async def swap(
 ) -> PlanOut:
     """Put the owner's chosen crop in a bed layer."""
     return await service.swap(session, m, plan_id, code, body)
+
+
+@router.get("/{plan_id}/benefits")
+async def benefits(
+    plan_id: uuid.UUID, session: SessionDep, m: Membership = membership()
+) -> list[SchemeOut]:
+    """Government schemes and benefits this plan may be eligible for ("may be eligible")."""
+    return await service.benefits(session, m, plan_id)

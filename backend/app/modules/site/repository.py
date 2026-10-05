@@ -16,6 +16,7 @@ from app.modules.site.models import (
     GroundwaterBlock,
     Mandi,
     MandiPrice,
+    Scheme,
     SiteBuild,
     SiteFact,
 )
@@ -191,3 +192,11 @@ async def add_all(session: AsyncSession, *rows: object) -> None:
 
 async def region_by_slug(session: AsyncSession, slug: str) -> Region | None:
     return await session.scalar(select(Region).where(Region.slug == slug))
+
+
+async def schemes(session: AsyncSession, statuses: list[str]) -> list[Scheme]:
+    return list(
+        await session.scalars(
+            select(Scheme).where(Scheme.status.in_(statuses)).order_by(Scheme.code)
+        )
+    )

@@ -15,6 +15,7 @@ import { GROUPS, buildRows } from "../setup/FoundStep";
 import { insights } from "../setup/insights";
 import { PlotMap } from "../setup/PlotMap";
 import type { PlotGeometry, PlotLayout } from "../setup/PlotMap";
+import { Benefits } from "../plan/Benefits";
 import { PlanEditor } from "../plan/PlanEditor";
 import { PlanOptions } from "../plan/PlanOptions";
 import { PlanView, SeasonTabs } from "../plan/PlanView";
@@ -79,6 +80,17 @@ export function FarmPage() {
           params: { path: { farm_id: id }, query: planId ? { plan_id: planId } : {} },
         })
       ).data ?? null,
+  });
+  const planIdShown = plan.data?.id;
+  const benefits = useQuery({
+    queryKey: ["benefits", id, token, planIdShown],
+    enabled: Boolean(planIdShown),
+    queryFn: async () =>
+      (
+        await api.GET("/api/v1/farms/{farm_id}/plan/{plan_id}/benefits", {
+          params: { path: { farm_id: id, plan_id: planIdShown ?? "" } },
+        })
+      ).data ?? [],
   });
   const mapLayout = useMemo(() => {
     const p = plan.data;
@@ -339,6 +351,7 @@ export function FarmPage() {
         loadAlternatives={owner ? loadAlternatives : undefined}
         onSwap={owner ? swapCrop : undefined}
       />
+      {benefits.data && <Benefits schemes={benefits.data} lang={lang} />}
 
       <section className="flex flex-col gap-2">
         <h2 className="text-xl font-bold text-green-900">{t("farm.about_land")}</h2>
