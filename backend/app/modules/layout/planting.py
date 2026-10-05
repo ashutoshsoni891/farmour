@@ -73,6 +73,8 @@ class Planting:
     layer: str
     crop: str
     planned_sow: date
+    harvest_start: date
+    harvest_end: date
     plant_count: int
     spacing_cm: int
     expected_yield_kg: float
@@ -234,7 +236,10 @@ def assign(
                 result.plantings.append(
                     Planting(
                         bed=bed.code, slot=slot, layer=layer, crop=best.slug,
-                        planned_sow=sown, plant_count=rows * per_row,
+                        planned_sow=sown,
+                        harvest_start=sown + timedelta(days=best.days_to_first_harvest or 0),
+                        harvest_end=_done(best, sown),
+                        plant_count=rows * per_row,
                         spacing_cm=best.spacing_plant_cm or 0,
                         expected_yield_kg=round(
                             bed.area_sqm * (best.yield_kg_per_sqm or 0)

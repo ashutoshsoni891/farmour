@@ -104,7 +104,14 @@ def _crop_spec(c: EngineCrop) -> planting.CropSpec:
     )  # fmt: skip
 
 
+def _num(rule: dict[str, object], key: str) -> float | None:
+    value = rule.get(key)
+    return float(value) if isinstance(value, int | float) else None
+
+
 async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
+    rules = await library.engine_rules(session)
+    bed_rule = rules.get("engine.bed", {})
     zones = await repo.zones_of(session, plan.id)
     beds = await repo.beds_of(session, plan.id)
     layers = await repo.bed_layers_of(session, plan.id)
@@ -144,13 +151,18 @@ async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
                     name_hi=names[bl.crop_id].name_hi,
                     ai_checked=names[bl.crop_id].status == "ai_verified",
                 ),
-                planned_sow=bl.planned_sow, plant_count=bl.plant_count, spacing_cm=bl.spacing_cm,
+                planned_sow=bl.planned_sow, harvest_start=bl.harvest_start,
+                harvest_end=bl.harvest_end, plant_count=bl.plant_count, spacing_cm=bl.spacing_cm,
                 expected_yield_kg=float(bl.expected_yield_kg), why=bl.why,
             )
             for code, bl in layers
             if bl.crop_id in names
         ],
         uses_ai_checked=bool(summary.get("uses_ai_checked", False)),
+        trellis_height_m=_num(bed_rule, "trellis_height_m"),
+        bed_width_m=_num(bed_rule, "bed_width_m"),
+        path_width_m=_num(bed_rule, "path_width_m"),
+        machan_guide=list(rules.get("guide.machan", {}).get("steps", [])),
         created_at=plan.created_at,
     )  # fmt: skip
 
@@ -260,6 +272,7 @@ async def generate_plan(session: AsyncSession, m: Membership) -> PlanOut:
         await repo.add_bed_layer(
             session, bed_id=bed_ids[pl.bed], layer=pl.layer, season=pl.slot.season,
             season_label=pl.slot.label, crop_id=crop_ids[pl.crop], planned_sow=pl.planned_sow,
+            harvest_start=pl.harvest_start, harvest_end=pl.harvest_end,
             plant_count=pl.plant_count, spacing_cm=pl.spacing_cm,
             expected_yield_kg=pl.expected_yield_kg, why=pl.why,
         )  # fmt: skip

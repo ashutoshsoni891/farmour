@@ -404,5 +404,20 @@
   "plan.why.companion": "Grows well next to the crop already in this bed.",
   "warn.no_prices": "Local market prices are not loaded yet, so crops are compared by expected harvest only.",
   "warn.few_crops": "{{season}}: only {{n}} crops fit (aim: {{min}}). More crops will be added as the crop library grows.",
-  "warn.no_crops": "No crop in the library fits this plot yet."
+  "warn.no_crops": "No crop in the library fits this plot yet.",
+  "picture.alt": "Side view of bed {{code}}: trellis, crops by layer, and roots",
+  "picture.bed_width": "bed {{w}} m",
+  "picture.path": "path {{p}} m",
+  "picture.empty": "nothing planned in this layer",
+  "picture.timeline": "This bed through the year",
+  "picture.timeline_hint": "Light = growing, solid = harvest.",
+  "machan.title": "How to build the machan (trellis)",
+  "machan.what": "A machan is a frame over the bed. Climbers like gourds and peas grow up it, leaving the ground below free for other crops.",
+  "machan.alt": "Drawing of a machan: two posts, a top frame and crisscross rope",
+  "machan.across": "across the bed {{w}} m",
+  "machan.label_frame": "top frame",
+  "machan.label_rope": "crisscross rope",
+  "machan.label_post": "post",
+  "machan.source": "(source)",
+  "machan.confirm": "Post spacing and rope pattern are not in the sources: ask a local builder or your KVK, and adjust to your wind and soil."
 }

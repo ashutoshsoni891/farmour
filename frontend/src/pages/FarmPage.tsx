@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router";
 
@@ -15,7 +15,8 @@ import { GROUPS, buildRows } from "../setup/FoundStep";
 import { insights } from "../setup/insights";
 import { PlotMap } from "../setup/PlotMap";
 import type { PlotGeometry, PlotLayout } from "../setup/PlotMap";
-import { PlanView } from "../plan/PlanView";
+import { PlanView, SeasonTabs } from "../plan/PlanView";
+import { bedColours, plantingsOf } from "../plan/cropStyle";
 
 type Fact = components["schemas"]["FactOut"];
 type FarmUpdate = components["schemas"]["FarmUpdate"];
@@ -34,6 +35,8 @@ export function FarmPage() {
   const [notice, setNotice] = useState<string | null>(null);
   const [planning, setPlanning] = useState(false);
   const [bed, setBed] = useState<string | null>(null);
+  const [seasonIndex, setSeasonIndex] = useState(0);
+  const [highlight, setHighlight] = useState<string | null>(null);
 
   const me = useQuery({
     queryKey: ["me-basic", token],
@@ -61,6 +64,35 @@ export function FarmPage() {
       (await api.GET("/api/v1/farms/{farm_id}/plan", { params: { path: { farm_id: id } } })).data ??
       null,
   });
+  const mapLayout = useMemo(() => {
+    const p = plan.data;
+    if (!p) return undefined;
+    const label = p.seasons[Math.min(seasonIndex, Math.max(p.seasons.length - 1, 0))]?.label;
+    const colours = bedColours(p, label);
+    const dim = new Set(
+      highlight
+        ? plantingsOf(p, label)
+            .filter((x) => x.crop.slug !== highlight)
+            .map((x) => x.bed_code)
+        : [],
+    );
+    const hit = new Set(
+      highlight
+        ? plantingsOf(p, label)
+            .filter((x) => x.crop.slug === highlight)
+            .map((x) => x.bed_code)
+        : [],
+    );
+    return {
+      zones: p.zones,
+      beds: p.beds.map((b) => ({
+        code: b.code,
+        geometry: b.geometry,
+        color: colours[b.code],
+        dim: highlight !== null && !hit.has(b.code) && dim.size >= 0,
+      })),
+    } as unknown as PlotLayout;
+  }, [plan.data, seasonIndex, highlight]);
   const profile = useQuery({
     queryKey: ["site-profile", id, token],
     queryFn: async () =>
@@ -163,6 +195,9 @@ export function FarmPage() {
         </p>
       </header>
 
+      {plan.data && plan.data.seasons.length > 0 && (
+        <SeasonTabs plan={plan.data} index={seasonIndex} onPick={setSeasonIndex} />
+      )}
       {boundary ? (
         <PlotMap
           center={center}
@@ -170,7 +205,7 @@ export function FarmPage() {
           mode="view"
           pin={null}
           boundary={boundary}
-          layout={plan.data ? (plan.data as unknown as PlotLayout) : undefined}
+          layout={mapLayout}
           selectedBed={bed}
           onBedClick={setBed}
         />
@@ -185,8 +220,11 @@ export function FarmPage() {
 
       <PlanView
         plan={plan.data ?? null}
+        seasonIndex={seasonIndex}
         selectedBed={bed}
         onCloseBed={() => setBed(null)}
+        highlight={highlight}
+        onHighlight={setHighlight}
         owner={owner}
         hasPlot={Boolean(boundary)}
         planning={planning}

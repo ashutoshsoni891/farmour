@@ -1706,6 +1706,19 @@ export interface components {
             plantings: components["schemas"]["PlantingOut"][];
             /** Uses Ai Checked */
             uses_ai_checked: boolean;
+            /** Trellis Height M */
+            trellis_height_m?: number | null;
+            /** Bed Width M */
+            bed_width_m?: number | null;
+            /** Path Width M */
+            path_width_m?: number | null;
+            /**
+             * Machan Guide
+             * @default []
+             */
+            machan_guide: {
+                [key: string]: unknown;
+            }[];
             /**
              * Created At
              * Format: date-time
@@ -1742,6 +1755,10 @@ export interface components {
              * Format: date
              */
             planned_sow: string;
+            /** Harvest Start */
+            harvest_start: string | null;
+            /** Harvest End */
+            harvest_end: string | null;
             /** Plant Count */
             plant_count: number;
             /** Spacing Cm */

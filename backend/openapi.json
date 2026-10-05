@@ -6573,6 +6573,48 @@
             "type": "boolean",
             "title": "Uses Ai Checked"
           },
+          "trellis_height_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Trellis Height M"
+          },
+          "bed_width_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bed Width M"
+          },
+          "path_width_m": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Path Width M"
+          },
+          "machan_guide": {
+            "items": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Machan Guide",
+            "default": []
+          },
           "created_at": {
             "type": "string",
             "format": "date-time",
@@ -6649,6 +6691,30 @@
             "format": "date",
             "title": "Planned Sow"
           },
+          "harvest_start": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harvest Start"
+          },
+          "harvest_end": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harvest End"
+          },
           "plant_count": {
             "type": "integer",
             "title": "Plant Count"
@@ -6675,6 +6741,8 @@
           "layer",
           "crop",
           "planned_sow",
+          "harvest_start",
+          "harvest_end",
           "plant_count",
           "spacing_cm",
           "expected_yield_kg",

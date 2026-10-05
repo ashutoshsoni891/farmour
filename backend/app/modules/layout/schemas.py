@@ -51,6 +51,8 @@ class PlantingOut(BaseModel):
     layer: str
     crop: CropRef
     planned_sow: date
+    harvest_start: date | None
+    harvest_end: date | None
     plant_count: int
     spacing_cm: int
     expected_yield_kg: float
@@ -78,4 +80,8 @@ class PlanOut(BaseModel):
     seasons: list[SeasonOut]
     plantings: list[PlantingOut]
     uses_ai_checked: bool
+    trellis_height_m: float | None = None
+    bed_width_m: float | None = None
+    path_width_m: float | None = None
+    machan_guide: list[dict[str, Any]] = []
     created_at: datetime

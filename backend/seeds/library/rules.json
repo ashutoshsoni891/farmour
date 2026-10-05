@@ -178,6 +178,61 @@
     }
    },
    "source_notes": "Common Indian season convention (kharif = monsoon, rabi = winter, zaid = summer); the boundaries are a planning convention, not a crop fact. Agronomist to confirm."
+  },
+  {
+   "code": "guide.machan",
+   "description": "How to build a machan (trellis) for a climber bed",
+   "applies_to": "guide",
+   "params": {
+    "steps": [
+     {
+      "en": "Raise posts along the bed and build a flat top frame (machan) about 2 m high.",
+      "hi": "क्यारी के किनारे खंभे गाड़ें और लगभग 2 मीटर ऊँचा सपाट ऊपरी ढाँचा (मचान) बनाएँ।",
+      "source": {
+       "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_ribbed%20gourd.html",
+       "title": "TNAU Agritech Portal: ribbed gourd",
+       "quote": "Provide support for the plants to reach the pandal erected at a height of 2 m."
+      }
+     },
+     {
+      "en": "Use bamboo poles, wooden stakes or GI pipes for the posts and frame.",
+      "hi": "खंभों और ढाँचे के लिए बाँस, लकड़ी के डंडे या जी.आई. पाइप लें।",
+      "source": {
+       "url": "https://celkau.in/crops/vegetables/bottle%20gourd/aftercultivation.php",
+       "title": "Kerala Agricultural University crop package: bottle gourd",
+       "quote": "Materials for staking: Bamboo poles, wooden stakes, GI pipes, etc."
+      }
+     },
+     {
+      "en": "Tie coir or plastic rope across the frame in a crisscross pattern for the vines to climb.",
+      "hi": "बेलों के चढ़ने के लिए ढाँचे पर नारियल की रस्सी या प्लास्टिक की रस्सी आड़ी-तिरछी बाँधें।",
+      "source": {
+       "url": "https://celkau.in/crops/vegetables/bottle%20gourd/aftercultivation.php",
+       "title": "Kerala Agricultural University crop package: bottle gourd",
+       "quote": "Support structure: Coir/plastic ropes tied in a crisscross manner for vine support."
+      }
+     },
+     {
+      "en": "Guide each vine up to the frame, removing side branches until it reaches the top.",
+      "hi": "हर बेल को ढाँचे तक चढ़ाएँ और ऊपर पहुँचने तक बगल की शाखाएँ हटाते रहें।",
+      "source": {
+       "url": "https://celkau.in/crops/vegetables/bottle%20gourd/aftercultivation.php",
+       "title": "Kerala Agricultural University crop package: bottle gourd",
+       "quote": "Remove lateral branches until the vine reaches the top of the trellis."
+      }
+     },
+     {
+      "en": "In the rainy season, lift the vines off the wet soil onto sticks or dried branches to reduce fruit rot.",
+      "hi": "बरसात में बेलों को गीली मिट्टी से उठाकर डंडों या सूखी टहनियों पर चढ़ाएँ ताकि फल सड़ें नहीं।",
+      "source": {
+       "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bottlegourd.html",
+       "title": "TNAU Agritech Portal: bottle gourd",
+       "quote": "Fruit rot during rainy season can be checked by training the plants over the bamboo stick or dried branches."
+      }
+     }
+    ]
+   },
+   "source_notes": "AI research 2026-10-06. Each step quotes TNAU or KAU; the Hindi text is a translation. Post spacing and rope pattern are not given by these sources: a local builder or agronomist should confirm. Frame height shown in the picture uses the engine.bed trellis_height_m default."
   }
  ]
 }

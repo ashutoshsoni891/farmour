@@ -23,7 +23,7 @@ export type PlotGeometry = { type: "Polygon"; coordinates: number[][][] };
 /** A planned layout to draw over the plot: zones filled by kind, beds outlined with their codes. */
 export interface PlotLayout {
   zones: { kind: string; geometry: PlotGeometry }[];
-  beds: { code: string; geometry: PlotGeometry }[];
+  beds: { code: string; geometry: PlotGeometry; color?: string; dim?: boolean }[];
 }
 export const ZONE_COLORS: Record<string, string> = {
   beds: "#16a34a",
@@ -312,7 +312,7 @@ export function PlotMap({
             ...Object.entries(ZONE_COLORS).flat(),
             "#16a34a",
           ] as never,
-          "fill-opacity": 0.45,
+          "fill-opacity": 0.35,
         },
       });
       map.addSource("layout-beds", {
@@ -321,17 +321,21 @@ export function PlotMap({
           type: "FeatureCollection",
           features: layout.beds.map((b) => ({
             type: "Feature",
-            properties: { code: b.code },
+            properties: { code: b.code, color: b.color ?? "#16a34a", dim: b.dim ? 1 : 0 },
             geometry: b.geometry,
           })),
         },
       });
-      // A filled layer so a bed can be tapped; the selected bed is drawn brighter.
+      // Beds are filled with their main crop's colour (dimmed when another crop is picked) and can
+      // be tapped; the selected bed is drawn brighter.
       map.addLayer({
         id: "layout-beds-hit",
         type: "fill",
         source: "layout-beds",
-        paint: { "fill-color": "#facc15", "fill-opacity": 0 },
+        paint: {
+          "fill-color": ["get", "color"] as never,
+          "fill-opacity": ["case", ["==", ["get", "dim"], 1], 0.15, 0.85] as never,
+        },
       });
       map.addLayer({
         id: "layout-beds",
@@ -392,11 +396,17 @@ export function PlotMap({
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !map.getLayer("layout-beds-hit")) return;
-    map.setPaintProperty("layout-beds-hit", "fill-opacity", [
+    map.setPaintProperty("layout-beds", "line-color", [
       "case",
       ["==", ["get", "code"], selectedBed ?? ""],
-      0.8,
-      0,
+      "#facc15",
+      "#ffffff",
+    ] as never);
+    map.setPaintProperty("layout-beds", "line-width", [
+      "case",
+      ["==", ["get", "code"], selectedBed ?? ""],
+      4,
+      1.2,
     ] as never);
   }, [selectedBed, layout]);
 

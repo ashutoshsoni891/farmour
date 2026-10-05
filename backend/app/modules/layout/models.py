@@ -78,6 +78,8 @@ class BedLayer(IdMixin, Base):
     season_label: Mapped[str] = mapped_column(String(20))
     crop_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("crops.id"))
     planned_sow: Mapped[date] = mapped_column(Date)
+    harvest_start: Mapped[date | None] = mapped_column(Date)
+    harvest_end: Mapped[date | None] = mapped_column(Date)
     plant_count: Mapped[int] = mapped_column(Integer)
     spacing_cm: Mapped[int] = mapped_column(Integer)
     expected_yield_kg: Mapped[Decimal] = mapped_column(Numeric(10, 2))
