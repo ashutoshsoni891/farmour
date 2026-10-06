@@ -30,7 +30,7 @@ jobs:
           - { name: postgres, context: deploy/postgres, file: deploy/postgres/Dockerfile }
           - { name: web, context: ., file: deploy/caddy/Dockerfile }
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with: { ref: "${{ github.event.workflow_run.head_sha }}" }
       - uses: docker/login-action@v3
         with: { registry: ghcr.io, username: "${{ github.actor }}", password: "${{ secrets.GITHUB_TOKEN }}" }
@@ -56,7 +56,7 @@ jobs:
     if: ${{ vars.STAGING_ENABLED == 'true' }}
     environment: staging
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Copy deploy files and start the new images
         env:
           SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
