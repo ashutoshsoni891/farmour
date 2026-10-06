@@ -21,7 +21,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Sowing time: Rabi: Sept; Kharif: June–July; Summer: Jan.",
         "note": "Summer (January sowing) mapped to zaid.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "nursery_days": [
@@ -29,7 +29,7 @@
         "url": "https://icariivr.org.in/tomato/",
         "title": "ICAR-IIVR cultivation details",
         "quote": "Seedlings 25–30 days",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "days_to_first_harvest": [
@@ -37,7 +37,7 @@
         "url": "https://celkau.in/crops/vegetables/tomato/harvesting.php",
         "title": "Kerala Agricultural University, crop package (harvesting)",
         "quote": "Tomato fruit maturity starts after 70-100 days after transplanting depending upon the variety.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_row_cm": [
@@ -45,7 +45,7 @@
         "url": "https://icariivr.org.in/tomato/",
         "title": "ICAR-IIVR cultivation details",
         "quote": "spacing 60 × 45 cm",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_plant_cm": [
@@ -53,7 +53,7 @@
         "url": "https://icariivr.org.in/tomato/",
         "title": "ICAR-IIVR cultivation details",
         "quote": "spacing 60 × 45 cm",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "harvest_span_days": [
@@ -62,7 +62,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Harvesting 90–120 days after transplanting",
         "note": "Last picking at 120 days after transplanting minus first picking at 70 days (KAU) = 50 days.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "height_max_cm": [
@@ -71,7 +71,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Stake the plants 30 days after planting with 1 - 1.5 m tall stakes",
         "note": "Staked height 1.5 m (upper end of the stake length). The NC State range (up to 10 ft) is for the whole species and was not used.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "sun": [
@@ -79,7 +79,7 @@
         "url": "https://plants.ces.ncsu.edu/plants/solanum-lycopersicum/",
         "title": "NC State Extension Plant Toolbox",
         "quote": "Light: Full sun (6 or more hours of direct sunlight a day)",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "water_need": [
@@ -88,7 +88,7 @@
         "title": "Kerala Agricultural University, crop package (aftercultivation)",
         "quote": "Irrigate at two or three days interval.",
         "note": "Interpreted: the source recommends regular irrigation every few days in summer; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "waterlogging_tolerant": [
@@ -96,7 +96,7 @@
         "url": "https://celkau.in/crops/vegetables/tomato/climate.php",
         "title": "Kerala Agricultural University, crop package (climate)",
         "quote": "However, it cannot withstand water logging.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -105,7 +105,7 @@
         "title": "Kerala Agricultural University, crop package (harvesting)",
         "quote": "On an average, yield of open pollinated varieties ranges from 200-250 q/ha.",
         "note": "200 q/ha = 2.0 kg/m²; open-pollinated, the lower figure.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ]
   },
@@ -136,7 +136,7 @@
             "title": "ICAR-IIVR cultivation details",
             "quote": "Sowing time: Rabi: Sept; Kharif: June–July; Summer: Jan.",
             "note": "Nursery sowing months from the source, shifted by the nursery days so the window is the transplant date the planner uses.",
-            "checked_on": "2026-10-05"
+            "checked_on": "2026-10-06"
           }
         ]
       }

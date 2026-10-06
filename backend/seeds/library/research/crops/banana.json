@@ -12,7 +12,7 @@
         "url": "https://celkau.in/crops/fruits/banana/climate.php",
         "title": "Kerala Agricultural University, fruit crop package (climate)",
         "quote": "Rain fed crop: April-May Irrigated crop: August-September",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "tree_spacing_m": [
@@ -20,7 +20,7 @@
         "url": "https://celkau.in/crops/fruits/banana/seedspacing.php",
         "title": "Kerala Agricultural University, fruit crop package (seedspacing)",
         "quote": "Poovan Chenkadali Palayankodan Monthan 2.1 x 2.1 2260",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "years_to_bear": [
@@ -29,7 +29,7 @@
         "title": "Kerala Agricultural University, fruit crop package (harvesting)",
         "quote": "The dwarf bananas are ready for harvest within 11- 14 months after planting",
         "note": "11 months = 0.9 years.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "water_need": [
@@ -38,7 +38,7 @@
         "title": "Kerala Agricultural University, fruit crop package (aftercultivation)",
         "quote": "During summer months, irrigate once in three days.",
         "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -47,7 +47,7 @@
         "title": "Kerala Agricultural University, fruit crop package (harvesting)",
         "quote": "Dwarf Cavendish 30-40 t/ha",
         "note": "30 t/ha = 3.0 kg/m².",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ]
   },
@@ -72,7 +72,7 @@
             "url": "https://celkau.in/crops/fruits/banana/climate.php",
             "title": "Kerala Agricultural University, fruit crop package (climate)",
             "quote": "Rain fed crop: April-May Irrigated crop: August-September",
-            "checked_on": "2026-10-05"
+            "checked_on": "2026-10-06"
           }
         ]
       }

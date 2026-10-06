@@ -16,7 +16,7 @@
         "title": "ICAR-IIVR spinach beet (palak) variety page",
         "quote": "Suitable for round-the-year cultivation.",
         "note": "Variety Kashi Baramasi (Uttar Pradesh); mapped to all three seasons.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "days_to_first_harvest": [
@@ -24,7 +24,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_minor%20vegetables.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "First harvest of leaves one month after sowing.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "harvest_span_days": [
@@ -33,7 +33,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Total duration 3 months",
         "note": "3 months total minus 1 month to first harvest = 60 days of repeated leaf cutting.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_row_cm": [
@@ -41,7 +41,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_minor%20vegetables.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Seeds 20 - 25 kg/ha 20 x 10 cm",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_plant_cm": [
@@ -49,7 +49,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_minor%20vegetables.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Seeds 20 - 25 kg/ha 20 x 10 cm",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -58,7 +58,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Total duration 3 months 20000 kg/ha",
         "note": "20000 kg/ha = 2.0 kg/m².",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ]
   },
@@ -79,7 +79,7 @@
             "title": "ICAR-IIVR spinach beet (palak) variety page",
             "quote": "Yield 500–800 q/ha (August–November sowing)",
             "note": "Best-yield sowing period for variety Kashi Baramasi (Uttar Pradesh).",
-            "checked_on": "2026-10-05"
+            "checked_on": "2026-10-06"
           }
         ]
       }

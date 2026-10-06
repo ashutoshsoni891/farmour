@@ -1,0 +1,95 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "nursery_days": 30,
+  "spacing_row_cm": 60,
+  "spacing_plant_cm": 45,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.5,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "This can be grown in plains during September to February.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "nursery_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Transplant 30 to 40 days old seedlings at a spacing of 45 cm.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Form ridges and furrows at 60 cm in plains.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Transplant 30 to 40 days old seedlings at a spacing of 45 cm.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Plains Irrigation is done once in a week.",
+        "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium', a continuous supply as 'medium' to 'high'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "good drainage are suited for cauliflower cultivation",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Plains : 15 – 20 t/ha",
+        "note": "15 t/ha = 1.5 kg/m².",
+        "checked_on": "2026-10-06"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 5 (2026-10-06). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "09-01",
+          "to": "12-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
+            "title": "TNAU Agritech Portal, vegetables",
+            "quote": "This can be grown in plains during September to February.",
+            "note": "Cut at 31 December.",
+            "checked_on": "2026-10-06"
+          }
+        ]
+      }
+    }
+  }
+}

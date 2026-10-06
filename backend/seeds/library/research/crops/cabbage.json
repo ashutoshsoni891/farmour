@@ -1,0 +1,105 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "nursery_days": 40,
+  "days_to_first_harvest": 70,
+  "harvest_span_days": 35,
+  "spacing_row_cm": 45,
+  "spacing_plant_cm": 45,
+  "water_need": "medium",
+  "expected_yield_kg_per_sqm": 2.5,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "August – November is suitable season.",
+        "note": "Plains; winter (rabi) crop.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "nursery_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Transplant 40 - 45 days old seedlings at a spacing of 45 cm.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Total duration 105",
+        "note": "105 days from transplanting - 35 days of harvesting = first harvest at about 70 days. From the TNAU fertigation schedule: total duration minus the harvesting stage = first picking.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Harvesting stage 35",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Ridges and furrows are formed at 45 cm apart",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Transplant 40 - 45 days old seedlings at a spacing of 45 cm.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Provide continuous supply of moisture.",
+        "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium', a continuous supply as 'medium' to 'high'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Plains : 25 – 35 t/ha in 120 days.",
+        "note": "25 t/ha = 2.5 kg/m².",
+        "checked_on": "2026-10-06"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 5 (2026-10-06). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "09-10",
+          "to": "12-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
+            "title": "TNAU Agritech Portal, vegetables",
+            "quote": "August – November is suitable season.",
+            "note": "Sowing months shifted by the 40 nursery days to the transplant date; cut at 31 December.",
+            "checked_on": "2026-10-06"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -19,7 +19,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Rabi: Sept-Nov; Summer: Feb-May",
         "note": "Summer mapped to zaid.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "days_to_first_harvest": [
@@ -28,7 +28,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Harvesting 40-70 days after sowing",
         "note": "Roots can be pulled from day 40 to day 70.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "harvest_span_days": [
@@ -37,7 +37,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Harvesting 40-70 days after sowing",
         "note": "70 - 40 = 30 days in which roots can be pulled.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_row_cm": [
@@ -45,7 +45,7 @@
         "url": "https://icariivr.org.in/radish-2/",
         "title": "ICAR-IIVR cultivation details",
         "quote": "Spacing: 30-40 x 4-5 cm",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_plant_cm": [
@@ -53,7 +53,7 @@
         "url": "https://icariivr.org.in/radish-2/",
         "title": "ICAR-IIVR cultivation details",
         "quote": "Spacing: 30-40 x 4-5 cm",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "height_max_cm": [
@@ -62,7 +62,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Height: 0 ft. 6 in. - 3 ft. 0 in.",
         "note": "3 ft = 91 cm (when flowering).",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "sun": [
@@ -71,7 +71,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Light: Full sun (6 or more hours of direct sunlight a day) Partial Shade (Direct sunlight only part of the day, 2-6 hours)",
         "note": "Grows in full sun or partial shade.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "water_need": [
@@ -80,7 +80,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Regular, especially during root development",
         "note": "Interpreted: the source recommends regular irrigation every few days in summer; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "waterlogging_tolerant": [
@@ -89,7 +89,7 @@
         "title": "Kerala Agricultural University, crop package (climate)",
         "quote": "Well drained sandy loam soils are best suited for the crop.",
         "note": "Needs well-drained soil, so not waterlogging tolerant (interpreted).",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -98,7 +98,7 @@
         "title": "Kerala Agricultural University, crop package (harvesting)",
         "quote": "Yield European varieties yield 5-7 t/ha while in Indian cultivars, it varies from 15-20 t/ha.",
         "note": "Indian cultivars 15 t/ha = 1.5 kg/m².",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ]
   },
@@ -123,7 +123,7 @@
             "url": "https://icariivr.org.in/radish-2/",
             "title": "ICAR-IIVR cultivation details",
             "quote": "Rabi: Sept-Nov; Summer: Feb-May",
-            "checked_on": "2026-10-05"
+            "checked_on": "2026-10-06"
           }
         ]
       }

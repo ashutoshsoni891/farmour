@@ -1,0 +1,111 @@
+{
+  "seasons": [
+    "kharif",
+    "zaid"
+  ],
+  "days_to_first_harvest": 70,
+  "harvest_span_days": 45,
+  "spacing_row_cm": 200,
+  "spacing_plant_cm": 150,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.4,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bittergourd.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Season July and January.",
+        "note": "July = kharif; January = summer (zaid) crop.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bittergourd.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Total duration 115 days",
+        "note": "115 days total - 45 days of harvesting = first picking at about 70 days. From the TNAU fertigation schedule: total duration minus the harvesting stage = first picking.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bittergourd.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Harvesting stage 45",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bittergourd.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "at 2 x 1.5 m spacing",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bittergourd.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "at 2 x 1.5 m spacing",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bittergourd.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "thereafter once a week.",
+        "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium', a continuous supply as 'medium' to 'high'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bittergourd.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Sandy loam soils rich in organic matter with good drainage",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-06"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bittergourd.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Yield potential is 14.0 tonnes/ha in a crop duration of 115 days",
+        "note": "Variety CO 1; 14 t/ha = 1.4 kg/m².",
+        "checked_on": "2026-10-06"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 5 (2026-10-06). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "01-01",
+          "to": "01-31",
+          "method": "direct"
+        },
+        {
+          "from": "07-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bittergourd.html",
+            "title": "TNAU Agritech Portal, vegetables",
+            "quote": "Season July and January.",
+            "checked_on": "2026-10-06"
+          }
+        ]
+      }
+    }
+  }
+}

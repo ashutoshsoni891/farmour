@@ -18,7 +18,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "June - July and October - November",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "days_to_first_harvest": [
@@ -27,7 +27,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "For leaf, pull out the plants when they are 30-40 days old.",
         "note": "Leafy crop: the whole plant is pulled or cut when ready, so days_to_first_harvest is the lower end of the source range and harvest_span_days the difference to the upper end.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "harvest_span_days": [
@@ -36,7 +36,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "For leaf, pull out the plants when they are 30-40 days old.",
         "note": "40 - 30 = 10 days (plants pulled once).",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_row_cm": [
@@ -44,7 +44,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Sow the split seeds at a spacing of 20 x 15 cm.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_plant_cm": [
@@ -52,7 +52,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_corinader.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Sow the split seeds at a spacing of 20 x 15 cm.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "height_max_cm": [
@@ -61,7 +61,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Height: 1 ft. 0 in. - 2 ft. 0 in.",
         "note": "2 ft = 61 cm.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "sun": [
@@ -70,7 +70,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Light: Full sun (6 or more hours of direct sunlight a day) Partial Shade (Direct sunlight only part of the day, 2-6 hours)",
         "note": "Grows in full sun or partial shade.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "water_need": [
@@ -79,7 +79,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "subsequent irrigations at 7-10 days interval",
         "note": "Interpreted: the source recommends regular irrigation every few days in summer; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "waterlogging_tolerant": [
@@ -88,7 +88,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Well drained silt or loamy soils are suited for cultivation.",
         "note": "Needs well-drained soil, so not waterlogging tolerant (interpreted).",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -97,7 +97,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Leaf yield : 6-7 t/ha",
         "note": "6 t/ha = 0.6 kg/m².",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ]
   },
@@ -123,7 +123,7 @@
             "title": "TNAU Agritech Portal, horticulture",
             "quote": "June - July and October - November",
             "note": "Tamil Nadu (TNAU) months for coriander; no Malwa-specific source yet.",
-            "checked_on": "2026-10-05"
+            "checked_on": "2026-10-06"
           }
         ]
       }

@@ -19,7 +19,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Summer: Feb–Mar; Kharif: June–July",
         "note": "Summer mapped to zaid.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "days_to_first_harvest": [
@@ -27,7 +27,7 @@
         "url": "https://celkau.in/crops/vegetables/bottle%20gourd/harvesting.php",
         "title": "Kerala Agricultural University, crop package (harvesting)",
         "quote": "The fruits are ready for harvest 60-120 days after sowing depending on the variety.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "harvest_span_days": [
@@ -36,7 +36,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Harvesting stage 45",
         "note": "From the TNAU fertigation schedule (hybrid): the harvesting stage lasts 45 days.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_row_cm": [
@@ -44,7 +44,7 @@
         "url": "https://icariivr.org.in/bottle-gourd-2/",
         "title": "ICAR-IIVR cultivation details",
         "quote": "200 x 75 cm",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_plant_cm": [
@@ -52,7 +52,7 @@
         "url": "https://icariivr.org.in/bottle-gourd-2/",
         "title": "ICAR-IIVR cultivation details",
         "quote": "200 x 75 cm",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "height_max_cm": [
@@ -61,7 +61,7 @@
         "title": "Kerala Agricultural University, crop package (aftercultivation)",
         "quote": "Pandals (1.5 m height) are commonly used in Kerala.",
         "note": "Grown as a climber on a 1.5 m pandal (trellis).",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "sun": [
@@ -69,7 +69,7 @@
         "url": "https://plants.ces.ncsu.edu/plants/lagenaria-siceraria/",
         "title": "NC State Extension Plant Toolbox",
         "quote": "Light: Full sun (6 or more hours of direct sunlight a day)",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "water_need": [
@@ -78,7 +78,7 @@
         "title": "Kerala Agricultural University, crop package (aftercultivation)",
         "quote": "Flowering & fruiting: Water every alternate day.",
         "note": "Interpreted: the source recommends regular irrigation every few days in summer; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "waterlogging_tolerant": [
@@ -86,7 +86,7 @@
         "url": "https://celkau.in/crops/vegetables/bottle%20gourd/aftercultivation.php",
         "title": "Kerala Agricultural University, crop package (aftercultivation)",
         "quote": "Rainy season: Ensure proper drainage to prevent waterlogging.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -95,7 +95,7 @@
         "title": "Kerala Agricultural University, crop package (harvesting)",
         "quote": "Depending on vari­ety and crop management, the crop yield can vary between 10-20 t/ha.",
         "note": "10 t/ha = 1.0 kg/m².",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ]
   },
@@ -120,7 +120,7 @@
             "url": "https://icariivr.org.in/bottle-gourd-2/",
             "title": "ICAR-IIVR cultivation details",
             "quote": "Summer: Feb–Mar; Kharif: June–July",
-            "checked_on": "2026-10-05"
+            "checked_on": "2026-10-06"
           }
         ]
       }

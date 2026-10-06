@@ -282,3 +282,8 @@ Record every structural choice: context, decision, consequences. Newest first. T
 - **Integrated farming:** when picked, a livestock area (`layout.extra_zones.livestock`, 5%) is carved next to the compost area (manure -> compost -> beds). Which animals and how many is not planned yet (no cited livestock data).
 - **Room:** zones the owner asked for are taken out of the beds target, so they are not the first thing dropped; if the plot is still too small they are dropped first, with a warning and a note in "How this plan farms".
 - **"How this plan farms":** the farm page lists only the methods the plan really uses, each in one plain sentence: multilayer beds (beds with 3-4 crops at once), fruit orchard, polyhouse, integrated, the water and compost loop, natural farming (states that recipes such as jeevamrut are not in the library yet), living fence, crop rotation.
+
+## 2026-10-06 — Research batch 5: more vegetables
+- **AI-checked:** bitter gourd, ridge gourd, carrot, french (bush) beans. **Drafts:** cabbage (no drainage statement in the source), cauliflower (no first-harvest day), beetroot and cluster bean not written (no harvest window; the cluster bean yield line is garbled on the page). 22 crops are now AI-checked in total.
+- **Rules:** first picking for gourds and cabbage = TNAU fertigation "total duration" minus its "harvesting stage" (noted on the value); a weekly watering is read as "low" water need, every few days as "medium" (interpretation, flagged). Sow windows are TNAU plains months.
+- **Still missing:** soil builders (dhaincha, sunn hemp) and pulses (no readable TNAU/KAU page found in this round), lemongrass, vetiver and karonda water needs, mango and amla years to first fruit, onion Malwa windows, chilli picking period.

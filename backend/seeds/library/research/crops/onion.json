@@ -19,7 +19,7 @@
         "title": "ICAR news: onion variety Bhima Red (source: ICAR-DOGR, Pune)",
         "quote": "for rabi in Madhya Pradesh and Maharashtra",
         "note": "Variety Bhima Red; rabi is the main onion season in Madhya Pradesh.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "days_to_first_harvest": [
@@ -28,7 +28,7 @@
         "title": "ICAR news: onion variety Bhima Red (source: ICAR-DOGR, Pune)",
         "quote": "in 110-120 days after transplanting in late kharif and rabi seasons",
         "note": "Time to maturity of one variety (Bhima Red); onion is harvested once, so the bulb is ready 110 days after transplanting.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "harvest_span_days": [
@@ -37,7 +37,7 @@
         "title": "ICAR news: onion variety Bhima Red (source: ICAR-DOGR, Pune)",
         "quote": "in 110-120 days after transplanting in late kharif and rabi seasons",
         "note": "120 - 110 = 10 days in which the bulbs mature (single harvest).",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "nursery_days": [
@@ -45,7 +45,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_bellaryonion.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Plant 45 days old seedlings",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_row_cm": [
@@ -53,7 +53,7 @@
         "url": "https://celkau.in/crops/vegetables/onion/seedspacing.php",
         "title": "Kerala Agricultural University, crop package (seedspacing)",
         "quote": "Spacing 15 – 20 x 10 cm",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "spacing_plant_cm": [
@@ -61,7 +61,7 @@
         "url": "https://celkau.in/crops/vegetables/onion/seedspacing.php",
         "title": "Kerala Agricultural University, crop package (seedspacing)",
         "quote": "Spacing 15 – 20 x 10 cm",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "height_max_cm": [
@@ -70,7 +70,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Height: 1 ft. 0 in. - 1 ft. 6 in.",
         "note": "1 ft 6 in = 46 cm.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "sun": [
@@ -78,7 +78,7 @@
         "url": "https://celkau.in/crops/vegetables/onion/climate.php",
         "title": "Kerala Agricultural University, crop package (climate)",
         "quote": "Open sunlight is essential for good yield",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "water_need": [
@@ -87,7 +87,7 @@
         "title": "Kerala Agricultural University, crop package (aftercultivation)",
         "quote": "Need based irrigation must be given.",
         "note": "Interpreted: the source recommends regular irrigation every few days in summer; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "waterlogging_tolerant": [
@@ -95,7 +95,7 @@
         "url": "https://celkau.in/crops/vegetables/onion/climate.php",
         "title": "Kerala Agricultural University, crop package (climate)",
         "quote": "The crop will not tolerate water logging.",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -104,7 +104,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "The crop yields about 15 – 18 t/ha in 140 – 150 days.",
         "note": "15 t/ha = 1.5 kg/m².",
-        "checked_on": "2026-10-05"
+        "checked_on": "2026-10-06"
       }
     ]
   },
