@@ -42,7 +42,7 @@ jobs:
           tags: ${{ env.IMAGE_PREFIX }}/${{ matrix.name }}:${{ env.IMAGE_TAG }}
           build-args: VITE_KEYCLOAK_URL=${{ vars.STAGING_BASE_URL }}/auth
       - name: Image scan (Trivy)
-        uses: aquasecurity/trivy-action@0.33.1
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: ${{ env.IMAGE_PREFIX }}/${{ matrix.name }}:${{ env.IMAGE_TAG }}
           severity: HIGH,CRITICAL
