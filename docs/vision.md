@@ -45,8 +45,10 @@ little labour and risk, grow the family's own food and build the soil, or a mix.
   are suggested.
 
 ## The pillars
-1. **Farming methods:** multilayer, horticulture, organic, natural, integrated; polyhouse and
-   other structures later (spec §16 lists polyhouse as a future zone template).
+1. **Farming methods:** multilayer, horticulture, organic, natural, integrated, polyhouse. The
+   owner picks the methods in setup; the plan shows "How this plan farms". (Built 2026-10-06:
+   multilayer beds, orchard rows, hedge, flowers, polyhouse and livestock zones; animal numbers,
+   polyhouse calendars and natural-farming recipes still to come.)
 2. **Goal / business model:** the owner's goal drives the plan. The engine should offer 2-3
    competing plans for the same land (income-first, low-labour and low-risk, self-sufficient and
    soil-building) with the trade-offs shown, and the owner picks.

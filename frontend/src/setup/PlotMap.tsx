@@ -36,6 +36,8 @@ export const ZONE_COLORS: Record<string, string> = {
   utility: "#7c3aed",
   nursery: "#db2777",
   path: "#e7e5e4",
+  polyhouse: "#e0f2fe",
+  livestock: "#a16207",
 };
 export interface PlotShape {
   geometry: PlotGeometry;

@@ -21,7 +21,10 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base, CreatedByMixin, IdMixin, TimestampMixin
 
-ZONE_KINDS = "('beds','orchard','rotation','border','water','utility','nursery','path','livestock')"
+ZONE_KINDS = (
+    "('beds','orchard','rotation','border','water','utility','nursery','path','livestock',"
+    "'polyhouse')"
+)
 
 
 class Plan(IdMixin, TimestampMixin, CreatedByMixin, Base):
@@ -68,6 +71,7 @@ class Bed(IdMixin, Base):
     raised: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
     orientation_deg: Mapped[Decimal] = mapped_column(Numeric(6, 2), default=0, server_default="0")
     has_trellis: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
+    protected: Mapped[bool] = mapped_column(Boolean, default=False, server_default="false")
 
 
 class BedLayer(IdMixin, Base):

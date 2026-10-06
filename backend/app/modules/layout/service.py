@@ -195,6 +195,7 @@ async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
                 id=b.id, zone_id=b.zone_id, code=b.code, length_m=float(b.length_m),
                 width_m=float(b.width_m), raised=b.raised, has_trellis=b.has_trellis,
                 orientation_deg=float(b.orientation_deg), geometry=repo.geojson(b.geom),
+                protected=b.protected,
             )
             for b in beds
         ],
@@ -293,7 +294,18 @@ async def _build(
         }
         for t, zone_shares in base.shares.items()
     }  # fmt: skip
-    params = dataclasses.replace(base, shares=shares, bed_width_m=widths[bed_size])
+    # zones the owner asked for in the goal step (polyhouse; integrated farming -> livestock area)
+    extra_sizes = {
+        k: float(v) for k, v in (await get_setting(session, "layout.extra_zones")).items()
+    }
+    wanted = {"polyhouse": "polyhouse", "integrated": "livestock"}
+    extra = {
+        zone: extra_sizes[zone] for method, zone in wanted.items()
+        if method in (farm.methods or []) and zone in extra_sizes
+    }  # fmt: skip
+    params = dataclasses.replace(
+        base, shares=shares, bed_width_m=widths[bed_size], extra_zones=extra
+    )
     site = engine.SiteInputs(
         boundary=parcel.boundary, north_bearing_deg=parcel.north_bearing_deg, gate=parcel.gate,
         slope_dir=parcel.slope_dir, drainage=parcel.drainage, soil_type=parcel.soil_type,
@@ -442,7 +454,7 @@ async def _build(
         bed_row = await repo.add_bed(
             session, zone_ids[b.zone_index], code=b.code, geom=result.frame.to_wgs84(b.geom),
             length_m=b.length_m, width_m=b.width_m, raised=b.raised,
-            orientation_deg=b.orientation_deg, has_trellis=b.has_trellis,
+            orientation_deg=b.orientation_deg, has_trellis=b.has_trellis, protected=b.protected,
         )  # fmt: skip
         bed_ids[b.code] = bed_row.id
     for x in placed:
@@ -697,7 +709,8 @@ async def swap(
 
 
 ZONE_TAGS = {"beds": "beds", "orchard": "orchard", "water": "pond", "utility": "utility",
-             "nursery": "nursery", "rotation": "rotation"}  # fmt: skip
+             "nursery": "nursery", "rotation": "rotation", "polyhouse": "polyhouse",
+             "livestock": "livestock"}  # fmt: skip
 
 
 async def benefits(session: AsyncSession, m: Membership, plan_id: uuid.UUID) -> list[SchemeOut]:

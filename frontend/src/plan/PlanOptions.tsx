@@ -9,7 +9,17 @@ type Options = components["schemas"]["OptionsOut"];
 type Option = components["schemas"]["OptionOut"];
 
 const LEVEL_DOTS: Record<string, number> = { low: 1, medium: 2, high: 3 };
-const BAR_ORDER = ["beds", "orchard", "rotation", "water", "nursery", "utility", "border"];
+const BAR_ORDER = [
+  "beds",
+  "polyhouse",
+  "orchard",
+  "rotation",
+  "water",
+  "livestock",
+  "nursery",
+  "utility",
+  "border",
+];
 
 function Meter({ label, level }: { label: string; level: string }) {
   const { t } = useTranslation();
@@ -43,7 +53,9 @@ function LandBar({ option }: { option: Option }) {
       </div>
       <p className="text-sm text-neutral-700">
         {parts
-          .filter(([k]) => ["beds", "orchard", "rotation", "water"].includes(k))
+          .filter(([k]) =>
+            ["beds", "polyhouse", "orchard", "rotation", "water", "livestock"].includes(k),
+          )
           .map(([k, v]) => `${t(`option.land.${k}`)} ${Math.round(v * 100)}%`)
           .join(" · ")}
       </p>

@@ -3011,6 +3011,11 @@
             "additionalProperties": true,
             "type": "object",
             "title": "Geometry"
+          },
+          "protected": {
+            "type": "boolean",
+            "title": "Protected",
+            "default": false
           }
         },
         "type": "object",

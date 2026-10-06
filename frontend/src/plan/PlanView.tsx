@@ -9,6 +9,7 @@ import { ZONE_COLORS } from "../setup/PlotMap";
 import { BedPicture } from "./BedPicture";
 import { BedTimeline } from "./BedTimeline";
 import { MachanGuide } from "./MachanGuide";
+import { Methods } from "./Methods";
 import { Perennials } from "./Perennials";
 import { SwapPicker } from "./SwapPicker";
 import type { GuideStep } from "./MachanGuide";
@@ -73,6 +74,7 @@ interface Props {
     ((code: string, season: string, layer: string) => Promise<Alternative[]>) | undefined;
   onSwap?:
     ((code: string, season: string, layer: string, slug: string) => Promise<void>) | undefined;
+  methods?: string[] | undefined;
 }
 
 export function PlanView(props: Props) {
@@ -131,6 +133,13 @@ export function PlanView(props: Props) {
       {plan.uses_ai_checked && (
         <p className="rounded-lg bg-sky-50 p-3 text-base">{t("farm.plan_ai_note")}</p>
       )}
+      <Methods
+        plan={plan}
+        methods={props.methods ?? []}
+        unit={unit}
+        lang={lang}
+        bighaSqft={bighaSqft}
+      />
 
       {season && (
         <div className="flex flex-col gap-2">
@@ -197,6 +206,7 @@ export function PlanView(props: Props) {
                 })}
                 {bed.raised ? ` · ${t("farm.bed_raised")}` : ""}
                 {bed.has_trellis ? ` · ${t("farm.bed_trellis")}` : ""}
+                {bed.protected ? ` · ${t("farm.bed_covered")}` : ""}
               </p>
             </div>
             <button

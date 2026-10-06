@@ -59,6 +59,17 @@ export function BedPicture({
           fill="#a16207"
         />
 
+        {/* a covered bed inside the polyhouse: the plastic roof */}
+        {bed.protected && (
+          <path
+            d={`M8 ${GROUND} L8 70 Q180 -10 352 70 L352 ${GROUND}`}
+            fill="#e0f2fe"
+            fillOpacity="0.35"
+            stroke="#0369a1"
+            strokeWidth="3"
+          />
+        )}
+
         {/* machan: posts, top frame, crisscross rope */}
         {bed.has_trellis && (
           <g>

@@ -291,7 +291,8 @@
       "rule": {
         "tags_any": [
           "goal:income",
-          "option:income"
+          "option:income",
+          "polyhouse"
         ]
       },
       "sources": {
@@ -447,7 +448,8 @@
       "rule": {
         "tags_any": [
           "goal:income",
-          "option:income"
+          "option:income",
+          "polyhouse"
         ]
       },
       "sources": {

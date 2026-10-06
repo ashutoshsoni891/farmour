@@ -27,6 +27,7 @@ class BedOut(BaseModel):
     has_trellis: bool
     orientation_deg: float
     geometry: dict[str, Any]
+    protected: bool = False  # a covered bed inside the polyhouse
 
 
 class CropRef(BaseModel):

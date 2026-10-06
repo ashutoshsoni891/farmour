@@ -136,11 +136,12 @@ async def add_bed(
     raised: bool,
     orientation_deg: float,
     has_trellis: bool,
+    protected: bool = False,
 ) -> Bed:
     bed = Bed(
         id=uuid.uuid4(), zone_id=zone_id, code=code, geom=from_shape(geom, srid=4326),
         length_m=round(length_m, 2), width_m=round(width_m, 2), raised=raised,
-        orientation_deg=round(orientation_deg, 2), has_trellis=has_trellis,
+        orientation_deg=round(orientation_deg, 2), has_trellis=has_trellis, protected=protected,
     )  # fmt: skip
     session.add(bed)
     await session.flush()

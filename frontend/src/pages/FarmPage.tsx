@@ -359,6 +359,7 @@ export function FarmPage() {
         bighaSqft={me.data?.bigha_sqft ? Number(me.data.bigha_sqft) : null}
         loadAlternatives={owner ? loadAlternatives : undefined}
         onSwap={owner ? swapCrop : undefined}
+        methods={f.methods}
       />
       {benefits.data && <Benefits schemes={benefits.data} lang={lang} />}
 

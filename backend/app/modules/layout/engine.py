@@ -16,13 +16,16 @@ from shapely.geometry import Point, Polygon, box, shape
 from shapely.geometry.base import BaseGeometry
 from shapely.ops import transform
 
-ENGINE_VERSION = "0.2.0"  # 0.2: crops per bed, layer and season
+ENGINE_VERSION = "0.3.0"  # 0.3: trees, hedge, flowers, polyhouse and livestock zones
 
 _TO_UTM = Transformer.from_crs("EPSG:4326", "EPSG:32643", always_xy=True)
 _TO_WGS = Transformer.from_crs("EPSG:32643", "EPSG:4326", always_xy=True)
 
 Template = Literal["S", "M", "L"]
-ZoneKind = Literal["beds", "orchard", "rotation", "border", "water", "utility", "nursery", "path"]
+ZoneKind = Literal[
+    "beds", "orchard", "rotation", "border", "water", "utility", "nursery", "path", "polyhouse",
+    "livestock",
+]  # fmt: skip
 COMPASS = {"N": 0, "NE": 45, "E": 90, "SE": 135, "S": 180, "SW": 225, "W": 270, "NW": 315}
 EPS = 1e-6
 
@@ -57,6 +60,8 @@ class EngineParams:
     area_tolerance_pct: float
     min_beds_share_pct: float
     min_beds_axis_extent_m: float
+    # optional zones the owner asked for (goal step methods): kind -> percent of the plot
+    extra_zones: dict[str, float] = field(default_factory=dict)
     small_below_sqm: float = 150.0  # spec 7 template table: S < 150
     medium_up_to_sqm: float = 2000.0  # M 150-2,000; L above
 
@@ -90,6 +95,7 @@ class BedResult:
     raised: bool
     orientation_deg: float
     has_trellis: bool
+    protected: bool = False  # inside the polyhouse
 
 
 @dataclass
@@ -346,6 +352,18 @@ def _carve(
             add("utility", "utility", utility)
             remaining = remaining.difference(utility)
 
+    # polyhouse and livestock (only when asked for): next to the compost and tools area, so water,
+    # inputs and manure are close by
+    for kind, label in (("polyhouse", "polyhouse"), ("livestock", "livestock area")):
+        pct = p.extra_zones.get(kind, 0)
+        if pct <= 0 or kind in drop or remaining.is_empty:
+            continue
+        hub = next((z.geom for z in zones if z.kind == "utility"), None)
+        anchor = _nearest(remaining, hub.centroid) if hub else _farthest_vertex(remaining, gate)
+        piece = _anchored_piece(remaining, anchor, total * pct / 100, p.zone_aspect, tol)
+        add(kind, label, piece)  # type: ignore[arg-type]
+        remaining = remaining.difference(piece)
+
     # rotation field (large plots): the southern slab, away from the north strip
     if "rotation" not in drop and share["rotation"] > 0 and not remaining.is_empty:
         piece = _south_piece(remaining, total * share["rotation"] / 100, tol)
@@ -468,13 +486,15 @@ def generate(site: SiteInputs, p: EngineParams) -> LayoutResult:
     gate = _nearest(main.exterior, gate)
 
     # 6. zones; drop optional zones in the spec's order if the beds would get too little room
-    drop_order = ["rotation", "water", "orchard"]
+    drop_order = ["livestock", "polyhouse", "rotation", "water", "orchard"]
     drop: set[str] = set()
-    min_beds = parcel.area * p.shares[template]["beds"] / 100 * p.min_beds_share_pct / 100
+    # zones the owner asked for (polyhouse, livestock) come out of the beds target, not the reverse
+    beds_target = max(p.shares[template]["beds"] - sum(p.extra_zones.values()), 0)
+    min_beds = parcel.area * beds_target / 100 * p.min_beds_share_pct / 100
     zones, remaining = _carve(main, gate, template, site, p, drop)
     while remaining.area < min_beds and drop_order:
         step = drop_order.pop(0)
-        if p.shares[template].get(step, 0) <= 0:
+        if p.shares[template].get(step, 0) <= 0 and p.extra_zones.get(step, 0) <= 0:
             continue
         drop.add(step)
         warnings.append(
@@ -496,6 +516,15 @@ def generate(site: SiteInputs, p: EngineParams) -> LayoutResult:
         if along_axis and not any(w["code"] == "BEDS_ALONG_MAIN_AXIS" for w in warnings):
             warnings.append({"code": "BEDS_ALONG_MAIN_AXIS", "message_key": "warn.beds_axis"})
         candidates += [(poly, col, ori, zone_index) for poly, col, ori in tiles]
+    # covered beds inside the polyhouse
+    covered = set()
+    for zi, z in enumerate(list(zones)):
+        if z.kind != "polyhouse":
+            continue
+        tiles, _ = _tile_beds(z.geom, p)
+        for poly, col, ori in tiles:
+            covered.add(id(poly))
+            candidates.append((poly, col, ori, zi))
     # B1, B2... from the gate side
     candidates.sort(key=lambda c: _bed_order(c[0], gate))
     beds = []
@@ -505,6 +534,7 @@ def generate(site: SiteInputs, p: EngineParams) -> LayoutResult:
             BedResult(
                 code=f"B{n}", zone_index=zone_index, geom=poly, length_m=length, width_m=width,
                 raised=raised, orientation_deg=orientation, has_trellis=col % 2 == 0,
+                protected=id(poly) in covered,
             )
         )  # fmt: skip
     # label beds zones

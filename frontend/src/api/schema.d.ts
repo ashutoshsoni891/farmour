@@ -890,6 +890,11 @@ export interface components {
             geometry: {
                 [key: string]: unknown;
             };
+            /**
+             * Protected
+             * @default false
+             */
+            protected: boolean;
         };
         /** BuildOut */
         BuildOut: {
