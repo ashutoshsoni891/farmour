@@ -190,7 +190,7 @@ services:
 
   osrm-prepare:
     profiles: ["routing"]
-    image: ghcr.io/project-osrm/osrm-backend:v5.27.1
+    image: ghcr.io/project-osrm/osrm-backend:v26.4.0
     entrypoint: ["/bin/sh", "-c"]
     command:
       - >-
@@ -202,7 +202,7 @@ services:
 
   osrm:
     profiles: ["routing"]
-    image: ghcr.io/project-osrm/osrm-backend:v5.27.1
+    image: ghcr.io/project-osrm/osrm-backend:v26.4.0
     command: ["osrm-routed", "--algorithm", "mld", "--max-table-size", "50", "/data/region.osrm"]
     volumes: [osrmdata:/data]
     depends_on: { osrm-prepare: { condition: service_completed_successfully } }
