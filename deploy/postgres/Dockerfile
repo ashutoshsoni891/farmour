@@ -1,6 +1,6 @@
 # PostgreSQL 16 + PostGIS 3 + pgvector, from the official image and the PGDG apt repository
 # it already trusts. Package versions are pinned; Dependabot bumps the base image.
-FROM postgres:16.15-bookworm
+FROM postgres:18.4-bookworm
 RUN set -eux; \
     apt-get update; \
     apt-get install -y --no-install-recommends \
