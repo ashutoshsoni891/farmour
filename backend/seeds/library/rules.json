@@ -266,7 +266,8 @@
        "methods": [
         "polyhouse"
        ]
-      }
+      },
+      "tree_species": 2
      },
      "balanced": {
       "share_delta": {},
@@ -275,7 +276,8 @@
        "goal": [
         "both"
        ]
-      }
+      },
+      "tree_species": 3
      },
      "low_work": {
       "share_delta": {
@@ -298,7 +300,8 @@
        "methods": [
         "orchard"
        ]
-      }
+      },
+      "tree_species": 3
      },
      "family_food": {
       "share_delta": {
@@ -319,7 +322,8 @@
         "natural",
         "integrated"
        ]
-      }
+      },
+      "tree_species": 4
      },
      "water_saver": {
       "share_delta": {
@@ -336,7 +340,8 @@
        "water_source": [
         "rain_only"
        ]
-      }
+      },
+      "tree_species": 2
      }
     }
    },

@@ -552,6 +552,8 @@ async def engine_crops(session: AsyncSession, region_slug: str | None = None) ->
                     if c.expected_yield_kg_per_sqm is not None else None
                 ),
                 low_care=c.low_care,
+                tree_spacing_m=float(c.tree_spacing_m) if c.tree_spacing_m is not None else None,
+                years_to_bear=float(c.years_to_bear) if c.years_to_bear is not None else None,
                 price_direct_paise_per_kg=local.price_direct_paise_per_kg if local else None,
                 price_mandi_paise_per_kg=local.price_mandi_paise_per_kg if local else None,
             )

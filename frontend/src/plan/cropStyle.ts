@@ -17,6 +17,18 @@ const STYLE: Record<string, { color: string; emoji: string }> = {
   radish: { color: "#db2777", emoji: "🥕" },
   onion: { color: "#a21caf", emoji: "🧅" },
   peas: { color: "#84cc16", emoji: "🫛" },
+  guava: { color: "#a3e635", emoji: "🍐" },
+  lemon: { color: "#facc15", emoji: "🍋" },
+  pomegranate: { color: "#be123c", emoji: "🍎" },
+  jamun: { color: "#4c1d95", emoji: "🫐" },
+  "custard-apple": { color: "#65a30d", emoji: "🍏" },
+  banana: { color: "#eab308", emoji: "🍌" },
+  mango: { color: "#f59e0b", emoji: "🥭" },
+  amla: { color: "#4d7c0f", emoji: "🟢" },
+  papaya: { color: "#f97316", emoji: "🥭" },
+  "curry-leaf": { color: "#166534", emoji: "🌿" },
+  marigold: { color: "#f97316", emoji: "🌼" },
+  chrysanthemum: { color: "#e879f9", emoji: "🌸" },
 };
 const FALLBACK = ["#0369a1", "#b45309", "#be123c", "#4338ca", "#0f766e"];
 

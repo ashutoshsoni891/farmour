@@ -92,3 +92,19 @@ class BedLayer(IdMixin, Base):
         ),
         CheckConstraint("season in ('kharif','rabi','zaid','perennial')", name="season"),
     )
+
+
+class ZonePlant(IdMixin, Base):
+    """A tree in the orchard strip or a hedge plant on the border (one row per plant)."""
+
+    __tablename__ = "zone_plants"
+    zone_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("zones.id", ondelete="CASCADE"), index=True
+    )
+    crop_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("crops.id"))
+    kind: Mapped[str] = mapped_column(String(8))
+    geom: Mapped[WKBElement] = mapped_column(Geometry("POINT", srid=4326))
+    spacing_m: Mapped[Decimal] = mapped_column(Numeric(6, 2))
+    plant_on: Mapped[date] = mapped_column(Date)
+    first_harvest: Mapped[date | None] = mapped_column(Date)
+    __table_args__ = (CheckConstraint("kind in ('tree','hedge')", name="kind"),)

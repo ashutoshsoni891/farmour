@@ -341,6 +341,8 @@ class EngineCrop(BaseModel):
     waterlogging_tolerant: bool | None
     expected_yield_kg_per_sqm: float | None
     low_care: bool | None
+    tree_spacing_m: float | None = None
+    years_to_bear: float | None = None
     price_direct_paise_per_kg: int | None
     price_mandi_paise_per_kg: int | None
 

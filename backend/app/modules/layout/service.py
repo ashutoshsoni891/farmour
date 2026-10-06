@@ -16,7 +16,7 @@ from app.core.settings_store import get_setting
 from app.modules.farms import service as farms_service
 from app.modules.farms.schemas import FarmOut
 from app.modules.farms.service import Membership
-from app.modules.layout import engine, planting
+from app.modules.layout import engine, perennials, planting
 from app.modules.layout import repository as repo
 from app.modules.layout.models import Plan
 from app.modules.layout.schemas import (
@@ -28,6 +28,7 @@ from app.modules.layout.schemas import (
     OptionMetrics,
     OptionOut,
     OptionsOut,
+    PerennialOut,
     PlanOut,
     PlantingOut,
     PlanWarning,
@@ -116,7 +117,39 @@ def _crop_spec(c: EngineCrop) -> planting.CropSpec:
         height_max_cm=c.height_max_cm, water_need=c.water_need,
         waterlogging_tolerant=c.waterlogging_tolerant, yield_kg_per_sqm=c.expected_yield_kg_per_sqm,
         low_care=c.low_care, price_paise_per_kg=c.price_direct_paise_per_kg,
+        category=c.category,
     )  # fmt: skip
+
+
+def _perennials(
+    plants: list[Any], names: dict[uuid.UUID, Any], yields: dict[uuid.UUID, float | None]
+) -> list[PerennialOut]:
+    groups: dict[tuple[uuid.UUID, str], list[Any]] = {}
+    for zp in plants:
+        groups.setdefault((zp.crop_id, zp.kind), []).append(zp)
+    out = []
+    for (crop_id, kind), rows in groups.items():
+        n = names.get(crop_id)
+        if n is None:
+            continue
+        spacing = float(rows[0].spacing_m)
+        per_sqm = yields.get(crop_id)
+        out.append(
+            PerennialOut(
+                crop=CropRef(id=n.id, slug=n.slug, name_en=n.name_en, name_hi=n.name_hi,
+                             ai_checked=n.status == "ai_verified"),
+                kind=kind, count=len(rows), spacing_m=spacing,
+                plant_on=min(r.plant_on for r in rows),
+                first_harvest=min((r.first_harvest for r in rows if r.first_harvest), default=None),
+                yearly_kg_when_bearing=(
+                    round(per_sqm * spacing**2 * len(rows), 1)
+                    if per_sqm is not None and kind == "tree" else None
+                ),
+                points={"type": "MultiPoint",
+                        "coordinates": [list(to_shape(r.geom).coords[0]) for r in rows]},
+            )
+        )  # fmt: skip
+    return sorted(out, key=lambda p: (p.kind, -p.count, p.crop.slug))
 
 
 def _num(rule: dict[str, object], key: str) -> float | None:
@@ -130,7 +163,11 @@ async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
     zones = await repo.zones_of(session, plan.id)
     beds = await repo.beds_of(session, plan.id)
     layers = await repo.bed_layers_of(session, plan.id)
-    names = await library.crop_names(session, list({bl.crop_id for _, bl in layers}))
+    plants = await repo.zone_plants_of(session, plan.id)
+    names = await library.crop_names(
+        session, list({bl.crop_id for _, bl in layers} | {zp.crop_id for zp in plants})
+    )
+    yields = {c.id: c.expected_yield_kg_per_sqm for c in await library.engine_crops(session)}
     summary = plan.summary
     return PlanOut(
         id=plan.id,
@@ -177,6 +214,7 @@ async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
             for code, bl in layers
             if bl.crop_id in names
         ],
+        perennials=_perennials(plants, names, yields),
         uses_ai_checked=bool(summary.get("uses_ai_checked", False)),
         trellis_height_m=_num(bed_rule, "trellis_height_m"),
         bed_width_m=_num(bed_rule, "bed_width_m"),
@@ -289,7 +327,33 @@ async def _build(
         drainage=parcel.drainage,
         p=await _planting_params(session),
         weights={k: float(v) for k, v in spec.get("weights", {}).items()} or None,
+        allow_flowers="flowers" in (farm.methods or []),
     )
+    # trees in the orchard strip, hedge plants on the border
+    pp = await _planting_params(session)
+    tree_weights = {**pp.weights, **{k: float(v) for k, v in spec.get("weights", {}).items()}}
+    trees = [
+        perennials.PerennialSpec(specs[c.slug], float(c.tree_spacing_m), c.years_to_bear, None)
+        for c in crops
+        if c.category in ("fruit_tree", "fruit_short") and c.tree_spacing_m
+        and c.years_to_bear is not None
+    ]  # fmt: skip
+    hedges = [
+        perennials.PerennialSpec(specs[c.slug], c.spacing_plant_cm / 100, None,
+                                 c.days_to_first_harvest)
+        for c in crops if c.category == "border" and c.spacing_plant_cm
+    ]  # fmt: skip
+    orchard = [(i, z.geom) for i, z in enumerate(result.zones) if z.kind == "orchard"]
+    border_index = next((i for i, z in enumerate(result.zones) if z.kind == "border"), None)
+    placed = perennials.plant_orchard(
+        orchard, trees, weights=tree_weights, start=start_date, plan_days=pp.plan_days,
+        max_species=int(spec.get("tree_species", 3)),
+    )  # fmt: skip
+    if border_index is not None:
+        placed += perennials.plant_hedge(
+            result.hedge_line, border_index, hedges, weights=tree_weights, gate=result.gate,
+            gate_gap_m=result.gate_gap_m, start=start_date, plan_days=pp.plan_days,
+        )  # fmt: skip
     per_season: dict[str, set[str]] = {}
     for pl in crop_plan.plantings:
         per_season.setdefault(pl.slot.label, set()).add(pl.crop)
@@ -316,6 +380,13 @@ async def _build(
             ) / 1000, 1,
         ),
         "plantings": len(crop_plan.plantings),
+        "trees": sum(1 for x in placed if x.kind == "tree"),
+        "tree_species": len({x.crop for x in placed if x.kind == "tree"}),
+        "hedge_plants": sum(1 for x in placed if x.kind == "hedge"),
+        "trees_yearly_kg": round(
+            sum((specs[x.crop].yield_kg_per_sqm or 0) * x.spacing_m**2 for x in placed
+                if x.kind == "tree"), 1,
+        ),
     }  # fmt: skip
 
     plan = await repo.add_plan(
@@ -374,6 +445,12 @@ async def _build(
             orientation_deg=b.orientation_deg, has_trellis=b.has_trellis,
         )  # fmt: skip
         bed_ids[b.code] = bed_row.id
+    for x in placed:
+        await repo.add_zone_plant(
+            session, zone_id=zone_ids[x.zone_index], crop_id=crop_ids[x.crop], kind=x.kind,
+            geom=result.frame.to_wgs84(x.point), spacing_m=round(x.spacing_m, 2),
+            plant_on=x.plant_on, first_harvest=x.first_harvest,
+        )  # fmt: skip
     for pl in crop_plan.plantings:
         await repo.add_bed_layer(
             session, bed_id=bed_ids[pl.bed], layer=pl.layer, season=pl.slot.season,

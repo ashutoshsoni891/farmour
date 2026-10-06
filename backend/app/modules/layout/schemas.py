@@ -59,6 +59,19 @@ class PlantingOut(BaseModel):
     why: dict[str, Any]
 
 
+class PerennialOut(BaseModel):
+    """All trees (or hedge plants) of one crop: where they stand, when they go in and first bear."""
+
+    crop: CropRef
+    kind: str  # tree | hedge
+    count: int
+    spacing_m: float
+    plant_on: date
+    first_harvest: date | None
+    yearly_kg_when_bearing: float | None
+    points: dict[str, Any]  # GeoJSON MultiPoint
+
+
 class PlanWarning(BaseModel):
     code: str
     message_key: str
@@ -83,6 +96,7 @@ class PlanOut(BaseModel):
     beds: list[BedOut]
     seasons: list[SeasonOut]
     plantings: list[PlantingOut]
+    perennials: list[PerennialOut] = []
     uses_ai_checked: bool
     trellis_height_m: float | None = None
     bed_width_m: float | None = None
@@ -103,6 +117,10 @@ class OptionMetrics(BaseModel):
     water_index: float  # relative: bed area x water need x days in the ground
     work_index: float  # relative: bed area x days under crops (sowing, care, picking)
     plantings: int = 0
+    trees: int = 0
+    tree_species: int = 0
+    hedge_plants: int = 0
+    trees_yearly_kg: float = 0.0  # once the trees bear
 
 
 class OptionOut(BaseModel):

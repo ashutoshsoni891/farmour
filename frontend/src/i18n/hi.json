@@ -548,5 +548,17 @@
   "goal.later": "बाद में तय करूँगा (सामान्य विकल्प लें)",
   "setup.goal.low_work": "स्थिर कमाई, कम मेहनत",
   "farm.edit_goal": "लक्ष्य और खेती के तरीके बदलें",
-  "option.suits.methods": "आपके चुने खेती के तरीकों से मेल"
+  "option.suits.methods": "आपके चुने खेती के तरीकों से मेल",
+  "perennial.title": "पेड़ और किनारा",
+  "perennial.trees": "{{n}} पेड़",
+  "perennial.plants": "{{n}} पौधे",
+  "perennial.plant_on": "{{date}} से लगाएँ",
+  "perennial.spacing": "{{m}} मी की दूरी पर",
+  "perennial.first_fruit": "पहले फल लगभग {{when}}",
+  "perennial.first_harvest": "पहली तुड़ाई लगभग {{when}}",
+  "perennial.kg_year": "फल आने पर साल में लगभग {{kg}} किलो (अनुमान)",
+  "perennial.trees_hint": "उत्तर की ओर कतारों में फलदार पेड़; सबसे ज़्यादा फैलने वाले सबसे उत्तर में, ताकि बाक़ी पर छाया न पड़े।",
+  "perennial.intercrop": "पेड़ों पर फल आने तक उनके बीच दालें और सब्ज़ियाँ जैसी छोटी फ़सलें ली जा सकती हैं (TNAU की सलाह)।",
+  "perennial.hedge_hint": "किनारे पर बाड़: बेचने के लिए पत्तियाँ और हवा रोकने के लिए; गेट खुला छोड़ा गया है।",
+  "option.trees": "{{species}} तरह के {{n}} पेड़"
 }

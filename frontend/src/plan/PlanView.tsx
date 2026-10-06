@@ -9,6 +9,7 @@ import { ZONE_COLORS } from "../setup/PlotMap";
 import { BedPicture } from "./BedPicture";
 import { BedTimeline } from "./BedTimeline";
 import { MachanGuide } from "./MachanGuide";
+import { Perennials } from "./Perennials";
 import { SwapPicker } from "./SwapPicker";
 import type { GuideStep } from "./MachanGuide";
 import { cropStyle, plantingsOf } from "./cropStyle";
@@ -231,6 +232,8 @@ export function PlanView(props: Props) {
           <BedTimeline rows={allBedRows} start={plan.start_date} lang={lang} />
         </div>
       )}
+
+      <Perennials items={plan.perennials} lang={lang} />
 
       {hasClimbers && plan.machan_guide.length > 0 && (
         <MachanGuide

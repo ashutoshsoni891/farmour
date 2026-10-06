@@ -6264,6 +6264,26 @@
             "type": "integer",
             "title": "Plantings",
             "default": 0
+          },
+          "trees": {
+            "type": "integer",
+            "title": "Trees",
+            "default": 0
+          },
+          "tree_species": {
+            "type": "integer",
+            "title": "Tree Species",
+            "default": 0
+          },
+          "hedge_plants": {
+            "type": "integer",
+            "title": "Hedge Plants",
+            "default": 0
+          },
+          "trees_yearly_kg": {
+            "type": "number",
+            "title": "Trees Yearly Kg",
+            "default": 0.0
           }
         },
         "type": "object",
@@ -6713,6 +6733,71 @@
           "boundary"
         ],
         "title": "ParcelSave"
+      },
+      "PerennialOut": {
+        "properties": {
+          "crop": {
+            "$ref": "#/components/schemas/CropRef"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "count": {
+            "type": "integer",
+            "title": "Count"
+          },
+          "spacing_m": {
+            "type": "number",
+            "title": "Spacing M"
+          },
+          "plant_on": {
+            "type": "string",
+            "format": "date",
+            "title": "Plant On"
+          },
+          "first_harvest": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "First Harvest"
+          },
+          "yearly_kg_when_bearing": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Yearly Kg When Bearing"
+          },
+          "points": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Points"
+          }
+        },
+        "type": "object",
+        "required": [
+          "crop",
+          "kind",
+          "count",
+          "spacing_m",
+          "plant_on",
+          "first_harvest",
+          "yearly_kg_when_bearing",
+          "points"
+        ],
+        "title": "PerennialOut",
+        "description": "All trees (or hedge plants) of one crop: where they stand, when they go in and first bear."
       },
       "PestCreate": {
         "properties": {
@@ -7373,6 +7458,14 @@
             },
             "type": "array",
             "title": "Plantings"
+          },
+          "perennials": {
+            "items": {
+              "$ref": "#/components/schemas/PerennialOut"
+            },
+            "type": "array",
+            "title": "Perennials",
+            "default": []
           },
           "uses_ai_checked": {
             "type": "boolean",

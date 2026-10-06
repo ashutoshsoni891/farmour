@@ -32,6 +32,7 @@ class CropSpec:
     yield_kg_per_sqm: float | None
     low_care: bool | None
     price_paise_per_kg: int | None
+    category: str = ""
 
 
 @dataclass(frozen=True)
@@ -158,6 +159,7 @@ def assign(
     drainage: str | None,
     p: PlantingParams,
     weights: dict[str, float] | None = None,
+    allow_flowers: bool = False,
 ) -> PlantingResult:
     """Fill every bed. `weights` (a plan option's score weights) replaces the goal shift."""
     pairs = _pairs(companions)
@@ -170,7 +172,11 @@ def assign(
     else:
         weights = {**p.weights, **weights}
     by_slug = {c.slug: c for c in crops}
-    usable = [c for c in sorted(crops, key=lambda c: c.slug) if _complete(c)]
+    # Flowers go in beds only when the owner asked for them (goal step "Flowers").
+    usable = [
+        c for c in sorted(crops, key=lambda c: c.slug)
+        if _complete(c) and (allow_flowers or c.category != "flower")
+    ]  # fmt: skip
     use_price = bool(usable) and all(c.price_paise_per_kg for c in usable)
 
     result = PlantingResult(slots=[], plantings=[])

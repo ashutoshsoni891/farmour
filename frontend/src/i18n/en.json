@@ -548,5 +548,17 @@
   "goal.later": "Decide later (use sensible defaults)",
   "setup.goal.low_work": "Steady income, little work",
   "farm.edit_goal": "Change goal and farming methods",
-  "option.suits.methods": "Matches the farming methods you picked"
+  "option.suits.methods": "Matches the farming methods you picked",
+  "perennial.title": "Trees and border",
+  "perennial.trees": "{{n}} trees",
+  "perennial.plants": "{{n}} plants",
+  "perennial.plant_on": "plant from {{date}}",
+  "perennial.spacing": "{{m}} m apart",
+  "perennial.first_fruit": "first fruit around {{when}}",
+  "perennial.first_harvest": "first harvest around {{when}}",
+  "perennial.kg_year": "about {{kg}} kg a year once bearing (estimate)",
+  "perennial.trees_hint": "Fruit trees in rows on the north side, the widest-spreading furthest north so they do not shade the rest.",
+  "perennial.intercrop": "Until the trees bear, short crops such as pulses and vegetables can grow between them (TNAU advice).",
+  "perennial.hedge_hint": "A hedge along the border for leaves to sell and to slow the wind; the gate is left open.",
+  "option.trees": "{{n}} trees of {{species}} kinds"
 }

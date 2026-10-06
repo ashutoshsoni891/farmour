@@ -100,6 +100,9 @@ class LayoutResult:
     beds: list[BedResult]
     warnings: list[dict[str, Any]]
     frame: "Frame"
+    hedge_line: BaseGeometry | None = None  # middle of the border band (local metres)
+    gate: Point | None = None
+    gate_gap_m: float = 0.0
 
     def geojson(self, geom: Polygon) -> dict[str, Any]:
         return self.frame.to_wgs84_geojson(geom)
@@ -513,7 +516,13 @@ def generate(site: SiteInputs, p: EngineParams) -> LayoutResult:
 
     # 11. invariants
     _verify(parcel, zones, beds)
-    return LayoutResult(template, parcel.area, zones, beds, warnings, frame)
+    width = p.border_m[template]
+    hedge = main.buffer(-width / 2, join_style="mitre")
+    hedge_line = hedge.exterior if isinstance(hedge, Polygon) and not hedge.is_empty else None
+    return LayoutResult(
+        template, parcel.area, zones, beds, warnings, frame,
+        hedge_line=hedge_line, gate=gate, gate_gap_m=p.gate_opening_m,
+    )  # fmt: skip
 
 
 __all__ = ["ENGINE_VERSION", "EngineParams", "LayoutError", "SiteInputs", "generate"]

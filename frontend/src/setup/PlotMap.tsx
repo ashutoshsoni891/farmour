@@ -24,6 +24,8 @@ export type PlotGeometry = { type: "Polygon"; coordinates: number[][][] };
 export interface PlotLayout {
   zones: { kind: string; geometry: PlotGeometry }[];
   beds: { code: string; geometry: PlotGeometry; color?: string; dim?: boolean }[];
+  /** Trees and hedge plants: a circle per plant, sized to its spacing in metres. */
+  plants?: { color: string; radius_m: number; lng: number; lat: number }[];
 }
 export const ZONE_COLORS: Record<string, string> = {
   beds: "#16a34a",
@@ -281,10 +283,16 @@ export function PlotMap({
   useEffect(() => {
     const map = mapRef.current;
     if (!map || mode !== "view") return;
-    const ids = ["layout-zones", "layout-beds-hit", "layout-beds", "layout-bed-codes"];
+    const ids = [
+      "layout-zones",
+      "layout-beds-hit",
+      "layout-beds",
+      "layout-bed-codes",
+      "layout-plants",
+    ];
     const clear = () => {
       for (const id of ids) if (map.getLayer(id)) map.removeLayer(id);
-      for (const id of ["layout-zones", "layout-beds", "layout-bed-points"])
+      for (const id of ["layout-zones", "layout-beds", "layout-bed-points", "layout-plants"])
         if (map.getSource(id)) map.removeSource(id);
     };
     const show = () => {
@@ -343,6 +351,42 @@ export function PlotMap({
         source: "layout-beds",
         paint: { "line-color": "#ffffff", "line-width": 1.2 },
       });
+      if (layout.plants?.length) {
+        // metres -> pixels at a zoom level, at this latitude
+        const lat = layout.plants[0]?.lat ?? 22.7;
+        const k = (z: number) => 2 ** z / (156543.03 * Math.cos((lat * Math.PI) / 180));
+        map.addSource("layout-plants", {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: layout.plants.map((pl) => ({
+              type: "Feature",
+              properties: { color: pl.color, r: pl.radius_m },
+              geometry: { type: "Point", coordinates: [pl.lng, pl.lat] },
+            })),
+          },
+        });
+        map.addLayer({
+          id: "layout-plants",
+          type: "circle",
+          source: "layout-plants",
+          paint: {
+            "circle-color": ["get", "color"] as never,
+            "circle-opacity": 0.85,
+            "circle-stroke-color": "#14532d",
+            "circle-stroke-width": 1,
+            "circle-radius": [
+              "interpolate",
+              ["exponential", 2],
+              ["zoom"],
+              14,
+              ["max", 1.5, ["*", ["get", "r"], k(14)]],
+              22,
+              ["*", ["get", "r"], k(22)],
+            ] as never,
+          },
+        });
+      }
       map.addSource("layout-bed-points", {
         type: "geojson",
         data: {

@@ -19,7 +19,7 @@ import { Benefits } from "../plan/Benefits";
 import { PlanEditor } from "../plan/PlanEditor";
 import { PlanOptions } from "../plan/PlanOptions";
 import { PlanView, SeasonTabs } from "../plan/PlanView";
-import { bedColours, plantingsOf } from "../plan/cropStyle";
+import { bedColours, cropStyle, plantingsOf } from "../plan/cropStyle";
 
 type Fact = components["schemas"]["FactOut"];
 type FarmUpdate = components["schemas"]["FarmUpdate"];
@@ -111,8 +111,17 @@ export function FarmPage() {
             .map((x) => x.bed_code)
         : [],
     );
+    const plants = p.perennials.flatMap((g) =>
+      (g.points["coordinates"] as number[][]).map((c) => ({
+        color: cropStyle(g.crop.slug).color,
+        radius_m: g.kind === "tree" ? g.spacing_m * 0.4 : g.spacing_m * 0.35,
+        lng: c[0] ?? 0,
+        lat: c[1] ?? 0,
+      })),
+    );
     return {
       zones: p.zones,
+      plants,
       beds: p.beds.map((b) => ({
         code: b.code,
         geometry: b.geometry,

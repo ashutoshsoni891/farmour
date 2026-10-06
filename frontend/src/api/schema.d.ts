@@ -1649,6 +1649,26 @@ export interface components {
              * @default 0
              */
             plantings: number;
+            /**
+             * Trees
+             * @default 0
+             */
+            trees: number;
+            /**
+             * Tree Species
+             * @default 0
+             */
+            tree_species: number;
+            /**
+             * Hedge Plants
+             * @default 0
+             */
+            hedge_plants: number;
+            /**
+             * Trees Yearly Kg
+             * @default 0
+             */
+            trees_yearly_kg: number;
         };
         /** OptionOut */
         OptionOut: {
@@ -1771,6 +1791,32 @@ export interface components {
             }[] | null;
             /** Boundary */
             boundary: {
+                [key: string]: unknown;
+            };
+        };
+        /**
+         * PerennialOut
+         * @description All trees (or hedge plants) of one crop: where they stand, when they go in and first bear.
+         */
+        PerennialOut: {
+            crop: components["schemas"]["CropRef"];
+            /** Kind */
+            kind: string;
+            /** Count */
+            count: number;
+            /** Spacing M */
+            spacing_m: number;
+            /**
+             * Plant On
+             * Format: date
+             */
+            plant_on: string;
+            /** First Harvest */
+            first_harvest: string | null;
+            /** Yearly Kg When Bearing */
+            yearly_kg_when_bearing: number | null;
+            /** Points */
+            points: {
                 [key: string]: unknown;
             };
         };
@@ -1963,6 +2009,11 @@ export interface components {
             seasons: components["schemas"]["SeasonOut"][];
             /** Plantings */
             plantings: components["schemas"]["PlantingOut"][];
+            /**
+             * Perennials
+             * @default []
+             */
+            perennials: components["schemas"]["PerennialOut"][];
             /** Uses Ai Checked */
             uses_ai_checked: boolean;
             /** Trellis Height M */
