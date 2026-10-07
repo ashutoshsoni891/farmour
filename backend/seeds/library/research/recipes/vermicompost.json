@@ -1,0 +1,99 @@
+{
+  "ingredients": [
+    {
+      "name_en": "Pre-digested organic waste mixed with 30% cattle dung (a bed 1 m x 1 m x 0.5 m)",
+      "name_hi": "सड़ाया हुआ जैविक कचरा, 30% गोबर मिलाकर (1 मी x 1 मी x 0.5 मी की क्यारी)",
+      "qty": 0.5,
+      "unit": "m3"
+    },
+    {
+      "name_en": "Surface-dwelling earthworms (African, red or Peronyx)",
+      "name_hi": "सतह पर रहने वाले केंचुए (अफ़्रीकी, रेड वर्म या पेरियोनिक्स)",
+      "qty": 1,
+      "unit": "kg"
+    }
+  ],
+  "per_area_sqm": 1,
+  "steps_en": [
+    "Dry the cattle dung in the sun first (never use wet dung). Pre-digest other waste with cow dung for 20 days.",
+    "Mix the pre-digested waste with 30% cattle dung and fill the tub or bed (1 m x 1 m x 0.5 m).",
+    "Keep the moisture at 60%, sprinkling water over the bed rather than pouring it.",
+    "Spread 1 kg of worms (about 1000) evenly over the surface; they move in on their own.",
+    "Collect the castings from the top about once a week in a tub, or at the end in a small bed. Stop watering before harvest."
+  ],
+  "steps_hi": [
+    "गोबर को पहले धूप में सुखा लें (गीले गोबर का उपयोग न करें)। अन्य कचरे को 20 दिन गोबर के साथ सड़ाएँ।",
+    "सड़े हुए कचरे में 30% गोबर मिलाकर टब या क्यारी (1 मी x 1 मी x 0.5 मी) भरें।",
+    "नमी 60% रखें; पानी डालने की जगह ऊपर से छिड़कें।",
+    "1 किलो केंचुए (लगभग 1000) सतह पर समान रूप से डालें; वे अपने आप अंदर चले जाते हैं।",
+    "टब में लगभग हर सप्ताह ऊपर की खाद निकालें, छोटी क्यारी में अंत में निकालें। कटाई से पहले पानी देना बंद करें।"
+  ],
+  "shelf_life_days": 365,
+  "apply_method": "soil_mix",
+  "sources": {
+    "ingredients": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_vermicompost.html",
+        "title": "TNAU Agritech Portal: vermicompost",
+        "quote": "The predigested waste material should be mud with 30% cattle dung either by weight or volume. The mixed waste is placed into the tub / container upto brim.",
+        "note": "The waste volume (0.5 m³) is the bed volume below.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_vermicompost.html",
+        "title": "TNAU Agritech Portal: vermicompost",
+        "quote": "For one-meter length, one-meter breadth and 0.5-meter height, 1 kg of worm (1000 Nos.) is required.",
+        "note": "Bed of 1 m x 1 m x 0.5 m = 1 m² of bed and 0.5 m³ of waste.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "per_area_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_vermicompost.html",
+        "title": "TNAU Agritech Portal: vermicompost",
+        "quote": "For one-meter length, one-meter breadth and 0.5-meter height, 1 kg of worm (1000 Nos.) is required.",
+        "note": "The quantities are for a 1 m² bed.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "steps_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_vermicompost.html",
+        "title": "TNAU Agritech Portal: vermicompost",
+        "quote": "All other waste should be predigested with cow dung for twenty days before put into vermibed for composting.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_vermicompost.html",
+        "title": "TNAU Agritech Portal: vermicompost",
+        "quote": "The moisture level should be maintained at 60%. Over this material, the selected earthworm is placed uniformly.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_vermicompost.html",
+        "title": "TNAU Agritech Portal: vermicompost",
+        "quote": "If necessity arises, water should be sprinkled over the bed rather than pouring the water. Watering should be stopped before the harvest of vermicompost.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "shelf_life_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_vermicompost.html",
+        "title": "TNAU Agritech Portal: vermicompost",
+        "quote": "Vermicompost can be stored for one year without loss of its quality, if the moisture is maintained at 40% level.",
+        "note": "One year = 365 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_method": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_vermicompost.html",
+        "title": "TNAU Agritech Portal: vermicompost",
+        "quote": "A recommended rate of vermicompost application is 15-20 percent.",
+        "note": "Mixed into soil or potting mix at 15-20%.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research (2026-10-07). A compost-making recipe: the time to ripen is not stated in the source (pre-digestion takes 20 days). Safety notes not sourced yet (TODO(agronomist))."
+}

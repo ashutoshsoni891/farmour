@@ -1,0 +1,106 @@
+{
+  "ingredients": [
+    {
+      "name_en": "Cow urine",
+      "name_hi": "गोमूत्र",
+      "qty": 10,
+      "unit": "L"
+    },
+    {
+      "name_en": "Neem leaf pulp",
+      "name_hi": "नीम की पत्तियों का गूदा",
+      "qty": 5,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Tobacco powder",
+      "name_hi": "तंबाकू पाउडर",
+      "qty": 1,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Green chilli paste",
+      "name_hi": "हरी मिर्च का पेस्ट",
+      "qty": 500,
+      "unit": "g"
+    },
+    {
+      "name_en": "Garlic paste",
+      "name_hi": "लहसुन का पेस्ट",
+      "qty": 500,
+      "unit": "g"
+    }
+  ],
+  "per_area_sqm": 5058.6,
+  "steps_en": [
+    "Mix all the ingredients in a clay pot or another suitable vessel.",
+    "Stir clockwise, cover with a lid and boil until it begins to foam.",
+    "Take it off the heat and let it cool in the shade for 48 hours, stirring twice a day.",
+    "Filter through a thin muslin cloth. Dilute 6-8 litres in 200 litres of water for a standard foliar spray. It keeps up to 3 months."
+  ],
+  "steps_hi": [
+    "सभी सामग्री को मिट्टी के बर्तन या किसी उपयुक्त बर्तन में मिलाएँ।",
+    "घड़ी की दिशा में चलाएँ, ढक्कन लगाएँ और झाग आने तक उबालें।",
+    "आँच से उतारकर छाँव में 48 घंटे ठंडा होने दें; दिन में दो बार चलाएँ।",
+    "पतले मलमल के कपड़े से छान लें। मानक छिड़काव के लिए 6-8 लीटर को 200 लीटर पानी में मिलाएँ। यह 3 महीने तक रखा जा सकता है।"
+  ],
+  "ferment_days": 2,
+  "shelf_life_days": 90,
+  "apply_method": "foliar_spray",
+  "sources": {
+    "ingredients": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Cow Urine: 10 litres, Neem Leaves Pulp: 5 kg, Tobacco Powder: 1 Kg, Green Chilli Paste: 500 gm, Garlic Paste: 500 gm",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "per_area_sqm": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Dilute 6-8 litres of this formulation in 200 litres of water for a standard foliar spray.",
+        "note": "Derived: the batch is about 10 litres and a standard 200-litre spray takes up to 8 litres, so one batch covers 1.25 sprays. The source does not say 'per acre' here; the same 200-litre standard spray is one acre for Brahmastra. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "steps_en": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Mix all the ingredients in a clay pot or another suitable vessel. Stir the solution clockwise, cover it with a lid, and boil the mixture until it begins to foam. Remove the vessel from the heat and let it cool in the shade for 48 hours, stirring it twice a day during this period. After 48 hours, filter the solution through a thin muslin cloth.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "ferment_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "let it cool in the shade for 48 hours, stirring it twice a day during this period",
+        "note": "Standing time of 48 hours = 2 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "shelf_life_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "This solution can be stored for up to 3 months.",
+        "note": "3 months = 90 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_method": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Dilute 6-8 litres of this formulation in 200 litres of water for a standard foliar spray.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research (2026-10-07). Stronger insecticide for more resilient pests. Tobacco and chilli are hazardous: safety notes not sourced yet (TODO(agronomist))."
+}

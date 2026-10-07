@@ -75,11 +75,10 @@ def crop_missing(data: dict[str, Any], regions: list[str]) -> list[str]:
 
 
 def recipe_missing(data: dict[str, Any]) -> list[str]:
-    missing = [
-        f"field:{f}"
-        for f in ("ingredients", "per_area_sqm", "steps_en", "steps_hi", "apply_method")
-        if _empty(data.get(f))
-    ]
+    required = ["ingredients", "per_area_sqm", "steps_en", "steps_hi", "apply_method"]
+    if data.get("apply_method") == "seed_treatment":
+        required.remove("per_area_sqm")  # a seed-treatment batch is sized by seed weight, not area
+    missing = [f"field:{f}" for f in required if _empty(data.get(f))]
     if any(i.get("qty") is None for i in data.get("ingredients") or []):
         missing.append("field:ingredients.qty")
     sources = data.get("sources") or {}

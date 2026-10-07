@@ -1,0 +1,100 @@
+{
+  "ingredients": [
+    {
+      "name_en": "Water",
+      "name_hi": "पानी",
+      "qty": 200,
+      "unit": "L"
+    },
+    {
+      "name_en": "Cow dung",
+      "name_hi": "गोबर",
+      "qty": 2,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Cow urine",
+      "name_hi": "गोमूत्र",
+      "qty": 10,
+      "unit": "L"
+    },
+    {
+      "name_en": "Neem leaf paste or neem seed pulp",
+      "name_hi": "नीम की पत्तियों का पेस्ट या नीम बीज का गूदा",
+      "qty": 10,
+      "unit": "kg"
+    }
+  ],
+  "per_area_sqm": 4046.86,
+  "steps_en": [
+    "Mix all the ingredients in a large drum and stir clockwise with a long stick.",
+    "Cover the drum with a gunny bag and keep it in the shade for 48 hours to ferment, stirring clockwise every morning and evening.",
+    "After 48 hours, filter through a muslin cloth.",
+    "Spray it as it is on the crop, without dilution, 200 litres per acre. It keeps for up to 6 months."
+  ],
+  "steps_hi": [
+    "सभी सामग्री को बड़े ड्रम में मिलाकर लंबी लकड़ी से घड़ी की दिशा में चलाएँ।",
+    "ड्रम को बोरी से ढककर 48 घंटे छाँव में खमीर उठने दें; सुबह-शाम घड़ी की दिशा में चलाएँ।",
+    "48 घंटे बाद मलमल के कपड़े से छान लें।",
+    "इसे बिना पानी मिलाए फसल पर छिड़कें, प्रति एकड़ 200 लीटर। यह 6 महीने तक रखा जा सकता है।"
+  ],
+  "ferment_days": 2,
+  "shelf_life_days": 180,
+  "apply_method": "foliar_spray",
+  "sources": {
+    "ingredients": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Water: 200 litres, Cow Dung: 2 kg, Cow Urine: 10 litres, Neem Leaves Paste or Seed Pulp: 10 kg.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "per_area_sqm": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Control of sucking pests: Spray 200 litres of Neemastra per acre",
+        "note": "One 200-litre batch = one acre (4047 m²).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "steps_en": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Mix all the ingredients together in a large drum. Stir the mixture clockwise with a long stick. Cover the drum with a gunny bag and keep it in the shade for 48 hours to ferment. Stir the solution every morning and evening in a clockwise direction. After 48 hours, filter the solution through a muslin cloth.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "ferment_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "keep it in the shade for 48 hours to ferment",
+        "note": "48 hours = 2 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "shelf_life_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "This formulation can be stored for up to 6 months.",
+        "note": "6 months = 180 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_method": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Apply the prepared solution directly to the crops as a foliar spray without needing any further dilution.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research (2026-10-07). Controls sucking pests (jassids, aphids, whiteflies) and small caterpillars. Safety notes not sourced yet (TODO(agronomist))."
+}

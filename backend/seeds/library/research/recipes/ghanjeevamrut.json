@@ -1,0 +1,116 @@
+{
+  "ingredients": [
+    {
+      "name_en": "Cow dung",
+      "name_hi": "गोबर",
+      "qty": 100,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Jaggery",
+      "name_hi": "गुड़",
+      "qty": 1,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Gram flour (besan)",
+      "name_hi": "बेसन",
+      "qty": 2,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Healthy soil",
+      "name_hi": "स्वस्थ मिट्टी",
+      "qty": 1,
+      "unit": "handful"
+    },
+    {
+      "name_en": "Cow urine",
+      "name_hi": "गोमूत्र",
+      "qty": 5,
+      "unit": "L"
+    }
+  ],
+  "per_area_sqm": 1000,
+  "steps_en": [
+    "Mix powdered jaggery and gram flour thoroughly into the cow dung.",
+    "Add a handful of healthy soil and mix again.",
+    "Add just enough cow urine to make the mixture moist but not wet.",
+    "Spread it in the shade to dry for 48 hours, covered with a jute bag.",
+    "When completely dry, crush and sieve it and store it in gunny bags. Apply at sowing, and again between crop lines at flowering."
+  ],
+  "steps_hi": [
+    "पिसा हुआ गुड़ और बेसन गोबर में अच्छी तरह मिलाएँ।",
+    "एक मुट्ठी स्वस्थ मिट्टी डालकर फिर मिलाएँ।",
+    "इतना ही गोमूत्र डालें कि मिश्रण नम रहे, गीला नहीं।",
+    "इसे छाँव में जूट की बोरी से ढककर 48 घंटे सुखाएँ।",
+    "पूरी तरह सूखने पर कूटकर छान लें और बोरियों में भरकर रखें। बुवाई के समय डालें और फूल आने पर कतारों के बीच फिर डालें।"
+  ],
+  "ferment_days": 2,
+  "shelf_life_days": 90,
+  "apply_method": "soil_basal",
+  "sources": {
+    "ingredients": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Cow Dung: 100 kg, Jaggery: 1 kg, Gram Flour: 2 kg, Healthy Soil: 1 handful, Cow Urine: 5 litres.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "per_area_sqm": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Apply at least 1000 kg per hectare at the time of sowing.",
+        "note": "Derived: the batch is 100 kg of dung and the dose is 1000 kg/ha (100 kg per 1000 m²), taking the dry product as about the weight of the dung. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "steps_en": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Thoroughly mix powdered jaggery and gram flour into the cow dung. 2. Add the handful of healthy soil and mix again. 3. Add just enough cow urine to make the mixture moist but not wet. 4. Spread the mixture in the shade to dry for 48 hours, covering it with a jute bag. 5. Once completely dry, crush and sieve the material before storing it in gunny bags.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "An additional 50 kg per acre can be applied between crop lines during the flowering period as a nutrient boost.",
+        "note": "Second application.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "ferment_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Spread the mixture in the shade to dry for 48 hours, covering it with a jute bag.",
+        "note": "Drying time of 48 hours = 2 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "shelf_life_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Ghanjeevamrit can be stored for several months",
+        "note": "'Several months' is read as 3 months (90 days). Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_method": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "ideal for applying as a basal dose during land preparation or as a top dressing for crops",
+        "note": "Soil application.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research (2026-10-07). Safety notes not sourced yet (TODO(agronomist))."
+}

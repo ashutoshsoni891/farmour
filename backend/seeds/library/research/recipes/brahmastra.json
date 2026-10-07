@@ -1,0 +1,112 @@
+{
+  "ingredients": [
+    {
+      "name_en": "Cow urine",
+      "name_hi": "गोमूत्र",
+      "qty": 20,
+      "unit": "L"
+    },
+    {
+      "name_en": "Neem leaf paste",
+      "name_hi": "नीम की पत्तियों का पेस्ट",
+      "qty": 2,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Karanja leaf paste",
+      "name_hi": "करंज की पत्तियों का पेस्ट",
+      "qty": 2,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Custard apple (sitaphal) leaf paste",
+      "name_hi": "सीताफल की पत्तियों का पेस्ट",
+      "qty": 2,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Datura leaf paste",
+      "name_hi": "धतूरे की पत्तियों का पेस्ट",
+      "qty": 2,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Castor leaf paste",
+      "name_hi": "अरंडी की पत्तियों का पेस्ट",
+      "qty": 2,
+      "unit": "kg"
+    }
+  ],
+  "per_area_sqm": 10117.1,
+  "steps_en": [
+    "Mix all the leaf pastes into the 20 litres of cow urine in a large vessel.",
+    "Boil on a low flame until it foams once or twice, then stop.",
+    "Let it cool in the shade for 48 hours, then filter through a muslin cloth.",
+    "Dilute 6-8 litres in 200 litres of water and spray on one acre. Use within one month."
+  ],
+  "steps_hi": [
+    "सभी पत्तियों के पेस्ट को 20 लीटर गोमूत्र में बड़े बर्तन में मिलाएँ।",
+    "धीमी आँच पर एक-दो बार झाग आने तक उबालें, फिर बंद कर दें।",
+    "इसे छाँव में 48 घंटे ठंडा होने दें, फिर मलमल के कपड़े से छान लें।",
+    "6-8 लीटर को 200 लीटर पानी में मिलाकर एक एकड़ पर छिड़कें। एक महीने के भीतर इस्तेमाल करें।"
+  ],
+  "ferment_days": 2,
+  "shelf_life_days": 30,
+  "apply_method": "foliar_spray",
+  "sources": {
+    "ingredients": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Cow Urine: 20 litres, Neem Leaves Paste: 2 kg, Karanja Leaves Paste: 2 kg, Custard Apple Leaves Paste: 2 kg, Datura Leaves Paste: 2 kg, Castor Leaves Paste: 2 kg.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "per_area_sqm": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Dilute 6-8 litres of Brahmastra in 200 litres of water for a standard foliar spray on one acre.",
+        "note": "Derived: the batch is about 20 litres (the cow urine) and one acre takes up to 8 litres, so one batch covers 2.5 acres. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "steps_en": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Mix all the different leaf pastes into the 20 litres of cow urine in a large vessel. Boil this mixture on a low flame until it foams once or twice. After it has foamed, stop boiling and allow the mixture to cool in the shade for 48 hours. After 48 hours have passed, filter the solution through a muslin cloth.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "ferment_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "allow the mixture to cool in the shade for 48 hours",
+        "note": "Standing time of 48 hours = 2 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "shelf_life_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "This solution should be used within one month.",
+        "note": "One month = 30 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_method": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Dilute 6-8 litres of Brahmastra in 200 litres of water for a standard foliar spray on one acre.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research (2026-10-07). Broad-spectrum insecticide and repellent for sucking pests and hidden caterpillars. Datura is poisonous: safety notes not sourced yet (TODO(agronomist))."
+}

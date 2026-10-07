@@ -1,0 +1,125 @@
+{
+  "ingredients": [
+    {
+      "name_en": "Cow dung",
+      "name_hi": "गोबर",
+      "qty": 5,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Cow urine",
+      "name_hi": "गोमूत्र",
+      "qty": 3,
+      "unit": "L"
+    },
+    {
+      "name_en": "Cow milk",
+      "name_hi": "गाय का दूध",
+      "qty": 2,
+      "unit": "L"
+    },
+    {
+      "name_en": "Curd",
+      "name_hi": "दही",
+      "qty": 2,
+      "unit": "L"
+    },
+    {
+      "name_en": "Ghee",
+      "name_hi": "घी",
+      "qty": 1,
+      "unit": "L"
+    }
+  ],
+  "per_area_sqm": 2000,
+  "steps_en": [
+    "Mix fresh cow dung with the ghee and keep it in a plastic barrel for 3 days.",
+    "On the same day mix the cow urine, milk and curd in another barrel.",
+    "On the 3rd day mix both together and keep the barrel open, covered with wire net or cloth, for 7 days, stirring twice a day with a wooden stick.",
+    "After 7 days filter it through cloth and store it in closed containers with small holes in the cap (about 10 litres). Spray a 3% solution (3 litres in 100 litres of water) every 15 days before flowering."
+  ],
+  "steps_hi": [
+    "ताज़ा गोबर को घी में मिलाकर प्लास्टिक के ड्रम में 3 दिन रखें।",
+    "उसी दिन गोमूत्र, दूध और दही दूसरे ड्रम में मिलाएँ।",
+    "तीसरे दिन दोनों को मिला दें और ड्रम को जाली या कपड़े से ढककर खुला रखें; 7 दिन तक दिन में दो बार लकड़ी से चलाएँ।",
+    "7 दिन बाद कपड़े से छान लें और ढक्कन में छोटे छेद करके बंद डिब्बों में रखें (लगभग 10 लीटर)। फूल आने से पहले हर 15 दिन में 3% घोल (100 लीटर पानी में 3 लीटर) का छिड़काव करें।"
+  ],
+  "ferment_days": 10,
+  "apply_every_days": 15,
+  "apply_method": "foliar_spray",
+  "sources": {
+    "ingredients": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_farming_practices_treatment_preperation.html",
+        "title": "TNAU Agritech Portal: preparation of botanicals and animal products",
+        "quote": "Cow dung : 5 kg, Cow's urine : 3 L, Cow's milk : 2 L, Curd : 2 L, Ghee : 1 L.",
+        "note": "TNAU quick method; not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "per_area_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_farming_practices_treatment_preperation.html",
+        "title": "TNAU Agritech Portal: preparation of botanicals and animal products",
+        "quote": "Quantity obtained is 10 litres.",
+        "note": "Batch yield.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_panchakavya.html",
+        "title": "TNAU Agritech Portal: panchagavya",
+        "quote": "The solution of Panchagavya can be mixed with irrigation water at 50 litres per hectare either through drip irrigation or flow irrigation",
+        "note": "Derived: 10 litres at 50 litres per hectare covers 0.2 ha (2000 m²) when put through irrigation. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "steps_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_farming_practices_treatment_preperation.html",
+        "title": "TNAU Agritech Portal: preparation of botanicals and animal products",
+        "quote": "Collect fresh Cow dung, mix it with ghee and keep it in a plastic barrel separately for 3 days.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_farming_practices_treatment_preperation.html",
+        "title": "TNAU Agritech Portal: preparation of botanicals and animal products",
+        "quote": "On the 3rd day, mix the contents in a barrel and keep it open for 7 days. Stir the contents with a wooden stick twice a day.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_farming_practices_treatment_preperation.html",
+        "title": "TNAU Agritech Portal: preparation of botanicals and animal products",
+        "quote": "After 7 days, filter the product with a khada cloth",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "ferment_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_farming_practices_treatment_preperation.html",
+        "title": "TNAU Agritech Portal: preparation of botanicals and animal products",
+        "quote": "On the 3rd day, mix the contents in a barrel and keep it open for 7 days.",
+        "note": "3 days + 7 days = 10 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_every_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_panchakavya.html",
+        "title": "TNAU Agritech Portal: panchagavya",
+        "quote": "Pre flowering phase : Once in 15 days, two sprays depending upon duration of crops",
+        "note": "15 days before flowering; every 10 days at flowering and pod setting.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_method": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/orgfarm_panchakavya.html",
+        "title": "TNAU Agritech Portal: panchagavya",
+        "quote": "Spray system 3% solution was found to be most effective compared to the higher and lower concentrations investigated.",
+        "note": "3 litres of stock in 100 litres of water.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research (2026-10-07). TNAU's quick 10-day method (a 30-day larger version also exists). No shelf life in the source. Safety notes not sourced yet (TODO(agronomist))."
+}

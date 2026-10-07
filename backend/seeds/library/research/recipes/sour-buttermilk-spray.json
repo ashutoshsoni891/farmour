@@ -1,0 +1,87 @@
+{
+  "ingredients": [
+    {
+      "name_en": "Fermented (sour) buttermilk",
+      "name_hi": "खट्टी छाछ",
+      "qty": 40,
+      "unit": "L"
+    },
+    {
+      "name_en": "Water",
+      "name_hi": "पानी",
+      "qty": 160,
+      "unit": "L"
+    }
+  ],
+  "per_area_sqm": 4046.86,
+  "steps_en": [
+    "Dissolve 40 litres of fermented buttermilk in water to make 200 litres (a 20% solution), enough for one acre.",
+    "Spray after one month of wheat sowing, then three more times at ten-day intervals once yellow rust appears.",
+    "Use buttermilk that is 3-4 days old for fungus and virus problems."
+  ],
+  "steps_hi": [
+    "40 लीटर खट्टी छाछ को पानी में घोलकर कुल 200 लीटर (20% घोल) बनाएँ, यह एक एकड़ के लिए पर्याप्त है।",
+    "गेहूँ की बुवाई के एक महीने बाद छिड़कें, फिर पीला रतुआ दिखने पर दस-दस दिन के अंतर से तीन बार और छिड़कें।",
+    "फफूँद और विषाणु की समस्या में 3-4 दिन पुरानी छाछ का उपयोग करें।"
+  ],
+  "ferment_days": 3,
+  "apply_every_days": 10,
+  "apply_method": "foliar_spray",
+  "sources": {
+    "ingredients": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "spray 20% fermented buttermilk (For one acre, dissolve 40 litres of fermented buttermilk in 200 litres of water)",
+        "note": "Organic wheat; water is 200 - 40 = 160 litres.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "per_area_sqm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "For one acre, dissolve 40 litres of fermented buttermilk in 200 litres of water",
+        "note": "One acre = 4047 m².",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "steps_en": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "after one month of wheat sowing followed by three more spray after the appearance of yellow rust at an interval of ten days on moderately resistant varieties",
+        "note": "PAU's wheat yellow-rust schedule; Punjab.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "ferment_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fungus/Virus control: Spray 3–4 days old buttermilk mixed with 100 litres of water",
+        "note": "Buttermilk 3-4 days old = 3 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_every_days": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "followed by three more spray after the appearance of yellow rust at an interval of ten days",
+        "note": "Ten-day interval.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_method": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "spray 20% fermented buttermilk",
+        "note": "Foliar spray.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research (2026-10-07). The dose is PAU's for wheat yellow rust; NITI's guide gives 3 litres of buttermilk in 100 litres of water for other crops. Safety notes not sourced yet (TODO(agronomist))."
+}

@@ -1,0 +1,123 @@
+{
+  "ingredients": [
+    {
+      "name_en": "Fresh cow dung",
+      "name_hi": "ताज़ा गोबर",
+      "qty": 10,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Cow urine",
+      "name_hi": "गोमूत्र",
+      "qty": 8,
+      "unit": "L"
+    },
+    {
+      "name_en": "Jaggery",
+      "name_hi": "गुड़",
+      "qty": 1.5,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Pulse flour",
+      "name_hi": "दलहन का आटा",
+      "qty": 1.5,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Uncontaminated soil",
+      "name_hi": "साफ़ मिट्टी",
+      "qty": 500,
+      "unit": "g"
+    },
+    {
+      "name_en": "Water",
+      "name_hi": "पानी",
+      "qty": 180,
+      "unit": "L"
+    }
+  ],
+  "per_area_sqm": 4046.86,
+  "steps_en": [
+    "Mix the dung, urine, jaggery, pulse flour and soil in 200 litres of water in total and stir thoroughly.",
+    "Let it ferment in the shade for 2 to 3 days.",
+    "While it ferments, stir clockwise for two minutes with a wooden stick, morning and evening, and cover the container with gunny sacks.",
+    "Use it every fortnight: spray it on the crop or add it to irrigation water, 200 litres per acre."
+  ],
+  "steps_hi": [
+    "गोबर, गोमूत्र, गुड़, दलहन का आटा और मिट्टी को कुल 200 लीटर पानी में डालकर अच्छी तरह चलाएँ।",
+    "इसे छाँव में 2 से 3 दिन तक खमीर उठने दें।",
+    "खमीर उठते समय सुबह-शाम दो मिनट लकड़ी से घड़ी की दिशा में चलाएँ और बोरी से ढककर रखें।",
+    "हर पखवाड़े इस्तेमाल करें: फसल पर छिड़कें या सिंचाई के पानी में मिलाएँ, प्रति एकड़ 200 लीटर।"
+  ],
+  "ferment_days": 2,
+  "shelf_life_days": 7,
+  "apply_every_days": 15,
+  "apply_method": "soil_or_foliar",
+  "sources": {
+    "ingredients": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fresh Cow Dung: 10 kg, Cow Urine: 8-10 litres, Jaggery: 1.5 - 2 kg, Pulses Flour: 1.5 - 2 kg, Uncontaminated Soil: 500 gm, Water: 180 litres.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa. Lower end of each range.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "per_area_sqm": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Apply every fortnight, either by spraying directly on crops or by adding it to irrigation water (at a rate of 200 litres per acre).",
+        "note": "One batch is 200 litres = one acre (4047 m²).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "steps_en": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Mix all ingredients in 200 litres of water and stir thoroughly. 2. Allow the mixture to ferment in the shade for 2 to 3 days. 3. During fermentation, stir the solution in a clockwise direction for two minutes with a wooden stick twice daily (morning and evening) and cover the container with gunny sacks.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "ferment_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Allow the mixture to ferment in the shade for 2 to 3 days.",
+        "note": "Lower end of 2-3 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "shelf_life_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "The prepared solution can be stored and used within 7 days in the summer season and 8-10 days in the winter season.",
+        "note": "7 days in summer, 8-10 in winter.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_every_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Apply every fortnight, either by spraying directly on crops or by adding it to irrigation water (at a rate of 200 litres per acre).",
+        "note": "Fortnight = 15 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_method": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Apply every fortnight, either by spraying directly on crops or by adding it to irrigation water (at a rate of 200 litres per acre).",
+        "note": "Sprayed on the crop or added to irrigation water.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research (2026-10-07). Safety notes not sourced yet (TODO(agronomist))."
+}

@@ -607,6 +607,7 @@ async def load_seed(session: AsyncSession) -> dict[str, int]:
     counts = await seed.load(session)
     counts.update(await load_research(session, seed.read_research()))
     counts.update(await load_companion_research(session, seed.read_companions()))
+    counts.update(await load_recipe_research(session, seed.read_recipe_research()))
     return counts
 
 
@@ -642,6 +643,40 @@ async def load_companion_research(
             for k, v in values.items():
                 setattr(row, k, v)
         counts[f"companions_{'ai_verified' if status == 'ai_verified' else 'draft'}"] += 1
+    await session.flush()
+    return counts
+
+
+async def load_recipe_research(
+    session: AsyncSession, files: dict[str, dict[str, Any]]
+) -> dict[str, int]:
+    """Fill recipes from AI research files (seeds/library/research/recipes/<slug>.json). A recipe
+    becomes `ai_verified` when nothing is missing and every source was checked; recipes in review,
+    approved or retired are left alone, and a draft keeps any field a person has already filled."""
+    counts = {"recipes_ai_verified": 0, "recipes_draft": 0, "recipes_skipped": 0}
+    for slug, raw in files.items():
+        recipe = await repo.get_recipe_by_slug(session, slug)
+        if recipe is None or recipe.status not in ("draft", "ai_verified"):
+            counts["recipes_skipped"] += 1
+            continue
+        found = _dump(RecipeFields.model_validate(raw))
+        for key, value in found.items():
+            if key in ("sources", "todo"):
+                continue
+            current = getattr(recipe, key, None)
+            if recipe.status == "ai_verified" or current in (None, [], {}, ""):
+                setattr(recipe, key, value)
+        recipe.sources = {**(recipe.sources or {}), **(found.get("sources") or {})}
+        data = {n: getattr(recipe, n) for n in RECIPE_EDITABLE}
+        problems = workflow.recipe_missing(data) + workflow.unchecked_sources(data)
+        if problems:
+            recipe.status = "draft"
+            recipe.todo = [f"TODO(agronomist): {p}" for p in problems]
+            counts["recipes_draft"] += 1
+        else:
+            recipe.status = "ai_verified"
+            recipe.todo = ["TODO(agronomist): review AI-checked values and add safety notes"]
+            counts["recipes_ai_verified"] += 1
     await session.flush()
     return counts
 

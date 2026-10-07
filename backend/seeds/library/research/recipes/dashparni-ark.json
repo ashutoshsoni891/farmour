@@ -1,0 +1,128 @@
+{
+  "ingredients": [
+    {
+      "name_en": "Water",
+      "name_hi": "पानी",
+      "qty": 200,
+      "unit": "L"
+    },
+    {
+      "name_en": "Cow urine",
+      "name_hi": "गोमूत्र",
+      "qty": 10,
+      "unit": "L"
+    },
+    {
+      "name_en": "Cow dung",
+      "name_hi": "गोबर",
+      "qty": 2,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Turmeric powder",
+      "name_hi": "हल्दी पाउडर",
+      "qty": 500,
+      "unit": "g"
+    },
+    {
+      "name_en": "Ginger paste",
+      "name_hi": "अदरक का पेस्ट",
+      "qty": 500,
+      "unit": "g"
+    },
+    {
+      "name_en": "Garlic paste",
+      "name_hi": "लहसुन का पेस्ट",
+      "qty": 500,
+      "unit": "g"
+    },
+    {
+      "name_en": "Green chilli paste",
+      "name_hi": "हरी मिर्च का पेस्ट",
+      "qty": 1,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Tobacco powder",
+      "name_hi": "तंबाकू पाउडर",
+      "qty": 1,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Asafoetida (hing)",
+      "name_hi": "हींग",
+      "qty": 10,
+      "unit": "g"
+    },
+    {
+      "name_en": "Paste of 10 different bitter or repellent leaves (2 kg each)",
+      "name_hi": "10 अलग-अलग कड़वी या कीट-रोधी पत्तियों का पेस्ट (प्रत्येक 2 किलो)",
+      "qty": 20,
+      "unit": "kg"
+    }
+  ],
+  "per_area_sqm": 106230.1,
+  "steps_en": [
+    "Mix the water, cow urine and cow dung, cover and set aside for 2 hours.",
+    "Add the turmeric, ginger and asafoetida, stir well and leave overnight.",
+    "The next day add the tobacco, chilli and garlic pastes, stir and leave for 24 hours.",
+    "The next morning add the paste of the 10 kinds of leaves, stir thoroughly and let it ferment for 30-40 days, stirring twice a day.",
+    "Filter with a muslin cloth. Dilute 6-8 litres in 200 litres of water and spray on one acre."
+  ],
+  "steps_hi": [
+    "पानी, गोमूत्र और गोबर मिलाकर ढक दें और 2 घंटे रखें।",
+    "हल्दी, अदरक और हींग डालकर अच्छी तरह चलाएँ और रात भर छोड़ दें।",
+    "अगले दिन तंबाकू, मिर्च और लहसुन का पेस्ट डालकर चलाएँ और 24 घंटे छोड़ दें।",
+    "अगली सुबह 10 प्रकार की पत्तियों का पेस्ट डालकर अच्छी तरह चलाएँ और 30-40 दिन खमीर उठने दें; दिन में दो बार चलाएँ।",
+    "मलमल के कपड़े से छान लें। 6-8 लीटर को 200 लीटर पानी में मिलाकर एक एकड़ पर छिड़कें।"
+  ],
+  "ferment_days": 30,
+  "apply_method": "foliar_spray",
+  "sources": {
+    "ingredients": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Liquids: Water (200 litres), Cow Urine (10 litres). Solids: Cow Dung (2 kg), Turmeric Powder (500 gm), Ginger Paste (500 gm), Garlic Paste (500 gm), Green Chilli Paste (1 kg), Tobacco Powder (1 kg), Asafoetida (10 gm). Leaves: Paste from any 10 different bitter or repellent plant leaves (2-3 kg each).",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa. The leaves are counted at 2 kg each (lower end).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "per_area_sqm": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Dilute 6-8 litres of the prepared solution in 200 litres of water and use it as a foliar spray on one acre.",
+        "note": "Derived: the batch is about 210 litres and one acre takes up to 8 litres, so one batch covers about 26 acres. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "steps_en": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "First, mix the water, cow urine, and cow dung, then cover and set it aside for 2 hours. Next, add the turmeric, ginger, and asafoetida, stir well, and leave it overnight. The following day, add the tobacco, chilli, and garlic pastes, stir, and leave for 24 hours. The next morning, add the paste of the 10 types of leaves. Stir everything thoroughly and allow the mixture to ferment for 30-40 days, stirring twice daily. After 40 days, filter the mixture with a muslin cloth.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "ferment_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "allow the mixture to ferment for 30-40 days, stirring twice daily",
+        "note": "Lower end of 30-40 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_method": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Dilute 6-8 litres of the prepared solution in 200 litres of water and use it as a foliar spray on one acre.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research (2026-10-07). Broad-spectrum repellent. Tobacco and chilli are hazardous: safety notes not sourced yet (TODO(agronomist)). No storage time in the source."
+}

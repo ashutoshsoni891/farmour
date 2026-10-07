@@ -1,0 +1,105 @@
+{
+  "ingredients": [
+    {
+      "name_en": "Cow dung",
+      "name_hi": "गोबर",
+      "qty": 5,
+      "unit": "kg"
+    },
+    {
+      "name_en": "Cow urine",
+      "name_hi": "गोमूत्र",
+      "qty": 5,
+      "unit": "L"
+    },
+    {
+      "name_en": "Lime",
+      "name_hi": "चूना",
+      "qty": 50,
+      "unit": "g"
+    },
+    {
+      "name_en": "Bund soil",
+      "name_hi": "मेड़ की मिट्टी",
+      "qty": 100,
+      "unit": "g"
+    },
+    {
+      "name_en": "Water",
+      "name_hi": "पानी",
+      "qty": 20,
+      "unit": "L"
+    }
+  ],
+  "steps_en": [
+    "Wrap 5 kg of cow dung in a cloth and hang it in 20 litres of water for 12 hours.",
+    "Separately, mix 50 g of lime in 1 litre of water and let it settle overnight.",
+    "The next day, squeeze the dung bundle in the water three times to release its essence.",
+    "Add 100 g of bund soil, 5 litres of cow urine and the settled lime water, and stir well. Keep it aside for 24 hours, stirring twice a day with a wooden stick.",
+    "Coat the seeds by hand, mix and dry them completely in the shade before sowing. For thin-coated legume seeds, dip quickly and dry."
+  ],
+  "steps_hi": [
+    "5 किलो गोबर को कपड़े में बाँधकर 12 घंटे के लिए 20 लीटर पानी में लटका दें।",
+    "अलग से 50 ग्राम चूना 1 लीटर पानी में घोलकर रात भर बैठने दें।",
+    "अगले दिन गोबर की पोटली को पानी में तीन बार निचोड़ें।",
+    "100 ग्राम मेड़ की मिट्टी, 5 लीटर गोमूत्र और निथरा हुआ चूने का पानी मिलाकर अच्छी तरह चलाएँ। 24 घंटे रखें और दिन में दो बार लकड़ी से चलाएँ।",
+    "बीजों पर हाथ से लेप लगाकर मिलाएँ और बोने से पहले छाँव में पूरी तरह सुखा लें। पतले छिलके वाले दलहन बीजों को बस जल्दी से डुबोकर सुखा लें।"
+  ],
+  "ferment_days": 1,
+  "shelf_life_days": 3,
+  "apply_method": "seed_treatment",
+  "sources": {
+    "ingredients": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Cow Dung: 5 kg, Cow Urine: 5 litres, Lime: 50 grams, Bund Soil: 100 gms, Water: 20 litres.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "steps_en": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Wrap 5 kg of cow dung in a cloth and hang it in 20 litres of water for 12 hours. 2. Separately, mix 50 g lime in 1 litre of water and let it settle overnight. 3. The next day, squeeze the dung bundle in the water three times to release its essence. 4. Add the bund soil, the 5 litres of cow urine, and the settled lime water to the solution and stir well. Keep them aside for 24 hours 5. Twice a day, stir the mixture with a wooden stick.",
+        "note": "NITI toolkit (a government guide to natural farming); not yet tested in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For leguminous crops with thin seed coats, quickly dip and dry them to avoid damage.",
+        "note": "Seed-coating step.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "ferment_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Keep them aside for 24 hours",
+        "note": "24 hours = 1 day.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "shelf_life_days": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Most effective when used fresh (within 2–3 days of preparation)",
+        "note": "Used within 2-3 days; 3 days stored. 20 litres treat up to 100 kg of seed.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "apply_method": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Apply the solution as a coating to seeds by hand and let them dry completely before sowing.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research (2026-10-07). Seed treatment: 20 litres treat up to 100 kg of seeds, so no per-area figure. Safety notes not sourced yet (TODO(agronomist))."
+}
