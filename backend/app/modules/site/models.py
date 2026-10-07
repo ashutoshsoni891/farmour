@@ -12,13 +12,14 @@ from sqlalchemy import (
     Date,
     DateTime,
     ForeignKey,
+    Integer,
     Numeric,
     String,
     Text,
     UniqueConstraint,
     func,
 )
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy.dialects.postgresql import ARRAY, JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.base import Base, IdMixin, TimestampMixin
@@ -159,6 +160,36 @@ class Scheme(IdMixin, TimestampMixin, Base):
             "'direct_benefit','training')",
             name="benefit_type",
         ),
+        CheckConstraint(
+            "status in ('draft','ai_verified','in_review','approved','retired')", name="status"
+        ),
+    )
+
+
+class CostNorm(IdMixin, TimestampMixin, Base):
+    """Setup cost and subsidy rate of one component, from the government's own cost norms.
+
+    `tiers` is [{"up_to": <quantity or null>, "paise_per_unit": <int>}] (money is integer paise);
+    the rate of a tier applies to the quantity up to its `up_to`. Every figure has a cited source;
+    `status` follows the crop library."""
+
+    __tablename__ = "cost_norms"
+    code: Mapped[str] = mapped_column(String(50), unique=True)
+    group: Mapped[str] = mapped_column(String(20))
+    name_en: Mapped[str] = mapped_column(Text)
+    name_hi: Mapped[str] = mapped_column(Text)
+    unit: Mapped[str] = mapped_column(String(10))
+    tiers: Mapped[list[dict[str, Any]]] = mapped_column(JSONB, default=list, server_default="[]")
+    subsidy_pct: Mapped[int | None] = mapped_column(Integer)
+    subsidy_max_qty: Mapped[Decimal | None] = mapped_column(Numeric(12, 2))
+    tags: Mapped[list[str]] = mapped_column(ARRAY(String), default=list, server_default="{}")
+    note_en: Mapped[str | None] = mapped_column(Text)
+    note_hi: Mapped[str | None] = mapped_column(Text)
+    sources: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default="{}")
+    checked_on: Mapped[date | None] = mapped_column(Date)
+    status: Mapped[str] = mapped_column(String(12), default="draft", server_default="draft")
+    __table_args__ = (
+        CheckConstraint("unit in ('sqm','ha','unit')", name="unit"),
         CheckConstraint(
             "status in ('draft','ai_verified','in_review','approved','retired')", name="status"
         ),

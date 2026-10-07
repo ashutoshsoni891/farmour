@@ -687,6 +687,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/cost-norms": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Cost Norms
+         * @description Setup costs and subsidy rates from the government's cost norms, each with its source.
+         */
+        get: operations["cost_norms_api_v1_cost_norms_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/geo/search": {
         parameters: {
             query?: never;
@@ -966,6 +986,47 @@ export interface components {
                 [key: string]: unknown;
             };
         };
+        /**
+         * CostNormOut
+         * @description Setup cost and subsidy rate of one component, from the government's cost norms.
+         */
+        CostNormOut: {
+            /** Code */
+            code: string;
+            /** Group */
+            group: string;
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Unit */
+            unit: string;
+            /** Tiers */
+            tiers: components["schemas"]["CostTier"][];
+            /** Subsidy Pct */
+            subsidy_pct: number | null;
+            /** Subsidy Max Qty */
+            subsidy_max_qty: number | null;
+            /** Tags */
+            tags: string[];
+            /** Note En */
+            note_en: string | null;
+            /** Note Hi */
+            note_hi: string | null;
+            /** Sources */
+            sources: components["schemas"]["SchemeSource"][];
+            /** Checked On */
+            checked_on: string | null;
+            /** Ai Checked */
+            ai_checked: boolean;
+        };
+        /** CostTier */
+        CostTier: {
+            /** Up To */
+            up_to: number | null;
+            /** Paise Per Unit */
+            paise_per_unit: number;
+        };
         /** CropCreate */
         CropCreate: {
             /** Name En */
@@ -1007,6 +1068,10 @@ export interface components {
             water_need?: ("low" | "medium" | "high") | null;
             /** Water L Per Sqm Day */
             water_l_per_sqm_day?: {
+                [key: string]: number;
+            } | null;
+            /** Kc */
+            kc?: {
                 [key: string]: number;
             } | null;
             /** Heat Tolerance C */
@@ -1123,6 +1188,10 @@ export interface components {
             water_need: ("low" | "medium" | "high") | null;
             /** Water L Per Sqm Day */
             water_l_per_sqm_day: {
+                [key: string]: number;
+            } | null;
+            /** Kc */
+            kc: {
                 [key: string]: number;
             } | null;
             /** Heat Tolerance C */
@@ -1253,6 +1322,10 @@ export interface components {
             water_need?: ("low" | "medium" | "high") | null;
             /** Water L Per Sqm Day */
             water_l_per_sqm_day?: {
+                [key: string]: number;
+            } | null;
+            /** Kc */
+            kc?: {
                 [key: string]: number;
             } | null;
             /** Heat Tolerance C */
@@ -4060,6 +4133,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    cost_norms_api_v1_cost_norms_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CostNormOut"][];
                 };
             };
         };

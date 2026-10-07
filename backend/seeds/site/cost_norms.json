@@ -1,0 +1,714 @@
+{
+  "cost_norms": [
+    {
+      "code": "polyhouse-naturally-ventilated",
+      "group": "structure",
+      "name_en": "Naturally ventilated polyhouse (tubular structure)",
+      "name_hi": "प्राकृतिक हवादार पॉलीहाउस (ट्यूबुलर ढाँचा)",
+      "unit": "sqm",
+      "tiers": [
+        {
+          "up_to": 500,
+          "paise_per_unit": 120000
+        },
+        {
+          "up_to": 1008,
+          "paise_per_unit": 105000
+        },
+        {
+          "up_to": 2500,
+          "paise_per_unit": 100000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2500,
+      "tags": [
+        "polyhouse"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": "सरकारी लागत मानक; ढाँचे की लागत में सिंचाई प्रणाली शामिल है।",
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Rs.1200/Sq.m(up to area 500 Sq. m) Rs. 1050/Sq.m (>500 Sq. m up to 1008 Sq. m) Rs. 1000/Sq. m (>1008 Sqm up to 2500 Sq. m)",
+            "note": "Cost of the structure; the cost includes the irrigation system.",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% for a maximum area of 2500 sq. m per beneficiary or on pro-rata basis for smaller areas.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "polyhouse-fan-pad",
+      "group": "structure",
+      "name_en": "Polyhouse with fan and pad cooling",
+      "name_hi": "फैन और पैड कूलिंग वाला पॉलीहाउस",
+      "unit": "sqm",
+      "tiers": [
+        {
+          "up_to": 500,
+          "paise_per_unit": 180000
+        },
+        {
+          "up_to": 1008,
+          "paise_per_unit": 160000
+        },
+        {
+          "up_to": 2500,
+          "paise_per_unit": 150000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2500,
+      "tags": [
+        "polyhouse"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Rs. 1800/Sq.m(up to area 500 Sq. m) Rs. 1600/Sq. m (>500 Sq.m up to 1008 Sqm) Rs. 1500/Sq. m (>1008 Sq. m up to 2500 Sq.m)",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% for a maximum area of 2500 sq m per beneficiary or on pro-rata basis for smaller areas.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "polyhouse-bamboo",
+      "group": "structure",
+      "name_en": "Naturally ventilated polyhouse (bamboo or cable-purlin structure)",
+      "name_hi": "बाँस या केबल-पर्लिन ढाँचे वाला पॉलीहाउस",
+      "unit": "sqm",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 45000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2500,
+      "tags": [
+        "polyhouse"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Bamboo/Cable purlin structure Rs 450/Sq.mt.",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% for a maximum area of 2500 sq. m per beneficiary or on pro-rata basis for smaller areas. In case of Bamboo structure, assistance will be limited to 20 units per beneficiary and size of the each unit not to exceed 200 sq.m.",
+            "note": "Limited to 20 units, each up to 200 m².",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "shade-net-tubular",
+      "group": "structure",
+      "name_en": "Shade net house (tubular structure)",
+      "name_hi": "शेड नेट हाउस (ट्यूबुलर ढाँचा)",
+      "unit": "sqm",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 71000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2500,
+      "tags": [
+        "shade_net",
+        "nursery"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Shade Net/Agro Textile Net House (a) Tubular /Rectangular structure Rs 710/sq m",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% for a maximum area of 2500 sq.m per beneficiary or on pro-rata basis for smaller areas",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "shade-net-bamboo",
+      "group": "structure",
+      "name_en": "Shade net house (bamboo or cable-purlin structure)",
+      "name_hi": "शेड नेट हाउस (बाँस या केबल-पर्लिन ढाँचा)",
+      "unit": "sqm",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 45000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2500,
+      "tags": [
+        "shade_net",
+        "nursery"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "(b) Bamboo /Cable purlin structure Rs. 450/sq. m.",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% for a maximum area of 2500 sq.mt per beneficiary or on pro-rata basis for smaller areas.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "plastic-tunnel",
+      "group": "structure",
+      "name_en": "Plastic or non-woven cloth low tunnel",
+      "name_hi": "प्लास्टिक या नॉन-वोवन कपड़े की लो टनल",
+      "unit": "sqm",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 8000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2500,
+      "tags": [
+        "tunnel"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Plastic/Non woven cloth Tunnels Rs. 80/sqm",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% for a maximum area of 2500sqmt per beneficiary or on pro-rata basis for smaller areas.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "polyhouse-vegetable-cultivation",
+      "group": "planting",
+      "name_en": "Planting material and cultivation of high-value vegetables and fruits in a polyhouse or net house",
+      "name_hi": "पॉलीहाउस या नेट हाउस में उच्च मूल्य सब्ज़ी/फल की पौध और खेती",
+      "unit": "sqm",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 15000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2500,
+      "tags": [
+        "polyhouse"
+      ],
+      "note_en": "Crops named: capsicum, cucumber, muskmelon, tomato, broccoli, parsley, celery and others approved by research institutions. Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Cost of planting material & cultivation of high value fruits and vegetables grown in poly-house/net house Rs 150/ Sqm",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% for a maximum area of 2500 sqm per beneficiary or on pro-rata basis for smaller areas.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "polyhouse-flowers-gerbera",
+      "group": "planting",
+      "name_en": "Planting material and cultivation of carnation and gerbera in a polyhouse",
+      "name_hi": "पॉलीहाउस में कार्नेशन और जरबेरा की पौध और खेती",
+      "unit": "sqm",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 60000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2500,
+      "tags": [
+        "polyhouse",
+        "flowers"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Cost of planting material & cultivation of Carnation & Gerbera grown in Poly houses. Rs. 600/Sq.mt.",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% for a maximum area of 2500 sqm per beneficiary or on pro-rata basis for smaller areas.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "polyhouse-flowers-rose",
+      "group": "planting",
+      "name_en": "Planting material and cultivation of rose, chrysanthemum and lilium in a polyhouse",
+      "name_hi": "पॉलीहाउस में गुलाब, गुलदाउदी और लिलियम की पौध और खेती",
+      "unit": "sqm",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 45000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2500,
+      "tags": [
+        "polyhouse",
+        "flowers"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Cost of planting material & cultivation of Rose, Chrysanthemum and Lilum grown in Poly houses. Rs 450/ Sqm",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% for a maximum area of 2500 sqm per beneficiary or on pro-rata basis for smaller areas.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "mulching",
+      "group": "input",
+      "name_en": "Mulching (plastic, jute, agro-textile or other biodegradable material)",
+      "name_hi": "मल्चिंग (प्लास्टिक, जूट, एग्रो-टेक्सटाइल या अन्य जैव-अपघटनीय सामग्री)",
+      "unit": "ha",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 4000000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2,
+      "tags": [
+        "beds"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Mulching Plastic/Jute/Agro textile/any other biodegradable material Rs 40,000/ha",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% subject to a maximum of 2 ha per beneficiary or on pro-rata basis for smaller areas.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "vermicompost-unit",
+      "group": "input",
+      "name_en": "Vermicompost or organic-input unit (permanent structure, 30 ft x 8 ft x 2.5 ft)",
+      "name_hi": "वर्मीकम्पोस्ट या जैविक इनपुट इकाई (स्थायी ढाँचा)",
+      "unit": "unit",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 10000000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": null,
+      "tags": [
+        "utility",
+        "compost"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Vermi compost Units/organic input production Rs.1,00,000/ unit for permanent structure",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% conforming to the size of the unit",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "vermibed-hdpe",
+      "group": "input",
+      "name_en": "HDPE vermibed (12 ft x 4 ft x 2 ft)",
+      "name_hi": "एचडीपीई वर्मीबेड (12 फुट x 4 फुट x 2 फुट)",
+      "unit": "unit",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 1600000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": null,
+      "tags": [
+        "utility",
+        "compost"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Rs. 16,000/unit for HDPE Vermibed.",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "For HDPE Vermibed, @ 50% conforming to the size of 96 cft",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "orchard-new-regular",
+      "group": "orchard",
+      "name_en": "New orchard of mango, guava, litchi, pomegranate or citrus (regular spacing)",
+      "name_hi": "आम, अमरूद, लीची, अनार या नींबूवर्गीय का नया बाग (सामान्य दूरी)",
+      "unit": "ha",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 12500000
+        }
+      ],
+      "subsidy_pct": 40,
+      "subsidy_max_qty": 2,
+      "tags": [
+        "orchard"
+      ],
+      "note_en": "Without drip irrigation (drip is covered separately). The 40% rate is for general areas; it is 50% in the north-eastern and Himalayan states.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "(i). Regular spacing Rs. 1.25lakh/ha.",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 40% in general area for an area upto2 ha. on pro rata basis for meeting the expenditure on planting material and other input costin 2 instalments of 60:40 subject to survival rate of 80% in 2nd year.",
+            "note": "Paid in two instalments (60:40), the second after 80% of the plants survive in year 2.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "orchard-new-high-density",
+      "group": "orchard",
+      "name_en": "New orchard of mango, guava, litchi, pomegranate or citrus (high density)",
+      "name_hi": "नया बाग (सघन रोपण)",
+      "unit": "ha",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 20000000
+        }
+      ],
+      "subsidy_pct": 40,
+      "subsidy_max_qty": 2,
+      "tags": [
+        "orchard"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "(ii). High Density (Other than Apple) Rs. 2.00 lakh/ha.",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 40% in general area for an area upto2 ha. on pro rata basis for meeting the expenditure on planting material and other input costin 2 instalments of 60:40 subject to survival rate of 80% in 2nd year.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "orchard-minor-fruits",
+      "group": "orchard",
+      "name_en": "New orchard of papaya, sapota, jamun, ber, jackfruit, custard apple, amla and similar fruits",
+      "name_hi": "पपीता, चीकू, जामुन, बेर, कटहल, सीताफल, आँवला जैसे फलों का नया बाग",
+      "unit": "ha",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 7500000
+        }
+      ],
+      "subsidy_pct": 40,
+      "subsidy_max_qty": 2,
+      "tags": [
+        "orchard"
+      ],
+      "note_en": "Without drip irrigation. The 40% rate is for general areas; it is 50% in the north-eastern and Himalayan states.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Fruit crops like–Papaya, Phalsa, Spota, Tamarind, Jamun, Bael, Karonda, Ber, Jackfruit, Khirni, Custard apple, Amla, Seabuckthorn, Garcinia, Hanuman phal (Soursop), Carobmola, Jackfruit etc. a) Without drip Irrigation (drip should be in converged with other schemes) Rs. 75,000/ha",
+            "note": "'Spota' in the guideline is sapota.",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @40% in general area for an area upto 2 ha. on pro rata basis for meeting the expenditure on planting material and other input cost in 2 instalments of 60:40",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "banana-suckers",
+      "group": "orchard",
+      "name_en": "Banana by suckers (without drip)",
+      "name_hi": "केला (सकर से, बिना ड्रिप)",
+      "unit": "ha",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 11000000
+        }
+      ],
+      "subsidy_pct": 40,
+      "subsidy_max_qty": 2,
+      "tags": [
+        "orchard"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Banana and Pineapple (By Suckers) a) Without drip Irrigation (drip should be in converged with other schemes) Rs. 1.10 Lakh/ha",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @40% in general areas for an area upto2 ha. on pro rata basis for meeting the expenditure on planting material and other input cost in 2 instalments of (60:40)",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "banana-tissue-culture",
+      "group": "orchard",
+      "name_en": "Banana by tissue culture plants (without drip)",
+      "name_hi": "केला (टिशू कल्चर पौधे, बिना ड्रिप)",
+      "unit": "ha",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 17500000
+        }
+      ],
+      "subsidy_pct": 40,
+      "subsidy_max_qty": 2,
+      "tags": [
+        "orchard"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Banana and Pineapple (By Tissue Culture) a) Without integration (drip should be in converged with other schemes) Rs. 1.75 lakh/ha",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @40% in general area for an area upto 2 ha. on pro rata basis for meeting the expenditure on planting material and other input cost of in 2 instalments (60:40)",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "code": "gap-certification",
+      "group": "certification",
+      "name_en": "Adoption and certification of Good Agricultural Practices (GAP / Bharat GAP)",
+      "name_hi": "अच्छी कृषि पद्धतियों (गैप / भारत गैप) का अपनाना और प्रमाणन",
+      "unit": "ha",
+      "tiers": [
+        {
+          "up_to": null,
+          "paise_per_unit": 2000000
+        }
+      ],
+      "subsidy_pct": 50,
+      "subsidy_max_qty": 2,
+      "tags": [
+        "certification"
+      ],
+      "note_en": "Rates are 15% higher in the north-eastern and Himalayan states, scheduled areas and the islands (the guideline says so); the general rate is stored.",
+      "note_hi": null,
+      "sources": {
+        "cost": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Adoption and Certification for Good Agricultural Practices (GAP) /Bharat GAP Rs. 20,000/ha.",
+            "checked_on": "2026-10-07"
+          }
+        ],
+        "subsidy": [
+          {
+            "url": "https://nhb.gov.in/writereaddata/082825102800MIDH%20Guideline%202025.pdf",
+            "title": "NHB: MIDH Operational Guidelines 2025 (dated 31 December 2024), cost norms",
+            "quote": "Assistance @ 50% subject to a maximum of 2 ha/ beneficiary",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  ]
+}

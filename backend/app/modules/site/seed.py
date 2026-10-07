@@ -10,7 +10,7 @@ from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.site import repository as repo
-from app.modules.site.models import DistrictRegion, Scheme
+from app.modules.site.models import CostNorm, DistrictRegion, Scheme
 
 SEED_DIR = Path(__file__).resolve().parents[3] / "seeds" / "site"
 
@@ -66,5 +66,35 @@ async def load_schemes(session: AsyncSession) -> dict[str, int]:
             for k, v in values.items():
                 setattr(row, k, v)
         counts["schemes_ai_verified" if ok else "schemes_draft"] += 1
+    await session.flush()
+    return counts
+
+
+async def load_cost_norms(session: AsyncSession) -> dict[str, int]:
+    """Cost norms from seeds/site/cost_norms.json, loaded like the schemes: a norm whose every
+    source was checked is `ai_verified`; entries in review, approved or retired are left alone."""
+    path = SEED_DIR / "cost_norms.json"
+    if not path.exists():
+        return {"cost_norms": 0}
+    counts = {"cost_norms_ai_verified": 0, "cost_norms_draft": 0, "cost_norms_skipped": 0}
+    fields = (
+        "group", "name_en", "name_hi", "unit", "tiers", "subsidy_pct", "subsidy_max_qty", "tags",
+        "note_en", "note_hi", "sources",
+    )  # fmt: skip
+    for item in json.loads(path.read_text(encoding="utf-8"))["cost_norms"]:
+        row = await session.scalar(select(CostNorm).where(CostNorm.code == item["code"]))
+        if row is not None and row.status not in ("draft", "ai_verified"):
+            counts["cost_norms_skipped"] += 1
+            continue
+        ok, checked_on = _checked(item.get("sources", {}))
+        values = {f: item.get(f) for f in fields}
+        values.update(status="ai_verified" if ok else "draft", checked_on=checked_on)
+        values["tags"] = values["tags"] or []
+        if row is None:
+            session.add(CostNorm(code=item["code"], **values))
+        else:
+            for k, v in values.items():
+                setattr(row, k, v)
+        counts["cost_norms_ai_verified" if ok else "cost_norms_draft"] += 1
     await session.flush()
     return counts

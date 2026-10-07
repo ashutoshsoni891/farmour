@@ -85,19 +85,21 @@ def main() -> int:
     schemes = FOLDER.parents[2] / "site" / "schemes.json"
     recipes = sorted((FOLDER.parent / "recipes").glob("*.json"))
     pests = sorted((FOLDER.parent / "pests").glob("*.json"))
+    cost_norms = FOLDER.parents[2] / "site" / "cost_norms.json"
     paths = [
         *sorted(FOLDER.glob("*.json")),
         FOLDER.parent / "companions.json",
         *recipes,
         *pests,
         schemes,
+        cost_norms,
     ]
     if args.only:
         paths = [p for p in paths if p.stem in args.only]
     for path in [p for p in paths if p.exists()]:
         data = json.loads(path.read_text(encoding="utf-8"))
         ok = bad = 0
-        entries = data.get("companions") or data.get("schemes") or [data]
+        entries = data.get("companions") or data.get("schemes") or data.get("cost_norms") or [data]
         for src in [s for entry in entries for s in _sources(entry)]:
             url, quote = src.get("url"), src.get("quote")
             if not url or not quote:

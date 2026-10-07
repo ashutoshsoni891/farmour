@@ -73,3 +73,27 @@ class SchemeOut(BaseModel):
     ai_checked: bool
     reasons: list[str]  # what in the plan made it show: "orchard", "pond", "goal:income", ...
     conditions: list[str]  # what the owner must still check, e.g. "check.land_in_name"
+
+
+class CostTier(BaseModel):
+    up_to: float | None  # quantity this rate applies up to; null = no upper limit
+    paise_per_unit: int
+
+
+class CostNormOut(BaseModel):
+    """Setup cost and subsidy rate of one component, from the government's cost norms."""
+
+    code: str
+    group: str
+    name_en: str
+    name_hi: str
+    unit: str
+    tiers: list[CostTier]
+    subsidy_pct: int | None
+    subsidy_max_qty: float | None
+    tags: list[str]
+    note_en: str | None
+    note_hi: str | None
+    sources: list[SchemeSource]
+    checked_on: date | None
+    ai_checked: bool

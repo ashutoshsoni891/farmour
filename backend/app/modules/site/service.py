@@ -26,6 +26,7 @@ from app.modules.site.schemas import (
     Answer,
     AnswerBatch,
     BuildOut,
+    CostNormOut,
     FactOut,
     Group,
     ProfileOut,
@@ -377,6 +378,7 @@ async def load_seed(session: AsyncSession) -> dict[str, int]:
 
     counts = await seed.load(session)
     counts.update(await seed.load_schemes(session))
+    counts.update(await seed.load_cost_norms(session))
     return counts
 
 
@@ -438,3 +440,20 @@ async def schemes_for(
     order = {"direct_benefit": 0, "subsidy": 1, "interest_rebate": 2, "insurance": 3,
              "loan": 4, "training": 5}  # fmt: skip
     return sorted(out, key=lambda x: (order.get(x.benefit_type, 9), x.code))
+
+
+async def list_cost_norms(session: AsyncSession) -> list[CostNormOut]:
+    """Setup costs and subsidy rates (government cost norms) that are cited and checked."""
+    out = []
+    for row in await repo.cost_norms(session, ["ai_verified", "approved"]):
+        entries = [e for group in row.sources.values() for e in group]
+        out.append(
+            CostNormOut.model_validate(
+                {
+                    **{n: getattr(row, n) for n in CostNormOut.model_fields if hasattr(row, n)},
+                    "sources": [SchemeSource.model_validate(e) for e in entries],
+                    "ai_checked": row.status == "ai_verified",
+                }
+            )
+        )
+    return out

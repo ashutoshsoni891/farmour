@@ -11,6 +11,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.core.models import Region
 from app.modules.site.models import (
+    CostNorm,
     DistrictRegion,
     GeoCache,
     GroundwaterBlock,
@@ -198,5 +199,15 @@ async def schemes(session: AsyncSession, statuses: list[str]) -> list[Scheme]:
     return list(
         await session.scalars(
             select(Scheme).where(Scheme.status.in_(statuses)).order_by(Scheme.code)
+        )
+    )
+
+
+async def cost_norms(session: AsyncSession, statuses: list[str]) -> list[CostNorm]:
+    return list(
+        await session.scalars(
+            select(CostNorm)
+            .where(CostNorm.status.in_(statuses))
+            .order_by(CostNorm.group, CostNorm.code)
         )
     )

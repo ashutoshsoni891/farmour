@@ -3,9 +3,9 @@
 from fastapi import APIRouter, status
 
 from app.modules.farms.service import Membership, membership
-from app.modules.identity.deps import SessionDep
+from app.modules.identity.deps import CurrentUser, SessionDep
 from app.modules.site import service
-from app.modules.site.schemas import AnswerBatch, ProfileOut
+from app.modules.site.schemas import AnswerBatch, CostNormOut, ProfileOut
 
 router = APIRouter(prefix="/farms/{farm_id}/site-profile", tags=["site"])
 
@@ -27,3 +27,12 @@ async def answer(
 @router.post("/refresh", status_code=status.HTTP_202_ACCEPTED)
 async def refresh(session: SessionDep, m: Membership = membership("owner")) -> None:
     await service.request_refresh(session, m)
+
+
+catalog_router = APIRouter(prefix="/cost-norms", tags=["site"])
+
+
+@catalog_router.get("")
+async def cost_norms(session: SessionDep, _user: CurrentUser) -> list[CostNormOut]:
+    """Setup costs and subsidy rates from the government's cost norms, each with its source."""
+    return await service.list_cost_norms(session)

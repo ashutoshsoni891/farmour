@@ -2482,6 +2482,37 @@
         }
       }
     },
+    "/api/v1/cost-norms": {
+      "get": {
+        "tags": [
+          "site"
+        ],
+        "summary": "Cost Norms",
+        "description": "Setup costs and subsidy rates from the government's cost norms, each with its source.",
+        "operationId": "cost_norms_api_v1_cost_norms_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/CostNormOut"
+                  },
+                  "type": "array",
+                  "title": "Response Cost Norms Api V1 Cost Norms Get"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
     "/api/v1/geo/search": {
       "get": {
         "tags": [
@@ -3207,6 +3238,155 @@
         ],
         "title": "CompanionOut"
       },
+      "CostNormOut": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "group": {
+            "type": "string",
+            "title": "Group"
+          },
+          "name_en": {
+            "type": "string",
+            "title": "Name En"
+          },
+          "name_hi": {
+            "type": "string",
+            "title": "Name Hi"
+          },
+          "unit": {
+            "type": "string",
+            "title": "Unit"
+          },
+          "tiers": {
+            "items": {
+              "$ref": "#/components/schemas/CostTier"
+            },
+            "type": "array",
+            "title": "Tiers"
+          },
+          "subsidy_pct": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subsidy Pct"
+          },
+          "subsidy_max_qty": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Subsidy Max Qty"
+          },
+          "tags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Tags"
+          },
+          "note_en": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note En"
+          },
+          "note_hi": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note Hi"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SchemeSource"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "checked_on": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checked On"
+          },
+          "ai_checked": {
+            "type": "boolean",
+            "title": "Ai Checked"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "group",
+          "name_en",
+          "name_hi",
+          "unit",
+          "tiers",
+          "subsidy_pct",
+          "subsidy_max_qty",
+          "tags",
+          "note_en",
+          "note_hi",
+          "sources",
+          "checked_on",
+          "ai_checked"
+        ],
+        "title": "CostNormOut",
+        "description": "Setup cost and subsidy rate of one component, from the government's cost norms."
+      },
+      "CostTier": {
+        "properties": {
+          "up_to": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Up To"
+          },
+          "paise_per_unit": {
+            "type": "integer",
+            "title": "Paise Per Unit"
+          }
+        },
+        "type": "object",
+        "required": [
+          "up_to",
+          "paise_per_unit"
+        ],
+        "title": "CostTier"
+      },
       "CropCreate": {
         "properties": {
           "name_en": {
@@ -3455,6 +3635,20 @@
               }
             ],
             "title": "Water L Per Sqm Day"
+          },
+          "kc": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Kc"
           },
           "heat_tolerance_c": {
             "anyOf": [
@@ -3995,6 +4189,20 @@
             ],
             "title": "Water L Per Sqm Day"
           },
+          "kc": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Kc"
+          },
           "heat_tolerance_c": {
             "anyOf": [
               {
@@ -4194,6 +4402,7 @@
           "sun",
           "water_need",
           "water_l_per_sqm_day",
+          "kc",
           "heat_tolerance_c",
           "cold_tolerance_c",
           "waterlogging_tolerant",
@@ -4609,6 +4818,20 @@
               }
             ],
             "title": "Water L Per Sqm Day"
+          },
+          "kc": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "number"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Kc"
           },
           "heat_tolerance_c": {
             "anyOf": [
