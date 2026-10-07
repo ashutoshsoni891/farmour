@@ -1,0 +1,30 @@
+{
+  "name_en": "Red spider mite",
+  "name_hi": "लाल मकड़ी (माइट)",
+  "crop_slugs": [
+    "tomato"
+  ],
+  "symptoms_en": "Leaves turn reddish brown and bronzy; in bad attacks there is silky webbing and leaves wither; flowering and fruit set suffer.",
+  "symptoms_hi": "पत्तियाँ लालिमा लिए भूरी और काँसे के रंग की हो जाती हैं; ज़्यादा प्रकोप में रेशमी जाला बनता है और पत्तियाँ सूखती हैं; फूल और फल बनना प्रभावित होता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Affected leaves become reddish brown and bronzy Severe infestation larvae silken webbing on the leaves, wither and dry Flower and fruit formation affected",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Spray wettable sulphur 50 WP 2g/lit",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Spray wettable sulphur (2 g per litre).",
+  "management_hi": "गंधक (वेटेबल सल्फर) का छिड़काव करें (2 ग्राम प्रति लीटर)।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

@@ -1,0 +1,53 @@
+{
+  "name_en": "Root-knot nematode",
+  "name_hi": "जड़-गाँठ सूत्रकृमि",
+  "crop_slugs": [
+    "okra",
+    "tomato",
+    "banana"
+  ],
+  "symptoms_en": "Nematodes attack the roots, so plants turn yellow, wither and die.",
+  "symptoms_hi": "सूत्रकृमि जड़ों पर हमला करते हैं जिससे पौधे पीले पड़कर मुरझाते और मर जाते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Nematode Infestation Nematodes attack plant roots, causing plants to turn yellow, wither, and die.",
+        "note": "Natural-farming guide (NITI).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/pdf/Horticulture5_231009_094153.pdf",
+        "title": "TNAU and NCONF: organic package of practices, horticultural crops",
+        "quote": "growing of marigold (trapcrop) in between okra plants",
+        "note": "TNAU organic package.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/org_farm/pdf/Horticulture5_231009_094153.pdf",
+        "title": "TNAU and NCONF: organic package of practices, horticultural crops",
+        "quote": "Intercrop banana with sun hemp or marigold to reduce nematode population.",
+        "note": "TNAU organic package.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Nematode control: Soil drenching with 8% Brahmastra solution (8 litres per 100 litres of water)",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Grow marigold between okra plants as a trap crop, and intercrop banana with marigold or sunn hemp.",
+  "management_hi": "भिंडी के पौधों के बीच गेंदा जाल-फसल के रूप में लगाएँ, और केले में गेंदा या सनई की अंतरफसल लें।",
+  "recipe_slugs": [
+    "brahmastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). Marigold with okra and marigold or sunn hemp with banana match the library's companion pairs."
+}

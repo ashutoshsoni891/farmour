@@ -1,0 +1,64 @@
+{
+  "name_en": "Whitefly",
+  "name_hi": "सफ़ेद मक्खी",
+  "crop_slugs": [
+    "tomato",
+    "okra",
+    "potato"
+  ],
+  "symptoms_en": "Yellow spots and yellowing, leaves curl downward and dry; sooty mould on the leaves; it carries tomato leaf curl and okra yellow vein mosaic viruses.",
+  "symptoms_hi": "पीले धब्बे और पीलापन, पत्तियाँ नीचे की ओर मुड़कर सूखती हैं; पत्तियों पर कालिख जैसी फफूँद; यह टमाटर लीफ कर्ल और भिंडी पीला शिरा मोज़ेक विषाणु फैलाती है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_4.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Chlorotic spots Yellowing Downward curling and drying of leaves Vector of tomato leaf curl disease",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/bendi/bendi_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of bendi",
+        "quote": "Vector of yellow vein mosaic virus",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of potato",
+        "quote": "Yellowing and curling of leaf Sooty mould develops on affected leaves",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_4.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Install yellow sticky traps @ 12 /ha to attract the adult. Remove alternate weed host Abutilon indicum. Uproot and destroy the diseased leaf curl plants Use nitrogen and irrigation judiciously.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For sucking pests (like thrips and whitefly) in the early stage: Spray Neemastra @ 200 litres per acre",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fermented Curd Water For the management of common sucking pests like whiteflies, jassids, and aphids",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Install yellow sticky traps (12 per hectare). Remove the weed host Abutilon indicum. Uproot and destroy leaf-curl plants. Use nitrogen and irrigation sensibly.",
+  "management_hi": "पीले चिपचिपे ट्रैप लगाएँ (12 प्रति हेक्टेयर)। खरपतवार अबूटिलोन (कंघी) हटाएँ। लीफ कर्ल वाले पौधे उखाड़कर नष्ट करें। नाइट्रोजन और सिंचाई संतुलित रखें।",
+  "recipe_slugs": [
+    "neemastra",
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

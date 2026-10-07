@@ -1,0 +1,50 @@
+{
+  "name_en": "Aphids",
+  "name_hi": "माहू (एफिड)",
+  "crop_slugs": [
+    "chilli",
+    "potato"
+  ],
+  "symptoms_en": "Plants turn pale and sticky, leaves curl and crinkle, sooty mould grows on the honeydew and growth is stunted; aphids also carry viruses.",
+  "symptoms_hi": "पौधे पीले और चिपचिपे हो जाते हैं, पत्तियाँ मुड़ती और सिकुड़ती हैं, शहद जैसे स्राव पर कालिख जैसी फफूँद उगती है और बढ़वार रुकती है; माहू विषाणु भी फैलाते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chilli/chilli_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of chilli",
+        "quote": "The infested plants turn pale with sticky appearance The leaves curled and crinkled Honeydew excrete - development of sooty mould Stunted growth of the plant",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_6.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of potato",
+        "quote": "This pest also transmits various viral to potato plants",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Aphids and other sucking pests can be effectively controlled with Dashparni Ark, Brahmastra, Agniastra, Neemastra, etc",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fermented Curd Water For the management of common sucking pests like whiteflies, jassids, and aphids",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "recipe_slugs": [
+    "neemastra",
+    "brahmastra",
+    "agniastra",
+    "dashparni-ark",
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

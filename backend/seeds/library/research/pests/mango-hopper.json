@@ -1,0 +1,61 @@
+{
+  "name_en": "Mango hopper",
+  "name_hi": "आम का फुदका (हॉपर)",
+  "crop_slugs": [
+    "mango"
+  ],
+  "symptoms_en": "Nymphs and adults suck the sap of the flower panicles, so flower buds and flowers wither and drop; honeydew and sooty mould appear on the lower leaves.",
+  "symptoms_hi": "शिशु और वयस्क बौर का रस चूसते हैं जिससे फूल और कलियाँ मुरझाकर झड़ती हैं; निचली पत्तियों पर शहद जैसा स्राव और कालिख जैसी फफूँद दिखती है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mango/mango_4.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mango",
+        "quote": "Nymphs and adults suck the sap of inflorescence Withering Shedding of flower buds and flowers Presence of honey dew secrecation on lower leaves and development of sooty mould.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mango/mango_4.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mango",
+        "quote": "Avoid close planting, as the incidence very severe in overcrowded orchards. Orchards must be kept clean by ploughing and removal of weeds.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For sucking pests (like thrips and whitefly) in the early stage: Spray Neemastra @ 200 litres per acre",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Control of pink bollworm and jassids: Spray 5–7 litres of Brahmastra in 200 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "months": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mango/mango_4.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mango",
+        "quote": "The insect appears in February when mango trees come to flowering.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Avoid close planting (attacks are worst in crowded orchards) and keep the orchard clean by ploughing and weeding.",
+  "management_hi": "घनी रोपाई न करें (घने बाग में प्रकोप सबसे ज़्यादा होता है) और जुताई-निराई से बाग साफ़ रखें।",
+  "recipe_slugs": [
+    "neemastra",
+    "brahmastra"
+  ],
+  "months": [
+    2
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). The page calls the hoppers jassids."
+}

@@ -1,0 +1,42 @@
+{
+  "name_en": "Chilli fruit rot and die-back (anthracnose)",
+  "name_hi": "मिर्च का फल सड़न और शीर्षमरण (एन्थ्रेक्नोज़)",
+  "crop_slugs": [
+    "chilli"
+  ],
+  "symptoms_en": "Tender twigs die back from the tip; flowers drop and dry; the drying spreads down the stem and branches; affected plants bear few, poor fruits.",
+  "symptoms_hi": "कोमल टहनियाँ सिरे से सूखती हैं; फूल झड़ते और सूखते हैं; सूखना तने और शाखाओं तक फैलता है; प्रभावित पौधे कम और खराब फल देते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chilli_diseases_2.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chilli",
+        "quote": "As the fungus causes necrosis of tender twigs from the tip backwards the disease is called die-back Infection usually begins when the crop is in flower. Flowers drop and dry up.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chilli_diseases_2.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chilli",
+        "quote": "Use of disease-free seeds is important in preventing the disease.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fungus/Virus control: Spray 3–4 days old buttermilk mixed with 100 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Use disease-free seed; the infection usually starts at flowering.",
+  "management_hi": "रोगमुक्त बीज का उपयोग करें; संक्रमण आमतौर पर फूल आने पर शुरू होता है।",
+  "recipe_slugs": [
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

@@ -84,7 +84,14 @@ def main() -> int:
     manual: set[str] = set()
     schemes = FOLDER.parents[2] / "site" / "schemes.json"
     recipes = sorted((FOLDER.parent / "recipes").glob("*.json"))
-    paths = [*sorted(FOLDER.glob("*.json")), FOLDER.parent / "companions.json", *recipes, schemes]
+    pests = sorted((FOLDER.parent / "pests").glob("*.json"))
+    paths = [
+        *sorted(FOLDER.glob("*.json")),
+        FOLDER.parent / "companions.json",
+        *recipes,
+        *pests,
+        schemes,
+    ]
     if args.only:
         paths = [p for p in paths if p.stem in args.only]
     for path in [p for p in paths if p.exists()]:

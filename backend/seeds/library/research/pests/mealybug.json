@@ -1,0 +1,30 @@
+{
+  "name_en": "Mealybug",
+  "name_hi": "मिलीबग",
+  "crop_slugs": [
+    "tomato"
+  ],
+  "symptoms_en": "White cottony insects on leaves and twigs; the plant is stunted.",
+  "symptoms_hi": "पत्तियों और टहनियों पर सफ़ेद रुई जैसे कीट; पौधे की बढ़वार रुकती है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_6.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Presence of white, cottony mealy bugs on the leaves and twigs Stunted growth",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_6.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Spray FORS 25g/lit or neem oil 0.5% along with teepol 1 ml/lit",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Spray fish oil rosin soap (25 g per litre) or neem oil 0.5% with a little soap.",
+  "management_hi": "फिश ऑयल रोज़िन सोप (25 ग्राम प्रति लीटर) या नीम तेल 0.5% साबुन की थोड़ी मात्रा के साथ छिड़कें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

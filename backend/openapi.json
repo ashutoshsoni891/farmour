@@ -6893,6 +6893,28 @@
             ],
             "title": "Escalate If"
           },
+          "management_en": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Management En"
+          },
+          "management_hi": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Management Hi"
+          },
           "sources": {
             "anyOf": [
               {
@@ -7053,6 +7075,28 @@
               }
             ],
             "title": "Escalate If"
+          },
+          "management_en": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Management En"
+          },
+          "management_hi": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Management Hi"
           },
           "sources": {
             "anyOf": [
@@ -7250,6 +7294,28 @@
             ],
             "title": "Escalate If"
           },
+          "management_en": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Management En"
+          },
+          "management_hi": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Management Hi"
+          },
           "sources": {
             "additionalProperties": true,
             "type": "object",
@@ -7293,6 +7359,8 @@
           "months",
           "recipe_slugs",
           "escalate_if",
+          "management_en",
+          "management_hi",
           "sources",
           "source_notes",
           "todo"

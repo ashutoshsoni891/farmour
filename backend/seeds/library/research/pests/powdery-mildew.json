@@ -1,0 +1,55 @@
+{
+  "name_en": "Powdery mildew",
+  "name_hi": "चूर्णिल आसिता (पाउडरी मिल्ड्यू)",
+  "crop_slugs": [
+    "tomato",
+    "okra"
+  ],
+  "symptoms_en": "A grey-white powdery growth on both leaf surfaces; yellow blotches with a halo on tomato leaves; okra loses a lot of fruit.",
+  "symptoms_hi": "पत्तियों की दोनों सतहों पर भूरा-सफ़ेद चूर्ण जैसा जमाव; टमाटर में पीले धब्बे और उनके चारों ओर पीला घेरा; भिंडी की उपज काफ़ी घटती है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_10.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Irregular, bright yellow blotches with yellow halo appear on leaves. Abundant white sporulation in the infected area of leaves",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/bhendi_diseases_3.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of bhendi",
+        "quote": "Greyish powdery growth occurs on the under as well as on the upper surface of the leaf causing severe reduction in fruit yield.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_10.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Field sanitation",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/bhendi_diseases_3.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of bhendi",
+        "quote": "Dustsulphur@25kg/ha",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fungus/Virus control: Spray 3–4 days old buttermilk mixed with 100 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Keep the field clean of crop debris and dust sulphur on okra (25 kg per hectare) at the first sign.",
+  "management_hi": "खेत फसल अवशेष से साफ़ रखें और भिंडी पर पहला लक्षण दिखते ही गंधक का बुरकाव करें (25 किलो प्रति हेक्टेयर)।",
+  "recipe_slugs": [
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). Tomato powdery mildew is favoured by warm, dry weather."
+}

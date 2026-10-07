@@ -1,0 +1,54 @@
+{
+  "name_en": "Brinjal shoot and fruit borer",
+  "name_hi": "बैंगन का तना और फल छेदक",
+  "crop_slugs": [
+    "brinjal"
+  ],
+  "symptoms_en": "Tips of shoots wither (dead hearts); shoots and fruits have bore holes plugged with droppings; flower buds drop and leaves dry.",
+  "symptoms_hi": "प्ररोह के सिरे मुरझा जाते हैं (डेड हार्ट); तने और फलों में छेद होते हैं जिनमें मल भरा रहता है; कलियाँ झड़ती हैं और पत्तियाँ सूखती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/brinjal/brinjal_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of brinjal",
+        "quote": "Withering of terminal shoots/dead hearts Bore holes on shoots and fruits plugged with excreta Shedding of flower buds Withering and drying of leaves",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/brinjal/brinjal_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of brinjal",
+        "quote": "Remove the affected terminal shoot showing boreholes. Remove the affected fruits and destroy. Avoid continuous cropping of brinjal crop",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/brinjal/brinjal_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of brinjal",
+        "quote": "Install pheromone trap@12/ha",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/brinjal/brinjal_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of brinjal",
+        "quote": "Neem seed kernel extract (NSKE) 5 %",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Borer, Fall Armyworm, and Fruit Fly control: Spray Agniastra @ 3 litres / 100 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Remove and destroy affected shoots and fruits. Avoid growing brinjal continuously in the same field. Install pheromone traps (12 per hectare). Spray neem seed kernel extract 5% from one month after planting.",
+  "management_hi": "प्रभावित तने और फल हटाकर नष्ट करें। एक ही खेत में लगातार बैंगन न उगाएँ। फेरोमोन ट्रैप लगाएँ (12 प्रति हेक्टेयर)। रोपाई के एक महीने बाद नीम बीज अर्क 5% का छिड़काव करें।",
+  "recipe_slugs": [
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

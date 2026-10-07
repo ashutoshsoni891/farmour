@@ -1,0 +1,38 @@
+{
+  "name_en": "Damping off (seedling rot)",
+  "name_hi": "पौध गलन (डैम्पिंग ऑफ़)",
+  "crop_slugs": [
+    "tomato",
+    "brinjal",
+    "chilli"
+  ],
+  "symptoms_en": "Seeds rot before they come up; after they come up the seedlings turn soft and water-soaked, topple over and collapse.",
+  "symptoms_hi": "बीज अंकुरण से पहले सड़ जाते हैं; अंकुरण के बाद पौध नरम और पानी जैसी हो जाती है, गिर जाती है और ढह जाती है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_1.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Pre-emergence phase : Complete rotting of seedlings. Post-emergence phase: Infected tissues become soft and water soaked. Seedlings topple over or collapse.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_1.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Avoid stagnation of water. Use raised beds of 15 cm height.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_1.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Treat the seeds with Trichoderma asperellum @ 4 g/kg or Bacillus subtilis @ 10 g/kg of seeds 24 hours before sowing",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Avoid water stagnation, use raised nursery beds 15 cm high, and treat seed with Trichoderma (4 g per kg) or Bacillus subtilis (10 g per kg) 24 hours before sowing.",
+  "management_hi": "पानी न रुकने दें, 15 सेमी ऊँची उठी हुई नर्सरी क्यारियाँ बनाएँ, और बुवाई से 24 घंटे पहले बीज को ट्राइकोडर्मा (4 ग्राम प्रति किलो) या बैसिलस सबटिलिस (10 ग्राम प्रति किलो) से उपचारित करें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). Favoured by high humidity, wet soil and poor drainage."
+}

@@ -1,0 +1,42 @@
+{
+  "name_en": "Late blight (Phytophthora)",
+  "name_hi": "पछेती झुलसा (लेट ब्लाइट)",
+  "crop_slugs": [
+    "tomato"
+  ],
+  "symptoms_en": "Water-soaked black patches on leaves and stems that spread fast; white mould on leaves; dark brown patches and soft rot on fruit.",
+  "symptoms_hi": "पत्तियों और तनों पर पानी जैसे काले धब्बे जो तेज़ी से फैलते हैं; पत्तियों पर सफ़ेद फफूँद; फलों पर गहरे भूरे धब्बे और नरम सड़न।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_8.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Water-soaked black lesions on leaves and stems Lesions expand rapidly and the entire leaf becomes necrotic.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_8.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Proper drainage Crop rotation Soil application of Trichoderma asperellum (viride) @ 1.0 kg/ac",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fungus/Virus control: Spray 3–4 days old buttermilk mixed with 100 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Keep the field well drained, rotate crops, and apply Trichoderma to the soil (1 kg per acre).",
+  "management_hi": "खेत में जल निकास अच्छा रखें, फसल चक्र अपनाएँ और मिट्टी में ट्राइकोडर्मा (1 किलो प्रति एकड़) डालें।",
+  "recipe_slugs": [
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). Favoured by cool nights, warm days and long wet spells; no months in the source."
+}

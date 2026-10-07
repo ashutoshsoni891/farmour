@@ -46,6 +46,14 @@ def read_recipe_research(seed_dir: Path = SEED_DIR) -> dict[str, dict[str, Any]]
     }
 
 
+def read_pest_research(seed_dir: Path = SEED_DIR) -> dict[str, dict[str, Any]]:
+    """AI research files, one per pest or disease: {slug: values in the PestFields shape}."""
+    folder = seed_dir / "research" / "pests"
+    return {
+        p.stem: json.loads(p.read_text(encoding="utf-8")) for p in sorted(folder.glob("*.json"))
+    }
+
+
 def read_companions(seed_dir: Path = SEED_DIR) -> list[dict[str, Any]]:
     """AI-researched crop pairs (seeds/library/research/companions.json)."""
     path = seed_dir / "research" / "companions.json"

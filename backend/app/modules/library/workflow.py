@@ -97,7 +97,7 @@ def pest_missing(data: dict[str, Any]) -> list[str]:
         f"field:{f}" for f in ("crop_slugs", "symptoms_en", "symptoms_hi") if _empty(data.get(f))
     ]
     sources = data.get("sources") or {}
-    for field in ("symptoms_en", "months", "recipe_slugs", "escalate_if"):
+    for field in ("symptoms_en", "months", "recipe_slugs", "escalate_if", "management_en"):
         if not _empty(data.get(field)) and not _has_source(sources, field):
             missing.append(f"source:{field}")
     return missing

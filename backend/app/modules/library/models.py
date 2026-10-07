@@ -182,6 +182,8 @@ class Pest(IdMixin, TimestampMixin, ReviewMixin, Base):
         ARRAY(Base.type_annotation_map[uuid.UUID]), default=list, server_default="{}"
     )
     escalate_if: Mapped[str | None] = mapped_column(Text)
+    management_en: Mapped[str | None] = mapped_column(Text)
+    management_hi: Mapped[str | None] = mapped_column(Text)
     __table_args__ = (CheckConstraint(f"status in {STATUSES}", name="status"),)
 
 

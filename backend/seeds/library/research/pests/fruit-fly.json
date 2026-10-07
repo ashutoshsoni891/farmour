@@ -1,0 +1,50 @@
+{
+  "name_en": "Fruit fly",
+  "name_hi": "फल मक्खी",
+  "crop_slugs": [
+    "mango",
+    "guava",
+    "sapota"
+  ],
+  "symptoms_en": "Maggots bore into half-ripe fruit, leaving decayed brown patches that ooze; fruit rots and drops.",
+  "symptoms_hi": "इल्लियाँ अधपके फलों में घुसकर सड़े भूरे धब्बे बनाती हैं जिनसे रस निकलता है; फल सड़कर गिरते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mango/mango_8.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mango",
+        "quote": "Maggot bore into semi-ripen fruits with decayed spots and dropping of fruits. Oozing of fluid Brownish rotten patches on fruits.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/sapota/sapota_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of sapota",
+        "quote": "Maggot bore into semi-ripen fruits with decayed spots and dropping of fruits.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mango/mango_8.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mango",
+        "quote": "Collect fallen infested fruits and dispose them by dumping in a pit Provide summer ploughing to expose the pupa Monitor the activity of flies with methyl eugenol sex lure traps.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Borer, Fall Armyworm, and Fruit Fly control: Spray Agniastra @ 3 litres / 100 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Collect fallen infested fruits and bury them in a pit, plough in summer to expose pupae, and monitor with methyl eugenol lure traps. A bait of jaggery or molasses can be used.",
+  "management_hi": "गिरे हुए संक्रमित फल इकट्ठा करके गड्ढे में दबा दें, गर्मी में जुताई करके प्यूपा को उजागर करें और मिथाइल यूजेनॉल ल्यूर ट्रैप से निगरानी करें। गुड़ या शीरे का चारा लगाया जा सकता है।",
+  "recipe_slugs": [
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

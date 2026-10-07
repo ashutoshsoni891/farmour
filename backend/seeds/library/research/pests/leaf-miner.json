@@ -1,0 +1,30 @@
+{
+  "name_en": "Serpentine leaf miner",
+  "name_hi": "पत्ती सुरंगक (लीफ माइनर)",
+  "crop_slugs": [
+    "tomato"
+  ],
+  "symptoms_en": "Leaves show winding mines; they dry and drop.",
+  "symptoms_hi": "पत्तियों पर टेढ़ी-मेढ़ी सुरंगें बनती हैं; पत्तियाँ सूखकर गिरती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Leaves with serpentine mines Drying and dropping of leaves",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Collect and destroy mined leaves Spray NSKE 5%",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Collect and destroy mined leaves and spray neem seed kernel extract 5%.",
+  "management_hi": "सुरंग वाली पत्तियाँ इकट्ठा करके नष्ट करें और नीम बीज अर्क 5% का छिड़काव करें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

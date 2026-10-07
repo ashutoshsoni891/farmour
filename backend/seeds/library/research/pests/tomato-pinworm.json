@@ -1,0 +1,30 @@
+{
+  "name_en": "Tomato pinworm (Tuta absoluta)",
+  "name_hi": "टमाटर पिनवर्म (टूटा एब्सोल्यूटा)",
+  "crop_slugs": [
+    "tomato"
+  ],
+  "symptoms_en": "Caterpillars mine the leaves and stems and make pinholes in fruit.",
+  "symptoms_hi": "इल्लियाँ पत्तियों और तनों में सुरंग बनाती हैं और फलों में सूई जैसे छेद करती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_8.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Mining of leaves, stem and pinholes on fruits",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_8.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Collect and destroy the pinworm affected plants and fruits Avoid solanaceous crops after tomato Use healthy seedlings for transplanting Keep pheromone traps @ 16 nos./ac to attract and kill the adult moths",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Collect and destroy affected plants and fruits, avoid solanaceous crops after tomato, plant healthy seedlings and set pheromone traps (16 per acre).",
+  "management_hi": "प्रभावित पौधे और फल इकट्ठा करके नष्ट करें, टमाटर के बाद सोलेनेसी फसलें न लें, स्वस्थ पौध लगाएँ और फेरोमोन ट्रैप (16 प्रति एकड़) लगाएँ।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

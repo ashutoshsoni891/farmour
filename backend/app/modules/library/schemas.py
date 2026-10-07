@@ -228,6 +228,8 @@ class PestFields(BaseModel):
     months: list[int] | None = None
     recipe_slugs: list[str] | None = None
     escalate_if: str | None = None
+    management_en: str | None = None
+    management_hi: str | None = None
     sources: Sources | None = None
     source_notes: str | None = None
     todo: list[str] | None = None
@@ -257,6 +259,8 @@ class PestOut(ReviewInfo):
     months: list[int]
     recipe_slugs: list[str]
     escalate_if: str | None
+    management_en: str | None
+    management_hi: str | None
     sources: dict[str, Any]
     source_notes: str | None
     todo: list[str]

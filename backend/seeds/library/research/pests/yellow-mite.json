@@ -1,0 +1,30 @@
+{
+  "name_en": "Yellow mite (chilli)",
+  "name_hi": "पीली माइट (मिर्च)",
+  "crop_slugs": [
+    "chilli"
+  ],
+  "symptoms_en": "Leaves curl downward and crinkle, with long stalks; the plant is stunted.",
+  "symptoms_hi": "पत्तियाँ नीचे की ओर मुड़ती और सिकुड़ती हैं, डंठल लंबे हो जाते हैं; पौधे की बढ़वार रुकती है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chilli/chilli_5.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of chilli",
+        "quote": "Downward curling and crinkling of leaves Leaves with elongated petiole Stunted growth",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chilli/chilli_5.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of chilli",
+        "quote": "Encourage the activity of predatory mite: Amblyseius ovalis",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Encourage the predatory mite Amblyseius ovalis.",
+  "management_hi": "शिकारी माइट एम्ब्लिसियस ओवेलिस को बढ़ावा दें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

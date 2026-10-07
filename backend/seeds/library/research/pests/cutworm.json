@@ -1,0 +1,43 @@
+{
+  "name_en": "Cutworm (Agrotis ipsilon)",
+  "name_hi": "कटुआ इल्ली",
+  "crop_slugs": [
+    "potato"
+  ],
+  "symptoms_en": "Young caterpillars feed on the leaf surface; older ones come out at night and cut young plants at the stem and eat into tubers.",
+  "symptoms_hi": "छोटी इल्लियाँ पत्ती की सतह खाती हैं; बड़ी इल्लियाँ रात में निकलकर पौधों को तने से काट देती हैं और कंद भी खाती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of potato",
+        "quote": "Young larvae feed on the epidermis of the leaves Older larvae come out at night and feed young plants by cutting their stems They also damage the tubers by eating away part of them",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of potato",
+        "quote": "Handpick and destroy the larvae in morning and evening hours on cracks and crevices in the field Plough the soil during summer months to expose larvae and pupae to avian predators Set up light trap @1/ha Pheromone traps @12/ha to attract male moths",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For caterpillars and other insects: Spray Dashparni Ark or Agniastra @ 7.5 litres + 250 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Hand-pick caterpillars morning and evening from cracks in the field, plough in summer to expose them, and set a light trap (1 per hectare) and pheromone traps (12 per hectare).",
+  "management_hi": "सुबह-शाम खेत की दरारों से इल्लियाँ हाथ से चुनें, गर्मी में जुताई करके उन्हें उजागर करें, और लाइट ट्रैप (1 प्रति हेक्टेयर) तथा फेरोमोन ट्रैप (12 प्रति हेक्टेयर) लगाएँ।",
+  "recipe_slugs": [
+    "dashparni-ark",
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

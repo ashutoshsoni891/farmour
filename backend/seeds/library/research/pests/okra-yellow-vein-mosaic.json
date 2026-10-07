@@ -1,0 +1,56 @@
+{
+  "name_en": "Okra yellow vein mosaic",
+  "name_hi": "भिंडी का पीला शिरा मोज़ेक",
+  "crop_slugs": [
+    "okra"
+  ],
+  "symptoms_en": "The whole network of veins turns yellow; young leaves become small and the plant is stunted; fruit is yellow-white and smaller and harder. Spread by whitefly.",
+  "symptoms_hi": "पत्तियों की सारी शिराएँ पीली हो जाती हैं; नई पत्तियाँ छोटी रह जाती हैं और पौधा बौना रहता है; फल पीले-सफ़ेद, छोटे और कड़े होते हैं। यह सफ़ेद मक्खी से फैलता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/bhendi_diseases_4.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of bhendi",
+        "quote": "Yellowing of the entire network of veins in the leaf blade is the characteristic symptom.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/bhendi_diseases_4.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of bhendi",
+        "quote": "By selecting varieties resistant to yellow vein mosaic like Parbhani Kranti, Arka Abhay, Arka Anamika, and Varsha Uphar, the incidence of the disease can be minimised.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/bhendi_diseases_4.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of bhendi",
+        "quote": "For sowing during the summer season, when the whitefly activity is high, the susceptible varieties should be avoided.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For sucking pests (like thrips and whitefly) in the early stage: Spray Neemastra @ 200 litres per acre",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fungus/Virus control: Spray 3–4 days old buttermilk mixed with 100 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Grow resistant varieties (Parbhani Kranti, Arka Abhay, Arka Anamika, Varsha Uphar) and avoid susceptible ones in summer, when whitefly is most active.",
+  "management_hi": "प्रतिरोधी किस्में (परभणी क्रांति, अर्का अभय, अर्का अनामिका, वर्षा उपहार) लगाएँ और गर्मी में, जब सफ़ेद मक्खी सबसे सक्रिय होती है, संवेदनशील किस्में न लगाएँ।",
+  "recipe_slugs": [
+    "neemastra",
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). Neemastra acts on the whitefly that carries the virus."
+}

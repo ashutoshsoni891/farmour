@@ -1,0 +1,30 @@
+{
+  "name_en": "Drumstick bud worm",
+  "name_hi": "सहजन की कली इल्ली",
+  "crop_slugs": [
+    "drumstick"
+  ],
+  "symptoms_en": "The caterpillar bores into flower buds and causes them to drop.",
+  "symptoms_hi": "इल्ली फूल की कलियों में छेद करती है जिससे वे झड़ जाती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/moringa/moringa_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of moringa",
+        "quote": "Larva bores into flower buds and causes shedding",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/moringa/moringa_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of moringa",
+        "quote": "Collect and destroy the flower and buds",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Collect and destroy the affected flowers and buds.",
+  "management_hi": "प्रभावित फूल और कलियाँ इकट्ठा करके नष्ट करें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

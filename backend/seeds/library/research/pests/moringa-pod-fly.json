@@ -1,0 +1,42 @@
+{
+  "name_en": "Drumstick pod fly",
+  "name_hi": "सहजन की फली मक्खी",
+  "crop_slugs": [
+    "drumstick"
+  ],
+  "symptoms_en": "Fruits dry and split from the tip and ooze a gummy fluid.",
+  "symptoms_hi": "फलियाँ सिरे से सूखकर फटती हैं और उनसे गोंद जैसा द्रव निकलता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/moringa/moringa_4.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of moringa",
+        "quote": "Drying and splitting of fruits from tip Oozing of gummy exudate from fruit",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/moringa/moringa_4.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of moringa",
+        "quote": "Collect and destroy all the fallen and damaged fruits Use attractants like citronella oil, eucalyptus oil, vinegar (Acetic acid), dextrose or lactic acid Rake up the soil under the trees or plough the infested field to destroy puparia",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Borer, Fall Armyworm, and Fruit Fly control: Spray Agniastra @ 3 litres / 100 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Collect and destroy fallen and damaged pods, rake up or plough the soil under the trees to destroy the pupae, and use attractants such as vinegar or citronella oil.",
+  "management_hi": "गिरी और क्षतिग्रस्त फलियाँ इकट्ठा करके नष्ट करें, पेड़ों के नीचे की मिट्टी खुरचें या जुताई करें ताकि प्यूपा नष्ट हों, और सिरका या सिट्रोनेला तेल जैसे आकर्षक पदार्थ उपयोग करें।",
+  "recipe_slugs": [
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). The page calls the pest a fly; the recipe is matched as a fruit-fly class pest."
+}

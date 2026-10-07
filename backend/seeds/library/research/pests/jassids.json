@@ -1,0 +1,47 @@
+{
+  "name_en": "Jassids (leafhoppers)",
+  "name_hi": "जैसिड (हरा तेला)",
+  "crop_slugs": [
+    "okra",
+    "potato"
+  ],
+  "symptoms_en": "Leaves turn yellow, edges curl down and redden, and in bad attacks the leaves bronze and crumble ('hopper burn'); growth is stunted.",
+  "symptoms_hi": "पत्तियाँ पीली पड़ती हैं, किनारे नीचे मुड़कर लाल हो जाते हैं और ज़्यादा प्रकोप में पत्तियाँ भूरी होकर चूर हो जाती हैं ('हॉपर बर्न'); बढ़वार रुकती है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/bendi/bendi_8.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of bendi",
+        "quote": "Tender leaves become yellow The margin of the leaves start curling downwards and reddening sets in In the case of severe infestation leaves get a bronze which is typical “hopper burn” symptom",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_5.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of potato",
+        "quote": "Tips of affected leaves become brown, turn upwards and get dried up",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Control of pink bollworm and jassids: Spray 5–7 litres of Brahmastra in 200 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fermented Curd Water For the management of common sucking pests like whiteflies, jassids, and aphids",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "recipe_slugs": [
+    "brahmastra",
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

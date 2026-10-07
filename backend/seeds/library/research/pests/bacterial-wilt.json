@@ -1,0 +1,55 @@
+{
+  "name_en": "Bacterial wilt",
+  "name_hi": "जीवाणु उकठा (बैक्टीरियल विल्ट)",
+  "crop_slugs": [
+    "tomato",
+    "brinjal"
+  ],
+  "symptoms_en": "Rapid and complete wilting; lower leaves drop first; tissues turn yellow-brown and white bacterial ooze comes from a cut stem. Plants may recover at night but die soon.",
+  "symptoms_hi": "पौधा तेज़ी से पूरी तरह मुरझा जाता है; निचली पत्तियाँ पहले गिरती हैं; ऊतक पीले-भूरे हो जाते हैं और कटे तने से सफ़ेद चिपचिपा द्रव निकलता है। पौधा रात में सँभल सकता है पर जल्द मर जाता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_5.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Rapid and complete wilting of plant. Lower leaves drop before wilting . Yellow brown discolouration of tissues. White bacterial ooze from cut ends.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/brinjal_diseases_1.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of brinjal",
+        "quote": "Plant show wilting symptoms at noontime will recover at nights, but die soon.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_5.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Crop rotation Disease free seedlings. Restriction of irrigation.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_5.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Soil application of neem cake @ 100 kg/acre",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/brinjal_diseases_1.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of brinjal",
+        "quote": "Crop rotation with cruciferous vegetables such as cauliflower help in reducing the disease incidence. Fields should be kept clean and effected parts are to be collected and burnt.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/brinjal_diseases_1.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of brinjal",
+        "quote": "The disease is more prevalent in the presence of root knot Nematodes, so control of these nematodes will suppress the disease spread.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Rotate crops (cauliflower or other cabbage-family crops help in brinjal), use disease-free seedlings, restrict irrigation, keep fields clean and burn infected parts, and add neem cake to the soil (100 kg per acre). Control root-knot nematodes, which make the disease worse.",
+  "management_hi": "फसल चक्र अपनाएँ (बैंगन में फूलगोभी जैसी गोभी-वर्गीय फसलें मदद करती हैं), रोगमुक्त पौध लगाएँ, सिंचाई सीमित रखें, खेत साफ़ रखें और रोगी भाग जला दें, तथा मिट्टी में नीम खली (100 किलो प्रति एकड़) डालें। जड़-गाँठ सूत्रकृमि को नियंत्रित करें, ये रोग को बढ़ाते हैं।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

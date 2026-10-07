@@ -1,0 +1,58 @@
+{
+  "name_en": "Fruit borer (Helicoverpa)",
+  "name_hi": "फल छेदक इल्ली (हेलिकोवर्पा)",
+  "crop_slugs": [
+    "tomato",
+    "chilli",
+    "okra"
+  ],
+  "symptoms_en": "Young caterpillars feed on tender leaves; grown caterpillars bore round holes in the fruit and eat the inside with only part of the body thrust in.",
+  "symptoms_hi": "छोटी इल्लियाँ कोमल पत्तियाँ खाती हैं; बड़ी इल्लियाँ फल में गोल छेद करके शरीर का आधा हिस्सा अंदर डालकर गूदा खाती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Young larvae feed on tender foliage Mature larvae bore circular holes Thrust only a part of its body into fruit and eat the inner content",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/bendi/bendi_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of bendi",
+        "quote": "Feed on the flowers Circular boreholes on fruits",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Collect and destroy the infected fruits and grown up larvae Grow simultaneously 40 days old American tall marigold and 25 days old tomato seedling at 1:16 rows Setup pheromone trap with Helilure at 12/ha",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Borer, Fall Armyworm, and Fruit Fly control: Spray Agniastra @ 3 litres / 100 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For caterpillars and other insects: Spray Dashparni Ark or Agniastra @ 7.5 litres + 250 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Collect and destroy infected fruits and big caterpillars. Grow tall marigold with the crop as a trap (1 marigold row for every 16 tomato rows). Set pheromone traps (12 per hectare).",
+  "management_hi": "संक्रमित फल और बड़ी इल्लियाँ इकट्ठा करके नष्ट करें। फसल के साथ ऊँचा गेंदा जाल-फसल के रूप में लगाएँ (हर 16 टमाटर कतार पर 1 कतार)। फेरोमोन ट्रैप लगाएँ (12 प्रति हेक्टेयर)।",
+  "recipe_slugs": [
+    "agniastra",
+    "dashparni-ark"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). Marigold as a trap crop matches the library's companion pairs."
+}

@@ -1,0 +1,42 @@
+{
+  "name_en": "Early blight (Alternaria)",
+  "name_hi": "अगेती झुलसा (अर्ली ब्लाइट)",
+  "crop_slugs": [
+    "tomato"
+  ],
+  "symptoms_en": "Brown spots with rings like a bull's eye and a yellow edge on leaves; fruit is infected at the stalk end and shows brown rings.",
+  "symptoms_hi": "पत्तियों पर पीले किनारे वाले, छल्लेदार भूरे धब्बे; फल डंठल की ओर से संक्रमित होता है और उस पर भूरे छल्ले दिखते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_2.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Brown spots with concentric rings in a bull's eye pattern with yellow margin. Fruit gets infected through calyx or stem attachment.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_2.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Removal and destruction of crop debris. Crop rotation. Seed treatment: Trichoderma asperellum @ 4g/kg seeds",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Alternaria blight management: On appearance of symptoms, spray 7–10 days old buttermilk",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Remove and destroy crop debris, rotate crops, and treat seed with Trichoderma (4 g per kg).",
+  "management_hi": "फसल के अवशेष हटाकर नष्ट करें, फसल चक्र अपनाएँ और बीज को ट्राइकोडर्मा (4 ग्राम प्रति किलो) से उपचारित करें।",
+  "recipe_slugs": [
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). Favoured by warm, humid, wet weather (24-29 °C); the source gives no months."
+}

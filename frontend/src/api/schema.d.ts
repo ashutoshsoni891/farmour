@@ -1843,6 +1843,10 @@ export interface components {
             recipe_slugs?: string[] | null;
             /** Escalate If */
             escalate_if?: string | null;
+            /** Management En */
+            management_en?: string | null;
+            /** Management Hi */
+            management_hi?: string | null;
             /** Sources */
             sources?: {
                 [key: string]: components["schemas"]["Source"][];
@@ -1872,6 +1876,10 @@ export interface components {
             recipe_slugs?: string[] | null;
             /** Escalate If */
             escalate_if?: string | null;
+            /** Management En */
+            management_en?: string | null;
+            /** Management Hi */
+            management_hi?: string | null;
             /** Sources */
             sources?: {
                 [key: string]: components["schemas"]["Source"][];
@@ -1931,6 +1939,10 @@ export interface components {
             recipe_slugs: string[];
             /** Escalate If */
             escalate_if: string | null;
+            /** Management En */
+            management_en: string | null;
+            /** Management Hi */
+            management_hi: string | null;
             /** Sources */
             sources: {
                 [key: string]: unknown;

@@ -1,0 +1,63 @@
+{
+  "name_en": "Leaf curl virus",
+  "name_hi": "पत्ती मुड़न विषाणु (लीफ कर्ल)",
+  "crop_slugs": [
+    "tomato",
+    "chilli"
+  ],
+  "symptoms_en": "Plants are stunted; leaves roll downward, crinkle and become leathery and brittle; shortened internodes give a bushy look. Spread by whitefly.",
+  "symptoms_hi": "पौधे बौने रह जाते हैं; पत्तियाँ नीचे की ओर मुड़ती, सिकुड़ती और चमड़े जैसी कड़ी व भंगुर हो जाती हैं; गाँठें छोटी होने से पौधा झाड़ीनुमा दिखता है। यह सफ़ेद मक्खी से फैलता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_6.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Severe stunting of plants Downward rolling and crinkling of the leaves Older leaves become leathery and brittle Shortening of internodes Appearence of more lateral branches - bushy appearance",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chilli_diseases_7.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chilli",
+        "quote": "Leaves curl towards midrib and become deformed.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_6.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Raising nursery in protected condition Growing Sorghum, Maize or Bajra as barrier crop Use of disease free seeds Yellow sticky traps @ 5nos./ac Remove alternate weed host - Abutilon indicum",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chilli_diseases_7.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chilli",
+        "quote": "The infected plants should be uprooted and burnt or buried to avoid further infection.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fungus/Virus control: Spray 3–4 days old buttermilk mixed with 100 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For sucking pests (like thrips and whitefly) in the early stage: Spray Neemastra @ 200 litres per acre",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Raise the nursery under cover, grow sorghum, maize or bajra as a barrier crop, use disease-free seed, set yellow sticky traps (5 per acre), remove the weed Abutilon, and uproot infected plants.",
+  "management_hi": "नर्सरी ढककर तैयार करें, ज्वार, मक्का या बाजरा को अवरोधक फसल के रूप में लगाएँ, रोगमुक्त बीज उपयोग करें, पीले चिपचिपे ट्रैप (5 प्रति एकड़) लगाएँ, खरपतवार अबूटिलोन हटाएँ और रोगी पौधे उखाड़ दें।",
+  "recipe_slugs": [
+    "sour-buttermilk-spray",
+    "neemastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). Neemastra acts on the whitefly that carries the virus."
+}

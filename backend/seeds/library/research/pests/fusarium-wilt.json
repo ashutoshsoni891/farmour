@@ -1,0 +1,30 @@
+{
+  "name_en": "Fusarium wilt",
+  "name_hi": "फ्यूज़ेरियम उकठा (विल्ट)",
+  "crop_slugs": [
+    "tomato"
+  ],
+  "symptoms_en": "Veins clear and lower leaves yellow; younger leaves die in turn; leaves droop and the whole plant wilts and dies; the inside of the stem turns brown.",
+  "symptoms_hi": "शिराएँ साफ़ दिखती हैं और निचली पत्तियाँ पीली पड़ती हैं; ऊपर की पत्तियाँ क्रम से सूखती हैं; पत्तियाँ लटकती हैं और पूरा पौधा सूखकर मर जाता है; तने के अंदर भूरापन आ जाता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_3.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Clearing of the veinlets and yellowing of the lower leaves. Younger leaves die in succession. Petiole and leaves droop and wilt. Browning of vascular system. Entire plant wilt and die.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato_diseases_3.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of tomato",
+        "quote": "Soil solarization. Crop rotation. Removal of infected plant. Seed treatment with Trichoderma asperellum (viride) @ 4g/kg seeds.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Solarize the soil, rotate crops, remove infected plants and treat seed with Trichoderma (4 g per kg).",
+  "management_hi": "मिट्टी का सौरीकरण करें, फसल चक्र अपनाएँ, रोगी पौधे हटाएँ और बीज को ट्राइकोडर्मा (4 ग्राम प्रति किलो) से उपचारित करें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

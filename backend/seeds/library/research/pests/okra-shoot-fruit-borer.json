@@ -1,0 +1,42 @@
+{
+  "name_en": "Okra shoot and fruit borer (Earias)",
+  "name_hi": "भिंडी का तना और फल छेदक (इरियास)",
+  "crop_slugs": [
+    "okra"
+  ],
+  "symptoms_en": "Terminal shoots wither and droop; buds and flowers drop; fruits have bore holes and are deformed.",
+  "symptoms_hi": "सिरे की कोंपलें मुरझाकर झुक जाती हैं; कलियाँ और फूल झड़ते हैं; फलों में छेद होते हैं और वे बेढंगे हो जाते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/bendi/bendi_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of bendi",
+        "quote": "Terminal shoots wither and droop Shedding of buds and flowers Bore hole in fruits and fee Deformed fruits",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/bendi/bendi_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of bendi",
+        "quote": "Set up pheromone trap @ 12/ha. Collection and destruction of affected fruits. Release of egg parasite Trichogramma chilonis @ 1.0 lakh/ha.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Borer, Fall Armyworm, and Fruit Fly control: Spray Agniastra @ 3 litres / 100 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Set pheromone traps (12 per hectare). Collect and destroy affected fruits. Release the egg parasite Trichogramma chilonis (1 lakh per hectare).",
+  "management_hi": "फेरोमोन ट्रैप लगाएँ (12 प्रति हेक्टेयर)। प्रभावित फल इकट्ठा करके नष्ट करें। अंडा परजीवी ट्राइकोग्रामा किलोनिस (1 लाख प्रति हेक्टेयर) छोड़ें।",
+  "recipe_slugs": [
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

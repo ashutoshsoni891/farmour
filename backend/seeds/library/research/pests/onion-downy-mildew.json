@@ -1,0 +1,32 @@
+{
+  "name_en": "Onion downy mildew",
+  "name_hi": "प्याज़ का मृदुरोमिल आसिता (डाउनी मिल्ड्यू)",
+  "crop_slugs": [
+    "onion"
+  ],
+  "symptoms_en": "White downy growth on the leaves; the infected leaves finally dry up.",
+  "symptoms_hi": "पत्तियों पर सफ़ेद रोएँदार जमाव; संक्रमित पत्तियाँ अंत में सूख जाती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/onion_diseases_2.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of onion",
+        "quote": "White downy growth appears on the surface of the leaves. Finally the infected leaves are dried up.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fungus/Virus control: Spray 3–4 days old buttermilk mixed with 100 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "recipe_slugs": [
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

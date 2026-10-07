@@ -1,0 +1,56 @@
+{
+  "name_en": "Thrips",
+  "name_hi": "थ्रिप्स",
+  "crop_slugs": [
+    "tomato",
+    "chilli",
+    "onion"
+  ],
+  "symptoms_en": "Silvery streaks or white patches on leaves, leaf tips dry in bad attacks; flowers and buds drop; some spread tomato spotted wilt virus.",
+  "symptoms_hi": "पत्तियों पर चाँदी जैसी धारियाँ या सफ़ेद धब्बे, ज़्यादा प्रकोप में सिरे सूखते हैं; फूल और कलियाँ झड़ती हैं; कुछ थ्रिप्स टमाटर स्पॉटेड विल्ट विषाणु फैलाते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_5.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Silvery streaks on leaf surface Pre-mature dropping of flowers Bud necrosis. Vector of tomato spotted wilt virus.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/onion/onion_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of onion",
+        "quote": "Small white silvery patches are seen all over the leaves",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_5.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Mechanically uproot the diseased plants and destroy them Use yellow sticky traps @ 15/ha",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/onion/onion_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of onion",
+        "quote": "Clean cultivation, regular hoeing Flooding of infested field will check the thrips population.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For sucking pests (like thrips and whitefly) in the early stage: Spray Neemastra @ 200 litres per acre",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Use yellow sticky traps (15 per hectare). Uproot and destroy diseased plants. In onion keep the field clean and hoe regularly; flooding the field checks thrips.",
+  "management_hi": "पीले चिपचिपे ट्रैप लगाएँ (15 प्रति हेक्टेयर)। रोगी पौधे उखाड़कर नष्ट करें। प्याज़ में खेत साफ़ रखें और नियमित गुड़ाई करें; खेत में पानी भरने से थ्रिप्स कम होते हैं।",
+  "recipe_slugs": [
+    "neemastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}

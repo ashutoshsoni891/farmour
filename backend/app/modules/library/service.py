@@ -608,6 +608,7 @@ async def load_seed(session: AsyncSession) -> dict[str, int]:
     counts.update(await load_research(session, seed.read_research()))
     counts.update(await load_companion_research(session, seed.read_companions()))
     counts.update(await load_recipe_research(session, seed.read_recipe_research()))
+    counts.update(await load_pest_research(session, seed.read_pest_research()))
     return counts
 
 
@@ -677,6 +678,45 @@ async def load_recipe_research(
             recipe.status = "ai_verified"
             recipe.todo = ["TODO(agronomist): review AI-checked values and add safety notes"]
             counts["recipes_ai_verified"] += 1
+    await session.flush()
+    return counts
+
+
+async def load_pest_research(
+    session: AsyncSession, files: dict[str, dict[str, Any]]
+) -> dict[str, int]:
+    """Create or fill pests and diseases from AI research files (seeds/library/research/pests/
+    <slug>.json). A pest becomes `ai_verified` when nothing is missing and every source was
+    checked; entries in review, approved or retired are left alone."""
+    counts = {"pests_ai_verified": 0, "pests_draft": 0, "pests_skipped": 0}
+    for slug, raw in files.items():
+        pest = await repo.get_pest_by_slug(session, slug)
+        if pest is not None and pest.status not in ("draft", "ai_verified"):
+            counts["pests_skipped"] += 1
+            continue
+        values = await _pest_values(session, _dump(PestFields.model_validate(raw)))
+        if pest is None:
+            pest = Pest(
+                id=uuid.uuid4(), slug=slug, **{k: v for k, v in values.items() if k != "todo"}
+            )
+            await repo.add_all(session, pest)
+        else:
+            for key, value in values.items():
+                if key in ("sources", "todo"):
+                    continue
+                if pest.status == "ai_verified" or getattr(pest, key, None) in (None, [], {}, ""):
+                    setattr(pest, key, value)
+            pest.sources = {**(pest.sources or {}), **(values.get("sources") or {})}
+        out = (await _pest_out(session, pest, with_missing=False)).model_dump()
+        problems = workflow.pest_missing(out) + workflow.unchecked_sources(out)
+        if problems:
+            pest.status = "draft"
+            pest.todo = [f"TODO(agronomist): {p}" for p in problems]
+            counts["pests_draft"] += 1
+        else:
+            pest.status = "ai_verified"
+            pest.todo = ["TODO(agronomist): review AI-checked values"]
+            counts["pests_ai_verified"] += 1
     await session.flush()
     return counts
 

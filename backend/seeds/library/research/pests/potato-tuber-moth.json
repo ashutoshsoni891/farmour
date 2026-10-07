@@ -1,0 +1,42 @@
+{
+  "name_en": "Potato tuber moth",
+  "name_hi": "आलू की कंद पतंगा",
+  "crop_slugs": [
+    "potato"
+  ],
+  "symptoms_en": "Caterpillars tunnel into leaves, stems and tubers (in the field and in storage), leaving galleries near the tuber eyes.",
+  "symptoms_hi": "इल्लियाँ पत्तियों, तनों और कंदों (खेत और भंडारण दोनों में) में सुरंग बनाती हैं और कंद की आँखों के पास गैलरी छोड़ती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of potato",
+        "quote": "It is a pest of field and storage Larva tunnels into foliage, stem and tubers Galleries are formed near tuber eyes",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of potato",
+        "quote": "Select healthy tubers Avoid shallow planting of tubers. Plant the tubers to a depth at 10 - 15 cm deep",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of potato",
+        "quote": "Adopt intercropping with chilies, onion or peas Do earthing up at 60 days after planting to avoid female moths laying eggs on the exposed tubers",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of potato",
+        "quote": "Cover the upper surface of potato tubers with the branches of Lantana and Eupatorium to repel the ovipositing moth in the godown",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Plant healthy tubers 10-15 cm deep and earth up at 60 days so moths cannot lay eggs on exposed tubers. Intercrop with chilli, onion or peas. Remove infested tubers and do not leave harvested tubers in the field overnight. Cover stored tubers with Lantana branches to repel moths.",
+  "management_hi": "स्वस्थ कंद 10-15 सेमी गहरे लगाएँ और 60 दिन पर मिट्टी चढ़ाएँ ताकि पतंगे खुले कंदों पर अंडे न दें। मिर्च, प्याज़ या मटर के साथ अंतरफसल लें। संक्रमित कंद निकालें और खुदाई के बाद कंद रात भर खेत में न छोड़ें। भंडारण में कंदों को लैंटाना की टहनियों से ढकें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). Intercropping potato with chilli, onion or peas matches the library's companion pairs."
+}

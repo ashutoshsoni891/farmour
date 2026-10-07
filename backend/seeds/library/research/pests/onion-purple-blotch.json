@@ -1,0 +1,42 @@
+{
+  "name_en": "Onion purple blotch",
+  "name_hi": "प्याज़ का बैंगनी धब्बा (पर्पल ब्लॉच)",
+  "crop_slugs": [
+    "onion"
+  ],
+  "symptoms_en": "Whitish dots on the leaf tips with pale areas; black velvety rings form, spots join and the leaves die from the tip down.",
+  "symptoms_hi": "पत्ती के सिरों पर सफ़ेद बिंदु और पीले क्षेत्र; काले मखमली छल्ले बनते हैं, धब्बे जुड़ जाते हैं और पत्तियाँ सिरे से नीचे की ओर सूखती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/onion_diseases_7.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of onion",
+        "quote": "the infection starts with whitish minute dots on the leaves with irregular chlorotic areas on tip portion of the leaves. Circular to oblong concentric black velvety rings appear in the chlorotic area.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/onion_diseases_7.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of onion",
+        "quote": "Disease free bulb should be selected for planting Seeds should be treated with Thiram @ 4 g/kg seed. The field should be well drained.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fungus/Virus control: Spray 3–4 days old buttermilk mixed with 100 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Plant disease-free bulbs and keep the field well drained.",
+  "management_hi": "रोगमुक्त कंद लगाएँ और खेत में जल निकास अच्छा रखें।",
+  "recipe_slugs": [
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist)). Thiram seed treatment in the source is left out (a chemical)."
+}

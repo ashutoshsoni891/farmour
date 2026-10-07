@@ -1,0 +1,51 @@
+{
+  "name_en": "Tobacco caterpillar (Spodoptera litura)",
+  "name_hi": "तंबाकू की इल्ली (स्पोडोप्टेरा)",
+  "crop_slugs": [
+    "tomato",
+    "chilli",
+    "potato"
+  ],
+  "symptoms_en": "Young caterpillars scrape the underside of leaves leaving papery white patches; grown ones eat the whole leaf and damage flowers.",
+  "symptoms_hi": "छोटी इल्लियाँ पत्तियों की निचली सतह खुरचती हैं जिससे कागज़ जैसे सफ़ेद धब्बे बनते हैं; बड़ी इल्लियाँ पूरी पत्ती और फूल खा जाती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_3.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Young larva scrap leaves on ventral surface Grownups defoliate crops",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chilli/chilli_3.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of chilli",
+        "quote": "Newly hatched larvae scrap the green matter in the leaf Affected leaf looks like a papery white structure",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/tomato/tomato_3.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of tomato",
+        "quote": "Grow castor as trap crop. Collect and destroy egg masses and early instar larvae Set up pheromone traps @ 12/ha.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For caterpillars and other insects: Spray Dashparni Ark or Agniastra @ 7.5 litres + 250 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Grow castor along the border and irrigation channels as a trap crop. Collect and destroy egg masses and young caterpillars. Plough to expose pupae. Set pheromone traps (12 per hectare).",
+  "management_hi": "मेड़ और सिंचाई नाली के किनारे अरंडी जाल-फसल के रूप में लगाएँ। अंडों के गुच्छे और छोटी इल्लियाँ इकट्ठा करके नष्ट करें। जुताई करके प्यूपा को उजागर करें। फेरोमोन ट्रैप लगाएँ (12 प्रति हेक्टेयर)।",
+  "recipe_slugs": [
+    "dashparni-ark",
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced yet (TODO(agronomist))."
+}
