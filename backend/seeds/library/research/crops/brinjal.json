@@ -122,6 +122,15 @@
         "note": "FAO's 'Egg Plant'.",
         "checked_on": "2026-10-07"
       }
+    ],
+    "root_depth_cm": [
+      {
+        "url": "https://www.fao.org/3/x0490e/x0490e0e.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 8: Table 22, maximum effective rooting depth",
+        "quote": "Egg Plant 0.7-1.2 0.45",
+        "note": "The lower end of FAO's range is stored (the page says the smaller values suit irrigation scheduling).",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 1 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are national ICAR-IIVR months (no Malwa-specific source found yet).",
@@ -156,5 +165,6 @@
     "ini": 0.6,
     "mid": 1.05,
     "end": 0.9
-  }
+  },
+  "root_depth_cm": 70
 }

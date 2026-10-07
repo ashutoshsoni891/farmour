@@ -83,6 +83,15 @@
         "note": "Mean maximum plant height in FAO's table.",
         "checked_on": "2026-10-07"
       }
+    ],
+    "root_depth_cm": [
+      {
+        "url": "https://www.fao.org/3/x0490e/x0490e0e.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 8: Table 22, maximum effective rooting depth",
+        "quote": "Millet 1.0-2.0 0.55",
+        "note": "The lower end of FAO's range is stored (the page says the smaller values suit irrigation scheduling). FAO's 'Millet' is used.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
@@ -112,5 +121,6 @@
     "mid": 1.0,
     "end": 0.3
   },
-  "height_max_cm": 150
+  "height_max_cm": 150,
+  "root_depth_cm": 100
 }
