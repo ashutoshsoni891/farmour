@@ -33,16 +33,27 @@ def _norm(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def _pdf_text(req: urllib.request.Request) -> str:
-    """Text of a cited PDF (state and ICAR guides are mostly PDFs); empty when it can't be read."""
+def _fetch(req: urllib.request.Request) -> bytes:
+    """The cited page as bytes; empty when it can't be read (the servers drop some connections)."""
     for attempt in range(4):
         try:
             with urllib.request.urlopen(req, timeout=90) as resp:  # noqa: S310 (cited https urls)
-                reader = PdfReader(io.BytesIO(resp.read()))
-            return " ".join((page.extract_text() or "") for page in reader.pages)
-        except (OSError, PdfReadError):
+                return bytes(resp.read())
+        except OSError:
             time.sleep(2 * (attempt + 1))
-    return ""
+    return b""
+
+
+def _text_of(raw: bytes) -> str:
+    """Plain text of a page; a PDF (most state and ICAR guides) is detected by its content."""
+    if raw[:4] == b"%PDF":
+        try:
+            reader = PdfReader(io.BytesIO(raw))
+            return " ".join((page.extract_text() or "") for page in reader.pages)
+        except PdfReadError:
+            return ""
+    text = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", raw.decode("utf-8", "replace"))
+    return re.sub(r"<[^>]+>", " ", text)
 
 
 def _page_text(url: str, cache: dict[str, str]) -> str:
@@ -53,19 +64,7 @@ def _page_text(url: str, cache: dict[str, str]) -> str:
             urllib.parse.quote(url, safe=":/?=&%#"),
             headers={"User-Agent": "Mozilla/5.0 (farmour research)"},
         )
-        if url.lower().split("?")[0].endswith(".pdf"):
-            cache[url] = _norm(_pdf_text(req))
-            return cache[url]
-        raw = ""
-        for attempt in range(4):  # the TNAU server drops some connections; try again
-            try:
-                with urllib.request.urlopen(req, timeout=40) as resp:  # noqa: S310 (cited https urls)
-                    raw = resp.read().decode("utf-8", "replace")
-                break
-            except OSError:
-                time.sleep(2 * (attempt + 1))
-        raw = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", raw)
-        cache[url] = _norm(re.sub(r"<[^>]+>", " ", raw))
+        cache[url] = _norm(_text_of(_fetch(req)))
     return cache[url]
 
 

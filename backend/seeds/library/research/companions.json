@@ -1,6 +1,1402 @@
 {
   "companions": [
     {
+      "crop_a": "onion",
+      "crop_b": "coriander",
+      "relation": "good",
+      "reason_en": "Coriander can be sown as an intercrop in transplanted onion, one row after every five onion rows.",
+      "reason_hi": "रोपी हुई प्याज़ में हर पाँच कतार के बाद धनिया की एक कतार अंतरफसल के रूप में बोई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+            "title": "PAU Ludhiana: package of practices for rabi crops",
+            "quote": "Coriander can be intercropped in transplanted onion by sowing one row of coriander after every five rows of onion",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          },
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+            "title": "PAU Ludhiana: package of practices for cultivation of vegetables (2021)",
+            "quote": "onion with coriander",
+            "note": "From the PAU organic maize-potato-onion system. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "potato",
+      "crop_b": "radish",
+      "relation": "good",
+      "reason_en": "Radish can be intercropped on the south side of each potato ridge and is dug out after 50-70 days.",
+      "reason_hi": "आलू की हर मेंड़ की दक्षिण दिशा में मूली अंतरफसल के रूप में उगाई जा सकती है और 50-70 दिन में निकाल ली जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+            "title": "PAU Ludhiana: package of practices for rabi crops",
+            "quote": "Radish can be intercropped in potato in the first fortnight of October on the southern side of each potato ridge",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mint",
+      "crop_b": "onion",
+      "relation": "good",
+      "reason_en": "Onion can be grown as an intercrop in mint.",
+      "reason_hi": "पुदीना (मेंथा) में प्याज़ अंतरफसल के रूप में उगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+            "title": "PAU Ludhiana: package of practices for rabi crops",
+            "quote": "Onion can be grown as intercrop in mentha",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "maize",
+      "crop_b": "cowpea",
+      "relation": "good",
+      "reason_en": "Cowpea is sown together with maize as an intercrop for higher productivity.",
+      "reason_hi": "अधिक उत्पादन के लिए मक्का के साथ लोबिया अंतरफसल के रूप में बोया जाता है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+            "title": "PAU Ludhiana: package of practices for rabi crops",
+            "quote": "Sow maize and cowpea simultaneously",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          },
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+            "title": "PAU Ludhiana: package of practices for kharif crops",
+            "quote": "Intercrop one row either of cowpea or maize as fodder, soybean for grains and groundnut for pods in maize sown at row to row spacing of 60 cm",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "maize",
+      "crop_b": "soybean",
+      "relation": "good",
+      "reason_en": "Soybean can be successfully intercropped with maize.",
+      "reason_hi": "मक्का के साथ सोयाबीन सफलतापूर्वक अंतरफसल के रूप में उगाया जा सकता है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+            "title": "PAU Ludhiana: package of practices for kharif crops",
+            "quote": "Soybean can be successfully intercropped with maize",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "maize",
+      "crop_b": "groundnut",
+      "relation": "good",
+      "reason_en": "Groundnut can be grown for pods as an intercrop in maize.",
+      "reason_hi": "मक्का में मूंगफली (फली के लिए) अंतरफसल के रूप में उगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+            "title": "PAU Ludhiana: package of practices for kharif crops",
+            "quote": "Intercrop one row either of cowpea or maize as fodder, soybean for grains and groundnut for pods in maize sown at row to row spacing of 60 cm",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "maize",
+      "crop_b": "bajra",
+      "relation": "good",
+      "reason_en": "Mixed cropping of fodder maize with bajra is preferred (it also limits fall armyworm).",
+      "reason_hi": "चारा मक्का के साथ बाजरा की मिश्रित खेती बेहतर है (इससे फॉल आर्मीवर्म भी कम होता है)।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+            "title": "PAU Ludhiana: package of practices for kharif crops",
+            "quote": "Prefer mixed cropping of fodder maize with cowpea/bajra/sorghum.",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "maize",
+      "crop_b": "urad",
+      "relation": "good",
+      "reason_en": "Maize with blackgram (urad) is recommended for higher net returns in red lateritic soils.",
+      "reason_hi": "लाल लेटेराइट मिट्टी में अधिक शुद्ध आय के लिए मक्का के साथ उड़द की अंतरफसल अनुशंसित है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+            "title": "TNAU crop production guide: agricultural crops (2020)",
+            "quote": "Intercropping system of maize + cowpea or maize + blackgram is recommended for higher net returns",
+            "note": "Southern districts of Tamil Nadu.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "arhar",
+      "crop_b": "moong",
+      "relation": "good",
+      "reason_en": "Moong can be grown between the rows of arhar.",
+      "reason_hi": "अरहर की कतारों के बीच मूंग उगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+            "title": "PAU Ludhiana: package of practices for kharif crops",
+            "quote": "Moong can be successfully grown between the rows of arhar",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "groundnut",
+      "crop_b": "cowpea",
+      "relation": "good",
+      "reason_en": "One row of cowpea after every five rows of groundnut where red hairy caterpillar is a problem.",
+      "reason_hi": "जहाँ लाल बालदार इल्ली की समस्या हो वहाँ मूंगफली की हर पाँच कतार के बाद लोबिया की एक कतार लगाएँ।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+            "title": "TNAU crop production guide: agricultural crops (2020)",
+            "quote": "Raise one row of cowpea for every five rows of groundnut wherever red hairy caterpillar is endemic.",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "groundnut",
+      "crop_b": "arhar",
+      "relation": "good",
+      "reason_en": "Redgram (arhar) is a recommended intercrop in groundnut.",
+      "reason_hi": "मूंगफली में अरहर अनुशंसित अंतरफसल है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+            "title": "TNAU crop production guide: agricultural crops (2020)",
+            "quote": "Raise intercrops like redgram, blackgram, sunflower, gingelly or other pulses.",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "groundnut",
+      "crop_b": "urad",
+      "relation": "good",
+      "reason_en": "Blackgram (urad) is a recommended intercrop in groundnut.",
+      "reason_hi": "मूंगफली में उड़द अनुशंसित अंतरफसल है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+            "title": "TNAU crop production guide: agricultural crops (2020)",
+            "quote": "Raise intercrops like redgram, blackgram, sunflower, gingelly or other pulses.",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "groundnut",
+      "crop_b": "sesame",
+      "relation": "good",
+      "reason_en": "Groundnut with gingelly (sesame) in a 4:1 ratio is recommended.",
+      "reason_hi": "मूंगफली और तिल को 4:1 के अनुपात में लगाने की सिफ़ारिश है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+            "title": "TNAU crop production guide: agricultural crops (2020)",
+            "quote": "Groundnut + Gingelly or Groundnut + Blackgram in the ratio of 4:1",
+            "note": "Gingelly is TNAU's name for sesame (til). Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "chana",
+      "crop_b": "coriander",
+      "relation": "good",
+      "reason_en": "One or two rows of coriander between paired rows of gram give the highest return.",
+      "reason_hi": "चने की जोड़ी कतारों के बीच धनिया की एक-दो कतारें सबसे अधिक आय देती हैं।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/agriculture/pulses_bengalgram.html",
+            "title": "TNAU Agritech Portal: bengalgram",
+            "quote": "Bengalgram in paired row planting with one or two rows of Coriander as intercrop would give the highest return",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "turmeric",
+      "crop_b": "coriander",
+      "relation": "good",
+      "reason_en": "Coriander can be planted on the sides of the ridges between turmeric.",
+      "reason_hi": "हल्दी की मेंड़ों के किनारे धनिया अंतरफसल के रूप में लगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_turmeric.html",
+            "title": "TNAU Agritech Portal: turmeric",
+            "quote": "Onion, Coriander and Fenugreek can be planted as intercrop on the sides of the ridges 10 cm apart",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "turmeric",
+      "crop_b": "methi",
+      "relation": "good",
+      "reason_en": "Methi can be planted on the sides of the ridges between turmeric.",
+      "reason_hi": "हल्दी की मेंड़ों के किनारे मेथी अंतरफसल के रूप में लगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_turmeric.html",
+            "title": "TNAU Agritech Portal: turmeric",
+            "quote": "Onion, Coriander and Fenugreek can be planted as intercrop on the sides of the ridges 10 cm apart",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "turmeric",
+      "crop_b": "onion",
+      "relation": "good",
+      "reason_en": "Onion can be planted on the sides of the ridges between turmeric.",
+      "reason_hi": "हल्दी की मेंड़ों के किनारे प्याज़ अंतरफसल के रूप में लगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_turmeric.html",
+            "title": "TNAU Agritech Portal: turmeric",
+            "quote": "Onion, Coriander and Fenugreek can be planted as intercrop on the sides of the ridges 10 cm apart",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          },
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_turmeric.html",
+            "title": "TNAU Agritech Portal: turmeric",
+            "quote": "Intercropping Turmeric + chilli Turmeric + onion Turmeric + onion + bhendi",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "turmeric",
+      "crop_b": "chilli",
+      "relation": "good",
+      "reason_en": "Chilli can be grown as an intercrop in turmeric.",
+      "reason_hi": "हल्दी में मिर्च अंतरफसल के रूप में उगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_turmeric.html",
+            "title": "TNAU Agritech Portal: turmeric",
+            "quote": "Intercropping Turmeric + chilli Turmeric + onion Turmeric + onion + bhendi",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          },
+          {
+            "url": "https://celkau.in/crops/spices/turmeric/aftercultivation.php",
+            "title": "Kerala Agricultural University, crop package (turmeric, after cultivation)",
+            "quote": "Chilli, maize and colocasia can be grown as intercrops.",
+            "note": "Kerala recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "turmeric",
+      "crop_b": "okra",
+      "relation": "good",
+      "reason_en": "Turmeric with onion and okra (bhendi) is a recommended intercrop system.",
+      "reason_hi": "हल्दी + प्याज़ + भिंडी एक अनुशंसित अंतरफसल पद्धति है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_turmeric.html",
+            "title": "TNAU Agritech Portal: turmeric",
+            "quote": "Intercropping Turmeric + chilli Turmeric + onion Turmeric + onion + bhendi",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "turmeric",
+      "crop_b": "maize",
+      "relation": "good",
+      "reason_en": "Maize can be grown as an intercrop in turmeric.",
+      "reason_hi": "हल्दी में मक्का अंतरफसल के रूप में उगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://celkau.in/crops/spices/turmeric/aftercultivation.php",
+            "title": "Kerala Agricultural University, crop package (turmeric, after cultivation)",
+            "quote": "Chilli, maize and colocasia can be grown as intercrops.",
+            "note": "Kerala recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "turmeric",
+      "crop_b": "colocasia",
+      "relation": "good",
+      "reason_en": "Colocasia can be grown as an intercrop in turmeric.",
+      "reason_hi": "हल्दी में अरबी अंतरफसल के रूप में उगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://celkau.in/crops/spices/turmeric/aftercultivation.php",
+            "title": "Kerala Agricultural University, crop package (turmeric, after cultivation)",
+            "quote": "Chilli, maize and colocasia can be grown as intercrops.",
+            "note": "Kerala recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "ginger",
+      "crop_b": "dhaincha",
+      "relation": "good",
+      "reason_en": "Dhaincha is grown between ginger beds as a green manure and dug in at the second mulching.",
+      "reason_hi": "अदरक की क्यारियों के बीच ढैंचा हरी खाद के रूप में उगाई जाती है और दूसरी मल्चिंग पर मिट्टी में मिला दी जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://celkau.in/crops/spices/ginger/aftercultivation.php",
+            "title": "Kerala Agricultural University, crop package (ginger, after cultivation)",
+            "quote": "Grow green manure crops like daincha and sun hemp in the interspaces of beds, along with ginger",
+            "note": "Kerala recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "ginger",
+      "crop_b": "sunn-hemp",
+      "relation": "good",
+      "reason_en": "Sunn hemp is grown between ginger beds as a green manure and dug in at the second mulching.",
+      "reason_hi": "अदरक की क्यारियों के बीच सनई हरी खाद के रूप में उगाई जाती है और दूसरी मल्चिंग पर मिट्टी में मिला दी जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://celkau.in/crops/spices/ginger/aftercultivation.php",
+            "title": "Kerala Agricultural University, crop package (ginger, after cultivation)",
+            "quote": "Grow green manure crops like daincha and sun hemp in the interspaces of beds, along with ginger",
+            "note": "Kerala recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "drumstick",
+      "crop_b": "cowpea",
+      "relation": "good",
+      "reason_en": "Short-duration vegetables can be grown as an intercrop in drumstick.",
+      "reason_hi": "सहजन में कम अवधि की सब्ज़ियाँ अंतरफसल के रूप में उगाई जा सकती हैं।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_annualmoringa.html",
+            "title": "TNAU Agritech Portal: annual moringa",
+            "quote": "Short duration vegetables like Cowpea, Bhendi and Tomato can be grown as intercrop.",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "drumstick",
+      "crop_b": "okra",
+      "relation": "good",
+      "reason_en": "Short-duration vegetables can be grown as an intercrop in drumstick.",
+      "reason_hi": "सहजन में कम अवधि की सब्ज़ियाँ अंतरफसल के रूप में उगाई जा सकती हैं।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_annualmoringa.html",
+            "title": "TNAU Agritech Portal: annual moringa",
+            "quote": "Short duration vegetables like Cowpea, Bhendi and Tomato can be grown as intercrop.",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "drumstick",
+      "crop_b": "tomato",
+      "relation": "good",
+      "reason_en": "Short-duration vegetables can be grown as an intercrop in drumstick.",
+      "reason_hi": "सहजन में कम अवधि की सब्ज़ियाँ अंतरफसल के रूप में उगाई जा सकती हैं।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_annualmoringa.html",
+            "title": "TNAU Agritech Portal: annual moringa",
+            "quote": "Short duration vegetables like Cowpea, Bhendi and Tomato can be grown as intercrop.",
+            "note": "Tamil Nadu recommendation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "okra",
+      "crop_b": "marigold",
+      "relation": "good",
+      "reason_en": "Marigold grown between okra plants acts as a trap crop against root-knot nematode.",
+      "reason_hi": "भिंडी के पौधों के बीच गेंदा लगाने से यह जड़-गाँठ सूत्रकृमि के लिए जाल-फसल का काम करता है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/org_farm/pdf/Horticulture5_231009_094153.pdf",
+            "title": "TNAU and NCONF: organic package of practices, horticultural crops",
+            "quote": "growing of marigold (trapcrop) in between okra plants",
+            "note": "Organic package of practices for horticultural crops (TNAU).",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "banana",
+      "crop_b": "marigold",
+      "relation": "good",
+      "reason_en": "Intercropping marigold or sunn hemp in banana reduces nematode numbers.",
+      "reason_hi": "केले में गेंदा या सनई की अंतरफसल से सूत्रकृमि कम होते हैं।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/org_farm/pdf/Horticulture5_231009_094153.pdf",
+            "title": "TNAU and NCONF: organic package of practices, horticultural crops",
+            "quote": "Intercrop banana with sun hemp or marigold to reduce nematode population.",
+            "note": "Organic package of practices for horticultural crops (TNAU).",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "banana",
+      "crop_b": "sunn-hemp",
+      "relation": "good",
+      "reason_en": "Intercropping marigold or sunn hemp in banana reduces nematode numbers.",
+      "reason_hi": "केले में गेंदा या सनई की अंतरफसल से सूत्रकृमि कम होते हैं।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/org_farm/pdf/Horticulture5_231009_094153.pdf",
+            "title": "TNAU and NCONF: organic package of practices, horticultural crops",
+            "quote": "Intercrop banana with sun hemp or marigold to reduce nematode population.",
+            "note": "Organic package of practices for horticultural crops (TNAU).",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "banana",
+      "crop_b": "amaranth",
+      "relation": "good",
+      "reason_en": "Amaranth and colocasia can be intercropped profitably in organically grown banana.",
+      "reason_hi": "जैविक केले में चौलाई और अरबी लाभकारी अंतरफसल हैं।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/org_farm/pdf/Horticulture5_231009_094153.pdf",
+            "title": "TNAU and NCONF: organic package of practices, horticultural crops",
+            "quote": "Amaranth, colocasia and elephant foot yam can be profitably intercropped with banana",
+            "note": "Organic package of practices for horticultural crops (TNAU).",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "banana",
+      "crop_b": "colocasia",
+      "relation": "good",
+      "reason_en": "Amaranth and colocasia can be intercropped profitably in organically grown banana.",
+      "reason_hi": "जैविक केले में चौलाई और अरबी लाभकारी अंतरफसल हैं।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://agritech.tnau.ac.in/org_farm/pdf/Horticulture5_231009_094153.pdf",
+            "title": "TNAU and NCONF: organic package of practices, horticultural crops",
+            "quote": "Amaranth, colocasia and elephant foot yam can be profitably intercropped with banana",
+            "note": "Organic package of practices for horticultural crops (TNAU).",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "sapota",
+      "crop_b": "banana",
+      "relation": "good",
+      "reason_en": "Grown between young sapota trees before they bear, for income in the early years.",
+      "reason_hi": "चीकू के छोटे पेड़ों (फल आने से पहले) के बीच शुरुआती वर्षों में आय के लिए उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://nhb.gov.in/Horticulture%20Crops/Sapota/Sapota1.htm",
+            "title": "NHB model project report: sapota",
+            "quote": "Inter-cropping with banana, papaya, pineapple and cocoa; french bean, peas, tomato, brinjal, cabbage, cauliflower, cucurbits is recommended depending upon the climate and irrigation facilities available",
+            "note": "NHB model project; 'french bean' is bush beans.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "sapota",
+      "crop_b": "papaya",
+      "relation": "good",
+      "reason_en": "Grown between young sapota trees before they bear, for income in the early years.",
+      "reason_hi": "चीकू के छोटे पेड़ों (फल आने से पहले) के बीच शुरुआती वर्षों में आय के लिए उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://nhb.gov.in/Horticulture%20Crops/Sapota/Sapota1.htm",
+            "title": "NHB model project report: sapota",
+            "quote": "Inter-cropping with banana, papaya, pineapple and cocoa; french bean, peas, tomato, brinjal, cabbage, cauliflower, cucurbits is recommended depending upon the climate and irrigation facilities available",
+            "note": "NHB model project; 'french bean' is bush beans.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "sapota",
+      "crop_b": "bush-beans",
+      "relation": "good",
+      "reason_en": "Grown between young sapota trees before they bear, for income in the early years.",
+      "reason_hi": "चीकू के छोटे पेड़ों (फल आने से पहले) के बीच शुरुआती वर्षों में आय के लिए उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://nhb.gov.in/Horticulture%20Crops/Sapota/Sapota1.htm",
+            "title": "NHB model project report: sapota",
+            "quote": "Inter-cropping with banana, papaya, pineapple and cocoa; french bean, peas, tomato, brinjal, cabbage, cauliflower, cucurbits is recommended depending upon the climate and irrigation facilities available",
+            "note": "NHB model project; 'french bean' is bush beans.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "sapota",
+      "crop_b": "peas",
+      "relation": "good",
+      "reason_en": "Grown between young sapota trees before they bear, for income in the early years.",
+      "reason_hi": "चीकू के छोटे पेड़ों (फल आने से पहले) के बीच शुरुआती वर्षों में आय के लिए उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://nhb.gov.in/Horticulture%20Crops/Sapota/Sapota1.htm",
+            "title": "NHB model project report: sapota",
+            "quote": "Inter-cropping with banana, papaya, pineapple and cocoa; french bean, peas, tomato, brinjal, cabbage, cauliflower, cucurbits is recommended depending upon the climate and irrigation facilities available",
+            "note": "NHB model project; 'french bean' is bush beans.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "sapota",
+      "crop_b": "tomato",
+      "relation": "good",
+      "reason_en": "Grown between young sapota trees before they bear, for income in the early years.",
+      "reason_hi": "चीकू के छोटे पेड़ों (फल आने से पहले) के बीच शुरुआती वर्षों में आय के लिए उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://nhb.gov.in/Horticulture%20Crops/Sapota/Sapota1.htm",
+            "title": "NHB model project report: sapota",
+            "quote": "Inter-cropping with banana, papaya, pineapple and cocoa; french bean, peas, tomato, brinjal, cabbage, cauliflower, cucurbits is recommended depending upon the climate and irrigation facilities available",
+            "note": "NHB model project; 'french bean' is bush beans.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "sapota",
+      "crop_b": "brinjal",
+      "relation": "good",
+      "reason_en": "Grown between young sapota trees before they bear, for income in the early years.",
+      "reason_hi": "चीकू के छोटे पेड़ों (फल आने से पहले) के बीच शुरुआती वर्षों में आय के लिए उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://nhb.gov.in/Horticulture%20Crops/Sapota/Sapota1.htm",
+            "title": "NHB model project report: sapota",
+            "quote": "Inter-cropping with banana, papaya, pineapple and cocoa; french bean, peas, tomato, brinjal, cabbage, cauliflower, cucurbits is recommended depending upon the climate and irrigation facilities available",
+            "note": "NHB model project; 'french bean' is bush beans.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "sapota",
+      "crop_b": "cabbage",
+      "relation": "good",
+      "reason_en": "Grown between young sapota trees before they bear, for income in the early years.",
+      "reason_hi": "चीकू के छोटे पेड़ों (फल आने से पहले) के बीच शुरुआती वर्षों में आय के लिए उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://nhb.gov.in/Horticulture%20Crops/Sapota/Sapota1.htm",
+            "title": "NHB model project report: sapota",
+            "quote": "Inter-cropping with banana, papaya, pineapple and cocoa; french bean, peas, tomato, brinjal, cabbage, cauliflower, cucurbits is recommended depending upon the climate and irrigation facilities available",
+            "note": "NHB model project; 'french bean' is bush beans.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "sapota",
+      "crop_b": "cauliflower",
+      "relation": "good",
+      "reason_en": "Grown between young sapota trees before they bear, for income in the early years.",
+      "reason_hi": "चीकू के छोटे पेड़ों (फल आने से पहले) के बीच शुरुआती वर्षों में आय के लिए उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://nhb.gov.in/Horticulture%20Crops/Sapota/Sapota1.htm",
+            "title": "NHB model project report: sapota",
+            "quote": "Inter-cropping with banana, papaya, pineapple and cocoa; french bean, peas, tomato, brinjal, cabbage, cauliflower, cucurbits is recommended depending upon the climate and irrigation facilities available",
+            "note": "NHB model project; 'french bean' is bush beans.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "onion",
+      "relation": "good",
+      "reason_en": "Grown between young mango trees before they bear (juvenile period 3-7 years).",
+      "reason_hi": "आम के छोटे पेड़ों (फल आने से पहले, 3-7 वर्ष) के बीच उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Vegetables like Onion, Tomato, Radish, Beans, Cauliflower, Cabbage, Leafy vegetables and Leguminous crops like Moong, Mash, Gram and Lentil can be grown.",
+            "note": "PAU guide for mango; 'Beans' is bush beans, 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "tomato",
+      "relation": "good",
+      "reason_en": "Grown between young mango trees before they bear (juvenile period 3-7 years).",
+      "reason_hi": "आम के छोटे पेड़ों (फल आने से पहले, 3-7 वर्ष) के बीच उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Vegetables like Onion, Tomato, Radish, Beans, Cauliflower, Cabbage, Leafy vegetables and Leguminous crops like Moong, Mash, Gram and Lentil can be grown.",
+            "note": "PAU guide for mango; 'Beans' is bush beans, 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "radish",
+      "relation": "good",
+      "reason_en": "Grown between young mango trees before they bear (juvenile period 3-7 years).",
+      "reason_hi": "आम के छोटे पेड़ों (फल आने से पहले, 3-7 वर्ष) के बीच उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Vegetables like Onion, Tomato, Radish, Beans, Cauliflower, Cabbage, Leafy vegetables and Leguminous crops like Moong, Mash, Gram and Lentil can be grown.",
+            "note": "PAU guide for mango; 'Beans' is bush beans, 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "bush-beans",
+      "relation": "good",
+      "reason_en": "Grown between young mango trees before they bear (juvenile period 3-7 years).",
+      "reason_hi": "आम के छोटे पेड़ों (फल आने से पहले, 3-7 वर्ष) के बीच उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Vegetables like Onion, Tomato, Radish, Beans, Cauliflower, Cabbage, Leafy vegetables and Leguminous crops like Moong, Mash, Gram and Lentil can be grown.",
+            "note": "PAU guide for mango; 'Beans' is bush beans, 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "cauliflower",
+      "relation": "good",
+      "reason_en": "Grown between young mango trees before they bear (juvenile period 3-7 years).",
+      "reason_hi": "आम के छोटे पेड़ों (फल आने से पहले, 3-7 वर्ष) के बीच उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Vegetables like Onion, Tomato, Radish, Beans, Cauliflower, Cabbage, Leafy vegetables and Leguminous crops like Moong, Mash, Gram and Lentil can be grown.",
+            "note": "PAU guide for mango; 'Beans' is bush beans, 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "cabbage",
+      "relation": "good",
+      "reason_en": "Grown between young mango trees before they bear (juvenile period 3-7 years).",
+      "reason_hi": "आम के छोटे पेड़ों (फल आने से पहले, 3-7 वर्ष) के बीच उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Vegetables like Onion, Tomato, Radish, Beans, Cauliflower, Cabbage, Leafy vegetables and Leguminous crops like Moong, Mash, Gram and Lentil can be grown.",
+            "note": "PAU guide for mango; 'Beans' is bush beans, 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "moong",
+      "relation": "good",
+      "reason_en": "Grown between young mango trees before they bear (juvenile period 3-7 years).",
+      "reason_hi": "आम के छोटे पेड़ों (फल आने से पहले, 3-7 वर्ष) के बीच उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Vegetables like Onion, Tomato, Radish, Beans, Cauliflower, Cabbage, Leafy vegetables and Leguminous crops like Moong, Mash, Gram and Lentil can be grown.",
+            "note": "PAU guide for mango; 'Beans' is bush beans, 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "chana",
+      "relation": "good",
+      "reason_en": "Grown between young mango trees before they bear (juvenile period 3-7 years).",
+      "reason_hi": "आम के छोटे पेड़ों (फल आने से पहले, 3-7 वर्ष) के बीच उगाई जाती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Vegetables like Onion, Tomato, Radish, Beans, Cauliflower, Cabbage, Leafy vegetables and Leguminous crops like Moong, Mash, Gram and Lentil can be grown.",
+            "note": "PAU guide for mango; 'Beans' is bush beans, 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "papaya",
+      "relation": "good",
+      "reason_en": "Papaya can be grown as a filler in mango orchards until the mango starts bearing.",
+      "reason_hi": "आम के बाग में फल आने तक पपीता भराव (फिलर) के रूप में लगाया जा सकता है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Papaya, Peach and Plum can be grown as fillers in Mango orchards till the bearing starts.",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "maize",
+      "relation": "avoid",
+      "reason_en": "Maize should not be grown in mango orchards.",
+      "reason_hi": "आम के बाग में मक्का नहीं उगाना चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Crops like Maize, Sugarcane and Bajra should not be grown.",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "mango",
+      "crop_b": "bajra",
+      "relation": "avoid",
+      "reason_en": "Bajra should not be grown in mango orchards.",
+      "reason_hi": "आम के बाग में बाजरा नहीं उगाना चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Crops like Maize, Sugarcane and Bajra should not be grown.",
+            "note": "Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "moong",
+      "relation": "good",
+      "reason_en": "Legumes can be intercropped for up to four years in young, non-bearing mandarin orchards.",
+      "reason_hi": "छोटे, फल न देने वाले संतरे के बाग में चार साल तक दलहन अंतरफसल के रूप में उगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "But in young and non-bearing orchards, intercropping upto four years with leguminous crops such as Guara, Moong, Mash , Cowpea, Gram and Pea may be done.",
+            "note": "PAU guide for Kinnow mandarin; 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "cowpea",
+      "relation": "good",
+      "reason_en": "Legumes can be intercropped for up to four years in young, non-bearing mandarin orchards.",
+      "reason_hi": "छोटे, फल न देने वाले संतरे के बाग में चार साल तक दलहन अंतरफसल के रूप में उगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "But in young and non-bearing orchards, intercropping upto four years with leguminous crops such as Guara, Moong, Mash , Cowpea, Gram and Pea may be done.",
+            "note": "PAU guide for Kinnow mandarin; 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "chana",
+      "relation": "good",
+      "reason_en": "Legumes can be intercropped for up to four years in young, non-bearing mandarin orchards.",
+      "reason_hi": "छोटे, फल न देने वाले संतरे के बाग में चार साल तक दलहन अंतरफसल के रूप में उगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "But in young and non-bearing orchards, intercropping upto four years with leguminous crops such as Guara, Moong, Mash , Cowpea, Gram and Pea may be done.",
+            "note": "PAU guide for Kinnow mandarin; 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "peas",
+      "relation": "good",
+      "reason_en": "Legumes can be intercropped for up to four years in young, non-bearing mandarin orchards.",
+      "reason_hi": "छोटे, फल न देने वाले संतरे के बाग में चार साल तक दलहन अंतरफसल के रूप में उगाई जा सकती है।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "But in young and non-bearing orchards, intercropping upto four years with leguminous crops such as Guara, Moong, Mash , Cowpea, Gram and Pea may be done.",
+            "note": "PAU guide for Kinnow mandarin; 'Mash' is urad. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "bajra",
+      "relation": "avoid",
+      "reason_en": "Tall, exhaustive crops such as bajra should not be grown in the orchard.",
+      "reason_hi": "बाग में ऊँची और अधिक पोषक सोखने वाली फसलें, जैसे बाजरा, नहीं उगानी चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Caution : Tall and exhaustive crops like Cotton, Chari, Bajra, Maize, Berseem, Bhindi and Creeper type vegetables should not be grown in the orchards",
+            "note": "PAU guide for Kinnow mandarin. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "maize",
+      "relation": "avoid",
+      "reason_en": "Tall, exhaustive crops such as maize should not be grown in the orchard.",
+      "reason_hi": "बाग में ऊँची और अधिक पोषक सोखने वाली फसलें, जैसे मक्का, नहीं उगानी चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Caution : Tall and exhaustive crops like Cotton, Chari, Bajra, Maize, Berseem, Bhindi and Creeper type vegetables should not be grown in the orchards",
+            "note": "PAU guide for Kinnow mandarin. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "okra",
+      "relation": "avoid",
+      "reason_en": "Tall, exhaustive crops such as okra should not be grown in the orchard.",
+      "reason_hi": "बाग में ऊँची और अधिक पोषक सोखने वाली फसलें, जैसे भिंडी, नहीं उगानी चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Caution : Tall and exhaustive crops like Cotton, Chari, Bajra, Maize, Berseem, Bhindi and Creeper type vegetables should not be grown in the orchards",
+            "note": "PAU guide for Kinnow mandarin. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "cucumber",
+      "relation": "avoid",
+      "reason_en": "Creeper-type vegetables should not be grown in the orchard.",
+      "reason_hi": "बाग में बेल वाली सब्ज़ियाँ नहीं उगानी चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Caution : Tall and exhaustive crops like Cotton, Chari, Bajra, Maize, Berseem, Bhindi and Creeper type vegetables should not be grown in the orchards",
+            "note": "'Creeper type vegetables': the library's vine crops are mapped to it by us. PAU guide for Kinnow mandarin. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "bottle-gourd",
+      "relation": "avoid",
+      "reason_en": "Creeper-type vegetables should not be grown in the orchard.",
+      "reason_hi": "बाग में बेल वाली सब्ज़ियाँ नहीं उगानी चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Caution : Tall and exhaustive crops like Cotton, Chari, Bajra, Maize, Berseem, Bhindi and Creeper type vegetables should not be grown in the orchards",
+            "note": "'Creeper type vegetables': the library's vine crops are mapped to it by us. PAU guide for Kinnow mandarin. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "bitter-gourd",
+      "relation": "avoid",
+      "reason_en": "Creeper-type vegetables should not be grown in the orchard.",
+      "reason_hi": "बाग में बेल वाली सब्ज़ियाँ नहीं उगानी चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Caution : Tall and exhaustive crops like Cotton, Chari, Bajra, Maize, Berseem, Bhindi and Creeper type vegetables should not be grown in the orchards",
+            "note": "'Creeper type vegetables': the library's vine crops are mapped to it by us. PAU guide for Kinnow mandarin. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "ridge-gourd",
+      "relation": "avoid",
+      "reason_en": "Creeper-type vegetables should not be grown in the orchard.",
+      "reason_hi": "बाग में बेल वाली सब्ज़ियाँ नहीं उगानी चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Caution : Tall and exhaustive crops like Cotton, Chari, Bajra, Maize, Berseem, Bhindi and Creeper type vegetables should not be grown in the orchards",
+            "note": "'Creeper type vegetables': the library's vine crops are mapped to it by us. PAU guide for Kinnow mandarin. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "snake-gourd",
+      "relation": "avoid",
+      "reason_en": "Creeper-type vegetables should not be grown in the orchard.",
+      "reason_hi": "बाग में बेल वाली सब्ज़ियाँ नहीं उगानी चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Caution : Tall and exhaustive crops like Cotton, Chari, Bajra, Maize, Berseem, Bhindi and Creeper type vegetables should not be grown in the orchards",
+            "note": "'Creeper type vegetables': the library's vine crops are mapped to it by us. PAU guide for Kinnow mandarin. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "watermelon",
+      "relation": "avoid",
+      "reason_en": "Creeper-type vegetables should not be grown in the orchard.",
+      "reason_hi": "बाग में बेल वाली सब्ज़ियाँ नहीं उगानी चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Caution : Tall and exhaustive crops like Cotton, Chari, Bajra, Maize, Berseem, Bhindi and Creeper type vegetables should not be grown in the orchards",
+            "note": "'Creeper type vegetables': the library's vine crops are mapped to it by us. PAU guide for Kinnow mandarin. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "orange",
+      "crop_b": "tinda",
+      "relation": "avoid",
+      "reason_en": "Creeper-type vegetables should not be grown in the orchard.",
+      "reason_hi": "बाग में बेल वाली सब्ज़ियाँ नहीं उगानी चाहिए।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_fruits.pdf",
+            "title": "PAU Ludhiana: package of practices for fruit crops",
+            "quote": "Caution : Tall and exhaustive crops like Cotton, Chari, Bajra, Maize, Berseem, Bhindi and Creeper type vegetables should not be grown in the orchards",
+            "note": "'Creeper type vegetables': the library's vine crops are mapped to it by us. PAU guide for Kinnow mandarin. Punjab trial/recommendation; not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "tomato",
+      "crop_b": "capsicum",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "tomato",
+      "crop_b": "bush-beans",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "capsicum",
+      "crop_b": "bush-beans",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "peas",
+      "crop_b": "radish",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "peas",
+      "crop_b": "carrot",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "peas",
+      "crop_b": "potato",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "peas",
+      "crop_b": "garlic",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "potato",
+      "crop_b": "garlic",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "turmeric",
+      "crop_b": "bush-beans",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "garlic",
+      "crop_b": "bush-beans",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "peas",
+      "crop_b": "cauliflower",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
+      "crop_a": "peas",
+      "crop_b": "cabbage",
+      "relation": "good",
+      "reason_en": "A vegetable combination, usually with one legume, used by natural-farming growers; they reported lower costs and higher income.",
+      "reason_hi": "प्राकृतिक खेती करने वाले किसान ऐसी सब्ज़ी जोड़ियाँ (प्रायः एक दलहन के साथ) उगाते हैं; उन्होंने कम लागत और अधिक आय बताई।",
+      "sources": {
+        "relation": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/135856/49862/472766",
+            "title": "Indian Horticulture (ICAR), Mar-Apr 2023: Performance of vegetable crops under natural farming",
+            "quote": "natural farming producers were growing vegetable combination with one leguminous crop tomato- capsicum-frenchbean, tomato-frenchbean, capsicum- frenchbean, pea-radish, pea-carrot, pea-potato-garlic, turmeric-frenchbean, garlic-frenchbean, pea-cauliflower and pea-cabbage",
+            "note": "Himachal Pradesh natural-farming growers (hills); 'frenchbean' is bush beans, 'pea' is peas. Not yet tested in Malwa.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    },
+    {
       "crop_a": "tomato",
       "crop_b": "okra",
       "relation": "good",
