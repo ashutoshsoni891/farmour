@@ -15,6 +15,7 @@ import io
 import json
 import re
 import time
+import urllib.parse
 import urllib.request
 from datetime import date
 from pathlib import Path
@@ -49,7 +50,8 @@ def _page_text(url: str, cache: dict[str, str]) -> str:
         if not url.startswith("https://"):
             return ""
         req = urllib.request.Request(  # noqa: S310 (https only, checked above)
-            url, headers={"User-Agent": "Mozilla/5.0 (farmour research)"}
+            urllib.parse.quote(url, safe=":/?=&%#"),
+            headers={"User-Agent": "Mozilla/5.0 (farmour research)"},
         )
         if url.lower().split("?")[0].endswith(".pdf"):
             cache[url] = _norm(_pdf_text(req))
@@ -77,11 +79,14 @@ def _sources(data: dict[str, Any]) -> list[dict[str, Any]]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--confirm", nargs="*", default=[], help="URLs confirmed by hand")
+    parser.add_argument("--only", nargs="*", default=[], help="check only these crop slugs")
     args = parser.parse_args()
     today, cache = date.today().isoformat(), {}  # type: ignore[var-annotated]
     manual: set[str] = set()
     schemes = FOLDER.parents[2] / "site" / "schemes.json"
     paths = [*sorted(FOLDER.glob("*.json")), FOLDER.parent / "companions.json", schemes]
+    if args.only:
+        paths = [p for p in paths if p.stem in args.only]
     for path in [p for p in paths if p.exists()]:
         data = json.loads(path.read_text(encoding="utf-8"))
         ok = bad = 0

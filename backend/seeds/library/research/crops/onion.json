@@ -108,5 +108,27 @@
       }
     ]
   },
-  "source_notes": "AI research batch 2 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are missing: the ICAR-DOGR site (dogr.icar.gov.in) could not be opened from the research machine, so its season pages were not verified."
+  "source_notes": "AI research batch 2 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are missing: the ICAR-DOGR site (dogr.icar.gov.in) could not be opened from the research machine, so its season pages were not verified.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "10-15",
+          "to": "12-15",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://celkau.in/crops/vegetables/onion/climate.php",
+            "title": "Kerala Agricultural University, crop package (climate)",
+            "quote": "Onion can be successfully cultivated in mid lands of Kerala during October - November.",
+            "note": "Planting months; ICAR gives rabi as the main onion season in Madhya Pradesh.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
 }

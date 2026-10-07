@@ -1,0 +1,55 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 10,
+  "years_to_bear": 5,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.8,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Litchi/Litchi1.htm",
+        "title": "NHB model project report",
+        "quote": "Planting Time August",
+        "note": "Perennial tree; NHB gives planting in August-September (the page has an odd dash after 'August').",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_minorfruits.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Muzafarpur, Dehradun, Calcutta, seedless late and Rose scented Cauvery 10 x 10 m",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Litchi/Litchi1.htm",
+        "title": "NHB model project report",
+        "quote": "Litchi is a long gestation crop taking about 5-6 years to the fruiting stage",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Litchi/Litchi1.htm",
+        "title": "NHB model project report",
+        "quote": "Two irrigations at an interval of 45",
+        "note": "Only two irrigations in winter for bearing trees: read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_minorfruits.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "80 – 100 kg/tree",
+        "note": "80 kg per tree on 10 x 10 m = 0.8 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 7 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table; other values are from TNAU/NHB (Tamil Nadu and national) until a local source is found."
+}

@@ -1,0 +1,55 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 8,
+  "years_to_bear": 3,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 2.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_sapota.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "The ideal season of planting is June to December.",
+        "note": "Perennial tree; planting months.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_sapota.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Spacing 8 x 8 m (156 plants/ha) for conventional planting.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Sapota/Sapota1.htm",
+        "title": "NHB model project report",
+        "quote": "Sapota starts bearing from third year of planting but economic yields can be obtained from 5 th year onwards",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Sapota/Sapota1.htm",
+        "title": "NHB model project report",
+        "quote": "Irrigation is provided at an interval of 30 days in winter and 15 days in summer",
+        "note": "Interpreted: watering every 7-10 days or less is read as 'low', every few days as 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_sapota.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Depending up on the variety the fruit yield ranges from 20 - 25 t/ha/year.",
+        "note": "20 t/ha = 2.0 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 7 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table; other values are from TNAU/NHB (Tamil Nadu and national) until a local source is found."
+}

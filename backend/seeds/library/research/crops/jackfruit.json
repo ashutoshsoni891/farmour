@@ -1,0 +1,45 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 12,
+  "years_to_bear": 6,
+  "water_need": "medium",
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://celkau.in/crops/fruits/jackfruit/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "Plant one year old grafts at the onset of monsoon showers.",
+        "note": "Perennial tree; planted at the start of the monsoon.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://celkau.in/crops/fruits/jackfruit/seedspacing.php",
+        "title": "Kerala Agricultural University, crop package (seedspacing)",
+        "quote": "Spacing Square type planting :12-15 m",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://celkau.in/crops/fruits/jackfruit/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "First fruiting take place 6-8 years after planting",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://celkau.in/crops/fruits/jackfruit/aftercultivation.php",
+        "title": "Kerala Agricultural University, crop package (aftercultivation)",
+        "quote": "it is very sensitive to drought",
+        "note": "Irrigated by soil and season, no interval given: read as 'medium'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 8 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months are Kerala/Tamil Nadu university pages (region india) until a Malwa source is found."
+}

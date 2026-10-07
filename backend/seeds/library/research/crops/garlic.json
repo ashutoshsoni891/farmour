@@ -1,0 +1,105 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "days_to_first_harvest": 90,
+  "harvest_span_days": 40,
+  "spacing_row_cm": 15,
+  "spacing_plant_cm": 8,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 0.5,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://celkau.in/crops/vegetables/garlic/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "garlic can be planted during October- November",
+        "note": "Kerala high ranges; October-November is also the rabi planting time in the plains.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://celkau.in/crops/vegetables/garlic/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "Harvesting period : 90-130 days after planting",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://celkau.in/crops/vegetables/garlic/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "Harvesting period : 90-130 days after planting",
+        "note": "130 - 90 = 40 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://celkau.in/crops/vegetables/garlic/seedspacing.php",
+        "title": "Kerala Agricultural University, crop package (seedspacing)",
+        "quote": "Spacing 15 cm x 8 cm (dibbling)",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://celkau.in/crops/vegetables/garlic/seedspacing.php",
+        "title": "Kerala Agricultural University, crop package (seedspacing)",
+        "quote": "Spacing 15 cm x 8 cm (dibbling)",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://celkau.in/crops/vegetables/garlic/aftercultivation.php",
+        "title": "Kerala Agricultural University, crop package (aftercultivation)",
+        "quote": "Frequent irrigation (once a week) is required during the initial crop growth stage",
+        "note": "Interpreted: watering about once a week is read as 'low', every few days as 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://celkau.in/crops/vegetables/garlic/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "Fertile, well-drained loamy soils are ideal for garlic cultivation.",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://celkau.in/crops/vegetables/garlic/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "Yield : 5-10 t/ha.",
+        "note": "5 t/ha = 0.5 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 8 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months are Kerala/Tamil Nadu university pages (region india) until a Malwa source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "10-01",
+          "to": "11-30",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://celkau.in/crops/vegetables/garlic/climate.php",
+            "title": "Kerala Agricultural University, crop package (climate)",
+            "quote": "garlic can be planted during October- November",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

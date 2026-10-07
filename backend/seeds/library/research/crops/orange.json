@@ -1,0 +1,56 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 6,
+  "years_to_bear": 4,
+  "water_need": "medium",
+  "expected_yield_kg_per_sqm": 1.2,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Orange/Orange1.htm",
+        "title": "NHB model project report",
+        "quote": "Seedlings are mostly transplanted in the month of July-August after commencement of monsoon",
+        "note": "Mandarin (santra); perennial tree.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Orange/Orange1.htm",
+        "title": "NHB model project report",
+        "quote": "a spacing of 6 m. x 6 m. accommodating 120 plants/acre has been considered for the present model",
+        "note": "The page gives 4.5-6 m; the wider spacing is used.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Orange/Orange1.htm",
+        "title": "NHB model project report",
+        "quote": "Mandarins start bearing from the fourth year but substantial yield can be expected only from sixth year onwards",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Orange/Orange1.htm",
+        "title": "NHB model project report",
+        "quote": "Irrigation is provided at an interval of 10-15 days during winter months whereas during summer months it is provided at an interval of 5-7 days",
+        "note": "Every 5-15 days: read as 'medium'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Orange/Orange1.htm",
+        "title": "NHB model project report",
+        "quote": "Average yield is 4.8 tonnes/acre",
+        "note": "4.8 t/acre = 1.2 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 7 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table; other values are from TNAU/NHB (Tamil Nadu and national) until a local source is found."
+}

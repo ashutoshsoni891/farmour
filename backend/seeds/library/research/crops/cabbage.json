@@ -16,7 +16,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "August – November is suitable season.",
         "note": "Plains; winter (rabi) crop.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "nursery_days": [
@@ -24,7 +24,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Transplant 40 - 45 days old seedlings at a spacing of 45 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "days_to_first_harvest": [
@@ -33,7 +33,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Total duration 105",
         "note": "105 days from transplanting - 35 days of harvesting = first harvest at about 70 days. From the TNAU fertigation schedule: total duration minus the harvesting stage = first picking.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "harvest_span_days": [
@@ -41,7 +41,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Harvesting stage 35",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_row_cm": [
@@ -49,7 +49,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Ridges and furrows are formed at 45 cm apart",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_plant_cm": [
@@ -57,7 +57,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cabbage.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Transplant 40 - 45 days old seedlings at a spacing of 45 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -66,7 +66,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Provide continuous supply of moisture.",
         "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium', a continuous supply as 'medium' to 'high'; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -75,7 +75,16 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Plains : 25 – 35 t/ha in 120 days.",
         "note": "25 t/ha = 2.5 kg/m².",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://celkau.in/crops/vegetables/cabbage/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "Well drained soil with open sunlight is ideal for growth of the crop",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -96,10 +105,11 @@
             "title": "TNAU Agritech Portal, vegetables",
             "quote": "August – November is suitable season.",
             "note": "Sowing months shifted by the 40 nursery days to the transplant date; cut at 31 December.",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }
     }
-  }
+  },
+  "waterlogging_tolerant": false
 }

@@ -1,0 +1,56 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 2,
+  "years_to_bear": 0.3,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 7.5,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://celkau.in/crops/fruits/papaya/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "Main field planting : May-June",
+        "note": "Perennial (economic life 2.5-3 years); planting months.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://celkau.in/crops/fruits/papaya/seedspacing.php",
+        "title": "Kerala Agricultural University, crop package (seedspacing)",
+        "quote": "Spacing 2 m x 2 m",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://celkau.in/crops/fruits/papaya/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "flower and set fruit within 3-5 months after transplanting",
+        "note": "3 months = 0.3 year.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_papaya.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Irrigate the field once in a week.",
+        "note": "Interpreted: watering about once a week is read as 'low', every few days as 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Papaya/Papaya1.htm",
+        "title": "NHB model project report",
+        "quote": "The yield of 75-100 tonnes /ha. is obtained in a season from a papaya orchard",
+        "note": "75 t/ha = 7.5 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 8 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months are Kerala/Tamil Nadu university pages (region india) until a Malwa source is found."
+}

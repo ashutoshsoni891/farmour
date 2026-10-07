@@ -1,0 +1,85 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 65,
+  "spacing_row_cm": 30,
+  "spacing_plant_cm": 10,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.0775,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+        "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+        "quote": "MUNG BEAN/URD BEAN KHARIF JUNE-JULY SEP-OCT 6",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/pulses_greengram.html",
+        "title": "TNAU Agritech Portal, agriculture",
+        "quote": "Duration (days) 65-75",
+        "note": "Crop duration of the TNAU varieties; a single harvest at maturity.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/pulses_greengram.html",
+        "title": "TNAU Agritech Portal, agriculture",
+        "quote": "Dibble the seeds adopting a spacing of 30 x 10 cm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/pulses_greengram.html",
+        "title": "TNAU Agritech Portal, agriculture",
+        "quote": "Dibble the seeds adopting a spacing of 30 x 10 cm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/pulses_greengram.html",
+        "title": "TNAU Agritech Portal, agriculture",
+        "quote": "Irrigate at intervals of 7to 10 days depending upon soil and climatic conditions.",
+        "note": "Interpreted: watering every 7-10 days or less is read as 'low', every few days as 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/pulses_greengram.html",
+        "title": "TNAU Agritech Portal, agriculture",
+        "quote": "Rainfed 775 1100 978",
+        "note": "775 kg/ha = 0.0775 kg/m² (rainfed, lowest variety).",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 7 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table; other values are from TNAU/NHB (Tamil Nadu and national) until a local source is found.",
+  "regional": {
+    "madhya-pradesh": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+            "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+            "quote": "MUNG BEAN/URD BEAN KHARIF JUNE-JULY SEP-OCT 6",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

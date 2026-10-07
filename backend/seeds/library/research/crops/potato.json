@@ -1,0 +1,106 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "days_to_first_harvest": 75,
+  "harvest_span_days": 45,
+  "spacing_row_cm": 50,
+  "spacing_plant_cm": 15,
+  "water_need": "medium",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 2.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://celkau.in/crops/vegetables/potato/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "Autumn : August-December",
+        "note": "Autumn crop; in the plains potato is a rabi crop sown October-November.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://celkau.in/crops/vegetables/potato/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "The crop is ready for harvest within 75-120 days of planting",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://celkau.in/crops/vegetables/potato/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "The crop is ready for harvest within 75-120 days of planting",
+        "note": "120 - 75 = 45 days (early to late varieties).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://celkau.in/crops/vegetables/potato/seedspacing.php",
+        "title": "Kerala Agricultural University, crop package (seedspacing)",
+        "quote": "Spacing 50-60 x 15-20 cm",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://celkau.in/crops/vegetables/potato/seedspacing.php",
+        "title": "Kerala Agricultural University, crop package (seedspacing)",
+        "quote": "Spacing 50-60 x 15-20 cm",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://celkau.in/crops/vegetables/potato/aftercultivation.php",
+        "title": "Kerala Agricultural University, crop package (aftercultivation)",
+        "quote": "subsequent irrigations are given as and when required",
+        "note": "'As and when required' is read as 'medium'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://celkau.in/crops/vegetables/potato/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "Loose friable sandy loam or silt loam, rich in organic matter are ideal for potato.",
+        "note": "Needs loose, draining soil (interpreted).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://celkau.in/crops/vegetables/potato/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "early-maturing varieties is about 20 t/ha",
+        "note": "20 t/ha = 2.0 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 8 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months are Kerala/Tamil Nadu university pages (region india) until a Malwa source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "10-01",
+          "to": "12-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://celkau.in/crops/vegetables/potato/climate.php",
+            "title": "Kerala Agricultural University, crop package (climate)",
+            "quote": "Autumn : August-December",
+            "note": "Window cut to October-December for the rabi crop.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

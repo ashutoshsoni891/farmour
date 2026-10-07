@@ -777,6 +777,80 @@
    "category": "flower",
    "layers": [],
    "source_notes": "Names, taxonomy, category and layer only. Agronomy values come from cited research files or an agronomist."
+  },
+  {
+   "slug": "sapota",
+   "name_en": "Sapota (Chikoo)",
+   "name_hi": "चीकू",
+   "scientific_name": "Manilkara zapota",
+   "family": "sapotaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "litchi",
+   "name_en": "Litchi",
+   "name_hi": "लीची",
+   "scientific_name": "Litchi chinensis",
+   "family": "sapindaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "orange",
+   "name_en": "Orange (Mandarin)",
+   "name_hi": "संतरा",
+   "scientific_name": "Citrus reticulata",
+   "family": "rutaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "potato",
+   "name_en": "Potato",
+   "name_hi": "आलू",
+   "scientific_name": "Solanum tuberosum",
+   "family": "solanaceae",
+   "category": "vegetable",
+   "layers": [
+    "underground"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "snake-gourd",
+   "name_en": "Snake gourd",
+   "name_hi": "चिचिंडा",
+   "scientific_name": "Trichosanthes cucumerina",
+   "family": "cucurbit",
+   "category": "vegetable",
+   "layers": [
+    "climber"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "jackfruit",
+   "name_en": "Jackfruit",
+   "name_hi": "कटहल",
+   "scientific_name": "Artocarpus heterophyllus",
+   "family": "moraceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "watermelon",
+   "name_en": "Watermelon",
+   "name_hi": "तरबूज",
+   "scientific_name": "Citrullus lanatus",
+   "family": "cucurbit",
+   "category": "vegetable",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
   }
  ]
 }

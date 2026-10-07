@@ -1,0 +1,104 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 180,
+  "harvest_span_days": 65,
+  "spacing_row_cm": 20,
+  "spacing_plant_cm": 20,
+  "water_need": "medium",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.2,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_ginger.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Season: May - June is highly suitable for cultivation.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://celkau.in/crops/spices/ginger/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "harvested from sixth month onwards",
+        "note": "Vegetable (green) ginger from the sixth month = about 180 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://celkau.in/crops/spices/ginger/harvesting.php",
+        "title": "Kerala Agricultural University, crop package (harvesting)",
+        "quote": "between 245-260 days",
+        "note": "Dry ginger at 245 days; 245 - 180 = 65 days of harvest window.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://celkau.in/crops/spices/ginger/seedspacing.php",
+        "title": "Kerala Agricultural University, crop package (seedspacing)",
+        "quote": "Spacing 20 cm x 20 cm to 25 cm x 25 cm",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://celkau.in/crops/spices/ginger/seedspacing.php",
+        "title": "Kerala Agricultural University, crop package (seedspacing)",
+        "quote": "Spacing 20 cm x 20 cm to 25 cm x 25 cm",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_ginger.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "This crop is grown as an irrigated crop in humid zones",
+        "note": "No interval is given; a crop grown with irrigation is read as 'medium'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://celkau.in/crops/spices/ginger/climate.php",
+        "title": "Kerala Agricultural University, crop package (climate)",
+        "quote": "Crop cannot withstand waterlogging",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_ginger.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "About 12 - 15 t/ha can be obtained.",
+        "note": "12 t/ha = 1.2 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 8 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months are Kerala/Tamil Nadu university pages (region india) until a Malwa source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "05-01",
+          "to": "06-30",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_ginger.html",
+            "title": "TNAU Agritech Portal, horticulture",
+            "quote": "Season: May - June is highly suitable for cultivation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

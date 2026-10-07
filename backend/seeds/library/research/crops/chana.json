@@ -1,0 +1,85 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "days_to_first_harvest": 85,
+  "spacing_row_cm": 30,
+  "spacing_plant_cm": 10,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.1,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+        "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+        "quote": "GRAM RABI OCT-DEC FEB-APR 7",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/pulses_bengalgram.html",
+        "title": "TNAU Agritech Portal, agriculture",
+        "quote": "Duration (days) 85 85",
+        "note": "Single harvest at maturity.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/pulses_bengalgram.html",
+        "title": "TNAU Agritech Portal, agriculture",
+        "quote": "Dibble the seeds by adopting the spacing of 30 cm x 10 cm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/pulses_bengalgram.html",
+        "title": "TNAU Agritech Portal, agriculture",
+        "quote": "Dibble the seeds by adopting the spacing of 30 cm x 10 cm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/pulses_bengalgram.html",
+        "title": "TNAU Agritech Portal, agriculture",
+        "quote": "November (Winter season) Rainfed",
+        "note": "Grown as a rainfed winter crop: read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/agriculture/pulses_bengalgram.html",
+        "title": "TNAU Agritech Portal, agriculture",
+        "quote": "Rainfed 1000 1150",
+        "note": "1000 kg/ha = 0.1 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 7 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table; other values are from TNAU/NHB (Tamil Nadu and national) until a local source is found.",
+  "regional": {
+    "madhya-pradesh": {
+      "sow_windows": [
+        {
+          "from": "10-01",
+          "to": "12-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+            "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+            "quote": "GRAM RABI OCT-DEC FEB-APR 7",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}
