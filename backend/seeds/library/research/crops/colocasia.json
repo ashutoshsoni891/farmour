@@ -1,0 +1,111 @@
+{
+  "seasons": [
+    "kharif",
+    "zaid"
+  ],
+  "days_to_first_harvest": 175,
+  "harvest_span_days": 25,
+  "spacing_row_cm": 45,
+  "spacing_plant_cm": 20,
+  "water_need": "medium",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 0.8,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_colocasia.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "June – July and February – March are the suitable season for cultivation.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "The crop becomes ready for harvesting 175-200 days after sowing",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "The crop becomes ready for harvesting 175-200 days after sowing",
+        "note": "200 - 175 = 25 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "The corms are sown 6 to 7.5 cm deep by keeping 67.5×15 or 45×20 cm distance between rows.",
+        "note": "The page gives 67.5 x 15 or 45 x 20; the closer second option is used.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "The corms are sown 6 to 7.5 cm deep by keeping 67.5×15 or 45×20 cm distance between rows.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "the field at 3-4 days interval during summer",
+        "note": "Every 3-4 days in summer: read as 'medium'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "The soils with poor drainage will produce corms of low quality.",
+        "note": "Poor drainage lowers quality: read as not waterlogging tolerant. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_colocasia.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "About 8 – 10 t/ha can be obtained in 180 days.",
+        "note": "8 t/ha = 0.8 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 9 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months are Punjab (PAU), Tamil Nadu and Kerala university pages (region india) until a Malwa source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "02-01",
+          "to": "03-31",
+          "method": "direct"
+        },
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_colocasia.html",
+            "title": "TNAU Agritech Portal, horticulture",
+            "quote": "June – July and February – March are the suitable season for cultivation.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

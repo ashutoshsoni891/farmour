@@ -67,6 +67,24 @@
         "note": "15 t/ha = 1.5 kg/m².",
         "checked_on": "2026-10-07"
       }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Total duration 70",
+        "note": "TNAU fertigation schedule for the early hybrid: 70 days from transplanting to the curd.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "Curd is ready for harvest in about 100 days after transplanting.",
+        "note": "Late varieties are ready at about 100 days, early ones at 70: 100 - 70 = 30 days of cutting across varieties.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 5 (2026-10-06). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
@@ -91,5 +109,7 @@
         ]
       }
     }
-  }
+  },
+  "days_to_first_harvest": 70,
+  "harvest_span_days": 30
 }

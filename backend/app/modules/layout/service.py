@@ -357,9 +357,12 @@ async def _build(
     ]  # fmt: skip
     orchard = [(i, z.geom) for i, z in enumerate(result.zones) if z.kind == "orchard"]
     border_index = next((i for i, z in enumerate(result.zones) if z.kind == "border"), None)
+    orchard_rule = (await library.engine_rules(session)).get("engine.orchard", {})
     placed = perennials.plant_orchard(
         orchard, trees, weights=tree_weights, start=start_date, plan_days=pp.plan_days,
         max_species=int(spec.get("tree_species", 3)),
+        max_short_lived=int(orchard_rule.get("max_short_lived", 1)),
+        short_lived_max_years=float(orchard_rule.get("short_lived_max_years", 1)),
     )  # fmt: skip
     if border_index is not None:
         placed += perennials.plant_hedge(

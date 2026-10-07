@@ -1,0 +1,46 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "spacing_plant_cm": 30,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 2.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_lemongrass.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Harvest the leaves first at 90 days after planting and thereafter 75 - 90 days interval",
+        "note": "A grass cut again and again for several years: perennial.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_lemongrass.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "at a spacing of 60 x 30 cm in ridges",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_lemongrass.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "further irrigation at 7 - 15 days interval",
+        "note": "Every 7-15 days: read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_lemongrass.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Herbage : 20 - 30 t/ha",
+        "note": "20 t/ha = 2.0 kg/m² of herbage.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 9 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months are Punjab (PAU), Tamil Nadu and Kerala university pages (region india) until a Malwa source is found."
+}

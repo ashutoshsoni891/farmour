@@ -346,6 +346,16 @@
     }
    },
    "source_notes": "Product defaults (decision 2026-10-06), not crop facts: zone share changes in percentage points of the plot (beds is the target used to decide when optional zones are dropped) (kept within the spec's +/-10 points) and score weights per option. Agronomist to review."
+  },
+  {
+   "code": "engine.orchard",
+   "description": "Orchard mix: how many quick-fruiting species may share the orchard",
+   "applies_to": "engine",
+   "params": {
+    "max_short_lived": 1,
+    "short_lived_max_years": 1
+   },
+   "source_notes": "Product decision 2026-10-07 (agronomist to confirm): species that fruit within a year (papaya, drumstick, banana) have far higher yield per m2 than long-lived trees and would otherwise fill the orchard."
   }
  ]
 }

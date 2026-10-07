@@ -60,6 +60,24 @@
         "note": "20000 kg/ha = 2.0 kg/m².",
         "checked_on": "2026-10-07"
       }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "Subsequent irrigations should be given at an interval of 4-6 days during summer and 10-12 days during winter.",
+        "note": "Every 4-12 days: read as 'medium'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "It can be grown almost on all soils but sandy loam with pH 7.0 is the best for its cultivation.",
+        "note": "Sandy loam (draining soil) is best: read as not waterlogging tolerant. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 3 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Indian palak (Beta vulgaris var. bengalensis), cut repeatedly. Sun, water need, height and waterlogging tolerance have no source yet.",
@@ -84,5 +102,7 @@
         ]
       }
     }
-  }
+  },
+  "water_need": "medium",
+  "waterlogging_tolerant": false
 }

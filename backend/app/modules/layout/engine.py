@@ -16,7 +16,9 @@ from shapely.geometry import Point, Polygon, box, shape
 from shapely.geometry.base import BaseGeometry
 from shapely.ops import transform
 
-ENGINE_VERSION = "0.3.0"  # 0.3: trees, hedge, flowers, polyhouse and livestock zones
+ENGINE_VERSION = (
+    "0.3.1"  # 0.3: trees, hedge, flowers, polyhouse, livestock; 0.3.1: orchard mix rule
+)
 
 _TO_UTM = Transformer.from_crs("EPSG:4326", "EPSG:32643", always_xy=True)
 _TO_WGS = Transformer.from_crs("EPSG:32643", "EPSG:4326", always_xy=True)

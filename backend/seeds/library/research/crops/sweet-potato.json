@@ -1,0 +1,105 @@
+{
+  "seasons": [
+    "kharif",
+    "zaid"
+  ],
+  "days_to_first_harvest": 110,
+  "harvest_span_days": 10,
+  "spacing_row_cm": 60,
+  "spacing_plant_cm": 20,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 2.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "The optimum time of planting is from April to July.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_sweet%20potato.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "About 20-25 t/ha of tubers in 110 – 120 days can be obtained.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_sweet%20potato.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "About 20-25 t/ha of tubers in 110 – 120 days can be obtained.",
+        "note": "120 - 110 = 10 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_sweet%20potato.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Form ridges and furrows at 60 cm apart.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_sweet%20potato.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "at 20 cm spacing.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "Irrigation may be given at 14 days interval.",
+        "note": "Every 14 days: read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "loamy sand soils are invariably regarded as suitable for sweet potato.",
+        "note": "Draining sandy soil and 'drought resistant': read as not waterlogging tolerant. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_sweet%20potato.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "About 20-25 t/ha of tubers in 110 – 120 days can be obtained.",
+        "note": "20 t/ha = 2.0 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 9 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months are Punjab (PAU), Tamil Nadu and Kerala university pages (region india) until a Malwa source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "04-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+            "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+            "quote": "The optimum time of planting is from April to July.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

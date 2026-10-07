@@ -1,0 +1,115 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "nursery_days": 30,
+  "days_to_first_harvest": 65,
+  "harvest_span_days": 10,
+  "spacing_row_cm": 45,
+  "spacing_plant_cm": 45,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.78,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "The best time for sowing seed in nursery is mid August to mid September.",
+        "note": "Cool-season crop: rabi.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "nursery_days": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "When the seedlings are one month old, transplant them in the field.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "The main sprouts are ready for harvest in about 65 days after transplanting.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "It takes 70-75 days from transplanting to harvesting.",
+        "note": "Varieties are ready at 65 and 75 days: about 10 days of cutting (side shoots follow 10-12 days later).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "A spacing of 45×45 cm should be followed between lines as well as plants.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "A spacing of 45×45 cm should be followed between lines as well as plants.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "Subsequent irrigations can be given at an interval of 7-8 days during summer and 10-15 days during winter depending upon soil type and weather.",
+        "note": "The page says broccoli needs the same as cauliflower; every 7-15 days is read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "have adequate soil moisture and possess good drainage.",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "Average yield is 72q/acre.",
+        "note": "72 q/acre = 7200 kg / 4047 m² = 1.78 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 9 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months are Punjab (PAU), Tamil Nadu and Kerala university pages (region india) until a Malwa source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "09-15",
+          "to": "10-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+            "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+            "quote": "The best time for sowing seed in nursery is mid August to mid September.",
+            "note": "Shifted by the one-month nursery to the transplant date.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

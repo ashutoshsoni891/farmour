@@ -62,13 +62,26 @@ def plant_orchard(
     start: date,
     plan_days: int,
     max_species: int,
+    max_short_lived: int = 1,
+    short_lived_max_years: float = 1.0,
 ) -> list[PlacedPlant]:
-    """Fill each orchard zone with rows of trees."""
+    """Fill each orchard zone with rows of trees. At most `max_short_lived` of the chosen species
+    may fruit within `short_lived_max_years` (they out-yield long-lived trees per m2)."""
     if not trees:
         return []
     top = max((t.crop.yield_kg_per_sqm or 0) for t in trees) or 1.0
     ranked = sorted(trees, key=lambda t: (-round(_tree_score(t, top, weights), 9), t.crop.slug))
-    chosen = ranked[: max(1, max_species)]
+    chosen: list[PerennialSpec] = []
+    short = 0
+    for t in ranked:
+        if len(chosen) >= max(1, max_species):
+            break
+        quick = t.years_to_bear is not None and t.years_to_bear <= short_lived_max_years
+        if quick and short >= max_short_lived:
+            continue
+        chosen.append(t)
+        short += quick
+    chosen = chosen or ranked[:1]
     placed: list[PlacedPlant] = []
     for zone_index, zone in zones:
         minx, miny, maxx, maxy = zone.bounds
