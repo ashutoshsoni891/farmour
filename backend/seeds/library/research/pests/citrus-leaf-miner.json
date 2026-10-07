@@ -1,0 +1,31 @@
+{
+  "name_en": "Citrus leaf miner",
+  "name_hi": "नींबूवर्गीय पत्ती सुरंगक",
+  "crop_slugs": [
+    "orange",
+    "lemon"
+  ],
+  "symptoms_en": "Caterpillars feed on the surface of tender leaves, making silvery winding tracks on the underside; leaves become distorted and crinkled and may drop in bad attacks; it also encourages citrus canker.",
+  "symptoms_hi": "इल्लियाँ कोमल पत्तियों की सतह खाकर निचली सतह पर चाँदी जैसी टेढ़ी लकीरें बनाती हैं; पत्तियाँ मुड़ और सिकुड़ जाती हैं और ज़्यादा प्रकोप में गिर सकती हैं; इससे सिट्रस कैंकर भी बढ़ता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_pest/citrus_8.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of citrus",
+        "quote": "Caterpillars are attacked tender leaves and feed on the epidermis Making silvery appearance presence on the lower surface of leaves Leaves-distorted and crinkled Severe attack caused defoliation Encourage the incidence of citrus canker",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_pest/citrus_8.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of citrus",
+        "quote": "Spray application of NSKE 5%",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Spray neem seed kernel extract 5% on the new flush.",
+  "management_hi": "नई कोंपलों पर नीम बीज अर्क 5% का छिड़काव करें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

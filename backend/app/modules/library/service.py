@@ -707,6 +707,8 @@ async def load_pest_research(
                 if pest.status == "ai_verified" or getattr(pest, key, None) in (None, [], {}, ""):
                     setattr(pest, key, value)
             pest.sources = {**(pest.sources or {}), **(values.get("sources") or {})}
+        await session.flush()
+        await session.refresh(pest)  # server-set columns must be loaded before they are read
         out = (await _pest_out(session, pest, with_missing=False)).model_dump()
         problems = workflow.pest_missing(out) + workflow.unchecked_sources(out)
         if problems:

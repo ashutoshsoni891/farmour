@@ -1,0 +1,60 @@
+{
+  "name_en": "Citrus aphid",
+  "name_hi": "नींबूवर्गीय माहू",
+  "crop_slugs": [
+    "orange",
+    "lemon"
+  ],
+  "symptoms_en": "Aphids feed on tender leaves and flowers; leaves become cupped and crinkled, flowers drop and growth stops; they carry tristeza virus.",
+  "symptoms_hi": "माहू कोमल पत्तियों और फूलों का रस चूसते हैं; पत्तियाँ कटोरीनुमा और सिकुड़ी हो जाती हैं, फूल झड़ते हैं और बढ़वार रुकती है; ये ट्रिस्टेज़ा विषाणु फैलाते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_pest/citrus_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of citrus",
+        "quote": "Feed on tender foliage and flowers Transmit tristeza virus disease. Nymphs and adults suck the sap of leaves Wilting and flower dropping Infested leaves appear cup shaped and crinkled Growth of the plants is hindered",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_pest/citrus_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of citrus",
+        "quote": "Use yellow sticky trap",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_pest/citrus_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of citrus",
+        "quote": "Use some concinellid beetles and syrphid flies",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Aphids and other sucking pests can be effectively controlled with Dashparni Ark, Brahmastra, Agniastra, Neemastra, etc",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fermented Curd Water For the management of common sucking pests like whiteflies, jassids, and aphids",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Use yellow sticky traps and encourage ladybird beetles and syrphid flies.",
+  "management_hi": "पीले चिपचिपे ट्रैप लगाएँ और लेडीबर्ड भृंग व सिरफिड मक्खी को बढ़ावा दें।",
+  "recipe_slugs": [
+    "neemastra",
+    "brahmastra",
+    "agniastra",
+    "dashparni-ark",
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

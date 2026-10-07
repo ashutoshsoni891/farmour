@@ -1,0 +1,37 @@
+{
+  "name_en": "Citrus greening",
+  "name_hi": "नींबूवर्गीय ग्रीनिंग रोग",
+  "crop_slugs": [
+    "orange",
+    "lemon"
+  ],
+  "symptoms_en": "Stunted leaves, sparse foliage and twig die-back; blotchy yellow mottling like zinc deficiency; small, lopsided fruit that stays green on the shaded side, low in juice and worthless. Spread by infected budwood and the psyllid.",
+  "symptoms_hi": "पत्तियाँ छोटी, पत्ते कम और टहनियाँ ऊपर से सूखती हैं; जिंक की कमी जैसा पीला चितकबरापन; छोटे, टेढ़े फल जिनका छाया वाला भाग हरा रहता है, रस कम और बेकार। यह संक्रमित कलम और सिल्ला कीट से फैलता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_diseases_5.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of citrus",
+        "quote": "Stunting of leaf, sparse foliation, twig die back, poor crop of predominantly greened, worthless fruits.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_diseases_5.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of citrus",
+        "quote": "Fruits small, lopsided with curved columella.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_diseases_5.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of citrus",
+        "quote": "Control psyllids with insecticides. Use pathogen free bud wood for propagation.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Use pathogen-free budwood for propagation and control the psyllid that spreads it.",
+  "management_hi": "रोगमुक्त कलम से पौधे तैयार करें और इसे फैलाने वाले सिल्ला कीट को नियंत्रित करें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). The source's own control of the psyllid is an insecticide; see the citrus psylla entry for non-chemical steps."
+}

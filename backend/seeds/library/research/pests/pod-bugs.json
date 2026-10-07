@@ -1,0 +1,51 @@
+{
+  "name_en": "Pod bugs (moong, urad)",
+  "name_hi": "फली के खटमल (पॉड बग)",
+  "crop_slugs": [
+    "moong",
+    "urad"
+  ],
+  "symptoms_en": "Nymphs and adults suck sap from pods, stems, leaves and buds; pods show pale-yellow patches and brown feeding scars and become shrivelled with small seeds.",
+  "symptoms_hi": "शिशु और वयस्क फलियों, तनों, पत्तियों और कलियों का रस चूसते हैं; फलियों पर हल्के पीले धब्बे और भूरे निशान बनते हैं और वे सिकुड़ जाती हैं, दाने छोटे रह जाते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "Nymphs and adults suck the sap and cause substantial damage to pods and also to stem, leaves and flower buds. Infested pods show pale-yellow patches and dark brown feeding scars on pods. Shriveled pods, small seeds are results of severe damage.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "Physical collection of bugs in a vessel with water and oil to reduce the population",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For sucking pests (like thrips and whitefly) in the early stage: Spray Neemastra @ 200 litres per acre",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Control of pink bollworm and jassids: Spray 5–7 litres of Brahmastra in 200 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Collect the bugs by hand in a vessel of water and oil.",
+  "management_hi": "खटमल हाथ से पानी और तेल के बर्तन में इकट्ठा करें।",
+  "recipe_slugs": [
+    "neemastra",
+    "brahmastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). NITI's sucking-pest recipes are matched to the bugs."
+}

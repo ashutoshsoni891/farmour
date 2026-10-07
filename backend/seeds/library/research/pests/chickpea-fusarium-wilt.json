@@ -1,0 +1,36 @@
+{
+  "name_en": "Chickpea Fusarium wilt",
+  "name_hi": "चने का उकठा (फ्यूज़ेरियम विल्ट)",
+  "crop_slugs": [
+    "chana"
+  ],
+  "symptoms_en": "Dead seedlings or plants in patches; at 3-5 weeks whole seedlings collapse with dull leaves and shrunken stems, and the inside of the stem is dark; adult plants droop and die.",
+  "symptoms_hi": "पौधे या अंकुर टुकड़ियों में मरते हैं; 3-5 सप्ताह की अवस्था में पूरे अंकुर ढह जाते हैं, पत्तियाँ फीकी और तने सिकुड़े होते हैं, तने के अंदर गहरा रंग दिखता है; बड़े पौधे लटककर मर जाते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chickpea_disease/chickpea_6.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chickpea",
+        "quote": "The field symptoms of wilt are dead seedlings or adult plants, usually in patches. At seedling stage, 3-5 weeks after sowing, whole seedlings collapse and lie flat on the ground with dull green leaves and shrunken stem.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chickpea_disease/chickpea_6.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chickpea",
+        "quote": "Deep summer ploughing Follow crop rotation measures continuously. Always use disease free seeds. Avoid sowing when temperatures are high. Follow 6-year crop rotations with sorghum Apply FYM 10-15 cart load/ha.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chickpea_disease/chickpea_6.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chickpea",
+        "quote": "Seed treatment with T. viride @4g/kg or P. fluorescens @ 10g/ kg of seed",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Plough deep in summer, rotate crops (6 years with sorghum), use disease-free seed, avoid sowing when it is hot, add farmyard manure, and treat seed with Trichoderma viride (4 g per kg) or Pseudomonas fluorescens (10 g per kg).",
+  "management_hi": "गर्मी में गहरी जुताई करें, फसल चक्र अपनाएँ (ज्वार के साथ 6 वर्ष का), रोगमुक्त बीज लें, गर्मी में बुवाई से बचें, गोबर की खाद डालें और बीज को ट्राइकोडर्मा विरिडी (4 ग्राम प्रति किलो) या स्यूडोमोनास फ्लोरेसेन्स (10 ग्राम प्रति किलो) से उपचारित करें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

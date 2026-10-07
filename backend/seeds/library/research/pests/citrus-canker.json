@@ -1,0 +1,30 @@
+{
+  "name_en": "Citrus canker",
+  "name_hi": "नींबू का कैंकर",
+  "crop_slugs": [
+    "lemon"
+  ],
+  "symptoms_en": "Round lesions with a yellow halo on both sides of the leaf (leaves are not distorted); twigs can be girdled and die; fruit lesions cut the market value. Severe on acid lime and lemon, rare on sweet orange and mandarin.",
+  "symptoms_hi": "पत्ती की दोनों सतहों पर पीले घेरे वाले गोल धब्बे (पत्तियाँ मुड़ती नहीं); टहनियाँ घिरकर सूख सकती हैं; फलों पर धब्बे बाज़ार भाव घटाते हैं। कागज़ी नींबू और नींबू में गंभीर, मीठे संतरे और मंडारिन में कम।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_diseases_3.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of citrus",
+        "quote": "Lesions are typically circular with yellow halo; appear on both sides of leaf, severe in acid lime (difference from scab) When lesions are produced on twigs, they are girdled and die.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_diseases_3.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of citrus",
+        "quote": "Control leaf miner when young flush is produced. Prune badly infected twigs before the onset of monsoon",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Control the leaf miner when the young flush appears and prune badly infected twigs before the monsoon.",
+  "management_hi": "नई कोंपलें आने पर पत्ती सुरंगक पर नियंत्रण रखें और मानसून से पहले बहुत संक्रमित टहनियाँ छाँट दें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

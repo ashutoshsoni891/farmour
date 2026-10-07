@@ -1,0 +1,65 @@
+{
+  "name_en": "Gram pod borer (Helicoverpa)",
+  "name_hi": "चना/अरहर फली छेदक (हेलिकोवर्पा)",
+  "crop_slugs": [
+    "arhar",
+    "moong",
+    "urad",
+    "chana"
+  ],
+  "symptoms_en": "Young caterpillars eat leaves; grown ones feed on buds, flowers and pods with only the head inside, eating the developing seeds. One caterpillar can destroy 30-40 pods.",
+  "symptoms_hi": "छोटी इल्लियाँ पत्तियाँ खाती हैं; बड़ी इल्लियाँ कलियाँ, फूल और फलियाँ खाती हैं, केवल सिर अंदर डालकर बन रहे दाने खा जाती हैं। एक इल्ली 30-40 फलियाँ नष्ट कर सकती है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "Young larvae - defoliation Grown up larvae feed on buds, flowers and pods. Developing and partly matured seeds are completely eaten by the larvae.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/redgram/crop_prot_crop_insect_pul_red_gram_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of red gram",
+        "quote": "Pods with round holes",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "Sowing three rows of sorghum or maize seed using 250 g/ha around the field. Install Pheromone traps for Helicoverpa armigera @ 12/ha to monitor the population. Light trap @ 1/ha to attract and kill the adult moths. Bird perches @ 50/ha to enable the birds to feed on the larvae.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/redgram/crop_prot_crop_insect_pul_red_gram_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of red gram",
+        "quote": "For pod borers, raise one row of sunflower as intercrop for every 9 rows of pigeon pea and plant maize as border crop.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Borer, Fall Armyworm, and Fruit Fly control: Spray Agniastra @ 3 litres / 100 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For caterpillars and other insects: Spray Dashparni Ark or Agniastra @ 7.5 litres + 250 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Sow three rows of sorghum or maize around the field as a border. Use pheromone traps (12 per hectare) and a light trap (1 per hectare), and put up bird perches (50 per hectare). In arhar, sow one row of sunflower for every 9 rows.",
+  "management_hi": "खेत के चारों ओर ज्वार या मक्का की तीन कतारें सीमा-फसल के रूप में बोएँ। फेरोमोन ट्रैप (12 प्रति हेक्टेयर) और लाइट ट्रैप (1 प्रति हेक्टेयर) लगाएँ तथा पक्षियों के बैठने की खूँटियाँ (50 प्रति हेक्टेयर) गाड़ें। अरहर में हर 9 कतार पर सूरजमुखी की 1 कतार बोएँ।",
+  "recipe_slugs": [
+    "agniastra",
+    "dashparni-ark"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

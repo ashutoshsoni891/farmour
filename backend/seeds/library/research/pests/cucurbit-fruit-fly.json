@@ -1,0 +1,54 @@
+{
+  "name_en": "Cucurbit fruit fly",
+  "name_hi": "कद्दूवर्गीय फसलों की फल मक्खी",
+  "crop_slugs": [
+    "cucumber",
+    "bottle-gourd",
+    "bitter-gourd",
+    "ridge-gourd",
+    "snake-gourd",
+    "watermelon",
+    "tinda"
+  ],
+  "symptoms_en": "Maggots feed on the fruit pulp; resinous fluid oozes out; fruits are distorted, drop early and are unfit to eat.",
+  "symptoms_hi": "इल्लियाँ फल का गूदा खाती हैं; गोंद जैसा द्रव निकलता है; फल बेढंगे हो जाते हैं, जल्दी गिरते हैं और खाने लायक नहीं रहते।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/cucurbitae/cucurbitae_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of cucurbits",
+        "quote": "Maggots feed on the pulp of the fruits Oozing of resinous fluid from fruits Distorted and malformed fruits Premature dropping of fruits and also unfit for consumption",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/cucurbitae/cucurbitae_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of cucurbits",
+        "quote": "Collect infested and fallen fruits and bum in deep pits. In endemic areas, change the sowing date as the fly population is low in hot dry conditions and at its peak during rainy season Expose the pupae by ploughing and turning over soil after harvest Use ribbed gourd as trap crop",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/cucurbitae/cucurbitae_1.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of cucurbits",
+        "quote": "Use attractants like citronella oil, eucalyptus oil, vinegar (acetic acid), and lactic acid to trap flies.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Borer, Fall Armyworm, and Fruit Fly control: Spray Agniastra @ 3 litres / 100 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Collect infested and fallen fruits and burn them in deep pits. Change the sowing date where flies are bad (they are fewest in hot dry weather and peak in the rains). Plough after harvest to expose pupae. Use ribbed gourd as a trap crop and attractants such as vinegar or citronella oil.",
+  "management_hi": "संक्रमित और गिरे फल इकट्ठा करके गहरे गड्ढों में जला दें। जहाँ मक्खी ज़्यादा हो वहाँ बुवाई की तारीख़ बदलें (गर्म सूखे मौसम में कम और बारिश में सबसे ज़्यादा होती है)। कटाई के बाद जुताई करके प्यूपा उजागर करें। तुरई को जाल-फसल के रूप में और सिरका या सिट्रोनेला तेल जैसे आकर्षक पदार्थ उपयोग करें।",
+  "recipe_slugs": [
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

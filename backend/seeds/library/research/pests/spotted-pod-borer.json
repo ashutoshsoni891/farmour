@@ -1,0 +1,65 @@
+{
+  "name_en": "Spotted pod borer (Maruca)",
+  "name_hi": "चित्तीदार फली छेदक (मारुका)",
+  "crop_slugs": [
+    "arhar",
+    "moong",
+    "urad"
+  ],
+  "symptoms_en": "Buds, flowers and pods have bore holes and flowers and pods are webbed together with silk; rain gets into the holes and the seeds rot.",
+  "symptoms_hi": "कलियों, फूलों और फलियों में छेद होते हैं और फूल-फलियाँ रेशम के धागों से जुड़ी रहती हैं; पानी छेदों से घुसकर दाने सड़ा देता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/redgram/crop_prot_crop_insect_pul_red_gram_5.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of red gram",
+        "quote": "Bore holes on the buds, flower or pods Infested pods and flowers are webbed together.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "Through the entry holes, water will enter into the pods causing rotting and browning of seeds.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "The weed hosts such as Sesbania spp. has to be removed from the cropping area. Growing of sunnhemp as a trap crop. The plant is highly attractive to egg laying female moth but unsuitable for development of larvae.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/redgram/crop_prot_crop_insect_pul_red_gram_5.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of red gram",
+        "quote": "Bird perches 50/ha Mechanical collection of grown up larva and blister beetle",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Borer, Fall Armyworm, and Fruit Fly control: Spray Agniastra @ 3 litres / 100 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "escalate_if": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/redgram/crop_prot_crop_insect_pul_red_gram_5.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of red gram",
+        "quote": "ETL: 5/plant",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Remove weed hosts such as Sesbania, grow sunn hemp as a trap crop (moths lay eggs on it but the larvae cannot develop), put up bird perches (50 per hectare) and collect grown larvae by hand.",
+  "management_hi": "सेसबेनिया जैसे खरपतवार हटाएँ, सनई को जाल-फसल के रूप में उगाएँ (पतंगे उस पर अंडे देते हैं पर इल्लियाँ पनप नहीं पातीं), पक्षियों के बैठने की खूँटियाँ (50 प्रति हेक्टेयर) लगाएँ और बड़ी इल्लियाँ हाथ से चुनें।",
+  "recipe_slugs": [
+    "agniastra"
+  ],
+  "escalate_if": "Control is needed once there are 5 or more larvae per plant (the economic threshold in the source).",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). Sunn hemp as a trap crop is in the library."
+}

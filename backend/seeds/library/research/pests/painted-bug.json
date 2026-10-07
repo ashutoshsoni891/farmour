@@ -1,0 +1,45 @@
+{
+  "name_en": "Painted bug (mustard)",
+  "name_hi": "चित्रित कीट (पेंटेड बग)",
+  "crop_slugs": [
+    "mustard"
+  ],
+  "symptoms_en": "Young plants wilt and wither; adult bugs excrete a resinous substance that spoils the pods.",
+  "symptoms_hi": "छोटे पौधे मुरझाकर सूख जाते हैं; वयस्क कीट चिपचिपा पदार्थ छोड़ते हैं जो फलियों को खराब कर देता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mustard/crop_prot_crop_insect_oil_mustard_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mustard",
+        "quote": "Young plants wilt and wither as a result of the attack Adult bugs excrete resinous substances which spoils the pods",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mustard/crop_prot_crop_insect_oil_mustard_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mustard",
+        "quote": "Deep ploughing so that the eggs of painted bugs are destroyed Early sowing is needed to avoid pest attack Irrigate the crop during four week after sowing to reduce pest attack Quick threshing of the harvested crop should be done",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Aphids and other sucking pests can be effectively controlled with Dashparni Ark, Brahmastra, Agniastra, Neemastra, etc",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Plough deep so the eggs are destroyed, sow early, irrigate during the first four weeks, thresh the harvest quickly and burn crop remains.",
+  "management_hi": "गहरी जुताई करें ताकि अंडे नष्ट हों, जल्दी बुवाई करें, पहले चार सप्ताह में सिंचाई करें, कटाई के बाद जल्दी गहाई करें और फसल अवशेष जला दें।",
+  "recipe_slugs": [
+    "neemastra",
+    "brahmastra",
+    "agniastra",
+    "dashparni-ark"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). NITI's sucking-pest recipes are matched to the bug."
+}

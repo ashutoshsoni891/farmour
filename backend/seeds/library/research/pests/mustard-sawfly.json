@@ -1,0 +1,43 @@
+{
+  "name_en": "Mustard sawfly",
+  "name_hi": "सरसों की आरा मक्खी (सॉफ्लाई)",
+  "crop_slugs": [
+    "mustard"
+  ],
+  "symptoms_en": "Grubs nibble leaves from the margins inward leaving shot holes, and can riddle whole leaves and eat the shoot surface, so seedlings dry up and older plants set no seed.",
+  "symptoms_hi": "सुंडियाँ पत्तियों को किनारों से कुतरकर छेद कर देती हैं और पूरी पत्ती छलनी कर सकती हैं तथा तने की सतह खाती हैं, जिससे पौध सूखती है और बड़े पौधे दाने नहीं बनाते।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mustard/crop_prot_crop_insect_oil_mustard_3.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mustard",
+        "quote": "Initially the larva nibbles leaves, later it feeds from the margins towards the midrib The grubs cause numerous shot holes and even riddled the entire leaves by voracious feeding",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mustard/crop_prot_crop_insect_oil_mustard_3.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mustard",
+        "quote": "Summer ploughing to destroy the pupa Early sowing should be done Maintain clean cultivation Apply irrigation in seedling stage is very crucial for sawfly management because most of the larvae die due to drowning effect.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For caterpillars and other insects: Spray Dashparni Ark or Agniastra @ 7.5 litres + 250 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Plough in summer to destroy pupae, sow early, keep the field clean, irrigate at the seedling stage (most grubs drown) and collect and destroy grubs morning and evening.",
+  "management_hi": "गर्मी में जुताई करके प्यूपा नष्ट करें, जल्दी बुवाई करें, खेत साफ़ रखें, पौध अवस्था में सिंचाई करें (अधिकतर सुंडियाँ डूबकर मर जाती हैं) और सुबह-शाम सुंडियाँ इकट्ठा करके नष्ट करें।",
+  "recipe_slugs": [
+    "dashparni-ark",
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). NITI names Dashparni Ark and Agniastra for 'caterpillars and other insects'; the sawfly grub is caterpillar-like."
+}

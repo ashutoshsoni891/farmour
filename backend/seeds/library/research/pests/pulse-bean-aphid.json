@@ -1,0 +1,71 @@
+{
+  "name_en": "Bean aphid (pulses)",
+  "name_hi": "दलहन का माहू (बीन एफिड)",
+  "crop_slugs": [
+    "arhar",
+    "moong",
+    "urad",
+    "cowpea"
+  ],
+  "symptoms_en": "Nymphs and adults suck sap from leaflets, stems and pods; young leaves twist; honeydew attracts sooty mould; heavy feeding yellows and wilts plants; in moong it carries cucumber mosaic virus.",
+  "symptoms_hi": "शिशु और वयस्क पत्तियों, तनों और फलियों का रस चूसते हैं; नई पत्तियाँ ऐंठ जाती हैं; शहद जैसे स्राव पर कालिख जैसी फफूँद उगती है; ज़्यादा प्रकोप में पौधे पीले पड़कर मुरझाते हैं; मूंग में यह ककड़ी मोज़ेक विषाणु फैलाता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_6.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "Nymphs and adults suck the sap from leaflets, stem and pods. The young leaves of seedlings become twisted Aphids secretes honeydew during feeding which attracts honeydew Excessive feeding leads to yellowing and wilting It transmits cucumber mosaic virus in greengram",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_6.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "Install yellow stocky traps (@ 5/ac) to reduce the aphid population",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_6.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "Spray with 5% crude neem extract or 2% neem oil 3000 ppm",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Aphids and other sucking pests can be effectively controlled with Dashparni Ark, Brahmastra, Agniastra, Neemastra, etc",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fermented Curd Water For the management of common sucking pests like whiteflies, jassids, and aphids",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "escalate_if": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/redgram/crop_prot_crop_insect_pul_red_gram_12.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of red gram",
+        "quote": "ETL :20/2.5 cm shoot length",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Install yellow sticky traps (5 per acre), protect ladybird beetles and lacewings, and spray 5% crude neem extract or 2% neem oil.",
+  "management_hi": "पीले चिपचिपे ट्रैप (5 प्रति एकड़) लगाएँ, लेडीबर्ड भृंग और लेसविंग को बचाएँ, और 5% कच्चा नीम अर्क या 2% नीम तेल का छिड़काव करें।",
+  "recipe_slugs": [
+    "neemastra",
+    "brahmastra",
+    "agniastra",
+    "dashparni-ark",
+    "sour-buttermilk-spray"
+  ],
+  "escalate_if": "Control is needed at about 20 aphids per 2.5 cm of shoot (the economic threshold in the source, for arhar).",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

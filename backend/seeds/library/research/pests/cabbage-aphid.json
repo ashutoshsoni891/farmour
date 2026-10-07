@@ -1,0 +1,61 @@
+{
+  "name_en": "Cabbage aphid",
+  "name_hi": "गोभी का माहू",
+  "crop_slugs": [
+    "cabbage",
+    "cauliflower",
+    "broccoli"
+  ],
+  "symptoms_en": "Leaves yellow, crinkle and cup; growing points are distorted; white cast skins are found at the base of the plant.",
+  "symptoms_hi": "पत्तियाँ पीली पड़ती, सिकुड़ती और कटोरीनुमा हो जाती हैं; बढ़ते सिरे टेढ़े हो जाते हैं; पौधे के आधार पर सफ़ेद उतरी खाल दिखती है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/colecrop/cole_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of cole crops",
+        "quote": "Yellowing Crinkling and cupping Distorted primordia Presence of white cast skin at the base of the plant",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/colecrop/cole_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of cole crops",
+        "quote": "Install yellow sticky trap @12 no/ha",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/colecrop/cole_7.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of cole crops",
+        "quote": "Spray neem oil 3 % with 0.5 ml Teepol/lit",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Aphids and other sucking pests can be effectively controlled with Dashparni Ark, Brahmastra, Agniastra, Neemastra, etc",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fermented Curd Water For the management of common sucking pests like whiteflies, jassids, and aphids",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Use yellow sticky traps (12 per hectare) to monitor winged adults and spray neem oil 3% with a little soap.",
+  "management_hi": "उड़ने वाले वयस्कों की निगरानी के लिए पीले चिपचिपे ट्रैप (12 प्रति हेक्टेयर) लगाएँ और थोड़े साबुन के साथ नीम तेल 3% का छिड़काव करें।",
+  "recipe_slugs": [
+    "neemastra",
+    "brahmastra",
+    "agniastra",
+    "dashparni-ark",
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

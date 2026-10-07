@@ -1,0 +1,44 @@
+{
+  "name_en": "Cabbage butterfly",
+  "name_hi": "गोभी की तितली",
+  "crop_slugs": [
+    "cabbage",
+    "cauliflower"
+  ],
+  "symptoms_en": "Caterpillars defoliate the plants and bore into cabbage heads.",
+  "symptoms_hi": "इल्लियाँ पौधों की पत्तियाँ खा जाती हैं और गोभी के गोले में छेद करती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/colecrop/cole_5.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of cole crops",
+        "quote": "Defoliation Bores into the heads of cabbage",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/colecrop/cole_5.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of cole crops",
+        "quote": "Collect and destroy caterpillars in the early stage of attack Conserve parasitoids like Cotesia glomeratus",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For caterpillars and other insects: Spray Dashparni Ark or Agniastra @ 7.5 litres + 250 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Collect and destroy caterpillars early and protect parasitoids such as Cotesia glomeratus.",
+  "management_hi": "शुरू में इल्लियाँ इकट्ठा करके नष्ट करें और कोटेसिया ग्लोमेरेटस जैसे परजीवी कीटों को बचाएँ।",
+  "recipe_slugs": [
+    "dashparni-ark",
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

@@ -1,0 +1,37 @@
+{
+  "name_en": "Citrus gummosis",
+  "name_hi": "नींबूवर्गीय गोंद रोग (गमोसिस)",
+  "crop_slugs": [
+    "orange",
+    "lemon"
+  ],
+  "symptoms_en": "Bark at the base darkens, dries, shrinks and cracks in strips, then gum oozes from the trunk; the girdled bark can kill the tree. Worst where the trunk stays wet (flood irrigation, waterlogged or heavy soil).",
+  "symptoms_hi": "तने के आधार की छाल काली पड़ती, सूखती, सिकुड़ती और पट्टियों में फट जाती है, फिर तने से गोंद निकलता है; छाल का घेरा कटने से पेड़ मर सकता है। यह वहाँ सबसे ज़्यादा होता है जहाँ तना गीला रहता है (बाढ़ सिंचाई, जलभराव या भारी मिट्टी)।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_diseases_1.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of citrus",
+        "quote": "First symptoms are dark staining of bark which progresses into the wood. Bark at the base is destroyed resulting in girdling and finally death of the tree.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_diseases_1.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of citrus",
+        "quote": "Later profuse exudation of gum from the bark of the trunk.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_diseases_1.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of citrus",
+        "quote": "Injuries to crown roots or base of stem during cultural operations should be avoided. If lesion has girdled less than ½ the girth, remove the diseased bark with a knife along with ½” of uninvaded bark. Bark of trunk should be coated with Bordeaux paste.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Avoid injuring crown roots or the base of the stem, and keep the trunk from sitting in water. If a lesion girdles less than half the trunk, cut away the diseased bark with a knife and coat the bark with Bordeaux paste.",
+  "management_hi": "जड़ों के ऊपरी भाग और तने के आधार को चोट से बचाएँ और तने को पानी में न डूबने दें। यदि घाव आधे से कम घेरे में हो तो रोगी छाल चाकू से हटाकर बोर्डो पेस्ट लगाएँ।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). Prolonged contact of the trunk with water makes it worse (the source's favourable conditions)."
+}

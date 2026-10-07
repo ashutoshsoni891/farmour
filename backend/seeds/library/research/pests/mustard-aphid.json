@@ -1,0 +1,53 @@
+{
+  "name_en": "Mustard aphid",
+  "name_hi": "सरसों का माहू (चेंपा)",
+  "crop_slugs": [
+    "mustard"
+  ],
+  "symptoms_en": "Nymphs and adults suck sap from leaves, buds and pods; leaves curl, plants may wither and die, stay stunted, and sooty mould grows on the honeydew; the field looks sickly.",
+  "symptoms_hi": "शिशु और वयस्क पत्तियों, कलियों और फलियों का रस चूसते हैं; पत्तियाँ मुड़ती हैं, पौधे मुरझाकर मर सकते हैं, बौने रहते हैं और शहद जैसे स्राव पर कालिख जैसी फफूँद उगती है; खेत रोगी-सा दिखता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mustard/crop_prot_crop_insect_oil_mustard_6.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mustard",
+        "quote": "Both nymphs and adults suck the sap from leaves, buds and pods Curling may occur in infested leaves and at advanced stage plants may wither and die Plants remain stunted and sooty molds grow on the honey dew excreted by the insects",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/mustard/crop_prot_crop_insect_oil_mustard_6.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of mustard",
+        "quote": "Use tolerant varieties like JM-1 and RK-9501 Destroy the affected parts along with aphid population in the initial stage The crop sown before 20th October escapes the damage Set up yellow stick trap to monitor aphid population",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Aphids and other sucking pests can be effectively controlled with Dashparni Ark, Brahmastra, Agniastra, Neemastra, etc",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fermented Curd Water For the management of common sucking pests like whiteflies, jassids, and aphids",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Use tolerant varieties (JM-1, RK-9501), destroy affected parts with the aphids early, sow before 20 October (earlier crops escape damage) and use yellow sticky traps to monitor.",
+  "management_hi": "सहनशील किस्में (जेएम-1, आरके-9501) लगाएँ, शुरू में प्रभावित भाग माहू सहित नष्ट करें, 20 अक्टूबर से पहले बुवाई करें (पहले बोई फसल बच जाती है) और निगरानी के लिए पीले चिपचिपे ट्रैप लगाएँ।",
+  "recipe_slugs": [
+    "neemastra",
+    "brahmastra",
+    "agniastra",
+    "dashparni-ark",
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

@@ -1,0 +1,48 @@
+{
+  "name_en": "Red pumpkin beetle",
+  "name_hi": "लाल कद्दू भृंग",
+  "crop_slugs": [
+    "cucumber",
+    "bottle-gourd",
+    "bitter-gourd",
+    "ridge-gourd",
+    "watermelon",
+    "tinda"
+  ],
+  "symptoms_en": "Grubs feed on roots, stems and fruits touching the soil; adults eat leaves and flowers.",
+  "symptoms_hi": "इल्लियाँ (ग्रब) जड़ों, तनों और मिट्टी को छूते फलों को खाती हैं; वयस्क पत्तियाँ और फूल खाते हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/cucurbitae/cucurbitae_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of cucurbits",
+        "quote": "Grubs feeds on the roots, stem and fruits touching the soil Adult feeds on leaf and flowers.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/cucurbitae/cucurbitae_2.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of cucurbits",
+        "quote": "Plough the fields just after harvesting destroy the hibernating adults Collect and destroy adult beetles",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For caterpillars and other insects: Spray Dashparni Ark or Agniastra @ 7.5 litres + 250 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Plough just after harvest to destroy hibernating adults and collect and destroy adult beetles.",
+  "management_hi": "कटाई के तुरंत बाद जुताई करके शीतनिद्रा वाले वयस्कों को नष्ट करें और वयस्क भृंग इकट्ठा करके मार दें।",
+  "recipe_slugs": [
+    "dashparni-ark",
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). NITI names Dashparni Ark and Agniastra for 'caterpillars and other insects'."
+}

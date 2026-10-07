@@ -1,0 +1,30 @@
+{
+  "name_en": "Chickpea Ascochyta blight",
+  "name_hi": "चने का एस्कोकाइटा झुलसा",
+  "crop_slugs": [
+    "chana"
+  ],
+  "symptoms_en": "Water-soaked lesions and small round brown spots on leaves that spread and blight leaves and buds; in bad attacks the whole plant dries up suddenly; stems and petioles also show lesions; seed can be infected.",
+  "symptoms_hi": "पत्तियों पर पानी जैसे धब्बे और छोटे गोल भूरे धब्बे जो फैलकर पत्तियों और कलियों को झुलसा देते हैं; ज़्यादा प्रकोप में पूरा पौधा अचानक सूख जाता है; तनों और डंठलों पर भी धब्बे बनते हैं; बीज संक्रमित हो सकता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chickpea_disease/chickpea_2.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chickpea",
+        "quote": "Symptoms appear on leaves as water soaked lesions. Symptoms include smaller circular brown spots on leaves. Under favorable conditions, these spots enlarge rapidly and coalesce, blighting the leaves and buds. In case of severe infection, the entire plant dries up suddenly.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chickpea_disease/chickpea_2.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chickpea",
+        "quote": "Sow disease-free seed. Follow rotation crop. Intercrop with wheat, barley, mustard",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Sow disease-free seed, rotate crops and intercrop with wheat, barley or mustard.",
+  "management_hi": "रोगमुक्त बीज बोएँ, फसल चक्र अपनाएँ और गेहूँ, जौ या सरसों के साथ अंतरफसल लें।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). Favoured by wet, warm weather and dense crop canopy; no months in the source."
+}

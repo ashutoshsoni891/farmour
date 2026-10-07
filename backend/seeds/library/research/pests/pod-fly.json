@@ -1,0 +1,42 @@
+{
+  "name_en": "Pod fly (arhar)",
+  "name_hi": "फली मक्खी (अरहर)",
+  "crop_slugs": [
+    "arhar"
+  ],
+  "symptoms_en": "Dark brown crust on the pod wall and pin-head holes in dry pods; maggots eat the seeds, which shrivel and are unfit for use; damage can reach 60-70% in bad attacks.",
+  "symptoms_hi": "फली की दीवार पर गहरा भूरा जमाव और सूखी फलियों में सूई जैसे छेद; इल्लियाँ दाने खाती हैं जो सिकुड़ जाते हैं और काम के नहीं रहते; ज़्यादा प्रकोप में 60-70% तक नुकसान हो सकता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/redgram/crop_prot_crop_insect_pul_red_gram_8.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of red gram",
+        "quote": "Dark brown encrustation on the pod wall Dry pods showing pin head size hole Seeds shriveled, striped and partially eaten",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/redgram/crop_prot_crop_insect_pul_red_gram_8.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of red gram",
+        "quote": "Conserve natural enemies like Euderus lividus, Eurytoma sp., Euderus agromyzae",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Borer, Fall Armyworm, and Fruit Fly control: Spray Agniastra @ 3 litres / 100 litres water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Conserve natural enemies such as Euderus lividus and Eurytoma species.",
+  "management_hi": "युडेरस लिविडस और यूरिटोमा जैसे प्राकृतिक शत्रुओं को बचाएँ।",
+  "recipe_slugs": [
+    "agniastra"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). The page calls the pest a fly; the recipe is matched as a fruit-fly class pest."
+}

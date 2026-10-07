@@ -1,0 +1,57 @@
+{
+  "name_en": "Yellow mosaic (moong, urad)",
+  "name_hi": "मूंग/उड़द का पीला मोज़ेक",
+  "crop_slugs": [
+    "moong",
+    "urad"
+  ],
+  "symptoms_en": "Scattered yellow spots on young leaves, then irregular yellow and green patches; some leaves turn fully yellow; plants are stunted, mature late and set very few flowers and pods. More common on urad (black gram) than moong. Spread by whitefly.",
+  "symptoms_hi": "नई पत्तियों पर बिखरे पीले धब्बे, फिर पीले-हरे अनियमित चकत्ते; कुछ पत्तियाँ पूरी पीली हो जाती हैं; पौधे बौने रहते हैं, देर से पकते हैं और बहुत कम फूल-फलियाँ देते हैं। उड़द में मूंग से ज़्यादा होता है। यह सफ़ेद मक्खी से फैलता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/green_gram_disease/yellow_mosaic.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of greengram",
+        "quote": "Initially mild scattered yellow spots appear on young leaves. The next trifoliate leaves emerging from the growing apex show irregular yellow and green patches alternating with each other.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/green_gram_disease/yellow_mosaic.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of greengram",
+        "quote": "Diseased plants are stunted, mature late and produce very few flowers and pods.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_10.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "Install yellow sticky traps @ 5/ac to attract the whiteflies",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "For sucking pests (like thrips and whitefly) in the early stage: Spray Neemastra @ 200 litres per acre",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Fungus/Virus control: Spray 3–4 days old buttermilk mixed with 100 litres of water",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Install yellow sticky traps (5 per acre) to attract whiteflies.",
+  "management_hi": "सफ़ेद मक्खी को आकर्षित करने के लिए पीले चिपचिपे ट्रैप (5 प्रति एकड़) लगाएँ।",
+  "recipe_slugs": [
+    "neemastra",
+    "sour-buttermilk-spray"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). Neemastra acts on the whitefly that carries the virus. The disease page gives no cultural steps; varieties tolerant to the virus and roguing are named in other TNAU pages."
+}

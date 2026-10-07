@@ -1,0 +1,52 @@
+{
+  "name_en": "Citrus psylla",
+  "name_hi": "नींबूवर्गीय सिल्ला (साइलिड)",
+  "crop_slugs": [
+    "orange",
+    "lemon"
+  ],
+  "symptoms_en": "Nymphs and adults suck sap and inject toxic saliva; nymphs crowd on shoot tips, buds and tender leaves; honeydew grows sooty mould; affected parts dry and die; it carries citrus greening.",
+  "symptoms_hi": "शिशु और वयस्क रस चूसते हैं और विषैली लार छोड़ते हैं; शिशु कोंपलों, कलियों और कोमल पत्तियों पर भीड़ लगाते हैं; शहद जैसे स्राव पर कालिख जैसी फफूँद उगती है; प्रभावित भाग सूखकर मर जाते हैं; यह सिट्रस ग्रीनिंग रोग फैलाता है।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_pest/citrus_3.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of citrus",
+        "quote": "Both nymphs and adults suck sap from the plants and injection of toxic saliva Nymphs - are more destructive, crowd on the terminal shoots, buds and tender leaves Excrete honeydew- growth of sooty moulds Affected plant parts dry and die away",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_pest/citrus_3.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of citrus",
+        "quote": "Collect and destroy the damaged plant parts",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/citrus_pest/citrus_3.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of citrus",
+        "quote": "Encourage the activities natural enemies such as Syrphids and Chrysopids",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "recipe_slugs": [
+      {
+        "url": "https://www.niti.gov.in/node/2214",
+        "title": "NITI Aayog: Empowering Farmers, Natural Farming Training Toolkit and Best Practices Guide",
+        "quote": "Aphids and other sucking pests can be effectively controlled with Dashparni Ark, Brahmastra, Agniastra, Neemastra, etc",
+        "note": "Natural-farming guide (NITI); the recipe is matched to the pest class, not tested on this crop in Malwa.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Collect and destroy damaged plant parts and encourage natural enemies such as syrphid flies and lacewings.",
+  "management_hi": "क्षतिग्रस्त भाग इकट्ठा करके नष्ट करें और सिरफिड मक्खी व लेसविंग जैसे प्राकृतिक शत्रुओं को बढ़ावा दें।",
+  "recipe_slugs": [
+    "neemastra",
+    "brahmastra",
+    "agniastra",
+    "dashparni-ark"
+  ],
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist)). NITI's sucking-pest recipes are matched to the psylla."
+}

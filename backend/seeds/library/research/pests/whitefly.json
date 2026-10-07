@@ -4,7 +4,10 @@
   "crop_slugs": [
     "tomato",
     "okra",
-    "potato"
+    "potato",
+    "moong",
+    "urad",
+    "arhar"
   ],
   "symptoms_en": "Yellow spots and yellowing, leaves curl downward and dry; sooty mould on the leaves; it carries tomato leaf curl and okra yellow vein mosaic viruses.",
   "symptoms_hi": "पीले धब्बे और पीलापन, पत्तियाँ नीचे की ओर मुड़कर सूखती हैं; पत्तियों पर कालिख जैसी फफूँद; यह टमाटर लीफ कर्ल और भिंडी पीला शिरा मोज़ेक विषाणु फैलाती है।",
@@ -26,6 +29,12 @@
         "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_7.html",
         "title": "TNAU Agritech Portal, crop protection: pests of potato",
         "quote": "Yellowing and curling of leaf Sooty mould develops on affected leaves",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_10.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "It transmits mungbean yellow mosaic virus (MYMV)",
         "checked_on": "2026-10-07"
       }
     ],

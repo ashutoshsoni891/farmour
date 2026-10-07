@@ -1,0 +1,30 @@
+{
+  "name_en": "Chickpea dry root rot",
+  "name_hi": "चने की सूखी जड़ गलन",
+  "crop_slugs": [
+    "chana"
+  ],
+  "symptoms_en": "Scattered dried plants from flowering to podding; leaves and stems turn straw-coloured; plants wither across the field and the roots are brittle and dry.",
+  "symptoms_hi": "फूल से फली अवस्था तक बिखरे सूखे पौधे; पत्तियाँ और तने भूसे जैसे रंग के हो जाते हैं; पौधे पूरे खेत में मुरझाते हैं और जड़ें भंगुर और सूखी होती हैं।",
+  "sources": {
+    "symptoms_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chickpea_disease/chickpea_5.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chickpea",
+        "quote": "The disease appears from flowering to podding stage as scattered dried plants. The leaves and stem are become straw colored. Affected plants wither and spread across the entire field. The roots of infected plants become brittle and dry.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "management_en": [
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/chickpea_disease/chickpea_5.html",
+        "title": "TNAU Agritech Portal, crop protection: diseases of chickpea",
+        "quote": "Deep ploughing in summer Grow cultivars resistant to dry root rot. Drought should be avoided. Sowing should always be done on the recommended time. Germinating and young seedlings should be saved from high temperatures.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "management_en": "Plough deep in summer, grow resistant varieties, avoid drought, sow at the recommended time and protect young seedlings from high temperatures.",
+  "management_hi": "गर्मी में गहरी जुताई करें, प्रतिरोधी किस्में लगाएँ, सूखे से बचें, अनुशंसित समय पर बुवाई करें और छोटे अंकुरों को ऊँचे तापमान से बचाएँ।",
+  "source_notes": "AI research (2026-10-07). Organic and cultural steps only are listed under management; chemical sprays in the sources are left out. Escalation advice is not sourced for most pests yet (TODO(agronomist))."
+}

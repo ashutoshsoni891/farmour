@@ -3,7 +3,10 @@
   "name_hi": "जैसिड (हरा तेला)",
   "crop_slugs": [
     "okra",
-    "potato"
+    "potato",
+    "moong",
+    "urad",
+    "arhar"
   ],
   "symptoms_en": "Leaves turn yellow, edges curl down and redden, and in bad attacks the leaves bronze and crumble ('hopper burn'); growth is stunted.",
   "symptoms_hi": "पत्तियाँ पीली पड़ती हैं, किनारे नीचे मुड़कर लाल हो जाते हैं और ज़्यादा प्रकोप में पत्तियाँ भूरी होकर चूर हो जाती हैं ('हॉपर बर्न'); बढ़वार रुकती है।",
@@ -19,6 +22,12 @@
         "url": "https://agritech.tnau.ac.in/crop_protection/potato/potato_5.html",
         "title": "TNAU Agritech Portal, crop protection: pests of potato",
         "quote": "Tips of affected leaves become brown, turn upwards and get dried up",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://agritech.tnau.ac.in/crop_protection/greenblack/crop_prot_crop_insect_pul_bla_and%20green_9.html",
+        "title": "TNAU Agritech Portal, crop protection: pests of black and green gram",
+        "quote": "Leave mottled and yellowish in colour Green colour insects found under surface of leaves",
         "checked_on": "2026-10-07"
       }
     ],
