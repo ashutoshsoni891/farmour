@@ -37,8 +37,9 @@ def _has_source(sources: dict[str, Any], field: str) -> bool:
     return bool(sources.get(field))
 
 
-def crop_missing(data: dict[str, Any], region_slug: str) -> list[str]:
-    """Reasons the crop can't go to review, as keys like 'field:x' or 'source:x'."""
+def crop_missing(data: dict[str, Any], regions: list[str]) -> list[str]:
+    """Reasons the crop can't go to review, as keys like 'field:x' or 'source:x'.
+    `regions` is the lookup order for sowing windows: the farm's region, then its fallbacks."""
     required = list(CROP_ALWAYS)
     if data.get("category") in TREE_CATEGORIES:
         required += CROP_TREE
@@ -51,12 +52,15 @@ def crop_missing(data: dict[str, Any], region_slug: str) -> list[str]:
     missing = [f"field:{f}" for f in dict.fromkeys(required) if _empty(data.get(f))]
 
     seasons = data.get("seasons") or []
-    regional = (data.get("regional") or {}).get(region_slug) or {}
+    by_region = data.get("regional") or {}
+    found = next(
+        (r for r in regions if not _empty((by_region.get(r) or {}).get("sow_windows"))), None
+    )
     if seasons and seasons != ["perennial"]:
-        if _empty(regional.get("sow_windows")):
-            missing.append(f"field:sow_windows.{region_slug}")
-        elif not _has_source(regional.get("sources") or {}, "sow_windows"):
-            missing.append(f"source:sow_windows.{region_slug}")
+        if found is None:
+            missing.append(f"field:sow_windows.{regions[0]}")
+        elif not _has_source((by_region[found].get("sources") or {}), "sow_windows"):
+            missing.append(f"source:sow_windows.{found}")
 
     sources = data.get("sources") or {}
     for field, value in data.items():

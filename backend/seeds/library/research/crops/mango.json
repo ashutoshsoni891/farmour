@@ -42,7 +42,7 @@
   },
   "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Batch 4 (trees, border and flowers). Planting windows are the source's months (Tamil Nadu or Kerala) until a Malwa source is found. Years to first fruit not found in a checkable source yet.",
   "regional": {
-    "malwa": {
+    "india": {
       "sow_windows": [
         {
           "from": "07-01",

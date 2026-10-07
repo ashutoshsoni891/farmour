@@ -60,6 +60,13 @@ async def _default_region(session: AsyncSession) -> str:
     return str(await get_setting(session, "library.default_region"))
 
 
+async def _region_order(session: AsyncSession, first: str | None = None) -> list[str]:
+    """Regions to look in for a crop's sowing window: the farm's, then the fallbacks."""
+    fallback = await get_setting(session, "library.region_fallback")
+    order = [first or await _default_region(session), *[str(r) for r in (fallback or [])]]
+    return list(dict.fromkeys(order))
+
+
 # ---------------------------------------------------------------- crops
 
 
@@ -84,7 +91,7 @@ async def _crop_out(session: AsyncSession, crop: Crop, *, with_missing: bool) ->
     missing: list[str] = []
     if with_missing and crop.status in OPEN:
         missing = workflow.crop_missing(
-            await _crop_data(session, crop), await _default_region(session)
+            await _crop_data(session, crop), await _region_order(session)
         )
     data = {name: getattr(crop, name) for name in CropOut.model_fields if hasattr(crop, name)}
     data["regional"] = (await _crop_data(session, crop))["regional"]
@@ -398,9 +405,7 @@ async def _entry(session: AsyncSession, entity: str, entity_id: uuid.UUID) -> An
 
 async def _missing(session: AsyncSession, entity: str, entry: Any) -> list[str]:
     if entity == "crop":
-        return workflow.crop_missing(
-            await _crop_data(session, entry), await _default_region(session)
-        )
+        return workflow.crop_missing(await _crop_data(session, entry), await _region_order(session))
     if entity == "recipe":
         return _recipe_out(entry, with_missing=True).missing_for_review
     if entity == "pest":
@@ -531,13 +536,17 @@ async def engine_rules(session: AsyncSession) -> dict[str, dict[str, Any]]:
 async def engine_crops(session: AsyncSession, region_slug: str | None = None) -> list[EngineCrop]:
     """Crops the engine may plan with (approved, plus AI-checked while the beta flag is on), with
     the sow windows and prices of one region (default: `library.default_region`)."""
-    region = region_slug or await _default_region(session)
+    order = await _region_order(session, region_slug)
     slugs = await repo.region_slugs(session)
     crops = await repo.crops_with_status(session, await engine_statuses(session))
     regional = await repo.regional_for(session, [c.id for c in crops])
     out = []
     for c in crops:
-        local = next((r for r in regional.get(c.id, []) if slugs.get(r.region_id) == region), None)
+        rows = {slugs.get(r.region_id): r for r in regional.get(c.id, [])}
+        local = next((rows[r] for r in order if r in rows and rows[r].sow_windows), None)
+        priced = next(
+            (rows[r] for r in order if r in rows and rows[r].price_mandi_paise_per_kg), None
+        )
         out.append(
             EngineCrop(
                 id=c.id, slug=c.slug, name_en=c.name_en, name_hi=c.name_hi, status=c.status,
@@ -554,8 +563,8 @@ async def engine_crops(session: AsyncSession, region_slug: str | None = None) ->
                 low_care=c.low_care,
                 tree_spacing_m=float(c.tree_spacing_m) if c.tree_spacing_m is not None else None,
                 years_to_bear=float(c.years_to_bear) if c.years_to_bear is not None else None,
-                price_direct_paise_per_kg=local.price_direct_paise_per_kg if local else None,
-                price_mandi_paise_per_kg=local.price_mandi_paise_per_kg if local else None,
+                price_direct_paise_per_kg=priced.price_direct_paise_per_kg if priced else None,
+                price_mandi_paise_per_kg=priced.price_mandi_paise_per_kg if priced else None,
             )
         )  # fmt: skip
     return out
@@ -647,7 +656,7 @@ async def load_research(session: AsyncSession, files: dict[str, dict[str, Any]])
     says what is missing. Entries in review, approved or retired are never touched.
     """
     counts = {"ai_verified": 0, "research_draft": 0, "research_skipped": 0}
-    region = await _default_region(session)
+    region = await _region_order(session)
     for slug, raw in files.items():
         crop = await repo.get_crop_by_slug(session, slug)
         if crop is None or crop.status not in ("draft", "ai_verified"):

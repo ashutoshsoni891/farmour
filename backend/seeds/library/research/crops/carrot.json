@@ -83,7 +83,7 @@
   },
   "source_notes": "AI research batch 5 (2026-10-06). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
   "regional": {
-    "malwa": {
+    "india": {
       "sow_windows": [
         {
           "from": "08-01",

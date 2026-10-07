@@ -103,7 +103,7 @@
   },
   "source_notes": "AI research batch 2 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows: see the source note on the windows.",
   "regional": {
-    "malwa": {
+    "india": {
       "sow_windows": [
         {
           "from": "01-01",

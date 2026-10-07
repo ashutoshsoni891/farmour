@@ -102,7 +102,7 @@
   },
   "source_notes": "AI research batch 3 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Greens crop (green yield and 20-25 day cutting). Sow windows are TNAU months, not Malwa-specific.",
   "regional": {
-    "malwa": {
+    "india": {
       "sow_windows": [
         {
           "from": "06-01",

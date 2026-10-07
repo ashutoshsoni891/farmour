@@ -103,7 +103,7 @@
   },
   "source_notes": "AI research batch 2 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are national ICAR-IIVR months (no Malwa-specific source found yet).",
   "regional": {
-    "malwa": {
+    "india": {
       "sow_windows": [
         {
           "from": "10-01",

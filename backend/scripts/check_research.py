@@ -11,6 +11,7 @@ and must be confirmed another way (then set `checked_on` by hand with --confirm 
 
 import argparse
 import html
+import io
 import json
 import re
 import time
@@ -18,6 +19,9 @@ import urllib.request
 from datetime import date
 from pathlib import Path
 from typing import Any
+
+from pypdf import PdfReader
+from pypdf.errors import PdfReadError
 
 FOLDER = Path(__file__).resolve().parents[1] / "seeds" / "library" / "research" / "crops"
 MIN_TEXT = 500  # shorter page text means the page needs JavaScript
@@ -28,6 +32,18 @@ def _norm(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def _pdf_text(req: urllib.request.Request) -> str:
+    """Text of a cited PDF (state and ICAR guides are mostly PDFs); empty when it can't be read."""
+    for attempt in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=90) as resp:  # noqa: S310 (cited https urls)
+                reader = PdfReader(io.BytesIO(resp.read()))
+            return " ".join((page.extract_text() or "") for page in reader.pages)
+        except (OSError, PdfReadError):
+            time.sleep(2 * (attempt + 1))
+    return ""
+
+
 def _page_text(url: str, cache: dict[str, str]) -> str:
     if url not in cache:
         if not url.startswith("https://"):
@@ -35,6 +51,9 @@ def _page_text(url: str, cache: dict[str, str]) -> str:
         req = urllib.request.Request(  # noqa: S310 (https only, checked above)
             url, headers={"User-Agent": "Mozilla/5.0 (farmour research)"}
         )
+        if url.lower().split("?")[0].endswith(".pdf"):
+            cache[url] = _norm(_pdf_text(req))
+            return cache[url]
         raw = ""
         for attempt in range(4):  # the TNAU server drops some connections; try again
             try:
