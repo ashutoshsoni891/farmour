@@ -78,6 +78,24 @@
         "note": "9 t/ha = 0.9 kg/m².",
         "checked_on": "2026-10-07"
       }
+    ],
+    "kc": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Beans, green 0.5 1.05 2 0.90 0.4",
+        "note": "FAO's 'Beans, green'.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Beans, green 0.5 1.05 2 0.90 0.4",
+        "note": "Mean maximum plant height in FAO's table. FAO: legumes grown on stakes reach 1.5-2 m.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 5 (2026-10-06). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
@@ -101,5 +119,11 @@
         ]
       }
     }
-  }
+  },
+  "kc": {
+    "ini": 0.5,
+    "mid": 1.05,
+    "end": 0.9
+  },
+  "height_max_cm": 40
 }

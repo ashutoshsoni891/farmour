@@ -100,6 +100,21 @@
         "note": "Indian cultivars 15 t/ha = 1.5 kg/m².",
         "checked_on": "2026-10-07"
       }
+    ],
+    "kc": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "a. Small Vegetables 0.7 1.05 0.95",
+        "note": "Kc ini is the group value.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Radish 0.90 0.85 0.3",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 2 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are national ICAR-IIVR months (no Malwa-specific source found yet).",
@@ -128,5 +143,10 @@
         ]
       }
     }
+  },
+  "kc": {
+    "ini": 0.7,
+    "mid": 0.9,
+    "end": 0.85
   }
 }

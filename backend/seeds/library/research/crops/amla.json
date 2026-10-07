@@ -47,6 +47,15 @@
         "quote": "A budded/grafted tree starts bearing third year onwards after planting",
         "checked_on": "2026-10-07"
       }
+    ],
+    "water_l_per_sqm_day": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Daily water requirement of various fruit crops is given below: Crops Water requirement (lit/day/plant) Mango 30-50 Banana 20-25 Citrus 22-30 Guava 22-30 Sapota 20-30 Amla 15-25 Grapes 15-25 Papaya 15-25 For the young trees which are in their pre bearing stage, 1/3rd of the recommended dose of water may be given",
+        "note": "15 litres per tree per day (lower end of the range; 'Citrus' is used for orange) over the library's 6.0 m x 6.0 m spacing = 0.417 L per m² per day; young trees get one third. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Batch 4 (trees, border and flowers). Planting windows are the source's months (Tamil Nadu or Kerala) until a Malwa source is found. Years to first fruit not found in a checkable source yet.",
@@ -71,5 +80,9 @@
       }
     }
   },
-  "years_to_bear": 3
+  "years_to_bear": 3,
+  "water_l_per_sqm_day": {
+    "mature": 0.417,
+    "young": 0.139
+  }
 }

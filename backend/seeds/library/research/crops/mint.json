@@ -78,6 +78,23 @@
         "note": "24 t/ha = 2.4 kg/m² of herbage a year.",
         "checked_on": "2026-10-07"
       }
+    ],
+    "kc": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Mint 0.60 1.15 1.10 0.6-0.8",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Mint 0.60 1.15 1.10 0.6-0.8",
+        "note": "Mean maximum plant height in FAO's table. FAO gives 0.6-0.8 m; the lower end is stored.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
@@ -101,5 +118,11 @@
         ]
       }
     }
-  }
+  },
+  "kc": {
+    "ini": 0.6,
+    "mid": 1.15,
+    "end": 1.1
+  },
+  "height_max_cm": 60
 }

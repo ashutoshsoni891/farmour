@@ -73,6 +73,7 @@ class CropFields(BaseModel):
     sun: Sun | None = None
     water_need: WaterNeed | None = None
     water_l_per_sqm_day: dict[str, float] | None = None
+    kc: dict[str, float] | None = None  # crop coefficient by stage: ini, mid, end (FAO-56)
     heat_tolerance_c: int | None = Field(default=None, ge=0, le=60)
     cold_tolerance_c: int | None = Field(default=None, ge=-20, le=40)
     waterlogging_tolerant: bool | None = None
@@ -134,6 +135,7 @@ class CropOut(ReviewInfo):
     sun: Sun | None
     water_need: WaterNeed | None
     water_l_per_sqm_day: dict[str, float] | None
+    kc: dict[str, float] | None
     heat_tolerance_c: int | None
     cold_tolerance_c: int | None
     waterlogging_tolerant: bool | None

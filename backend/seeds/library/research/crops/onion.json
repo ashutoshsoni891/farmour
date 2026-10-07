@@ -106,6 +106,22 @@
         "note": "15 t/ha = 1.5 kg/m².",
         "checked_on": "2026-10-07"
       }
+    ],
+    "kc": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "a. Small Vegetables 0.7 1.05 0.95",
+        "note": "Kc ini is the group value.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Onions - dry 1.05 0.75 0.4",
+        "note": "Dry onion.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 2 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are missing: the ICAR-DOGR site (dogr.icar.gov.in) could not be opened from the research machine, so its season pages were not verified.",
@@ -130,5 +146,10 @@
         ]
       }
     }
+  },
+  "kc": {
+    "ini": 0.7,
+    "mid": 1.05,
+    "end": 0.75
   }
 }

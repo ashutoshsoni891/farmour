@@ -58,6 +58,30 @@
         "quote": "plant to plant spacing of 15 cm",
         "checked_on": "2026-10-07"
       }
+    ],
+    "kc": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "h. Oil Crops 0.35 1.15 0.35",
+        "note": "Kc ini is the group value.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Sesame 1.10 0.25 1.0",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Sesame 1.10 0.25 1.0",
+        "note": "Mean maximum plant height in FAO's table.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
@@ -81,5 +105,11 @@
         ]
       }
     }
-  }
+  },
+  "kc": {
+    "ini": 0.35,
+    "mid": 1.1,
+    "end": 0.25
+  },
+  "height_max_cm": 100
 }

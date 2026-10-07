@@ -49,6 +49,24 @@
         "note": "30 t/ha = 3.0 kg/m².",
         "checked_on": "2026-10-07"
       }
+    ],
+    "kc": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Banana - 1 st year 0.50 1.10 1.00 3",
+        "note": "First-year banana.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_l_per_sqm_day": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Daily water requirement of various fruit crops is given below: Crops Water requirement (lit/day/plant) Mango 30-50 Banana 20-25 Citrus 22-30 Guava 22-30 Sapota 20-30 Amla 15-25 Grapes 15-25 Papaya 15-25 For the young trees which are in their pre bearing stage, 1/3rd of the recommended dose of water may be given",
+        "note": "20 litres per tree per day (lower end of the range; 'Citrus' is used for orange) over the library's 2.1 m x 2.1 m spacing = 4.535 L per m² per day; young trees get one third. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 4 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Batch 4 (trees, border and flowers). Planting windows are the source's months (Tamil Nadu or Kerala) until a Malwa source is found.",
@@ -77,5 +95,14 @@
         ]
       }
     }
+  },
+  "kc": {
+    "ini": 0.5,
+    "mid": 1.1,
+    "end": 1.0
+  },
+  "water_l_per_sqm_day": {
+    "mature": 4.535,
+    "young": 1.512
   }
 }

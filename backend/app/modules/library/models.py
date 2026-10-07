@@ -64,6 +64,7 @@ class Crop(IdMixin, TimestampMixin, ReviewMixin, Base):
     sun: Mapped[str | None] = mapped_column(String(15))
     water_need: Mapped[str | None] = mapped_column(String(10))
     water_l_per_sqm_day: Mapped[dict[str, Any] | None] = mapped_column(JSONB)
+    kc: Mapped[dict[str, Any] | None] = mapped_column(JSONB)  # FAO-56 {"ini","mid","end"}
     heat_tolerance_c: Mapped[int | None]
     cold_tolerance_c: Mapped[int | None]
     waterlogging_tolerant: Mapped[bool | None] = mapped_column(Boolean)

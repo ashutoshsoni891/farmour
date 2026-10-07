@@ -50,7 +50,34 @@
         "note": "4.8 t/acre = 1.2 kg/m².",
         "checked_on": "2026-10-07"
       }
+    ],
+    "kc": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Citrus, no ground cover 21 - 70% canopy 0.70 0.65 0.70 4",
+        "note": "Citrus with no ground cover and 70% canopy.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_l_per_sqm_day": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Daily water requirement of various fruit crops is given below: Crops Water requirement (lit/day/plant) Mango 30-50 Banana 20-25 Citrus 22-30 Guava 22-30 Sapota 20-30 Amla 15-25 Grapes 15-25 Papaya 15-25 For the young trees which are in their pre bearing stage, 1/3rd of the recommended dose of water may be given",
+        "note": "22 litres per tree per day (lower end of the range; 'Citrus' is used for orange) over the library's 6.0 m x 6.0 m spacing = 0.611 L per m² per day; young trees get one third. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
-  "source_notes": "AI research batch 7 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table; other values are from TNAU/NHB (Tamil Nadu and national) until a local source is found."
+  "source_notes": "AI research batch 7 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table; other values are from TNAU/NHB (Tamil Nadu and national) until a local source is found.",
+  "kc": {
+    "ini": 0.7,
+    "mid": 0.65,
+    "end": 0.7
+  },
+  "water_l_per_sqm_day": {
+    "mature": 0.611,
+    "young": 0.204
+  }
 }

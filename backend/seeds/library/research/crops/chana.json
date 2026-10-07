@@ -58,6 +58,30 @@
         "note": "1000 kg/ha = 0.1 kg/m².",
         "checked_on": "2026-10-07"
       }
+    ],
+    "kc": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "e. Legumes (Leguminosae) 0.4 1.15 0.55",
+        "note": "Kc ini is the group value.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Chick pea 1.00 0.35 0.4",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Chick pea 1.00 0.35 0.4",
+        "note": "Mean maximum plant height in FAO's table.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 7 (2026-10-07). Ranges are stored at their lower bound; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table; other values are from TNAU/NHB (Tamil Nadu and national) until a local source is found.",
@@ -81,5 +105,11 @@
         ]
       }
     }
-  }
+  },
+  "kc": {
+    "ini": 0.4,
+    "mid": 1.0,
+    "end": 0.35
+  },
+  "height_max_cm": 40
 }

@@ -107,6 +107,22 @@
         "note": "200 q/ha = 2.0 kg/m²; open-pollinated, the lower figure.",
         "checked_on": "2026-10-07"
       }
+    ],
+    "kc": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "b. Vegetables - Solanum Family (Solanaceae) 0.6 1.15 0.80",
+        "note": "Kc ini is the group value.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Tomato 1.15 2 0.70-0.90 0.6",
+        "note": "Kc end is 0.70-0.90; the lower end is stored. Tomato on stakes uses a higher Kc (FAO footnote 2).",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 1 (2026-10-05). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are national ICAR-IIVR months (no Malwa-specific source found yet).",
@@ -141,5 +157,10 @@
         ]
       }
     }
+  },
+  "kc": {
+    "ini": 0.6,
+    "mid": 1.15,
+    "end": 0.7
   }
 }

@@ -85,6 +85,30 @@
         "note": "Late varieties are ready at about 100 days, early ones at 70: 100 - 70 = 30 days of cutting across varieties.",
         "checked_on": "2026-10-07"
       }
+    ],
+    "kc": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "a. Small Vegetables 0.7 1.05 0.95",
+        "note": "Kc ini is the group value.",
+        "checked_on": "2026-10-07"
+      },
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Cauliflower 1.05 0.95 0.4",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "title": "FAO Irrigation and Drainage Paper 56, chapter 6: Table 12, single crop coefficients (Kc)",
+        "quote": "Cauliflower 1.05 0.95 0.4",
+        "note": "Mean maximum plant height in FAO's table.",
+        "checked_on": "2026-10-07"
+      }
     ]
   },
   "source_notes": "AI research batch 5 (2026-10-06). Ranges are stored at their lower bound; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
@@ -111,5 +135,11 @@
     }
   },
   "days_to_first_harvest": 70,
-  "harvest_span_days": 30
+  "harvest_span_days": 30,
+  "kc": {
+    "ini": 0.7,
+    "mid": 1.05,
+    "end": 0.95
+  },
+  "height_max_cm": 40
 }
