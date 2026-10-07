@@ -10,7 +10,7 @@
         "url": "https://celkau.in/crops/fruits/Mango/climate.php",
         "title": "Kerala Agricultural University, fruit crop package (climate)",
         "quote": "Plant with the onset of monsoon showers",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "tree_spacing_m": [
@@ -18,7 +18,7 @@
         "url": "https://celkau.in/crops/fruits/Mango/seedspacing.php",
         "title": "Kerala Agricultural University, fruit crop package (seedspacing)",
         "quote": "Square method of planting/ Hexagonal method of planting 9 m x 9 m",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -27,7 +27,16 @@
         "title": "Kerala Agricultural University, fruit crop package (aftercultivation)",
         "quote": "Irrigate twice a week during summer months till the plants are 4-5 years old.",
         "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://nhb.gov.in/Horticulture%20Crops/Mango/Mango1.htm",
+        "title": "NHB: Mango",
+        "quote": "The orchard starts bearing from sixth year onwards",
+        "note": "The page says grafted plants start bearing early without a number; the NHB figure (sixth year) is used. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -48,10 +57,11 @@
             "title": "Kerala Agricultural University, fruit crop package (climate)",
             "quote": "Plant with the onset of monsoon showers",
             "note": "Monsoon planting, read as July to September.",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }
     }
-  }
+  },
+  "years_to_bear": 6
 }

@@ -11,7 +11,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_amla.html",
         "title": "TNAU Agritech Portal, fruit crops",
         "quote": "Planting is done during July-August with a spacing of 6 x 6 m",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "tree_spacing_m": [
@@ -19,7 +19,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_amla.html",
         "title": "TNAU Agritech Portal, fruit crops",
         "quote": "Planting is done during July-August with a spacing of 6 x 6 m",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -28,7 +28,7 @@
         "title": "TNAU Agritech Portal, fruit crops",
         "quote": "No irrigation is required during rainy and winter season.",
         "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -37,7 +37,15 @@
         "title": "TNAU Agritech Portal, fruit crops",
         "quote": "The crop yields about 100 kg/tree annually.",
         "note": "100 kg per tree on 6 m x 6 m = 2.7 kg/m².",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://nhb.gov.in/model-project-reports/Horticulture%20Crops/Aonla/Aonla1.htm",
+        "title": "NHB model project: Aonla",
+        "quote": "A budded/grafted tree starts bearing third year onwards after planting",
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -57,10 +65,11 @@
             "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_amla.html",
             "title": "TNAU Agritech Portal, fruit crops",
             "quote": "Planting is done during July-August with a spacing of 6 x 6 m",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }
     }
-  }
+  },
+  "years_to_bear": 3
 }

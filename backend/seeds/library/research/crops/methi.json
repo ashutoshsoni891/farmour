@@ -18,7 +18,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_fenugreek.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Season: June - July and October - November",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "days_to_first_harvest": [
@@ -27,7 +27,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "20 - 25 days for greens",
         "note": "Leafy crop: the whole plant is pulled or cut when ready, so days_to_first_harvest is the lower end of the source range and harvest_span_days the difference to the upper end.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "harvest_span_days": [
@@ -36,7 +36,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "20 - 25 days for greens",
         "note": "25 - 20 = 5 days (single cutting).",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_row_cm": [
@@ -44,7 +44,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_fenugreek.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Seeds are sown at a spacing of 20 X 15 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_plant_cm": [
@@ -52,7 +52,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_spice%20crops_fenugreek.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Seeds are sown at a spacing of 20 X 15 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "height_max_cm": [
@@ -61,7 +61,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Height: 1 ft. 3 in. - 2 ft. 0 in.",
         "note": "2 ft = 61 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "sun": [
@@ -69,7 +69,7 @@
         "url": "https://plants.ces.ncsu.edu/plants/trigonella-foenum-graecum/",
         "title": "NC State Extension Plant Toolbox",
         "quote": "Light: Full sun (6 or more hours of direct sunlight a day)",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -78,7 +78,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "subsequently at 7 - 10 days intervals",
         "note": "Interpreted: the source recommends regular irrigation every few days in summer; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "waterlogging_tolerant": [
@@ -87,7 +87,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "A rich well drained loamy soil is best suited for fenugreek cultivation.",
         "note": "Needs well-drained soil, so not waterlogging tolerant (interpreted).",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -96,7 +96,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "The yield of green : 4000 - 5000 kg/ha",
         "note": "4000 kg/ha = 0.4 kg/m².",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -122,7 +122,7 @@
             "title": "TNAU Agritech Portal, horticulture",
             "quote": "Season: June - July and October - November",
             "note": "Tamil Nadu (TNAU) months for fenugreek; no Malwa-specific source yet.",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }

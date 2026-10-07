@@ -19,7 +19,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Sow the seeds during June or January to April",
         "note": "June = kharif; January to April = zaid.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "days_to_first_harvest": [
@@ -28,7 +28,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Flower initiation to first picking 20",
         "note": "TNAU fertigation schedule (hybrid): establishment 10 + vegetative 20 + flower initiation to first picking 20 = first picking about 50 days after sowing.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "harvest_span_days": [
@@ -37,7 +37,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Harvesting stage 40",
         "note": "Harvesting stage lasts 40 days (same schedule).",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_row_cm": [
@@ -45,7 +45,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cucumber.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "form long channels at 1.5 m apart",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_plant_cm": [
@@ -53,7 +53,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cucumber.html",
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "giving a spacing of 0.6 m between hills",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "height_max_cm": [
@@ -62,7 +62,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Height: 0 ft. 8 in. - 1 ft. 6 in.",
         "note": "1 ft 6 in = 46 cm as a trailing plant; taller when trained on a trellis.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "sun": [
@@ -70,7 +70,7 @@
         "url": "https://plants.ces.ncsu.edu/plants/cucumis-sativus/",
         "title": "NC State Extension Plant Toolbox",
         "quote": "Light: Full sun (6 or more hours of direct sunlight a day)",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -79,7 +79,7 @@
         "title": "Kerala Agricultural University, crop package (aftercultivation)",
         "quote": "Flowering & fruiting stage: Irrigate on alternate days.",
         "note": "Interpreted: the source recommends regular irrigation every few days in summer; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "waterlogging_tolerant": [
@@ -88,7 +88,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Sandy loam rich in organic matter with good drainage",
         "note": "Needs good drainage, so not waterlogging tolerant (interpreted).",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -97,7 +97,7 @@
         "title": "Kerala Agricultural University, crop package (harvesting)",
         "quote": "The average yield varies between 10-15 t/ha.",
         "note": "10 t/ha = 1.0 kg/m².",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -123,7 +123,7 @@
             "title": "TNAU Agritech Portal, horticulture",
             "quote": "Sow the seeds during June or January to April",
             "note": "Tamil Nadu (TNAU) months; the ICAR-IIVR cucumber page was unavailable. No Malwa-specific source yet.",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }

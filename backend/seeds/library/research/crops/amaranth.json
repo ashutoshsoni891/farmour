@@ -1,0 +1,108 @@
+{
+  "seasons": [
+    "kharif",
+    "rabi",
+    "zaid"
+  ],
+  "days_to_first_harvest": 25,
+  "harvest_span_days": 15,
+  "spacing_row_cm": 12,
+  "spacing_plant_cm": 12,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_amaranthus.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Sowing can be done throughout the year.",
+        "note": "Amaranth: sown in every season.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_amaranthus.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Leafy types 25 days after sowing for Mulaikeerai (10 t/ha) 40 days after sowing for Thandukeerai (16 t/ha)",
+        "note": "First cut of the leafy type at 25 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_amaranthus.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Leafy types 25 days after sowing for Mulaikeerai (10 t/ha) 40 days after sowing for Thandukeerai (16 t/ha)",
+        "note": "The two leafy types are ready at 25 and 40 days, so cutting runs over about 15 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_amaranthus.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "After germination thin the seedlings to have a spacing of 12 – 15 cm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_amaranthus.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "After germination thin the seedlings to have a spacing of 12 – 15 cm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_amaranthus.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Irrigate before and after sowing and at weekly intervals after germination.",
+        "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_amaranthus.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Well drained loamy soils with slightly acidic nature and warm climate are suitable for amaranthus cultivation.",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_amaranthus.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Leafy types 25 days after sowing for Mulaikeerai (10 t/ha) 40 days after sowing for Thandukeerai (16 t/ha)",
+        "note": "10 t/ha = 1.0 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 6 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "01-01",
+          "to": "12-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_amaranthus.html",
+            "title": "TNAU Agritech Portal, vegetables",
+            "quote": "Sowing can be done throughout the year.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

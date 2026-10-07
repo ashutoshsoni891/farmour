@@ -1,0 +1,56 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 2,
+  "years_to_bear": 0.3,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 5,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_annualmoringa.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Planting is done during July – October",
+        "note": "Perennial tree; planting months.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_annualmoringa.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Dig pits of size 45 cm x 45 cm x 45 cm with a spacing of 2.0 - 2.5 m either way.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_annualmoringa.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Harveting starts 4th month after transplanting",
+        "note": "About 0.3 year (the page spells it 'Harveting'). Annual moringa; the tree is cut back and ratooned for 3 years.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_annualmoringa.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "subsequently at 10 – 15 days interval according to soil type.",
+        "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_annualmoringa.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "50 - 55 tonnes of pods/ha",
+        "note": "50 t/ha = 5.0 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 6 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found."
+}

@@ -18,7 +18,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Sowing Time Winter (October-November)",
         "note": "Winter sowing = rabi.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "days_to_first_harvest": [
@@ -27,7 +27,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Harvesting 90-110 days after sowing",
         "note": "TNAU gives 75 days for the Nilgiris/plains; the national figure is used.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "harvest_span_days": [
@@ -36,7 +36,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Harvesting 90-110 days after sowing",
         "note": "110 - 90 = 20 days of picking.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_row_cm": [
@@ -44,7 +44,7 @@
         "url": "https://icariivr.org.in/pea-2/",
         "title": "ICAR-IIVR cultivation details",
         "quote": "Spacing of 30 x 10 cm",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_plant_cm": [
@@ -52,7 +52,7 @@
         "url": "https://icariivr.org.in/pea-2/",
         "title": "ICAR-IIVR cultivation details",
         "quote": "Spacing of 30 x 10 cm",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "height_max_cm": [
@@ -61,7 +61,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Height: 1 ft. 0 in. - 1 ft. 6 in.",
         "note": "1 ft 6 in = 46 cm (bush types; tall types need support).",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "sun": [
@@ -70,7 +70,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Light: Full sun (6 or more hours of direct sunlight a day) Partial Shade (Direct sunlight only part of the day, 2-6 hours)",
         "note": "Grows in full sun or partial shade.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -79,7 +79,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Moderate irrigation,especially during flowering and pod filling",
         "note": "Source says moderate irrigation.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "waterlogging_tolerant": [
@@ -88,7 +88,7 @@
         "title": "ICAR-IIVR cultivation details",
         "quote": "Loamy ,well drained Soil with pH 6.0-7.5",
         "note": "Needs well-drained soil, so not waterlogging tolerant (interpreted).",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -97,7 +97,7 @@
         "title": "TNAU Agritech Portal, horticulture",
         "quote": "Yield 8 -12 t/ha of pods can be obtained.",
         "note": "8 t/ha green pods = 0.8 kg/m². The ICAR-IIVR page's yield line is mislabelled ('green chilli') and was not used.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -117,7 +117,7 @@
             "url": "https://icariivr.org.in/pea-2/",
             "title": "ICAR-IIVR cultivation details",
             "quote": "Sowing Time Winter (October-November)",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }

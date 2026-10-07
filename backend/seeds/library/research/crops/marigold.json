@@ -21,7 +21,7 @@
         "title": "TNAU Agritech Portal, flower crops",
         "quote": "The seeds are sown throughout the year.",
         "note": "Any season.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "nursery_days": [
@@ -30,7 +30,7 @@
         "title": "TNAU Agritech Portal, flower crops",
         "quote": "the seedlings are transplanted after four weeks",
         "note": "4 weeks = 28 days.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "days_to_first_harvest": [
@@ -38,7 +38,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_marigold.html",
         "title": "TNAU Agritech Portal, flower crops",
         "quote": "Flowers are picked once in 3 days beginning from 60 days after planting.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "harvest_span_days": [
@@ -47,7 +47,7 @@
         "title": "TNAU Agritech Portal, flower crops",
         "quote": "The crop duration is about 130 - 150 days.",
         "note": "130 - 60 = 70 days of picking.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_row_cm": [
@@ -55,7 +55,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_marigold.html",
         "title": "TNAU Agritech Portal, flower crops",
         "quote": "at 45 x 35 cm spacing",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_plant_cm": [
@@ -63,7 +63,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_marigold.html",
         "title": "TNAU Agritech Portal, flower crops",
         "quote": "at 45 x 35 cm spacing",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "height_max_cm": [
@@ -72,7 +72,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Height: 1 ft. 0 in. - 4 ft. 0 in.",
         "note": "4 ft = 122 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "sun": [
@@ -80,7 +80,7 @@
         "url": "https://plants.ces.ncsu.edu/plants/tagetes-erecta/",
         "title": "NC State Extension Plant Toolbox",
         "quote": "Light: Full sun (6 or more hours of direct sunlight a day) Partial Shade (Direct sunlight only part of the day, 2-6 hours)",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -89,7 +89,7 @@
         "title": "TNAU Agritech Portal, flower crops",
         "quote": "Irrigation is done once in a week or as and when necessary.",
         "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "waterlogging_tolerant": [
@@ -97,7 +97,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_flower%20crops_marigold.html",
         "title": "TNAU Agritech Portal, flower crops",
         "quote": "Water stagnation should be avoided.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -106,7 +106,7 @@
         "title": "TNAU Agritech Portal, flower crops",
         "quote": "The average yield is about 18 t/ha.",
         "note": "18 t/ha = 1.8 kg/m² of flowers.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -127,7 +127,7 @@
             "title": "TNAU Agritech Portal, flower crops",
             "quote": "The seeds are sown throughout the year.",
             "note": "Transplant window: any time of year.",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }

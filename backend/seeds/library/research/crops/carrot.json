@@ -16,7 +16,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Plains Planting can be done during August.",
         "note": "August sowing falls in the kharif calendar.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "days_to_first_harvest": [
@@ -25,7 +25,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Yield 25 – 30 t/ha in 100 – 120 days.",
         "note": "Ready from 100 days.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "harvest_span_days": [
@@ -34,7 +34,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Yield 25 – 30 t/ha in 100 – 120 days.",
         "note": "120 - 100 = 20 days in which roots can be pulled.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_row_cm": [
@@ -42,7 +42,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_carrot.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Mark the rows with spacing of 25 – 30 cm apart.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_plant_cm": [
@@ -50,7 +50,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_carrot.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Plains A spacing of 5 cm between plants",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -59,7 +59,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Irrigation is done once in five days.",
         "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium', a continuous supply as 'medium' to 'high'; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "waterlogging_tolerant": [
@@ -68,7 +68,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "The crop needs deep loose loamy soil.",
         "note": "Needs loose, deep soil (interpreted as not waterlogging tolerant).",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -77,7 +77,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Yield 25 – 30 t/ha in 100 – 120 days.",
         "note": "25 t/ha = 2.5 kg/m².",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -97,7 +97,7 @@
             "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_carrot.html",
             "title": "TNAU Agritech Portal, vegetables",
             "quote": "Plains Planting can be done during August.",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }

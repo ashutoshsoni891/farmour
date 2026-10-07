@@ -1,0 +1,112 @@
+{
+  "seasons": [
+    "kharif",
+    "rabi"
+  ],
+  "days_to_first_harvest": 45,
+  "harvest_span_days": 45,
+  "spacing_row_cm": 45,
+  "spacing_plant_cm": 15,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 0.5,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_clusterbeans.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Season June - July and Oct. - Nov.",
+        "note": "June-July = kharif; October-November = rabi.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_clusterbeans.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Harvesting starts at 45 days in early varieties and at 100 days in late varieties.",
+        "note": "Early varieties used.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_clusterbeans.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "t/ha in 90 days.",
+        "note": "Crop over by 90 days: 90 - 45 = 45 days of picking.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_clusterbeans.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Spacing 45 x15 cm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_clusterbeans.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Spacing 45 x15 cm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_clusterbeans.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Irrigate the field immediately after sowing and then followed at weekly intervals.",
+        "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_clusterbeans.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Well drained sandy loam with pH range of 7.5-8.0 is required.",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_clusterbeans.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "t/ha in 90 days.",
+        "note": "5 t/ha = 0.5 kg/m² (lower bound of 5-7 t/ha).",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 6 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        },
+        {
+          "from": "10-01",
+          "to": "11-30",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_clusterbeans.html",
+            "title": "TNAU Agritech Portal, vegetables",
+            "quote": "Season June - July and Oct. - Nov.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

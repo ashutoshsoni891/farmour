@@ -15,7 +15,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_pomegranate.html",
         "title": "TNAU Agritech Portal, fruit crops",
         "quote": "can be planted during June to December",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "tree_spacing_m": [
@@ -23,7 +23,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_pomegranate.html",
         "title": "TNAU Agritech Portal, fruit crops",
         "quote": "at 2.5 to 3 m spacing either way",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "years_to_bear": [
@@ -31,7 +31,7 @@
         "url": "https://nhb.gov.in/model-project-reports/Horticulture%20Crops/Pomegranate/Pomegranate1.htm",
         "title": "National Horticulture Board model project: pomegranate",
         "quote": "Pomegranate plants take 4-5 years to come into bearing.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -40,7 +40,7 @@
         "title": "TNAU Agritech Portal, fruit crops",
         "quote": "Irrigation is done at 4 days interval.",
         "note": "Interpreted: watering every 7-10 days or less once established is 'low', every few days 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -49,7 +49,7 @@
         "title": "TNAU Agritech Portal, fruit crops",
         "quote": "an average yield of 20-25 t/ha/year",
         "note": "20 t/ha = 2.0 kg/m² (bearing orchard).",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "height_max_cm": [
@@ -58,7 +58,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Height: 10 ft. 0 in. - 12 ft. 0 in.",
         "note": "12 ft = 366 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "canopy_diameter_m": [
@@ -67,7 +67,7 @@
         "title": "NC State Extension Plant Toolbox",
         "quote": "Width: 8 ft. 0 in. - 10 ft. 0 in.",
         "note": "8 ft = 2.4 m.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "sun": [
@@ -75,7 +75,7 @@
         "url": "https://plants.ces.ncsu.edu/plants/punica-granatum/",
         "title": "NC State Extension Plant Toolbox",
         "quote": "Light: Full sun (6 or more hours of direct sunlight a day) Partial Shade (Direct sunlight only part of the day, 2-6 hours)",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -95,7 +95,7 @@
             "url": "https://agritech.tnau.ac.in/horticulture/horti_fruits_pomegranate.html",
             "title": "TNAU Agritech Portal, fruit crops",
             "quote": "can be planted during June to December",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }

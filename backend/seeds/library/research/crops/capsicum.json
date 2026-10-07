@@ -1,0 +1,116 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "nursery_days": 40,
+  "days_to_first_harvest": 70,
+  "harvest_span_days": 95,
+  "spacing_row_cm": 60,
+  "spacing_plant_cm": 30,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.5,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_capsicum.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Season of sowing September - February",
+        "note": "Cool-season crop: rabi.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "nursery_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_capsicum.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Transplant 40-45 days old seedlings at 30 cm spacing.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_capsicum.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Total 165",
+        "note": "From the TNAU fertigation table: 165 days from transplanting minus the 95-day harvesting stage = first picking at about 70 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_capsicum.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Harvesting stage 95",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_capsicum.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Form ridges and furrows 45 or 60 cm apart.",
+        "note": "The page gives 45 or 60; the wider is used.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_capsicum.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Transplant 40-45 days old seedlings at 30 cm spacing.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_capsicum.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Irrigation at weekly or 10 days interval.",
+        "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_capsicum.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Well drained loamy soil rich in organic matter.",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_capsicum.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Yield: 15 tonnes/ha in 150-160 days.",
+        "note": "15 t/ha = 1.5 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 6 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "10-10",
+          "to": "12-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_capsicum.html",
+            "title": "TNAU Agritech Portal, vegetables",
+            "quote": "Season of sowing September - February",
+            "note": "Sowing months shifted by the 40 nursery days to the transplant date; cut at 31 December.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

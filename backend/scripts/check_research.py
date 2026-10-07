@@ -13,6 +13,7 @@ import argparse
 import html
 import json
 import re
+import time
 import urllib.request
 from datetime import date
 from pathlib import Path
@@ -34,11 +35,14 @@ def _page_text(url: str, cache: dict[str, str]) -> str:
         req = urllib.request.Request(  # noqa: S310 (https only, checked above)
             url, headers={"User-Agent": "Mozilla/5.0 (farmour research)"}
         )
-        try:
-            with urllib.request.urlopen(req, timeout=40) as resp:  # noqa: S310 (cited https urls)
-                raw = resp.read().decode("utf-8", "replace")
-        except OSError:
-            raw = ""
+        raw = ""
+        for attempt in range(4):  # the TNAU server drops some connections; try again
+            try:
+                with urllib.request.urlopen(req, timeout=40) as resp:  # noqa: S310 (cited https urls)
+                    raw = resp.read().decode("utf-8", "replace")
+                break
+            except OSError:
+                time.sleep(2 * (attempt + 1))
         raw = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", raw)
         cache[url] = _norm(re.sub(r"<[^>]+>", " ", raw))
     return cache[url]

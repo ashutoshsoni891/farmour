@@ -1,0 +1,105 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 90,
+  "harvest_span_days": 30,
+  "spacing_row_cm": 30,
+  "spacing_plant_cm": 10,
+  "water_need": "medium",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 2.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_beetroot.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "It is planted during July – August.",
+        "note": "July-August sowing is kharif.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_beetroot.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Maturity stage 30",
+        "note": "TNAU fertigation schedule: 120 days in total, the last 30 are the maturity stage = roots ready from about day 90.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_beetroot.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Maturity stage 30",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_beetroot.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "ridges and furrows are formed at 30 cm apart.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_beetroot.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Sow the seeds directly in ridges at a spacing of 10 cm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_beetroot.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "Irrigate the field copiously immediately after sowing and afterwards as and when necessary.",
+        "note": "'As and when necessary' is read as 'medium'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_beetroot.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "It comes up well in all types of friable soils.",
+        "note": "Friable (loose, draining) soil is needed; read as not waterlogging tolerant. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_beetroot.html",
+        "title": "TNAU Agritech Portal, vegetables",
+        "quote": "The crop yields about 20-25 t/ha in 120 days.",
+        "note": "20 t/ha = 2.0 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 6 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sow windows are TNAU plains months (Tamil Nadu) until a Malwa source is found.",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "07-01",
+          "to": "08-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_beetroot.html",
+            "title": "TNAU Agritech Portal, vegetables",
+            "quote": "It is planted during July – August.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -16,7 +16,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Plains October- November",
         "note": "French (bush) beans in the plains; October-November sowing = rabi.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "days_to_first_harvest": [
@@ -24,7 +24,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_french%20beans.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "It is ready forharvest in 50 days after sowing.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "harvest_span_days": [
@@ -33,7 +33,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "9 - 10 t/ha of green pods in 90 - 100 days.",
         "note": "Crop over by 90 days: 90 - 50 = 40 days of picking.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_row_cm": [
@@ -41,7 +41,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_french%20beans.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "In plains, sow the seeds (2 seeds/hill) in the sides of the ridges at a spacing of 45 x 30 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_plant_cm": [
@@ -49,7 +49,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_french%20beans.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "In plains, sow the seeds (2 seeds/hill) in the sides of the ridges at a spacing of 45 x 30 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -58,7 +58,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Immediately after sowing, third day and thereafter once a week.",
         "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium', a continuous supply as 'medium' to 'high'; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "waterlogging_tolerant": [
@@ -67,7 +67,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Well drained loamy soils with pH range of 5.5-6.0 is required.",
         "note": "Needs well-drained soil (interpreted).",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -76,7 +76,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "9 - 10 t/ha of green pods in 90 - 100 days.",
         "note": "9 t/ha = 0.9 kg/m².",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -96,7 +96,7 @@
             "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_french%20beans.html",
             "title": "TNAU Agritech Portal, vegetables",
             "quote": "Plains October- November",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }

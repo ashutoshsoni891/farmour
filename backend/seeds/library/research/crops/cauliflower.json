@@ -14,7 +14,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "This can be grown in plains during September to February.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "nursery_days": [
@@ -22,7 +22,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Transplant 30 to 40 days old seedlings at a spacing of 45 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_row_cm": [
@@ -30,7 +30,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Form ridges and furrows at 60 cm in plains.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "spacing_plant_cm": [
@@ -38,7 +38,7 @@
         "url": "https://agritech.tnau.ac.in/horticulture/horti_vegetables_cauliflower.html",
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Transplant 30 to 40 days old seedlings at a spacing of 45 cm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "water_need": [
@@ -47,7 +47,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Plains Irrigation is done once in a week.",
         "note": "Interpreted: watering once a week is read as 'low', every few days as 'medium', a continuous supply as 'medium' to 'high'; no source uses the low/medium/high scale. Agronomist to confirm.",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "waterlogging_tolerant": [
@@ -56,7 +56,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "good drainage are suited for cauliflower cultivation",
         "note": "Needs good drainage (interpreted).",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ],
     "expected_yield_kg_per_sqm": [
@@ -65,7 +65,7 @@
         "title": "TNAU Agritech Portal, vegetables",
         "quote": "Plains : 15 – 20 t/ha",
         "note": "15 t/ha = 1.5 kg/m².",
-        "checked_on": "2026-10-06"
+        "checked_on": "2026-10-07"
       }
     ]
   },
@@ -86,7 +86,7 @@
             "title": "TNAU Agritech Portal, vegetables",
             "quote": "This can be grown in plains during September to February.",
             "note": "Cut at 31 December.",
-            "checked_on": "2026-10-06"
+            "checked_on": "2026-10-07"
           }
         ]
       }

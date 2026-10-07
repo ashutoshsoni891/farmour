@@ -214,7 +214,7 @@
    "layers": [
     "surface"
    ],
-   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+   "source_notes": "Same plant as amaranth (research file amaranth.json); kept as a name only so the planner does not plant it twice. Agronomist: merge or remove."
   },
   {
    "slug": "tomato",
@@ -498,10 +498,8 @@
    "name_hi": "सहजन",
    "scientific_name": "Moringa oleifera",
    "family": "moringaceae",
-   "category": "vegetable",
-   "layers": [
-    "canopy"
-   ],
+   "category": "fruit_tree",
+   "layers": [],
    "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
   },
   {
