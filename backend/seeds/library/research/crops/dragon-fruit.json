@@ -1,0 +1,46 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 3,
+  "years_to_bear": 2,
+  "water_need": "medium",
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://icar.org.in/en/node/5852",
+        "title": "ICAR news: dragon fruit, a high value crop for the Bay Islands",
+        "quote": "the fruits can be harvested continuously upto 20 years",
+        "note": "A perennial climbing cactus on a trellis.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://icar.org.in/en/node/5852",
+        "title": "ICAR news: dragon fruit, a high value crop for the Bay Islands",
+        "quote": "The structures are made at a spacing of 3 m ×3 m.",
+        "note": "Support structures (posts with a frame) at 3 m, four cuttings around each.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://icar.org.in/en/node/5852",
+        "title": "ICAR news: dragon fruit, a high value crop for the Bay Islands",
+        "quote": "It is a fast return potential fruit crop with production in the second year of planting.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://icar.org.in/en/node/5852",
+        "title": "ICAR news: dragon fruit, a high value crop for the Bay Islands",
+        "quote": "in the dry season, the growing media is kept moist by irrigation through drip system on alternate days",
+        "note": "Alternate-day drip in the dry season only (rain does the rest): read as 'medium'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found."
+}

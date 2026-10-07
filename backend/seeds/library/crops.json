@@ -774,7 +774,7 @@
    "name_hi": "गुलाब",
    "scientific_name": "Rosa spp.",
    "family": "rosaceae",
-   "category": "flower",
+   "category": "border",
    "layers": [],
    "source_notes": "Names, taxonomy, category and layer only. Agronomy values come from cited research files or an agronomist."
   },
@@ -862,6 +862,90 @@
    "layers": [
     "middle"
    ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "cowpea",
+   "name_en": "Cowpea (Lobia)",
+   "name_hi": "लोबिया",
+   "scientific_name": "Vigna unguiculata",
+   "family": "legume",
+   "category": "vegetable",
+   "layers": [
+    "middle"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "tinda",
+   "name_en": "Round gourd (Tinda)",
+   "name_hi": "टिंडा",
+   "scientific_name": "Praecitrullus fistulosus",
+   "family": "cucurbit",
+   "category": "vegetable",
+   "layers": [
+    "surface"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "maize",
+   "name_en": "Maize",
+   "name_hi": "मक्का",
+   "scientific_name": "Zea mays",
+   "family": "poaceae",
+   "category": "cereal",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "bajra",
+   "name_en": "Pearl millet (Bajra)",
+   "name_hi": "बाजरा",
+   "scientific_name": "Pennisetum glaucum",
+   "family": "poaceae",
+   "category": "millet",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "arhar",
+   "name_en": "Pigeon pea (Arhar, Tur)",
+   "name_hi": "अरहर",
+   "scientific_name": "Cajanus cajan",
+   "family": "legume",
+   "category": "pulse",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "sesame",
+   "name_en": "Sesame (Til)",
+   "name_hi": "तिल",
+   "scientific_name": "Sesamum indicum",
+   "family": "pedaliaceae",
+   "category": "oilseed",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "groundnut",
+   "name_en": "Groundnut",
+   "name_hi": "मूंगफली",
+   "scientific_name": "Arachis hypogaea",
+   "family": "legume",
+   "category": "oilseed",
+   "layers": [],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "linseed",
+   "name_en": "Linseed (Alsi)",
+   "name_hi": "अलसी",
+   "scientific_name": "Linum usitatissimum",
+   "family": "linaceae",
+   "category": "oilseed",
+   "layers": [],
    "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
   }
  ]

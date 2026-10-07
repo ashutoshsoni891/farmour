@@ -1,0 +1,75 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "days_to_first_harvest": 158,
+  "spacing_row_cm": 23,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.1211,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+        "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+        "quote": "LINSEED RABI OCT-NOV MAR-APR 7",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "It matures in 158 and 163 days under rainfed and irrigated conditions, respectively",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "in rows 23 cm apart",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "Depending upon the rains during the crop season, linseed requires 3-4 irrigations",
+        "note": "Few irrigations or a rainfed crop is read as 'low'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "Its average yield is 4.9 quintal per acre",
+        "note": "A q/acre figure is converted at 4047 m² per acre: 4.9 q/acre = 0.12 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "madhya-pradesh": {
+      "sow_windows": [
+        {
+          "from": "10-01",
+          "to": "11-30",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+            "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+            "quote": "LINSEED RABI OCT-NOV MAR-APR 7",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

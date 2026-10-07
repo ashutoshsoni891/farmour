@@ -1,0 +1,105 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 90,
+  "harvest_span_days": 120,
+  "spacing_row_cm": 100,
+  "spacing_plant_cm": 100,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.2,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Pandal type - July – August",
+        "note": "Climbing (pandal) type; the bush type can be sown all year.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "But pandal type takes three months after sowing",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Dolichos Bean CO 1 210 18 (green pods)",
+        "note": "Climbing variety CO 1: 210 days in all; 210 - 90 = 120 days of picking.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Spacing for CO 1 Dolichos bean is 1 x 1 m.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Spacing for CO 1 Dolichos bean is 1 x 1 m.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Immediately after sowing and on 3rd day, thereafter once a week.",
+        "note": "Rainfed or about weekly watering is read as 'low'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Well drained loamy soil with pH range of 6.5 -8.5 is required",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Pandal type: 12 – 13 t/ha",
+        "note": "12 t/ha = 1.2 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "07-01",
+          "to": "08-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+            "title": "TNAU crop production guide: horticultural crops (2020)",
+            "quote": "Pandal type - July – August",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

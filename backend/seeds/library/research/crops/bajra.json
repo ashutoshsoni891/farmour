@@ -1,0 +1,85 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 80,
+  "spacing_row_cm": 50,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.3163,
+  "spacing_plant_cm": 15,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+        "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+        "quote": "BAJRA KHARIF JUNE-JULY SEP-DEC 7",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "average plant height of 207 cm. It matures in 80 days.",
+        "note": "Earliest PAU variety (PCB 164); others take 88-124 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "Sow the seed about 2.5 cm deep in rows 50 cm apart.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "Under rainfed conditions, apply 1/2 N and whole of P with last ploughing",
+        "note": "Grown as a rainfed crop: read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "On an average, it gives 12.8 quintals per acre of grain yield.",
+        "note": "A q/acre figure is converted at 4047 m² per acre: 12.8 q/acre = 0.32 kg/m². Lowest of the PAU varieties.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "Thin the seedlings to 15 cm apart in the rows after three weeks of sowing.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "madhya-pradesh": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+            "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+            "quote": "BAJRA KHARIF JUNE-JULY SEP-DEC 7",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

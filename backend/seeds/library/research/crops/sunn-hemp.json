@@ -1,0 +1,78 @@
+{
+  "seasons": [
+    "zaid",
+    "kharif"
+  ],
+  "days_to_first_harvest": 45,
+  "spacing_row_cm": 23,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.99,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "for green manuring this crop can be sown from April to July.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "when buried at 45-60 days after sowing",
+        "note": "A green manure is dug in at 45-60 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "For green manure crop sow 20 kg seed per acre either with drill in rows 22.5 cm apart or by broadcast.",
+        "checked_on": "2026-10-07",
+        "note": "The page says 22.5 cm; stored as whole centimetres (23)."
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "The crop sown for green manure during summer period requires 2-3 irrigations depending upon the prevailing weather conditions.",
+        "note": "2-3 irrigations: read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "adds 4.0- 6.5 tonnes green biomass",
+        "note": "Green biomass dug in, not a harvest: 4.0 t/acre = 0.99 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "04-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+            "title": "PAU Ludhiana: package of practices for kharif crops",
+            "quote": "for green manuring this crop can be sown from April to July.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

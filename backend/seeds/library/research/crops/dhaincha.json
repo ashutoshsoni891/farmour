@@ -1,0 +1,67 @@
+{
+  "seasons": [
+    "zaid",
+    "kharif"
+  ],
+  "days_to_first_harvest": 42,
+  "spacing_row_cm": 20,
+  "water_need": "low",
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "For green manure crop, sow 20 kg seed per acre with drill in lines 20-22.5 cm apart from April to July.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "Bury 6 to 8 weeks old dhaincha/cowpea/sunnhemp one day before transplanting of paddy.",
+        "note": "A green manure is dug in, not harvested: 6 weeks = 42 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "For green manure crop, sow 20 kg seed per acre with drill in lines 20-22.5 cm apart from April to July.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "The crop sown for green manure during the summer period require 3-4 irrigations depending upon the prevailing weather conditions.",
+        "note": "3-4 irrigations in a 6-8 week crop: read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "04-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+            "title": "PAU Ludhiana: package of practices for kharif crops",
+            "quote": "For green manure crop, sow 20 kg seed per acre with drill in lines 20-22.5 cm apart from April to July.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

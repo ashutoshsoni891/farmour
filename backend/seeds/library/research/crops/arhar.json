@@ -1,0 +1,85 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 132,
+  "spacing_row_cm": 50,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.126,
+  "spacing_plant_cm": 25,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+        "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+        "quote": "ARHAR/TUR KHARIF JUNE-JULY NOV-JAN 8",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "It matures in about 132 days and vacates the field well in time to sow the succeeding wheat crop",
+        "note": "Early PAU varieties AL 882 and PAU 881.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "Sow the crop at a row spacing of 50 cm and the plant spacing of 25 cm",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "Apply the first irrigation 3 to 4 weeks after sowing",
+        "note": "Few irrigations or a rainfed crop is read as 'low'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "grain yield is about 5.1 quintals per acre",
+        "note": "A q/acre figure is converted at 4047 m² per acre: 5.1 q/acre = 0.13 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "Sow the crop at a row spacing of 50 cm and the plant spacing of 25 cm",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "madhya-pradesh": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+            "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+            "quote": "ARHAR/TUR KHARIF JUNE-JULY NOV-JAN 8",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

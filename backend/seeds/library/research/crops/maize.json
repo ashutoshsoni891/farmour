@@ -1,0 +1,85 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 96,
+  "spacing_row_cm": 60,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.6005,
+  "spacing_plant_cm": 20,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+        "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+        "quote": "MAIZE KHARIF JUN-JUL AUG-DEC 7",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "It matures in 96 days and average grain yield is 24.3 quintals per acre",
+        "note": "Earliest of four PAU hybrids (96-99 days).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "row and plant spacing of 60 cm and 20 cm, respectively",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "Irrigation: Generally, 4-6 irrigations are required depending on the rainfall",
+        "note": "Few irrigations or a rainfed crop is read as 'low'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "It matures in 96 days and average grain yield is 24.3 quintals per acre",
+        "note": "A q/acre figure is converted at 4047 m² per acre: 24.3 q/acre = 0.6 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_kharif.pdf",
+        "title": "PAU Ludhiana: package of practices for kharif crops",
+        "quote": "row and plant spacing of 60 cm and 20 cm, respectively",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "madhya-pradesh": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+            "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+            "quote": "MAIZE KHARIF JUN-JUL AUG-DEC 7",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

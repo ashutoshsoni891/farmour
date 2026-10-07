@@ -23,10 +23,11 @@ CROP_BED = [
 ]  # fmt: skip
 CROP_TREE = ["tree_spacing_m", "years_to_bear"]
 CROP_BORDER = ["spacing_plant_cm"]
-CROP_FIELD = ["days_to_first_harvest", "spacing_row_cm", "spacing_plant_cm",
-              "expected_yield_kg_per_sqm"]  # fmt: skip
+CROP_FIELD = ["days_to_first_harvest", "spacing_row_cm", "expected_yield_kg_per_sqm"]
+CROP_GREEN_MANURE = ["days_to_first_harvest", "spacing_row_cm"]  # days until it is dug in
 TREE_CATEGORIES = {"fruit_tree", "fruit_short"}
 BORDER_CATEGORIES = {"border"}
+GREEN_MANURE_CATEGORIES = {"green_manure"}
 
 
 def _empty(v: Any) -> bool:
@@ -45,6 +46,8 @@ def crop_missing(data: dict[str, Any], regions: list[str]) -> list[str]:
         required += CROP_TREE
     elif data.get("category") in BORDER_CATEGORIES:
         required += CROP_BORDER
+    elif data.get("category") in GREEN_MANURE_CATEGORIES:
+        required += CROP_GREEN_MANURE
     elif data.get("layers"):
         required += CROP_BED
     else:

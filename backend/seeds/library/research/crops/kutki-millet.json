@@ -1,0 +1,88 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 85,
+  "spacing_row_cm": 25,
+  "spacing_plant_cm": 10,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.085,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+        "title": "TNAU crop production guide: agricultural crops (2020)",
+        "quote": "June-July (Adipattam)",
+        "note": "Little millet is called samai in TNAU's guide; sown June-July (kharif).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+        "title": "TNAU crop production guide: agricultural crops (2020)",
+        "quote": "Duration (days) 85 75-80 85 – 90",
+        "note": "Variety Paiyur 2; single harvest at maturity.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+        "title": "TNAU crop production guide: agricultural crops (2020)",
+        "quote": "Spacing : For line planting 25 x 10 cm (10 cm in between plants)",
+        "note": "Under 'Package of practices for Samai' (samai = little millet = kutki).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+        "title": "TNAU crop production guide: agricultural crops (2020)",
+        "quote": "Spacing : For line planting 25 x 10 cm (10 cm in between plants)",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+        "title": "TNAU crop production guide: agricultural crops (2020)",
+        "quote": "Grain Yield (kg/ha) Rainfed 850 1567 1587",
+        "note": "Grown rainfed: read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+        "title": "TNAU crop production guide: agricultural crops (2020)",
+        "quote": "Grain Yield (kg/ha) Rainfed 850 1567 1587",
+        "note": "850 kg/ha = 0.085 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/pdf/AGRICULTURE.pdf",
+            "title": "TNAU crop production guide: agricultural crops (2020)",
+            "quote": "June-July (Adipattam)",
+            "note": "Table of sowing seasons for the small millets.",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "spacing_plant_cm": 60,
+  "water_need": "medium",
+  "expected_yield_kg_per_sqm": 0.74,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_flower.pdf",
+        "title": "PAU Ludhiana: package of practices for ornamental crops",
+        "quote": "Rose is perennial in nature.",
+        "note": "Planted October-February; used here as a flowering hedge on the border.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_flower.pdf",
+        "title": "PAU Ludhiana: package of practices for ornamental crops",
+        "quote": "The plants generally planted in two row system at a planting distance of 60x100 cm, leaving 150 cm space between two rows.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_flower.pdf",
+        "title": "PAU Ludhiana: package of practices for ornamental crops",
+        "quote": "Irrigation is applied at 10-15 days interval in winter",
+        "note": "Every 10-15 days in winter and 5-6 days in summer: read as 'medium'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_flower.pdf",
+        "title": "PAU Ludhiana: package of practices for ornamental crops",
+        "quote": "Flower yield is around 30 quintals per acre.",
+        "note": "30 q/acre = 3000 kg / 4047 m² = 0.74 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found."
+}

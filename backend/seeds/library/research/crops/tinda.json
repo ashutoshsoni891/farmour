@@ -1,0 +1,110 @@
+{
+  "seasons": [
+    "zaid",
+    "kharif"
+  ],
+  "days_to_first_harvest": 54,
+  "harvest_span_days": 36,
+  "spacing_row_cm": 150,
+  "spacing_plant_cm": 90,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "Sowing Time : 1. February-March 2. June-July",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+        "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+        "quote": "The marketable fruits are ready for first picking after 54-60 days of sowing depending upon the variety.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Yield: 10 t/ha in 90 days.",
+        "note": "A 90-day crop with the first picking at 54 days: 90 - 54 = 36 days of picking.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Plough the field to fine tilth and form long channels at 1.5m apart.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Thin the seedlings after 15 days to maintain two per pit at 0.9 m spacing.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Irrigate the field before dibbling the seeds and thereafter once a week.",
+        "note": "Rainfed or about weekly watering is read as 'low'; no source uses the low/medium/high scale. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Sandy loam rich in organic matter with good drainage and pH range of 6.5-7.5.",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/pdf/HORTICULTURE.pdf",
+        "title": "TNAU crop production guide: horticultural crops (2020)",
+        "quote": "Yield: 10 t/ha in 90 days.",
+        "note": "10 t/ha = 1.0 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "02-01",
+          "to": "03-31",
+          "method": "direct"
+        },
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://pau.edu/content/ccil/pf/pp_veg.pdf",
+            "title": "PAU Ludhiana: Package of practices for cultivation of vegetables (2021)",
+            "quote": "Sowing Time : 1. February-March 2. June-July",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

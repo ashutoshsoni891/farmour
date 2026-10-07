@@ -1,0 +1,76 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "days_to_first_harvest": 140,
+  "spacing_row_cm": 30,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.18,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+        "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+        "quote": "MUSTARD RABI OCT FEB-MAR 6",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "with 39.3 per cent oil content. It matures in 140 days.",
+        "note": "Raya (mustard) hybrid PHR 127; other raya varieties take 136-152 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "Toria, raya, African sarson and taramira are sown in 30 cm and gobhi sarson in 45 cm apart rows",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "Raya and gobhi sarson should be drip irrigated at 7 days interval",
+        "note": "Every 7 days: read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "Its average seed yield is 7.3 quintals per acre with 41.5 per cent oil content.",
+        "note": "Lowest irrigated raya variety (RLC 3): 7.3 q/acre = 730 kg / 4047 m² = 0.18 kg/m².",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "madhya-pradesh": {
+      "sow_windows": [
+        {
+          "from": "10-01",
+          "to": "10-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://www.slbcmadhyapradesh.in/docs/CropSeason%20in%20M.P..pdf",
+            "title": "SLBC Madhya Pradesh: crop season of various crops in M.P.",
+            "quote": "MUSTARD RABI OCT FEB-MAR 6",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}

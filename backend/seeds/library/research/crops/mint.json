@@ -1,0 +1,105 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 150,
+  "harvest_span_days": 180,
+  "spacing_row_cm": 40,
+  "spacing_plant_cm": 40,
+  "water_need": "medium",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 2.4,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_mint.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Rooted stem cuttings are planted in beds at 40 x 40 cm spacing during June - July",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_mint.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "First cutting starts in about 5 months after planting and subsequently at 3 months interval",
+        "note": "5 months = about 150 days.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_mint.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "First cutting starts in about 5 months after planting and subsequently at 3 months interval",
+        "note": "Two more cuttings at 3-month intervals inside the year: about 180 days from the first to the last.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_mint.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Rooted stem cuttings are planted in beds at 40 x 40 cm spacing during June - July",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_mint.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Rooted stem cuttings are planted in beds at 40 x 40 cm spacing during June - July",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_mint.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "Irrigation is given twice in a week.",
+        "note": "Twice a week: read as 'medium'. Agronomist to confirm.",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://pau.edu/content/ccil/pf/pp_rabi.pdf",
+        "title": "PAU Ludhiana: package of practices for rabi crops",
+        "quote": "The soil should be free from acidity, salinity, alkalinity and water-logging.",
+        "note": "Needs good drainage (interpreted).",
+        "checked_on": "2026-10-07"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_mint.html",
+        "title": "TNAU Agritech Portal, horticulture",
+        "quote": "An average of about 24 - 30 t of herbage and 100 - 150 kg of oil can be obtained from a hectare in a year",
+        "note": "24 t/ha = 2.4 kg/m² of herbage a year.",
+        "checked_on": "2026-10-07"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 11 (2026-10-07). Ranges are stored at their lower bound unless a note says otherwise; the source range is in each quote. Sowing months for Madhya Pradesh come from the state crop-season table (SLBC); other values are TNAU/PAU guides (Tamil Nadu, Punjab) until a local source is found.",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_aromatic%20crops_mint.html",
+            "title": "TNAU Agritech Portal, horticulture",
+            "quote": "Rooted stem cuttings are planted in beds at 40 x 40 cm spacing during June - July",
+            "checked_on": "2026-10-07"
+          }
+        ]
+      }
+    }
+  }
+}
