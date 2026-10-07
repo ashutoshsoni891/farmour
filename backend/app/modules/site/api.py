@@ -5,7 +5,7 @@ from fastapi import APIRouter, status
 from app.modules.farms.service import Membership, membership
 from app.modules.identity.deps import CurrentUser, SessionDep
 from app.modules.site import service
-from app.modules.site.schemas import AnswerBatch, CostNormOut, ProfileOut
+from app.modules.site.schemas import AnswerBatch, CostNormOut, KvkOut, ProfileOut
 
 router = APIRouter(prefix="/farms/{farm_id}/site-profile", tags=["site"])
 
@@ -36,3 +36,14 @@ catalog_router = APIRouter(prefix="/cost-norms", tags=["site"])
 async def cost_norms(session: SessionDep, _user: CurrentUser) -> list[CostNormOut]:
     """Setup costs and subsidy rates from the government's cost norms, each with its source."""
     return await service.list_cost_norms(session)
+
+
+kvk_router = APIRouter(prefix="/kvks", tags=["site"])
+
+
+@kvk_router.get("")
+async def kvks(
+    session: SessionDep, _user: CurrentUser, district: str | None = None
+) -> list[KvkOut]:
+    """Krishi Vigyan Kendras (government farm advisory centres) with the cited directory entry."""
+    return await service.list_kvks(session, district)

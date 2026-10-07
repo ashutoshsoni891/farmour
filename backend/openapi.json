@@ -2513,6 +2513,65 @@
         ]
       }
     },
+    "/api/v1/kvks": {
+      "get": {
+        "tags": [
+          "site"
+        ],
+        "summary": "Kvks",
+        "description": "Krishi Vigyan Kendras (government farm advisory centres) with the cited directory entry.",
+        "operationId": "kvks_api_v1_kvks_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "district",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "District"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/KvkOut"
+                  },
+                  "title": "Response Kvks Api V1 Kvks Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/geo/search": {
       "get": {
         "tags": [
@@ -6061,6 +6120,81 @@
           "invite_url"
         ],
         "title": "InviteOut"
+      },
+      "KvkOut": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "district": {
+            "type": "string",
+            "title": "District"
+          },
+          "state": {
+            "type": "string",
+            "title": "State"
+          },
+          "address_en": {
+            "type": "string",
+            "title": "Address En"
+          },
+          "phones": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Phones"
+          },
+          "email": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Email"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SchemeSource"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "checked_on": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checked On"
+          },
+          "ai_checked": {
+            "type": "boolean",
+            "title": "Ai Checked"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "district",
+          "state",
+          "address_en",
+          "phones",
+          "email",
+          "sources",
+          "checked_on",
+          "ai_checked"
+        ],
+        "title": "KvkOut",
+        "description": "A Krishi Vigyan Kendra and how to reach it, as listed in the cited directory."
       },
       "LinkRequest": {
         "properties": {

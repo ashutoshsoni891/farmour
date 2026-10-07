@@ -15,6 +15,7 @@ from app.modules.site.models import (
     DistrictRegion,
     GeoCache,
     GroundwaterBlock,
+    Kvk,
     Mandi,
     MandiPrice,
     Scheme,
@@ -211,3 +212,10 @@ async def cost_norms(session: AsyncSession, statuses: list[str]) -> list[CostNor
             .order_by(CostNorm.group, CostNorm.code)
         )
     )
+
+
+async def kvks(session: AsyncSession, statuses: list[str], district: str | None) -> list[Kvk]:
+    stmt = select(Kvk).where(Kvk.status.in_(statuses))
+    if district:
+        stmt = stmt.where(func.lower(Kvk.district) == district.strip().lower())
+    return list(await session.scalars(stmt.order_by(Kvk.state, Kvk.district, Kvk.code)))

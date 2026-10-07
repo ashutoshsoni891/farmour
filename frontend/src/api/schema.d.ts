@@ -707,6 +707,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/kvks": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Kvks
+         * @description Krishi Vigyan Kendras (government farm advisory centres) with the cited directory entry.
+         */
+        get: operations["kvks_api_v1_kvks_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/geo/search": {
         parameters: {
             query?: never;
@@ -1600,6 +1620,30 @@ export interface components {
             expires_at: string;
             /** Invite Url */
             invite_url: string;
+        };
+        /**
+         * KvkOut
+         * @description A Krishi Vigyan Kendra and how to reach it, as listed in the cited directory.
+         */
+        KvkOut: {
+            /** Code */
+            code: string;
+            /** District */
+            district: string;
+            /** State */
+            state: string;
+            /** Address En */
+            address_en: string;
+            /** Phones */
+            phones: string[];
+            /** Email */
+            email: string | null;
+            /** Sources */
+            sources: components["schemas"]["SchemeSource"][];
+            /** Checked On */
+            checked_on: string | null;
+            /** Ai Checked */
+            ai_checked: boolean;
         };
         /** LinkRequest */
         LinkRequest: {
@@ -4153,6 +4197,37 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["CostNormOut"][];
+                };
+            };
+        };
+    };
+    kvks_api_v1_kvks_get: {
+        parameters: {
+            query?: {
+                district?: string | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["KvkOut"][];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
                 };
             };
         };

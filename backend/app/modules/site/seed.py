@@ -10,7 +10,7 @@ from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.site import repository as repo
-from app.modules.site.models import CostNorm, DistrictRegion, Scheme
+from app.modules.site.models import CostNorm, DistrictRegion, Kvk, Scheme
 
 SEED_DIR = Path(__file__).resolve().parents[3] / "seeds" / "site"
 
@@ -96,5 +96,31 @@ async def load_cost_norms(session: AsyncSession) -> dict[str, int]:
             for k, v in values.items():
                 setattr(row, k, v)
         counts["cost_norms_ai_verified" if ok else "cost_norms_draft"] += 1
+    await session.flush()
+    return counts
+
+
+async def load_kvks(session: AsyncSession) -> dict[str, int]:
+    """KVK directory from seeds/site/kvks.json, loaded like the cost norms."""
+    path = SEED_DIR / "kvks.json"
+    if not path.exists():
+        return {"kvks": 0}
+    counts = {"kvks_ai_verified": 0, "kvks_draft": 0, "kvks_skipped": 0}
+    fields = ("district", "state", "address_en", "phones", "email", "sources")
+    for item in json.loads(path.read_text(encoding="utf-8"))["kvks"]:
+        row = await session.scalar(select(Kvk).where(Kvk.code == item["code"]))
+        if row is not None and row.status not in ("draft", "ai_verified"):
+            counts["kvks_skipped"] += 1
+            continue
+        ok, checked_on = _checked(item.get("sources", {}))
+        values = {f: item.get(f) for f in fields}
+        values.update(status="ai_verified" if ok else "draft", checked_on=checked_on)
+        values["phones"] = values["phones"] or []
+        if row is None:
+            session.add(Kvk(code=item["code"], **values))
+        else:
+            for k, v in values.items():
+                setattr(row, k, v)
+        counts["kvks_ai_verified" if ok else "kvks_draft"] += 1
     await session.flush()
     return counts

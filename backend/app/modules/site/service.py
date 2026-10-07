@@ -29,6 +29,7 @@ from app.modules.site.schemas import (
     CostNormOut,
     FactOut,
     Group,
+    KvkOut,
     ProfileOut,
     SchemeOut,
     SchemeSource,
@@ -379,6 +380,7 @@ async def load_seed(session: AsyncSession) -> dict[str, int]:
     counts = await seed.load(session)
     counts.update(await seed.load_schemes(session))
     counts.update(await seed.load_cost_norms(session))
+    counts.update(await seed.load_kvks(session))
     return counts
 
 
@@ -451,6 +453,23 @@ async def list_cost_norms(session: AsyncSession) -> list[CostNormOut]:
             CostNormOut.model_validate(
                 {
                     **{n: getattr(row, n) for n in CostNormOut.model_fields if hasattr(row, n)},
+                    "sources": [SchemeSource.model_validate(e) for e in entries],
+                    "ai_checked": row.status == "ai_verified",
+                }
+            )
+        )
+    return out
+
+
+async def list_kvks(session: AsyncSession, district: str | None = None) -> list[KvkOut]:
+    """Krishi Vigyan Kendras whose listing was checked against its source, optionally by district."""
+    out = []
+    for row in await repo.kvks(session, ["ai_verified", "approved"], district):
+        entries = [e for group in row.sources.values() for e in group]
+        out.append(
+            KvkOut.model_validate(
+                {
+                    **{n: getattr(row, n) for n in KvkOut.model_fields if hasattr(row, n)},
                     "sources": [SchemeSource.model_validate(e) for e in entries],
                     "ai_checked": row.status == "ai_verified",
                 }

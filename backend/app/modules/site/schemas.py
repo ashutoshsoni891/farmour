@@ -97,3 +97,17 @@ class CostNormOut(BaseModel):
     sources: list[SchemeSource]
     checked_on: date | None
     ai_checked: bool
+
+
+class KvkOut(BaseModel):
+    """A Krishi Vigyan Kendra and how to reach it, as listed in the cited directory."""
+
+    code: str
+    district: str
+    state: str
+    address_en: str
+    phones: list[str]
+    email: str | None
+    sources: list[SchemeSource]
+    checked_on: date | None
+    ai_checked: bool

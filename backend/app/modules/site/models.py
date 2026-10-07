@@ -194,3 +194,25 @@ class CostNorm(IdMixin, TimestampMixin, Base):
             "status in ('draft','ai_verified','in_review','approved','retired')", name="status"
         ),
     )
+
+
+class Kvk(IdMixin, TimestampMixin, Base):
+    """A Krishi Vigyan Kendra (government farm advisory centre) with its listed contact details.
+    The directory is undated, so every row carries the quote it came from; `status` follows the
+    crop library."""
+
+    __tablename__ = "kvks"
+    code: Mapped[str] = mapped_column(String(50), unique=True)
+    district: Mapped[str] = mapped_column(String(80))
+    state: Mapped[str] = mapped_column(String(50))
+    address_en: Mapped[str] = mapped_column(Text)
+    phones: Mapped[list[str]] = mapped_column(ARRAY(String), default=list, server_default="{}")
+    email: Mapped[str | None] = mapped_column(String(120))
+    sources: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default="{}")
+    checked_on: Mapped[date | None] = mapped_column(Date)
+    status: Mapped[str] = mapped_column(String(12), default="draft", server_default="draft")
+    __table_args__ = (
+        CheckConstraint(
+            "status in ('draft','ai_verified','in_review','approved','retired')", name="status"
+        ),
+    )
