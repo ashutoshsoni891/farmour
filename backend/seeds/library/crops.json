@@ -947,6 +947,158 @@
    "category": "oilseed",
    "layers": [],
    "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is pending agronomist input (TODO(agronomist))."
+  },
+  {
+   "slug": "ashwagandha",
+   "name_en": "Ashwagandha",
+   "name_hi": "अश्वगंधा",
+   "scientific_name": "Withania somnifera",
+   "family": "solanaceae",
+   "category": "herb",
+   "layers": [
+    "middle"
+   ],
+   "tags": [
+    "medicinal",
+    "ayurvedic"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is in the research file (batch 15/16) with a source."
+  },
+  {
+   "slug": "safed-musli",
+   "name_en": "Safed musli",
+   "name_hi": "सफेद मूसली",
+   "scientific_name": "Chlorophytum borivilianum",
+   "family": "asparagaceae",
+   "category": "root",
+   "layers": [
+    "underground"
+   ],
+   "tags": [
+    "medicinal",
+    "ayurvedic"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is in the research file (batch 15/16) with a source."
+  },
+  {
+   "slug": "shatavari",
+   "name_en": "Shatavari",
+   "name_hi": "शतावरी",
+   "scientific_name": "Asparagus racemosus",
+   "family": "asparagaceae",
+   "category": "root",
+   "layers": [
+    "climber"
+   ],
+   "tags": [
+    "medicinal",
+    "ayurvedic"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is in the research file (batch 15/16) with a source."
+  },
+  {
+   "slug": "giloy",
+   "name_en": "Giloy (guduchi)",
+   "name_hi": "गिलोय",
+   "scientific_name": "Tinospora cordifolia",
+   "family": "menispermaceae",
+   "category": "herb",
+   "layers": [],
+   "tags": [
+    "medicinal",
+    "ayurvedic"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is in the research file (batch 15/16) with a source."
+  },
+  {
+   "slug": "brahmi",
+   "name_en": "Brahmi",
+   "name_hi": "ब्राह्मी",
+   "scientific_name": "Bacopa monnieri",
+   "family": "plantaginaceae",
+   "category": "herb",
+   "layers": [
+    "surface"
+   ],
+   "tags": [
+    "medicinal",
+    "ayurvedic"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is in the research file (batch 15/16) with a source."
+  },
+  {
+   "slug": "tulsi",
+   "name_en": "Tulsi (holy basil)",
+   "name_hi": "तुलसी",
+   "scientific_name": "Ocimum sanctum",
+   "family": "lamiaceae",
+   "category": "herb",
+   "layers": [
+    "middle"
+   ],
+   "tags": [
+    "medicinal",
+    "ayurvedic",
+    "aromatic"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is in the research file (batch 15/16) with a source."
+  },
+  {
+   "slug": "aloe-vera",
+   "name_en": "Aloe vera",
+   "name_hi": "एलोवेरा (घृतकुमारी)",
+   "scientific_name": "Aloe vera",
+   "family": "asphodelaceae",
+   "category": "herb",
+   "layers": [
+    "surface"
+   ],
+   "tags": [
+    "medicinal",
+    "ayurvedic"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is in the research file (batch 15/16) with a source."
+  },
+  {
+   "slug": "isabgol",
+   "name_en": "Isabgol (psyllium)",
+   "name_hi": "इसबगोल",
+   "scientific_name": "Plantago ovata",
+   "family": "plantaginaceae",
+   "category": "herb",
+   "layers": [],
+   "tags": [
+    "medicinal",
+    "ayurvedic"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is in the research file (batch 15/16) with a source."
+  },
+  {
+   "slug": "senna",
+   "name_en": "Senna (sonamukhi)",
+   "name_hi": "सोनामुखी (सनाय)",
+   "scientific_name": "Cassia angustifolia",
+   "family": "fabaceae",
+   "category": "herb",
+   "layers": [],
+   "tags": [
+    "medicinal",
+    "ayurvedic"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is in the research file (batch 15/16) with a source."
+  },
+  {
+   "slug": "bael",
+   "name_en": "Bael (bilva)",
+   "name_hi": "बेल",
+   "scientific_name": "Aegle marmelos",
+   "family": "rutaceae",
+   "category": "fruit_tree",
+   "layers": [],
+   "tags": [
+    "ayurvedic"
+   ],
+   "source_notes": "Names, taxonomy, category and layer only. Every agronomy value is in the research file (batch 15/16) with a source."
   }
  ]
 }

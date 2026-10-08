@@ -52,6 +52,9 @@ class Crop(IdMixin, TimestampMixin, ReviewMixin, Base):
     family: Mapped[str | None] = mapped_column(String(40))
     category: Mapped[str] = mapped_column(String(20))
     layers: Mapped[list[str]] = mapped_column(ARRAY(String), default=list, server_default="{}")
+    # what the crop is used for: "medicinal" (herbal raw material, planned only on request),
+    # "ayurvedic", "aromatic"
+    tags: Mapped[list[str]] = mapped_column(ARRAY(String), default=list, server_default="{}")
     seasons: Mapped[list[str]] = mapped_column(ARRAY(String), default=list, server_default="{}")
     nursery_days: Mapped[int | None]
     days_to_first_harvest: Mapped[int | None]

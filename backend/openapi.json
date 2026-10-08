@@ -3525,6 +3525,25 @@
             ],
             "title": "Layers"
           },
+          "tags": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "medicinal",
+                    "ayurvedic",
+                    "aromatic"
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tags"
+          },
           "seasons": {
             "anyOf": [
               {
@@ -4101,6 +4120,18 @@
             "type": "array",
             "title": "Layers"
           },
+          "tags": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "medicinal",
+                "ayurvedic",
+                "aromatic"
+              ]
+            },
+            "type": "array",
+            "title": "Tags"
+          },
           "seasons": {
             "items": {
               "type": "string",
@@ -4449,6 +4480,7 @@
           "family",
           "category",
           "layers",
+          "tags",
           "seasons",
           "nursery_days",
           "days_to_first_harvest",
@@ -4568,6 +4600,18 @@
             "type": "array",
             "title": "Layers"
           },
+          "tags": {
+            "items": {
+              "type": "string",
+              "enum": [
+                "medicinal",
+                "ayurvedic",
+                "aromatic"
+              ]
+            },
+            "type": "array",
+            "title": "Tags"
+          },
           "status": {
             "type": "string",
             "enum": [
@@ -4601,6 +4645,7 @@
           "name_hi",
           "category",
           "layers",
+          "tags",
           "status",
           "revision",
           "todo_count",
@@ -4707,6 +4752,25 @@
               }
             ],
             "title": "Layers"
+          },
+          "tags": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "medicinal",
+                    "ayurvedic",
+                    "aromatic"
+                  ]
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Tags"
           },
           "seasons": {
             "anyOf": [
@@ -5410,7 +5474,8 @@
                     "flowers",
                     "natural",
                     "polyhouse",
-                    "integrated"
+                    "integrated",
+                    "medicinal"
                   ]
                 },
                 "type": "array"
@@ -5640,7 +5705,8 @@
                 "flowers",
                 "natural",
                 "polyhouse",
-                "integrated"
+                "integrated",
+                "medicinal"
               ]
             },
             "type": "array",
@@ -5888,7 +5954,8 @@
                     "flowers",
                     "natural",
                     "polyhouse",
-                    "integrated"
+                    "integrated",
+                    "medicinal"
                   ]
                 },
                 "type": "array"

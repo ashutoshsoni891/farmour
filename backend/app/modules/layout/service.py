@@ -102,6 +102,7 @@ async def _planting_params(session: AsyncSession) -> planting.PlantingParams:
         plan_days=int(await get_setting(session, "layout.plan_days")),
         tall_crop_cm=int(await get_setting(session, "layout.tall_crop_cm")),
         good_companion_bonus=float(await get_setting(session, "layout.good_companion_bonus")),
+        medicinal_bed_share=float(await get_setting(session, "layout.medicinal_bed_share")),
     )
 
 
@@ -117,7 +118,7 @@ def _crop_spec(c: EngineCrop) -> planting.CropSpec:
         height_max_cm=c.height_max_cm, water_need=c.water_need,
         waterlogging_tolerant=c.waterlogging_tolerant, yield_kg_per_sqm=c.expected_yield_kg_per_sqm,
         low_care=c.low_care, price_paise_per_kg=c.price_direct_paise_per_kg,
-        category=c.category,
+        category=c.category, tags=tuple(c.tags),
     )  # fmt: skip
 
 
@@ -340,6 +341,7 @@ async def _build(
         p=await _planting_params(session),
         weights={k: float(v) for k, v in spec.get("weights", {}).items()} or None,
         allow_flowers="flowers" in (farm.methods or []),
+        allow_medicinal="medicinal" in (farm.methods or []),
     )
     # trees in the orchard strip, hedge plants on the border
     pp = await _planting_params(session)
@@ -724,6 +726,8 @@ async def benefits(session: AsyncSession, m: Membership, plan_id: uuid.UUID) -> 
     tags = {"all", *(ZONE_TAGS[k] for k in kinds if k in ZONE_TAGS)}
     if farm.goal:
         tags.add(f"goal:{farm.goal}")
+    if "medicinal" in (farm.methods or []):
+        tags.add("medicinal")
     if plan.option:
         tags.add(f"option:{plan.option}")
     facts = {

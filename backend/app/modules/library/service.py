@@ -119,7 +119,7 @@ async def list_crops(
     items = [
         CropSummary(
             id=c.id, slug=c.slug, name_en=c.name_en, name_hi=c.name_hi,
-            category=c.category, layers=c.layers, status=c.status,
+            category=c.category, layers=c.layers, tags=c.tags, status=c.status,
             revision=c.revision, todo_count=len(c.todo), updated_at=c.updated_at,
         )
         for c in page
@@ -550,7 +550,7 @@ async def engine_crops(session: AsyncSession, region_slug: str | None = None) ->
         out.append(
             EngineCrop(
                 id=c.id, slug=c.slug, name_en=c.name_en, name_hi=c.name_hi, status=c.status,
-                family=c.family, category=c.category, layers=list(c.layers),
+                family=c.family, category=c.category, layers=list(c.layers), tags=list(c.tags),
                 seasons=list(c.seasons), sow_windows=list(local.sow_windows) if local else [],
                 nursery_days=c.nursery_days, days_to_first_harvest=c.days_to_first_harvest,
                 harvest_span_days=c.harvest_span_days, spacing_row_cm=c.spacing_row_cm,

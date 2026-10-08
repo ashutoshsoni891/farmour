@@ -1,0 +1,64 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "days_to_first_harvest": 730,
+  "spacing_row_cm": 300,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 0.03,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tinospora-cordifolia?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "The crop is grown under rain-fed conditions.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tinospora-cordifolia?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "reduced to 300 kg of dry weight per hectare in about two years",
+        "note": "About two years to the first cut.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tinospora-cordifolia?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "An optimum spacing of 3 m × 3 m is recommended for better yield.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tinospora-cordifolia?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "The crop is grown under rain-fed conditions.",
+        "note": "Read as 'low'.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tinospora-cordifolia?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "It does not tolerate high rainfall or waterlogged conditions.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tinospora-cordifolia?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "The plant yields about 1500 kg of fresh woody stem, reduced to 300 kg of dry weight per hectare in about two years.",
+        "note": "300 kg dry stem per hectare over about two years = 0.03 kg/m² (not per year). It needs a host tree, stake or trellis.",
+        "checked_on": "2026-10-08"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 15 (2026-10-08), medicinal and ayurvedic crops. Ranges are stored at their lower bound; the source range is in each quote. Yields are of the dried product that is sold (dried root, leaf or seed) unless a note says fresh. Sowing dates are from national guides (region india) unless a Malwa study is named. Medicinal crops are planned only when the owner picks the medicinal method; the market for each is thin and buy-back is not assured (see the economics sources)."
+}

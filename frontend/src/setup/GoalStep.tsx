@@ -22,12 +22,13 @@ const METHODS: Method[] = [
   "natural",
   "polyhouse",
   "integrated",
+  "medicinal",
 ];
 const BUDGETS: Budget[] = ["low", "medium", "high"];
 const LABOUR: Labour[] = ["self", "family", "caretaker", "mixed"];
 const ICON: Record<string, string> = {
   income: "💰", low_work: "🧘", home_food: "🍲", both: "⚖️",
-  multilayer: "🪜", orchard: "🌳", flowers: "🌼", natural: "🐄", polyhouse: "🏠", integrated: "🔄",
+  multilayer: "🪜", orchard: "🌳", flowers: "🌼", natural: "🐄", polyhouse: "🏠", integrated: "🔄", medicinal: "🍃",
 }; // prettier-ignore
 
 const card = "flex min-h-14 items-start gap-3 rounded-xl border-2 p-3 text-left";

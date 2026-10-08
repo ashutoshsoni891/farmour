@@ -52,8 +52,36 @@ def _text_of(raw: bytes) -> str:
             return " ".join((page.extract_text() or "") for page in reader.pages)
         except PdfReadError:
             return ""
-    text = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", raw.decode("utf-8", "replace"))
-    return re.sub(r"<[^>]+>", " ", text)
+    page = raw.decode("utf-8", "replace")
+    text = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", page)
+    text = re.sub(r"<[^>]+>", " ", text)
+    return f"{text} {_next_data_text(page)}"
+
+
+def _next_data_text(page: str) -> str:
+    """Text of a Next.js page (Vikaspedia): its content sits in the __NEXT_DATA__ JSON, not in
+    the HTML the browser shows before scripts run."""
+    found = re.search(r'(?is)<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', page)
+    if found is None:
+        return ""
+    try:
+        data = json.loads(found.group(1))
+    except ValueError:
+        return ""
+    strings: list[str] = []
+
+    def walk(node: Any) -> None:
+        if isinstance(node, str):
+            strings.append(re.sub(r"<[^>]+>", " ", node))
+        elif isinstance(node, list):
+            for item in node:
+                walk(item)
+        elif isinstance(node, dict):
+            for item in node.values():
+                walk(item)
+
+    walk(data)
+    return " ".join(strings)
 
 
 def _page_text(url: str, cache: dict[str, str]) -> str:

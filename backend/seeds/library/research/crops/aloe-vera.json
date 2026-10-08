@@ -1,0 +1,109 @@
+{
+  "seasons": [
+    "kharif",
+    "rabi"
+  ],
+  "days_to_first_harvest": 180,
+  "harvest_span_days": 30,
+  "spacing_row_cm": 90,
+  "spacing_plant_cm": 90,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.5,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aloe.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The planting can be done during two seasons namely June – July and September – October.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aloe.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "Harvesting can be done 6 – 7 months after planting.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aloe.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "Harvesting can be done 6 – 7 months after planting.",
+        "note": "7 - 6 = 1 month = 30 days.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aloe.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "Suckers are planted at 90 x 90 cm spacing.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aloe.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "Suckers are planted at 90 x 90 cm spacing.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aloe.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "It is mainly grown as rainfed crop.",
+        "note": "Read as 'low'; 4-5 irrigations in summer.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aloe.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "under water logged condition, rotting will occur",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aloe.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "An average leaf yield of 15 t/ha can be obtained.",
+        "note": "15 t/ha = 1.5 kg/m² of fresh leaf; the gel must be extracted within 6 hours, so a buyer or a processor nearby is needed.",
+        "checked_on": "2026-10-08"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 15 (2026-10-08), medicinal and ayurvedic crops. Ranges are stored at their lower bound; the source range is in each quote. Yields are of the dried product that is sold (dried root, leaf or seed) unless a note says fresh. Sowing dates are from national guides (region india) unless a Malwa study is named. Medicinal crops are planned only when the owner picks the medicinal method; the market for each is thin and buy-back is not assured (see the economics sources).",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "transplant"
+        },
+        {
+          "from": "09-01",
+          "to": "10-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aloe.html",
+            "title": "TNAU Agritech Portal, medicinal crops",
+            "quote": "The planting can be done during two seasons namely June – July and September – October.",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      }
+    }
+  }
+}

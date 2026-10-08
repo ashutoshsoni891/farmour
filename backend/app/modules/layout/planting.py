@@ -6,6 +6,7 @@ beds), the candidates that pass every hard rule are scored and the best one is t
 the crop slug. Every agronomy value comes from the crop library through `CropSpec`.
 """
 
+import math
 from dataclasses import dataclass, field
 from datetime import date, timedelta
 from typing import Any
@@ -33,6 +34,7 @@ class CropSpec:
     low_care: bool | None
     price_paise_per_kg: int | None
     category: str = ""
+    tags: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)
@@ -57,6 +59,7 @@ class PlantingParams:
     plan_days: int
     tall_crop_cm: int
     good_companion_bonus: float
+    medicinal_bed_share: float = 0.0  # share of beds given to medicinal herbs when asked for
 
 
 @dataclass(frozen=True)
@@ -160,6 +163,7 @@ def assign(
     p: PlantingParams,
     weights: dict[str, float] | None = None,
     allow_flowers: bool = False,
+    allow_medicinal: bool = False,
 ) -> PlantingResult:
     """Fill every bed. `weights` (a plan option's score weights) replaces the goal shift."""
     pairs = _pairs(companions)
@@ -172,10 +176,12 @@ def assign(
     else:
         weights = {**p.weights, **weights}
     by_slug = {c.slug: c for c in crops}
-    # Flowers go in beds only when the owner asked for them (goal step "Flowers").
+    # Flowers and medicinal herbs go in beds only when the owner asked for them (goal step).
     usable = [
         c for c in sorted(crops, key=lambda c: c.slug)
-        if _complete(c) and (allow_flowers or c.category != "flower")
+        if _complete(c)
+        and (allow_flowers or c.category != "flower")
+        and (allow_medicinal or "medicinal" not in c.tags)
     ]  # fmt: skip
     use_price = bool(usable) and all(c.price_paise_per_kg for c in usable)
 
@@ -184,6 +190,7 @@ def assign(
         result.warnings.append({"code": "NO_PRICES", "message_key": "warn.no_prices"})
     previous: dict[str, set[str]] = {}  # bed -> families planted in the previous slot
     busy: dict[tuple[str, str], date] = {}  # (bed, layer) -> date the layer is free again
+    med_beds = math.ceil(p.medicinal_bed_share * len(beds)) if allow_medicinal else 0
     for slot in season_slots(start, p):
         # Eligibility follows the crops' own sow windows (season names are only a calendar).
         if not any(first_sow(c, slot) for c in usable):
@@ -193,7 +200,8 @@ def assign(
         layer_used: dict[tuple[str, str], int] = {}  # (layer, crop) -> beds this slot
         layer_total: dict[str, int] = {}
         current: dict[str, set[str]] = {}
-        for bed in beds:
+        for bed_no, bed in enumerate(beds):
+            medicinal_bed = bed_no < med_beds
             in_bed: list[str] = []
             for layer in LAYERS:
                 if layer == "climber" and not bed.has_trellis:
@@ -206,9 +214,19 @@ def assign(
                     and _allowed(by_slug[s], bed, in_bed, previous.get(bed.code, set()),
                                  drainage, pairs, p)
                 ]  # fmt: skip
+                # The first beds are the herbs' (when asked for); the rest keep to food crops.
+                herbs = [c for c in candidates if "medicinal" in c.tags]
+                if medicinal_bed and herbs:
+                    candidates = herbs
+                elif not medicinal_bed:
+                    candidates = [c for c in candidates if "medicinal" not in c.tags]
                 if not candidates:
                     continue
                 values = {c.slug: _value(c, use_price) for c in candidates}
+                if medicinal_bed and herbs:
+                    # kg of fresh leaf and kg of dried root are not comparable: with no prices to
+                    # compare, herbs are ranked on diversity, ease and water only
+                    values = {c.slug: 1.0 for c in candidates}
                 top = max(values.values()) or 1.0
                 total = layer_total.get(layer, 0)
                 scores = {

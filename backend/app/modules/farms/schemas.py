@@ -9,7 +9,9 @@ from app.core.phone import normalise_indian_phone
 
 SiteType = Literal["ground", "terrace"]
 Goal = Literal["home_food", "income", "both", "low_work"]
-Method = Literal["multilayer", "orchard", "flowers", "natural", "polyhouse", "integrated"]
+Method = Literal[
+    "multilayer", "orchard", "flowers", "natural", "polyhouse", "integrated", "medicinal"
+]
 BudgetBand = Literal["low", "medium", "high"]
 Labour = Literal["self", "family", "caretaker", "mixed"]
 WaterSource = Literal["bore", "well", "canal", "municipal", "rain_only"]

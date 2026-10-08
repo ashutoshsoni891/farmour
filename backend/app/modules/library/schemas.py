@@ -12,6 +12,7 @@ Category = Literal[
     "vegetable", "leafy", "root", "spice", "fruit_tree", "fruit_short", "pulse", "cereal",
     "millet", "oilseed", "herb", "border", "green_manure", "flower",
 ]  # fmt: skip
+Tag = Literal["medicinal", "ayurvedic", "aromatic"]
 Layer = Literal["underground", "surface", "middle", "climber", "canopy"]
 Season = Literal["kharif", "rabi", "zaid", "perennial"]
 Sun = Literal["full", "partial", "shade_tolerant"]
@@ -61,6 +62,7 @@ class CropFields(BaseModel):
     family: str | None = Field(default=None, max_length=40)
     category: Category | None = None
     layers: list[Layer] | None = None
+    tags: list[Tag] | None = None
     seasons: list[Season] | None = None
     nursery_days: int | None = Field(default=None, ge=0, le=365)
     days_to_first_harvest: int | None = Field(default=None, ge=1, le=3650)
@@ -123,6 +125,7 @@ class CropOut(ReviewInfo):
     family: str | None
     category: Category
     layers: list[Layer]
+    tags: list[Tag]
     seasons: list[Season]
     nursery_days: int | None
     days_to_first_harvest: int | None
@@ -161,6 +164,7 @@ class CropSummary(BaseModel):
     name_hi: str
     category: Category
     layers: list[Layer]
+    tags: list[Tag]
     status: Status
     revision: int
     todo_count: int
@@ -335,6 +339,7 @@ class EngineCrop(BaseModel):
     family: str | None
     category: str
     layers: list[str]
+    tags: list[str] = []
     seasons: list[str]
     sow_windows: list[dict[str, Any]]
     nursery_days: int | None

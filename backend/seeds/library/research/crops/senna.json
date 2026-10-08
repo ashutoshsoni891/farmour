@@ -1,0 +1,90 @@
+{
+  "seasons": [
+    "kharif",
+    "zaid"
+  ],
+  "days_to_first_harvest": 60,
+  "spacing_row_cm": 45,
+  "spacing_plant_cm": 30,
+  "water_need": "low",
+  "expected_yield_kg_per_sqm": 0.1,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_senna.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "sown in beds at a spacing 45 x 30 cm during February – March or June – July",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_senna.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The first harvest of leaves and pods are done at 2 months after sowing",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_senna.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "sown in beds at a spacing 45 x 30 cm during February – March or June – July",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_senna.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "sown in beds at a spacing 45 x 30 cm during February – March or June – July",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_senna.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "It is a hardy warm weather crop grown under rainfed and irrigated conditions.",
+        "note": "Read as 'low'.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_senna.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "Rainfed Dried leaves : 1 t/ha.",
+        "note": "1 t/ha = 0.1 kg/m² of dried leaf (rainfed); irrigated 2 t/ha.",
+        "checked_on": "2026-10-08"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 15 (2026-10-08), medicinal and ayurvedic crops. Ranges are stored at their lower bound; the source range is in each quote. Yields are of the dried product that is sold (dried root, leaf or seed) unless a note says fresh. Sowing dates are from national guides (region india) unless a Malwa study is named. Medicinal crops are planned only when the owner picks the medicinal method; the market for each is thin and buy-back is not assured (see the economics sources).",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "02-01",
+          "to": "03-31",
+          "method": "direct"
+        },
+        {
+          "from": "06-01",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_senna.html",
+            "title": "TNAU Agritech Portal, medicinal crops",
+            "quote": "sown in beds at a spacing 45 x 30 cm during February – March or June – July",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      }
+    }
+  }
+}

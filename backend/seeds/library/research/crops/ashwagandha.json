@@ -1,0 +1,122 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 150,
+  "harvest_span_days": 20,
+  "spacing_row_cm": 60,
+  "spacing_plant_cm": 60,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "height_max_cm": 150,
+  "expected_yield_kg_per_sqm": 0.04,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tribulus-terrestris-1?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "the seeds are sown during the second week of July to August",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aswagandha.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The crop is ready for harvest in 150-170 days after sowing, starting from January upto march.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aswagandha.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The crop is ready for harvest in 150-170 days after sowing, starting from January upto march.",
+        "note": "170 - 150 = 20 days.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aswagandha.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The seedlings of six weeks old are transplanted at a spacing of 60X 60 cm.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aswagandha.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The seedlings of six weeks old are transplanted at a spacing of 60X 60 cm.",
+        "note": "Vikaspedia gives 20-25 x 10-15 cm for dense stands; TNAU's 60 x 60 is used for a transplanted crop.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tribulus-terrestris-1?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "There is no need of irrigation if rainfall is at regular intervals.",
+        "note": "A crop grown on rainfall with life-saving irrigation is read as 'low'. Agronomist to confirm.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tribulus-terrestris-1?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "Excessive rainfall/water is harmful to the crop.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tribulus-terrestris-1?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "grows up to a height of 1.5 meter",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_aswagandha.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The crop produces 400-1200 kg/ha dried roots and 200-500 kg seeds/ha.",
+        "note": "400 kg/ha = 0.04 kg/m² of dried roots (lowest figure).",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "economics": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tribulus-terrestris-1?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "In Madhya Pradesh, where it is grown on commercial scale, no fertilizer is applied and the crop is cultivated on only residual fertilizer.",
+        "note": "Madhya Pradesh grows it commercially on residual fertility (low input cost); TNAU lists 'Jawahar 20' as the Madhya Pradesh variety.",
+        "checked_on": "2026-10-08"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 15 (2026-10-08), medicinal and ayurvedic crops. Ranges are stored at their lower bound; the source range is in each quote. Yields are of the dried product that is sold (dried root, leaf or seed) unless a note says fresh. Sowing dates are from national guides (region india) unless a Malwa study is named. Medicinal crops are planned only when the owner picks the medicinal method; the market for each is thin and buy-back is not assured (see the economics sources).",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "07-08",
+          "to": "09-30",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/tribulus-terrestris-1?lgn=en",
+            "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+            "quote": "the seeds are sown during the second week of July to August",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      }
+    }
+  }
+}

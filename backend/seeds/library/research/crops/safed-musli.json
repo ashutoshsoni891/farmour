@@ -1,0 +1,121 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 180,
+  "harvest_span_days": 30,
+  "spacing_row_cm": 30,
+  "spacing_plant_cm": 10,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 0.04,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://www.fao.org/4/xii/0110-b4.htm",
+        "title": "FAO / 11th World Forestry Congress: Safed musli, a wonder drug in the tropical zone",
+        "quote": "Being a Kharif crop, the sowing of mush starts with the first shower of the monsoons.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144767/52886",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Production technology of safed musli",
+        "quote": "The roots should be harvested carefully by digging from December to January",
+        "note": "Planted at the first or second monsoon rain (mid-June to July), dug in December-January: about 180 days. Agronomist to confirm.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144767/52886",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Production technology of safed musli",
+        "quote": "The roots should be harvested carefully by digging from December to January",
+        "note": "December to January: about 30 days of digging.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144767/52886",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Production technology of safed musli",
+        "quote": "Mostly spacing should be kept about 30 cm row-to-row and 10 or 15 cm plant-to-plant",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144767/52886",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Production technology of safed musli",
+        "quote": "Mostly spacing should be kept about 30 cm row-to-row and 10 or 15 cm plant-to-plant",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144767/52886",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Production technology of safed musli",
+        "quote": "Safed musli has short stature, low water requirement",
+        "note": "Needs 6-8 irrigations at 10-15 day intervals if the monsoon fails.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144767/52886",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Production technology of safed musli",
+        "quote": "care should be taken to provide proper drainage to avoid damage to tubers by waterlogging",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144767/52886",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Production technology of safed musli",
+        "quote": "This yield gives about 0.4-0.6 tonne marketable dry root yield.",
+        "note": "0.4 t/ha = 0.04 kg/m² of dry peeled roots (lowest figure).",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "economics": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144767/52886",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Production technology of safed musli",
+        "quote": "The roots fetch an attractive market price of ` 1600-1800 per kg of dry peeled fasciculated roots.",
+        "note": "Price quoted in a 2023 article, not a mandi record. Wild collection is why the species is threatened; the market for cultivated roots is thin, so confirm a buyer first.",
+        "checked_on": "2026-10-08"
+      },
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144767/52886",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Production technology of safed musli",
+        "quote": "planting material (roots) is required and the planting material rate varies with the spacing followed",
+        "note": "600 to 1000 kg of planting roots per hectare is the main cost.",
+        "checked_on": "2026-10-08"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 15 (2026-10-08), medicinal and ayurvedic crops. Ranges are stored at their lower bound; the source range is in each quote. Yields are of the dried product that is sold (dried root, leaf or seed) unless a note says fresh. Sowing dates are from national guides (region india) unless a Malwa study is named. Medicinal crops are planned only when the owner picks the medicinal method; the market for each is thin and buy-back is not assured (see the economics sources).",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "06-15",
+          "to": "07-31",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144767/52886",
+            "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Production technology of safed musli",
+            "quote": "The planting should be done on rainy days preferably the first or second rain of monsoon arrival",
+            "note": "Monsoon reaches Malwa in mid-to-late June: dates are an interpretation. Agronomist to confirm.",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      }
+    }
+  }
+}

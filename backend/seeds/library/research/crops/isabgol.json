@@ -1,0 +1,111 @@
+{
+  "seasons": [
+    "rabi"
+  ],
+  "days_to_first_harvest": 110,
+  "spacing_row_cm": 20,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "height_max_cm": 50,
+  "expected_yield_kg_per_sqm": 0.08,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://pub.isa-india.in/index.php/ija/article/download/3133/2818",
+        "title": "Indian Journal of Agronomy 47(1), 2002 (JNKVV Indore): seed rate and sowing method of isabgol in shallow black soil",
+        "quote": "besides 2 sowing methods of 20 cm spacing and seed broadcast during second fortnight af November every year",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144765/52885/472691",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Isabgol, a potential medicinal plant",
+        "quote": "matures in 110- 115 days",
+        "note": "Gujarat Isabgol-1; the Indore trial harvested at 120 days.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://pub.isa-india.in/index.php/ija/article/download/3133/2818",
+        "title": "Indian Journal of Agronomy 47(1), 2002 (JNKVV Indore): seed rate and sowing method of isabgol in shallow black soil",
+        "quote": "besides 2 sowing methods of 20 cm spacing and seed broadcast during second fortnight af November every year",
+        "note": "Row sowing at 20 cm or broadcast gave the same yield in the Indore trial (seed rate 6 kg/ha).",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://pub.isa-india.in/index.php/ija/article/download/3133/2818",
+        "title": "Indian Journal of Agronomy 47(1), 2002 (JNKVV Indore): seed rate and sowing method of isabgol in shallow black soil",
+        "quote": "The crop was irrigated 6 times within duration of 120 days.",
+        "note": "Six irrigations in four months: read as 'low'.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144765/52885/472691",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Isabgol, a potential medicinal plant",
+        "quote": "Soils with poor drainage are not conducive for good growth and successful cultivation of this crop.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "height_max_cm": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144765/52885/472691",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Isabgol, a potential medicinal plant",
+        "quote": "Height about 50 cm",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144765/52885/472691",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Isabgol, a potential medicinal plant",
+        "quote": "On an average, 800-1000 kg per hectare seed yield of isabgol is obtained.",
+        "note": "800 kg/ha = 0.08 kg/m² of seed (lowest figure).",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "economics": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144765/52885/472691",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Isabgol, a potential medicinal plant",
+        "quote": "The data revealed that the net income was ` 45313, 20003 and 28506 for isabgol, wheat and garlic crop, respectively.",
+        "note": "A study in Madhya Pradesh: cost of cultivation per hectare ` 49,514 (isabgol), 32,237 (wheat), 1,63,384 (garlic); B:C 1.95, 1.62, 1.17.",
+        "checked_on": "2026-10-08"
+      },
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/144765/52885/472691",
+        "title": "Indian Horticulture (ICAR), Sept-Oct 2023: Isabgol, a potential medicinal plant",
+        "quote": "There is a climatic risk due to unseasonal rains in winter to grow isabgol.",
+        "note": "Unseasonal rain or dew at maturity can cause total seed loss; the same article calls the price 'less remunerative'.",
+        "checked_on": "2026-10-08"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 15 (2026-10-08), medicinal and ayurvedic crops. Ranges are stored at their lower bound; the source range is in each quote. Yields are of the dried product that is sold (dried root, leaf or seed) unless a note says fresh. Sowing dates are from national guides (region india) unless a Malwa study is named. Medicinal crops are planned only when the owner picks the medicinal method; the market for each is thin and buy-back is not assured (see the economics sources).",
+  "regional": {
+    "malwa": {
+      "sow_windows": [
+        {
+          "from": "11-16",
+          "to": "11-30",
+          "method": "direct"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://pub.isa-india.in/index.php/ija/article/download/3133/2818",
+            "title": "Indian Journal of Agronomy 47(1), 2002 (JNKVV Indore): seed rate and sowing method of isabgol in shallow black soil",
+            "quote": "besides 2 sowing methods of 20 cm spacing and seed broadcast during second fortnight af November every year",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      }
+    }
+  }
+}

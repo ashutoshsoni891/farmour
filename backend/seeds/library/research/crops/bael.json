@@ -1,0 +1,45 @@
+{
+  "seasons": [
+    "perennial"
+  ],
+  "tree_spacing_m": 10,
+  "years_to_bear": 4,
+  "water_need": "low",
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/aegle-marmelos?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "Aegle marmelos (L.) Correa (Family: Rutaceae) is a deciduous tree, 6.0 to 10 m in height",
+        "note": "A perennial tree.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "tree_spacing_m": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/aegle-marmelos?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "Seedlings or budded plants are transplanted in the field at a spacing of 10-12 m.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "years_to_bear": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/aegle-marmelos?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "Budded plants start bearing fruits at the age of 4-5 years, whereas seedling trees require 7-8 years.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/aegle-marmelos?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "The field after plantation should be irrigated periodically as and when required weekly or fortnightly.",
+        "note": "Watering the young plantation weekly or fortnightly is read as 'low'; a Vikaspedia companion page calls bael a 'fruit for dryland'.",
+        "checked_on": "2026-10-08"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 16 (2026-10-08). Ayurvedic fruit tree (bilva); values are the lower end of the quoted range."
+}

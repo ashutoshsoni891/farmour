@@ -1,0 +1,118 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 90,
+  "harvest_span_days": 5,
+  "spacing_row_cm": 45,
+  "spacing_plant_cm": 30,
+  "water_need": "low",
+  "waterlogging_tolerant": false,
+  "expected_yield_kg_per_sqm": 1.0,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/115154/44901/473192",
+        "title": "Indian Horticulture (ICAR), May-June 2021 (CSIR-CIMAP): Livelihood security of small and marginal farmers through Ocimum cultivation",
+        "quote": "Seedlings of six weeks old and having 4-5 leaves are transplanted in July at a spacing of 45 × 30 cm to get high herbage and oil yield.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/115154/44901/473192",
+        "title": "Indian Horticulture (ICAR), May-June 2021 (CSIR-CIMAP): Livelihood security of small and marginal farmers through Ocimum cultivation",
+        "quote": "The crop is harvested at 90- 95 days after planting",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/115154/44901/473192",
+        "title": "Indian Horticulture (ICAR), May-June 2021 (CSIR-CIMAP): Livelihood security of small and marginal farmers through Ocimum cultivation",
+        "quote": "The crop is harvested at 90- 95 days after planting",
+        "note": "95 - 90 = 5 days for the first cut. The plant regrows and TNAU gives further cuts every 75 days; this is not counted.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/115154/44901/473192",
+        "title": "Indian Horticulture (ICAR), May-June 2021 (CSIR-CIMAP): Livelihood security of small and marginal farmers through Ocimum cultivation",
+        "quote": "Seedlings of six weeks old and having 4-5 leaves are transplanted in July at a spacing of 45 × 30 cm to get high herbage and oil yield.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/115154/44901/473192",
+        "title": "Indian Horticulture (ICAR), May-June 2021 (CSIR-CIMAP): Livelihood security of small and marginal farmers through Ocimum cultivation",
+        "quote": "Seedlings of six weeks old and having 4-5 leaves are transplanted in July at a spacing of 45 × 30 cm to get high herbage and oil yield.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/115154/44901/473192",
+        "title": "Indian Horticulture (ICAR), May-June 2021 (CSIR-CIMAP): Livelihood security of small and marginal farmers through Ocimum cultivation",
+        "quote": "In summer, apply 3 irrigation per month and in rainy season, no irrigation is required.",
+        "note": "Rainfed in kharif: read as 'low'.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/115154/44901/473192",
+        "title": "Indian Horticulture (ICAR), May-June 2021 (CSIR-CIMAP): Livelihood security of small and marginal farmers through Ocimum cultivation",
+        "quote": "Ocimum cultivation is avoided in highly saline, alkaline or water logged conditions",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_tulsi.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "On an average, tulsi gives about 10,000 kgs of fresh herbage per hectare per year.",
+        "note": "10 t/ha = 1.0 kg/m² of fresh herbage per year (lowest figure; CIMAP gives 20 t/ha).",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "economics": [
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/115154/44901/473192",
+        "title": "Indian Horticulture (ICAR), May-June 2021 (CSIR-CIMAP): Livelihood security of small and marginal farmers through Ocimum cultivation",
+        "quote": "Tulsi farming involves an average cost of cultivation ` 45,000/ ha and gross returns of ` 1,00,000/ha after selling the herb, thus leading to a net return of ` 55,000/ha.",
+        "note": "CSIR-CIMAP estimate for oil and herb sold; the buyer has to be found first.",
+        "checked_on": "2026-10-08"
+      },
+      {
+        "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/115154/44901/473192",
+        "title": "Indian Horticulture (ICAR), May-June 2021 (CSIR-CIMAP): Livelihood security of small and marginal farmers through Ocimum cultivation",
+        "quote": "in rainfed areas in Kharif season as it requires lower input and gives better returns",
+        "checked_on": "2026-10-08"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 15 (2026-10-08), medicinal and ayurvedic crops. Ranges are stored at their lower bound; the source range is in each quote. Yields are of the dried product that is sold (dried root, leaf or seed) unless a note says fresh. Sowing dates are from national guides (region india) unless a Malwa study is named. Medicinal crops are planned only when the owner picks the medicinal method; the market for each is thin and buy-back is not assured (see the economics sources).",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "07-01",
+          "to": "07-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://epubs.icar.org.in/index.php/IndHort/article/download/115154/44901/473192",
+            "title": "Indian Horticulture (ICAR), May-June 2021 (CSIR-CIMAP): Livelihood security of small and marginal farmers through Ocimum cultivation",
+            "quote": "Seedlings of six weeks old and having 4-5 leaves are transplanted in July at a spacing of 45 × 30 cm to get high herbage and oil yield.",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      }
+    }
+  }
+}

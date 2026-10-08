@@ -125,6 +125,13 @@ export function Methods({
       text: t("method.natural_text"),
     });
   }
+  if (methods.includes("medicinal")) {
+    cards.push({
+      icon: <span className="text-4xl">🍃</span>,
+      title: t("method.medicinal"),
+      text: t("method.medicinal_text"),
+    });
+  }
   if (hedge.length > 0) {
     cards.push({
       icon: <span className="text-4xl">🌿</span>,

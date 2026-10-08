@@ -1064,6 +1064,8 @@ export interface components {
             category: "vegetable" | "leafy" | "root" | "spice" | "fruit_tree" | "fruit_short" | "pulse" | "cereal" | "millet" | "oilseed" | "herb" | "border" | "green_manure" | "flower";
             /** Layers */
             layers?: ("underground" | "surface" | "middle" | "climber" | "canopy")[] | null;
+            /** Tags */
+            tags?: ("medicinal" | "ayurvedic" | "aromatic")[] | null;
             /** Seasons */
             seasons?: ("kharif" | "rabi" | "zaid" | "perennial")[] | null;
             /** Nursery Days */
@@ -1184,6 +1186,8 @@ export interface components {
             category: "vegetable" | "leafy" | "root" | "spice" | "fruit_tree" | "fruit_short" | "pulse" | "cereal" | "millet" | "oilseed" | "herb" | "border" | "green_manure" | "flower";
             /** Layers */
             layers: ("underground" | "surface" | "middle" | "climber" | "canopy")[];
+            /** Tags */
+            tags: ("medicinal" | "ayurvedic" | "aromatic")[];
             /** Seasons */
             seasons: ("kharif" | "rabi" | "zaid" | "perennial")[];
             /** Nursery Days */
@@ -1289,6 +1293,8 @@ export interface components {
             category: "vegetable" | "leafy" | "root" | "spice" | "fruit_tree" | "fruit_short" | "pulse" | "cereal" | "millet" | "oilseed" | "herb" | "border" | "green_manure" | "flower";
             /** Layers */
             layers: ("underground" | "surface" | "middle" | "climber" | "canopy")[];
+            /** Tags */
+            tags: ("medicinal" | "ayurvedic" | "aromatic")[];
             /**
              * Status
              * @enum {string}
@@ -1318,6 +1324,8 @@ export interface components {
             category?: ("vegetable" | "leafy" | "root" | "spice" | "fruit_tree" | "fruit_short" | "pulse" | "cereal" | "millet" | "oilseed" | "herb" | "border" | "green_manure" | "flower") | null;
             /** Layers */
             layers?: ("underground" | "surface" | "middle" | "climber" | "canopy")[] | null;
+            /** Tags */
+            tags?: ("medicinal" | "ayurvedic" | "aromatic")[] | null;
             /** Seasons */
             seasons?: ("kharif" | "rabi" | "zaid" | "perennial")[] | null;
             /** Nursery Days */
@@ -1448,7 +1456,7 @@ export interface components {
             /** Livestock */
             livestock?: boolean | null;
             /** Methods */
-            methods?: ("multilayer" | "orchard" | "flowers" | "natural" | "polyhouse" | "integrated")[] | null;
+            methods?: ("multilayer" | "orchard" | "flowers" | "natural" | "polyhouse" | "integrated" | "medicinal")[] | null;
             /** Budget Band */
             budget_band?: ("low" | "medium" | "high") | null;
             /** Name */
@@ -1501,7 +1509,7 @@ export interface components {
              * Methods
              * @default []
              */
-            methods: ("multilayer" | "orchard" | "flowers" | "natural" | "polyhouse" | "integrated")[];
+            methods: ("multilayer" | "orchard" | "flowers" | "natural" | "polyhouse" | "integrated" | "medicinal")[];
             /** Budget Band */
             budget_band?: ("low" | "medium" | "high") | null;
             /**
@@ -1539,7 +1547,7 @@ export interface components {
             /** Livestock */
             livestock?: boolean | null;
             /** Methods */
-            methods?: ("multilayer" | "orchard" | "flowers" | "natural" | "polyhouse" | "integrated")[] | null;
+            methods?: ("multilayer" | "orchard" | "flowers" | "natural" | "polyhouse" | "integrated" | "medicinal")[] | null;
             /** Budget Band */
             budget_band?: ("low" | "medium" | "high") | null;
             /** Name */

@@ -10,7 +10,7 @@ from typing import Any
 
 # Fields that describe the entry rather than agronomy; they need no source.
 IDENTITY_FIELDS = {
-    "slug", "name_en", "name_hi", "scientific_name", "family", "category", "layers",
+    "slug", "name_en", "name_hi", "scientific_name", "family", "category", "layers", "tags",
     "source_notes", "todo", "sources", "regional", "unit_to_kg",
 }  # fmt: skip
 

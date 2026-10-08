@@ -1,0 +1,102 @@
+{
+  "seasons": [
+    "kharif"
+  ],
+  "days_to_first_harvest": 75,
+  "harvest_span_days": 15,
+  "spacing_row_cm": 10,
+  "spacing_plant_cm": 10,
+  "water_need": "high",
+  "waterlogging_tolerant": true,
+  "expected_yield_kg_per_sqm": 0.6,
+  "sources": {
+    "seasons": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_brahmi.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The cuttings should be transplanted in the month of July-August to get maximum herbage yield.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "days_to_first_harvest": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/bacopa-monnieri?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "The crop can be harvested 75–90 days after planting.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "harvest_span_days": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/bacopa-monnieri?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "The crop can be harvested 75–90 days after planting.",
+        "note": "90 - 75 = 15 days.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_row_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_brahmi.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The cuttings are transplanted in wet soil at spacing of 10 x 10cm to get maximum herbage yield.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "spacing_plant_cm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_brahmi.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The cuttings are transplanted in wet soil at spacing of 10 x 10cm to get maximum herbage yield.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "water_need": [
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/bacopa-monnieri?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "The crop is preferably kept inundated with water, at 4–5 cm depth, throughout the growth period.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "waterlogging_tolerant": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_brahmi.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "The plant grows well in poorly drained soils.",
+        "checked_on": "2026-10-08"
+      }
+    ],
+    "expected_yield_kg_per_sqm": [
+      {
+        "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_brahmi.html",
+        "title": "TNAU Agritech Portal, medicinal crops",
+        "quote": "On an average and yield of 300q/ha of fresh and 60q/ha dry herbage can be obtained respectively, from a single harvest.",
+        "note": "60 q/ha dry = 0.6 kg/m².",
+        "checked_on": "2026-10-08"
+      }
+    ]
+  },
+  "source_notes": "AI research batch 15 (2026-10-08), medicinal and ayurvedic crops. Ranges are stored at their lower bound; the source range is in each quote. Yields are of the dried product that is sold (dried root, leaf or seed) unless a note says fresh. Sowing dates are from national guides (region india) unless a Malwa study is named. Medicinal crops are planned only when the owner picks the medicinal method; the market for each is thin and buy-back is not assured (see the economics sources).",
+  "regional": {
+    "india": {
+      "sow_windows": [
+        {
+          "from": "07-01",
+          "to": "08-31",
+          "method": "transplant"
+        }
+      ],
+      "sources": {
+        "sow_windows": [
+          {
+            "url": "https://agritech.tnau.ac.in/horticulture/horti_medicinal%20crops_brahmi.html",
+            "title": "TNAU Agritech Portal, medicinal crops",
+            "quote": "The cuttings should be transplanted in the month of July-August to get maximum herbage yield.",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      }
+    }
+  }
+}
