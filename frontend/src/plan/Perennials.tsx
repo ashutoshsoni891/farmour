@@ -20,39 +20,7 @@ export function Perennials({ items, lang }: { items: Perennial[]; lang: Lang }) 
   if (items.length === 0) return null;
   const trees = items.filter((p) => p.kind === "tree");
   const hedge = items.filter((p) => p.kind === "hedge");
-  const card = (p: Perennial) => {
-    const s = cropStyle(p.crop.slug);
-    return (
-      <li
-        key={p.kind + p.crop.slug}
-        className="rounded-lg border bg-white px-3 py-2"
-        style={{ borderLeft: `6px solid ${s.color}` }}
-      >
-        <p className="text-lg font-semibold">
-          <span aria-hidden="true">{s.emoji} </span>
-          {lang === "hi" ? p.crop.name_hi : p.crop.name_en}{" "}
-          <span className="text-base font-normal text-neutral-700">
-            · {t(p.kind === "tree" ? "perennial.trees" : "perennial.plants", { n: p.count })}
-          </span>
-        </p>
-        <p className="text-base">
-          {t("perennial.plant_on", { date: formatDayMonth(new Date(p.plant_on), lang) })}
-          {" · "}
-          {t("perennial.spacing", { m: formatNumber(p.spacing_m, lang, 1) })}
-        </p>
-        {p.first_harvest && (
-          <p className="text-base">
-            {t(p.kind === "tree" ? "perennial.first_fruit" : "perennial.first_harvest", {
-              when: monthYear(p.first_harvest, lang),
-            })}
-            {p.yearly_kg_when_bearing
-              ? ` · ${t("perennial.kg_year", { kg: formatNumber(p.yearly_kg_when_bearing, lang, 0) })}`
-              : ""}
-          </p>
-        )}
-      </li>
-    );
-  };
+  const card = (p: Perennial) => <PerennialCard key={p.kind + p.crop.slug} p={p} lang={lang} />;
   return (
     <section className="flex flex-col gap-3">
       <h2 className="text-xl font-bold text-green-900">{t("perennial.title")}</h2>
@@ -70,5 +38,40 @@ export function Perennials({ items, lang }: { items: Perennial[]; lang: Lang }) 
         </div>
       )}
     </section>
+  );
+}
+
+/** One kind of tree or hedge plant: how many, when to plant, when it bears. */
+export function PerennialCard({ p, lang }: { p: Perennial; lang: Lang }) {
+  const { t } = useTranslation();
+  const s = cropStyle(p.crop.slug);
+  return (
+    <li
+      className="rounded-lg border bg-white px-3 py-2"
+      style={{ borderLeft: `6px solid ${s.color}` }}
+    >
+      <p className="text-lg font-semibold">
+        <span aria-hidden="true">{s.emoji} </span>
+        {lang === "hi" ? p.crop.name_hi : p.crop.name_en}{" "}
+        <span className="text-base font-normal text-neutral-700">
+          · {t(p.kind === "tree" ? "perennial.trees" : "perennial.plants", { n: p.count })}
+        </span>
+      </p>
+      <p className="text-base">
+        {t("perennial.plant_on", { date: formatDayMonth(new Date(p.plant_on), lang) })}
+        {" · "}
+        {t("perennial.spacing", { m: formatNumber(p.spacing_m, lang, 1) })}
+      </p>
+      {p.first_harvest && (
+        <p className="text-base">
+          {t(p.kind === "tree" ? "perennial.first_fruit" : "perennial.first_harvest", {
+            when: monthYear(p.first_harvest, lang),
+          })}
+          {p.yearly_kg_when_bearing
+            ? ` · ${t("perennial.kg_year", { kg: formatNumber(p.yearly_kg_when_bearing, lang, 0) })}`
+            : ""}
+        </p>
+      )}
+    </li>
   );
 }

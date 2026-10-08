@@ -44,3 +44,34 @@
     @apply outline-3 outline-offset-2 outline-green-800;
   }
 }
+
+/* Farm map labels (HTML markers: emoji and Hindi render here, which map fonts cannot). */
+.map-label {
+  white-space: nowrap;
+  font-weight: 600;
+  line-height: 1.2;
+  user-select: none;
+}
+.map-label-zone {
+  @apply rounded-full bg-white/90 px-2 py-0.5 text-sm text-neutral-900 shadow;
+}
+.map-label-bed {
+  @apply rounded-md bg-black/45 px-0.5 text-center text-[11px] text-white;
+  white-space: pre;
+}
+/* Bed labels only when beds are big enough on screen; zone labels step back close up. */
+.farm-map:not([data-z="near"]) .map-label-bed {
+  display: none;
+}
+.farm-map[data-z="near"] .map-label-zone {
+  opacity: 0.75;
+}
+/* Map buttons big enough for a thumb outdoors (the base 44px rule would stretch them unevenly). */
+.maplibregl-ctrl-group button {
+  width: 40px;
+  height: 40px;
+  min-height: 40px;
+}
+.maplibregl-ctrl-attrib-button {
+  min-height: 24px;
+}

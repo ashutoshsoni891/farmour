@@ -29,6 +29,19 @@ const STYLE: Record<string, { color: string; emoji: string }> = {
   "curry-leaf": { color: "#166534", emoji: "🌿" },
   marigold: { color: "#f97316", emoji: "🌼" },
   chrysanthemum: { color: "#e879f9", emoji: "🌸" },
+  palak: { color: "#166534", emoji: "🥬" },
+  potato: { color: "#92400e", emoji: "🥔" },
+  "snake-gourd": { color: "#0891b2", emoji: "🥒" },
+  cabbage: { color: "#7c3aed", emoji: "🥬" },
+  cauliflower: { color: "#d6d3d1", emoji: "🥦" },
+  broccoli: { color: "#047857", emoji: "🥦" },
+  amaranth: { color: "#be185d", emoji: "🌿" },
+  capsicum: { color: "#4ade80", emoji: "🫑" },
+  carrot: { color: "#fb923c", emoji: "🥕" },
+  garlic: { color: "#f5f5f4", emoji: "🧄" },
+  "ridge-gourd": { color: "#2dd4bf", emoji: "🥒" },
+  "bitter-gourd": { color: "#14532d", emoji: "🥒" },
+  beetroot: { color: "#9f1239", emoji: "🟣" },
   wheat: { color: "#ca8a04", emoji: "🌾" },
   maize: { color: "#eab308", emoji: "🌽" },
   bajra: { color: "#a16207", emoji: "🌾" },
@@ -44,7 +57,10 @@ const STYLE: Record<string, { color: string; emoji: string }> = {
   "aloe-vera": { color: "#4d7c0f", emoji: "🪴" },
   senna: { color: "#a16207", emoji: "🌿" },
 };
-const FALLBACK = ["#0369a1", "#b45309", "#be123c", "#4338ca", "#0f766e"];
+const FALLBACK = [
+  "#0369a1", "#b45309", "#be123c", "#4338ca", "#0f766e", "#a21caf", "#65a30d", "#c2410c",
+  "#1d4ed8", "#9d174d",
+]; // prettier-ignore
 
 export function cropStyle(slug: string): { color: string; emoji: string } {
   const known = STYLE[slug];

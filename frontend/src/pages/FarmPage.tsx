@@ -1,5 +1,5 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router";
 
@@ -13,13 +13,15 @@ import type { UnitPref } from "../lib/format";
 import { Choice } from "../setup/Choice";
 import { GROUPS, buildRows } from "../setup/FoundStep";
 import { insights } from "../setup/insights";
-import { PlotMap } from "../setup/PlotMap";
-import type { PlotGeometry, PlotLayout } from "../setup/PlotMap";
 import { Benefits } from "../plan/Benefits";
 import { PlanEditor } from "../plan/PlanEditor";
 import { PlanOptions } from "../plan/PlanOptions";
+import { FarmMap } from "../plan/FarmMap";
+import type { MapSelection } from "../plan/FarmMap";
+import { MapInspector } from "../plan/MapInspector";
+import { MapLegend } from "../plan/MapLegend";
 import { PlanView, SeasonTabs } from "../plan/PlanView";
-import { bedColours, cropStyle, plantingsOf } from "../plan/cropStyle";
+import type { PolygonGeometry } from "../plan/mapGeometry";
 
 type Fact = components["schemas"]["FactOut"];
 type FarmUpdate = components["schemas"]["FarmUpdate"];
@@ -38,7 +40,7 @@ export function FarmPage() {
   const [notice, setNotice] = useState<string | null>(null);
   const [planning, setPlanning] = useState(false);
   const [planId, setPlanId] = useState<string | null>(null);
-  const [bed, setBed] = useState<string | null>(null);
+  const [selection, setSelection] = useState<MapSelection | null>(null);
   const [seasonIndex, setSeasonIndex] = useState(0);
   const [highlight, setHighlight] = useState<string | null>(null);
 
@@ -92,44 +94,6 @@ export function FarmPage() {
         })
       ).data ?? [],
   });
-  const mapLayout = useMemo(() => {
-    const p = plan.data;
-    if (!p) return undefined;
-    const label = p.seasons[Math.min(seasonIndex, Math.max(p.seasons.length - 1, 0))]?.label;
-    const colours = bedColours(p, label);
-    const dim = new Set(
-      highlight
-        ? plantingsOf(p, label)
-            .filter((x) => x.crop.slug !== highlight)
-            .map((x) => x.bed_code)
-        : [],
-    );
-    const hit = new Set(
-      highlight
-        ? plantingsOf(p, label)
-            .filter((x) => x.crop.slug === highlight)
-            .map((x) => x.bed_code)
-        : [],
-    );
-    const plants = p.perennials.flatMap((g) =>
-      (g.points["coordinates"] as number[][]).map((c) => ({
-        color: cropStyle(g.crop.slug).color,
-        radius_m: g.kind === "tree" ? g.spacing_m * 0.4 : g.spacing_m * 0.35,
-        lng: c[0] ?? 0,
-        lat: c[1] ?? 0,
-      })),
-    );
-    return {
-      zones: p.zones,
-      plants,
-      beds: p.beds.map((b) => ({
-        code: b.code,
-        geometry: b.geometry,
-        color: colours[b.code],
-        dim: highlight !== null && !hit.has(b.code) && dim.size >= 0,
-      })),
-    } as unknown as PlotLayout;
-  }, [plan.data, seasonIndex, highlight]);
   const profile = useQuery({
     queryKey: ["site-profile", id, token],
     queryFn: async () =>
@@ -175,7 +139,7 @@ export function FarmPage() {
   const rows = buildRows(facts, t, lang);
   const takeaways = insights(facts, t, lang);
   const building = ["none", "running"].includes(profile.data?.build.status ?? "none");
-  const boundary = parcel.data?.boundary as unknown as PlotGeometry | undefined;
+  const boundary = parcel.data?.boundary as unknown as PolygonGeometry | undefined;
   const center: [number, number] = [Number(f.lng ?? 75.8577), Number(f.lat ?? 22.7196)];
   const soil = facts.find((x) => x.key === "soil.type")?.value as string | undefined;
 
@@ -201,7 +165,7 @@ export function FarmPage() {
     }
   };
   const reload = async (nextPlanId: string | null) => {
-    setBed(null);
+    setSelection(null);
     setPlanId(nextPlanId);
     await queryClient.invalidateQueries({ queryKey: ["plan-options", id] });
     await queryClient.invalidateQueries({ queryKey: ["plan", id] });
@@ -282,201 +246,249 @@ export function FarmPage() {
     await queryClient.invalidateQueries({ queryKey: ["site-profile", id] });
   };
 
+  const p = plan.data ?? null;
+  const season = p?.seasons[Math.min(seasonIndex, Math.max(p.seasons.length - 1, 0))];
+  const bighaSqft = me.data?.bigha_sqft ? Number(me.data.bigha_sqft) : null;
+
   return (
-    <Screen>
-      <Link to="/" className="text-lg font-semibold text-green-800 underline">
-        {t("farm.back")}
-      </Link>
-      <header>
-        <h1 className="text-3xl font-bold">{f.name}</h1>
+    <Screen wide>
+      <div className="flex flex-col gap-1 lg:hidden">
+        <Link to="/" className="self-start text-base font-semibold text-green-800 underline">
+          {t("farm.back")}
+        </Link>
+        <h1 className="text-2xl font-bold lg:text-3xl">{f.name}</h1>
         <p className="text-lg text-neutral-700">
           {[f.village, f.district].filter(Boolean).join(", ")}
           {area ? ` · ${t(area.key, { n: area.n })}` : ""}
         </p>
-      </header>
+      </div>
 
-      {options.data && options.data.options.length > 0 && (
-        <PlanOptions
-          options={options.data}
-          selected={plan.data?.id ?? null}
-          onSelect={(pid) => {
-            setBed(null);
-            setPlanId(pid);
-          }}
-          lang={lang}
-        />
-      )}
-      {owner && plan.data && (
-        <PlanEditor
-          key={plan.data.id}
-          plan={plan.data}
-          busy={planning}
-          onRedraw={(d, b) => void redraw(d, b)}
-          onLock={() => void lock()}
-        />
-      )}
-      {notice && (
-        <p role="status" className="font-semibold text-green-900">
-          {notice}
-        </p>
-      )}
-      {plan.data && plan.data.seasons.length > 0 && (
-        <SeasonTabs plan={plan.data} index={seasonIndex} onPick={setSeasonIndex} />
-      )}
-      {boundary ? (
-        <PlotMap
-          center={center}
-          zoom={18}
-          mode="view"
-          pin={null}
-          boundary={boundary}
-          layout={mapLayout}
-          selectedBed={bed}
-          onBedClick={setBed}
-        />
-      ) : (
-        <Link
-          to={`/setup/${id}`}
-          className="rounded-xl bg-green-800 px-5 py-3 text-center text-lg font-semibold text-white"
-        >
-          {t("farm.add_plot")}
-        </Link>
-      )}
-
-      <PlanView
-        plan={plan.data ?? null}
-        seasonIndex={seasonIndex}
-        selectedBed={bed}
-        onCloseBed={() => setBed(null)}
-        highlight={highlight}
-        onHighlight={setHighlight}
-        owner={owner}
-        hasPlot={Boolean(boundary)}
-        planning={planning}
-        onBuild={() => void buildPlan()}
-        unit={unit}
-        lang={lang}
-        bighaSqft={me.data?.bigha_sqft ? Number(me.data.bigha_sqft) : null}
-        loadAlternatives={owner ? loadAlternatives : undefined}
-        onSwap={owner ? swapCrop : undefined}
-        methods={f.methods}
-      />
-      {benefits.data && <Benefits schemes={benefits.data} lang={lang} />}
-
-      <section className="flex flex-col gap-2">
-        <h2 className="text-xl font-bold text-green-900">{t("farm.about_land")}</h2>
-        {building && (
-          <p role="status" className="text-lg">
-            {t("setup.found.looking")}
-          </p>
-        )}
-        {!building && takeaways.length === 0 && <p>{t("setup.found.none")}</p>}
-        <ul className="flex flex-col gap-2">
-          {takeaways.map((line) => (
-            <li
-              key={line}
-              className="rounded-lg border-l-4 border-green-700 bg-white px-3 py-2 text-lg"
+      <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(380px,460px)] lg:items-start">
+        <div className="lg:sticky lg:top-[4.5rem]">
+          {boundary ? (
+            <FarmMap
+              className="h-[70dvh] min-h-[420px] lg:h-[calc(100dvh-6.5rem)]"
+              plan={p}
+              boundary={boundary}
+              center={center}
+              seasonLabel={season?.label}
+              highlight={highlight}
+              selection={selection}
+              onSelect={setSelection}
+              lang={lang}
+              top={
+                p && p.seasons.length > 0 ? (
+                  <SeasonTabs plan={p} index={seasonIndex} onPick={setSeasonIndex} />
+                ) : undefined
+              }
+              legend={
+                p ? (
+                  <MapLegend
+                    plan={p}
+                    seasonLabel={season?.label}
+                    highlight={highlight}
+                    onHighlight={setHighlight}
+                    onSelect={setSelection}
+                    lang={lang}
+                  />
+                ) : undefined
+              }
+              inspector={
+                p && selection ? (
+                  <MapInspector
+                    key={JSON.stringify(selection)}
+                    plan={p}
+                    selection={selection}
+                    seasonLabel={season?.label}
+                    onSelect={setSelection}
+                    onClose={() => setSelection(null)}
+                    unit={unit}
+                    lang={lang}
+                    bighaSqft={bighaSqft}
+                    loadAlternatives={owner ? loadAlternatives : undefined}
+                    onSwap={owner ? swapCrop : undefined}
+                  />
+                ) : undefined
+              }
+            />
+          ) : (
+            <Link
+              to={`/setup/${id}`}
+              className="block rounded-xl bg-green-800 px-5 py-3 text-center text-lg font-semibold text-white"
             >
-              {line}
-            </li>
-          ))}
-        </ul>
-        {rows.length > 0 && (
-          <details className="mt-1">
-            <summary className="min-h-11 cursor-pointer text-base font-semibold text-green-800">
-              {t("farm.see_details")}
-            </summary>
-            {GROUPS.map((g) => {
-              const inGroup = rows.filter((r) => r.fact.group === g);
-              if (!inGroup.length) return null;
-              return (
-                <div key={g} className="mt-2 flex flex-col gap-1">
-                  <h3 className="text-lg font-bold">{t(`setup.found.group.${g}`)}</h3>
-                  {inGroup.map((r) => (
-                    <div key={`${r.key}-${r.label}`} className="border-b border-neutral-200 pb-1">
-                      {g !== "region" && <p className="text-base font-semibold">{r.label}</p>}
-                      {r.lines.map((line) => (
-                        <p key={line} className="text-lg">
-                          {line}
-                        </p>
-                      ))}
-                      <p className="text-sm text-neutral-600">
-                        {t("setup.found.source_line", {
-                          source: t(`setup.found.src.${r.fact.source}`, {
-                            defaultValue: r.fact.source,
-                          }),
-                          date: formatDayMonth(new Date(r.fact.fetched_at), lang),
-                        })}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              );
-            })}
-          </details>
-        )}
-      </section>
+              {t("farm.add_plot")}
+            </Link>
+          )}
+        </div>
 
-      {owner && (
-        <section className="flex flex-col gap-4 rounded-xl border-2 border-green-800 p-4">
-          <div>
-            <h2 className="text-xl font-bold text-green-900">{t("farm.improve")}</h2>
-            <p className="text-base text-neutral-700">{t("farm.improve_hint")}</p>
+        <div className="flex flex-col gap-6">
+          <div className="hidden flex-col gap-1 lg:flex">
+            <Link to="/" className="self-start text-base font-semibold text-green-800 underline">
+              {t("farm.back")}
+            </Link>
+            <h1 className="text-2xl font-bold lg:text-3xl">{f.name}</h1>
+            <p className="text-lg text-neutral-700">
+              {[f.village, f.district].filter(Boolean).join(", ")}
+              {area ? ` · ${t(area.key, { n: area.n })}` : ""}
+            </p>
           </div>
-          <Choice
-            label={t("setup.about.water")}
-            value={f.water_source ?? null}
-            options={WATER}
-            text={(o) => t(`setup.water.${o}`)}
-            onPick={(o) => void patchFarm({ water_source: o })}
-          />
-          <Choice
-            label={t("setup.about.labour")}
-            value={f.labour ?? null}
-            options={LABOUR}
-            text={(o) => t(`setup.labour.${o}`)}
-            onPick={(o) => void patchFarm({ labour: o })}
-          />
-          <Choice
-            label={t("setup.about.goal")}
-            value={f.goal ?? null}
-            options={GOALS}
-            text={(o) => t(`setup.goal.${o}`)}
-            onPick={(o) => void patchFarm({ goal: o })}
-          />
-          <Choice
-            label={t("farm.soil_right")}
-            value={(soil as (typeof SOILS)[number] | undefined) ?? null}
-            options={SOILS}
-            text={(o) => t(`setup.found.soil.${o}`)}
-            onPick={(o) => void setSoil(o)}
-          />
-          <Link
-            to={`/setup/${id}/goal`}
-            className="min-h-11 text-lg font-semibold text-green-800 underline"
-          >
-            {t("farm.edit_goal")}
-          </Link>
-          <Link
-            to={`/setup/${id}`}
-            className="min-h-11 text-lg font-semibold text-green-800 underline"
-          >
-            {t("farm.edit_plot")}
-          </Link>
-          <button
-            type="button"
-            onClick={() => void refresh()}
-            className="min-h-11 self-start text-lg font-semibold text-green-800 underline"
-          >
-            {t("farm.refresh")}
-          </button>
+          {options.data && options.data.options.length > 0 && (
+            <PlanOptions
+              options={options.data}
+              selected={p?.id ?? null}
+              onSelect={(pid) => {
+                setSelection(null);
+                setPlanId(pid);
+              }}
+              lang={lang}
+            />
+          )}
+          {owner && p && (
+            <PlanEditor
+              key={p.id}
+              plan={p}
+              busy={planning}
+              onRedraw={(d, b) => void redraw(d, b)}
+              onLock={() => void lock()}
+            />
+          )}
           {notice && (
             <p role="status" className="font-semibold text-green-900">
               {notice}
             </p>
           )}
-        </section>
-      )}
+          <PlanView
+            plan={p}
+            owner={owner}
+            hasPlot={Boolean(boundary)}
+            planning={planning}
+            onBuild={() => void buildPlan()}
+            unit={unit}
+            lang={lang}
+            bighaSqft={bighaSqft}
+            methods={f.methods}
+          />
+          {benefits.data && <Benefits schemes={benefits.data} lang={lang} />}
+
+          <section className="flex flex-col gap-2">
+            <h2 className="text-xl font-bold text-green-900">{t("farm.about_land")}</h2>
+            {building && (
+              <p role="status" className="text-lg">
+                {t("setup.found.looking")}
+              </p>
+            )}
+            {!building && takeaways.length === 0 && <p>{t("setup.found.none")}</p>}
+            <ul className="flex flex-col gap-2">
+              {takeaways.map((line) => (
+                <li
+                  key={line}
+                  className="rounded-lg border-l-4 border-green-700 bg-white px-3 py-2 text-lg"
+                >
+                  {line}
+                </li>
+              ))}
+            </ul>
+            {rows.length > 0 && (
+              <details className="mt-1">
+                <summary className="min-h-11 cursor-pointer text-base font-semibold text-green-800">
+                  {t("farm.see_details")}
+                </summary>
+                {GROUPS.map((g) => {
+                  const inGroup = rows.filter((r) => r.fact.group === g);
+                  if (!inGroup.length) return null;
+                  return (
+                    <div key={g} className="mt-2 flex flex-col gap-1">
+                      <h3 className="text-lg font-bold">{t(`setup.found.group.${g}`)}</h3>
+                      {inGroup.map((r) => (
+                        <div
+                          key={`${r.key}-${r.label}`}
+                          className="border-b border-neutral-200 pb-1"
+                        >
+                          {g !== "region" && <p className="text-base font-semibold">{r.label}</p>}
+                          {r.lines.map((line) => (
+                            <p key={line} className="text-lg">
+                              {line}
+                            </p>
+                          ))}
+                          <p className="text-sm text-neutral-600">
+                            {t("setup.found.source_line", {
+                              source: t(`setup.found.src.${r.fact.source}`, {
+                                defaultValue: r.fact.source,
+                              }),
+                              date: formatDayMonth(new Date(r.fact.fetched_at), lang),
+                            })}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })}
+              </details>
+            )}
+          </section>
+
+          {owner && (
+            <section className="flex flex-col gap-4 rounded-xl border-2 border-green-800 p-4">
+              <div>
+                <h2 className="text-xl font-bold text-green-900">{t("farm.improve")}</h2>
+                <p className="text-base text-neutral-700">{t("farm.improve_hint")}</p>
+              </div>
+              <Choice
+                label={t("setup.about.water")}
+                value={f.water_source ?? null}
+                options={WATER}
+                text={(o) => t(`setup.water.${o}`)}
+                onPick={(o) => void patchFarm({ water_source: o })}
+              />
+              <Choice
+                label={t("setup.about.labour")}
+                value={f.labour ?? null}
+                options={LABOUR}
+                text={(o) => t(`setup.labour.${o}`)}
+                onPick={(o) => void patchFarm({ labour: o })}
+              />
+              <Choice
+                label={t("setup.about.goal")}
+                value={f.goal ?? null}
+                options={GOALS}
+                text={(o) => t(`setup.goal.${o}`)}
+                onPick={(o) => void patchFarm({ goal: o })}
+              />
+              <Choice
+                label={t("farm.soil_right")}
+                value={(soil as (typeof SOILS)[number] | undefined) ?? null}
+                options={SOILS}
+                text={(o) => t(`setup.found.soil.${o}`)}
+                onPick={(o) => void setSoil(o)}
+              />
+              <Link
+                to={`/setup/${id}/goal`}
+                className="min-h-11 text-lg font-semibold text-green-800 underline"
+              >
+                {t("farm.edit_goal")}
+              </Link>
+              <Link
+                to={`/setup/${id}`}
+                className="min-h-11 text-lg font-semibold text-green-800 underline"
+              >
+                {t("farm.edit_plot")}
+              </Link>
+              <button
+                type="button"
+                onClick={() => void refresh()}
+                className="min-h-11 self-start text-lg font-semibold text-green-800 underline"
+              >
+                {t("farm.refresh")}
+              </button>
+              {notice && (
+                <p role="status" className="font-semibold text-green-900">
+                  {notice}
+                </p>
+              )}
+            </section>
+          )}
+        </div>
+      </div>
     </Screen>
   );
 }

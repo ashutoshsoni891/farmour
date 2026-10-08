@@ -40,39 +40,42 @@ export function FieldCrops({
               </span>
             </p>
             <ul className="flex flex-col gap-2">
-              {rows.map((f) => {
-                const s = cropStyle(f.crop.slug);
-                const manure = f.why["key"] === "plan.why.green_manure";
-                return (
-                  <li
-                    key={f.season_label + f.crop.slug}
-                    className="rounded-lg border bg-white px-3 py-2"
-                    style={{ borderLeft: `6px solid ${s.color}` }}
-                  >
-                    <p className="text-lg font-semibold">
-                      <span aria-hidden="true">{s.emoji} </span>
-                      {lang === "hi" ? f.crop.name_hi : f.crop.name_en}
-                    </p>
-                    <p className="text-base">
-                      {t("fields.sow", { date: formatDayMonth(new Date(f.planned_sow), lang) })}
-                      {f.harvest_end &&
-                        ` · ${t(manure ? "fields.dig_in" : "fields.harvest", {
-                          date: formatDayMonth(new Date(f.harvest_end), lang),
-                        })}`}
-                      {!manure &&
-                        f.expected_yield_kg > 0 &&
-                        ` · ${t("fields.kg", { kg: formatNumber(f.expected_yield_kg, lang, 0) })}`}
-                    </p>
-                    <p className="text-sm text-neutral-700">
-                      {t(String(f.why["key"] ?? "plan.why.fits"))}
-                    </p>
-                  </li>
-                );
-              })}
+              {rows.map((f) => (
+                <FieldRow key={f.season_label + f.crop.slug} f={f} lang={lang} />
+              ))}
             </ul>
           </div>
         );
       })}
     </section>
+  );
+}
+
+/** One season's crop on a field plot. */
+export function FieldRow({ f, lang, now = false }: { f: FieldCrop; lang: Lang; now?: boolean }) {
+  const { t } = useTranslation();
+  const s = cropStyle(f.crop.slug);
+  const manure = f.why["key"] === "plan.why.green_manure";
+  return (
+    <li
+      className={`rounded-lg border px-3 py-2 ${now ? "bg-yellow-50 ring-2 ring-yellow-400" : "bg-white"}`}
+      style={{ borderLeft: `6px solid ${s.color}` }}
+    >
+      <p className="text-lg font-semibold">
+        <span aria-hidden="true">{s.emoji} </span>
+        {lang === "hi" ? f.crop.name_hi : f.crop.name_en}
+      </p>
+      <p className="text-base">
+        {t("fields.sow", { date: formatDayMonth(new Date(f.planned_sow), lang) })}
+        {f.harvest_end &&
+          ` · ${t(manure ? "fields.dig_in" : "fields.harvest", {
+            date: formatDayMonth(new Date(f.harvest_end), lang),
+          })}`}
+        {!manure &&
+          f.expected_yield_kg > 0 &&
+          ` · ${t("fields.kg", { kg: formatNumber(f.expected_yield_kg, lang, 0) })}`}
+      </p>
+      <p className="text-sm text-neutral-700">{t(String(f.why["key"] ?? "plan.why.fits"))}</p>
+    </li>
   );
 }

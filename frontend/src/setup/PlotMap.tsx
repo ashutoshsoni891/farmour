@@ -7,17 +7,15 @@ import {
   Map as MapLibreMap,
   Marker,
   NavigationControl,
-  setWorkerUrl,
 } from "maplibre-gl";
-import "maplibre-gl/dist/maplibre-gl.css";
-import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { TerraDraw, TerraDrawPolygonMode, TerraDrawSelectMode } from "terra-draw";
 import { TerraDrawMapLibreGLAdapter } from "terra-draw-maplibre-gl-adapter";
 
-import { googleCredit, googleSatelliteEnabled, googleSession, googleTileUrl } from "./googleTiles";
-import { ESRI_CREDIT, ESRI_TILES, satelliteAvailable } from "./imagery";
+import { satelliteAvailable } from "./imagery";
+import { STREETS } from "./mapSetup";
+import { SatelliteCredit, useSatellite } from "./useSatellite";
 
 export type PlotGeometry = { type: "Polygon"; coordinates: number[][][] };
 /** A planned layout to draw over the plot: zones filled by kind, beds outlined with their codes. */
@@ -44,11 +42,6 @@ export interface PlotShape {
   areaSqm: number;
   crossing: boolean;
 }
-
-// A bundled worker file: works under a strict Content-Security-Policy (no blob workers).
-setWorkerUrl(workerUrl);
-
-const STREETS = "https://tiles.openfreemap.org/styles/liberty";
 
 interface Props {
   center: [number, number]; // lng, lat
@@ -101,9 +94,6 @@ export function PlotMap({
   const initialRef = useRef(initial);
   const { i18n } = useTranslation();
   const lang = (i18n.language === "en" ? "en" : "hi") as "hi" | "en";
-  const [satellite, setSatellite] = useState(satelliteAvailable);
-  const [provider, setProvider] = useState<"google" | "esri" | null>(null);
-  const [credit, setCredit] = useState("");
   useEffect(() => {
     onPinRef.current = onPin;
     onShapeRef.current = onShape;
@@ -456,72 +446,7 @@ export function PlotMap({
     ] as never);
   }, [selectedBed, layout]);
 
-  // Satellite imagery: Google Map Tiles when a key is configured (default view), street map otherwise.
-  useEffect(() => {
-    const map = mapRef.current;
-    if (!map) return;
-    let cancelled = false;
-    let onMove: (() => void) | null = null;
-    const remove = () => {
-      if (map.getLayer("satellite")) map.removeLayer("satellite");
-      if (map.getSource("satellite")) map.removeSource("satellite");
-    };
-    const apply = async () => {
-      remove();
-      setCredit("");
-      if (!satellite) return;
-      const session = googleSatelliteEnabled ? await googleSession(lang) : null;
-      if (cancelled) return;
-      if (!session && !satelliteAvailable) return setSatellite(false);
-      if (!session) {
-        // Development imagery (Esri). Past zoom 19 it is stretched rather than blank.
-        setProvider("esri");
-        setCredit(ESRI_CREDIT);
-        map.addSource("satellite", {
-          type: "raster",
-          tiles: [ESRI_TILES],
-          tileSize: 256,
-          maxzoom: 19,
-        });
-        const firstLabel = map.getStyle().layers.find((l) => l.type === "symbol")?.id;
-        map.addLayer({ id: "satellite", type: "raster", source: "satellite" }, firstLabel);
-        return;
-      }
-      setProvider("google");
-      map.addSource("satellite", {
-        type: "raster",
-        tiles: [googleTileUrl(session)],
-        tileSize: 256,
-        maxzoom: 22,
-      });
-      // Under the street labels and our drawing, over the street base.
-      const firstSymbol = map.getStyle().layers.find((l) => l.type === "symbol")?.id;
-      map.addLayer({ id: "satellite", type: "raster", source: "satellite" }, firstSymbol);
-      let timer: ReturnType<typeof setTimeout> | undefined;
-      onMove = () => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          const b = map.getBounds();
-          void googleCredit(session, map.getZoom(), {
-            north: b.getNorth(),
-            south: b.getSouth(),
-            east: b.getEast(),
-            west: b.getWest(),
-          }).then((c) => {
-            if (!cancelled) setCredit(c);
-          });
-        }, 400);
-      };
-      map.on("moveend", onMove);
-      onMove();
-    };
-    if (map.isStyleLoaded()) void apply();
-    else map.once("load", () => void apply());
-    return () => {
-      cancelled = true;
-      if (onMove) map.off("moveend", onMove);
-    };
-  }, [satellite, lang]);
+  const { satellite, setSatellite, provider, credit } = useSatellite(mapRef, lang);
 
   return (
     <div className="relative">
@@ -538,18 +463,7 @@ export function PlotMap({
           {satellite ? t("setup.plot.streets") : t("setup.plot.satellite")}
         </button>
       )}
-      {satellite && (
-        <div className="pointer-events-none absolute bottom-1 left-2 flex max-w-[70%] items-center gap-2">
-          {provider === "google" && (
-            <img
-              src="https://maps.gstatic.com/mapfiles/api-3/images/google_white5.png"
-              alt="Google"
-              className="h-4"
-            />
-          )}
-          {credit && <span className="truncate text-[11px] text-white drop-shadow">{credit}</span>}
-        </div>
-      )}
+      {satellite && <SatelliteCredit provider={provider} credit={credit} />}
     </div>
   );
 }
