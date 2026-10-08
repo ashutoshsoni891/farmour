@@ -19,6 +19,7 @@ from app.modules.library.schemas import (
     CropCreate,
     CropName,
     CropOut,
+    CropPrice,
     CropSummary,
     CropUpdate,
     EngineCompanion,
@@ -587,9 +588,45 @@ async def engine_companions(session: AsyncSession) -> list[EngineCompanion]:
 async def crop_names(session: AsyncSession, ids: list[uuid.UUID]) -> dict[uuid.UUID, CropName]:
     rows = await repo.crops_by_ids(session, ids)
     return {
-        c.id: CropName(id=c.id, slug=c.slug, name_en=c.name_en, name_hi=c.name_hi, status=c.status)
+        c.id: CropName(
+            id=c.id,
+            slug=c.slug,
+            name_en=c.name_en,
+            name_hi=c.name_hi,
+            status=c.status,
+            tags=list(c.tags),
+        )
         for c in rows
     }
+
+
+async def crop_prices(session: AsyncSession, slugs: list[str]) -> list[CropPrice]:
+    """Sourced mandi prices for these crops (usable entries only): the first region in the
+    lookup order that has one. A reference to show the owner, never an input to the plan."""
+    order = await _region_order(session)
+    region_slugs = await repo.region_slugs(session)
+    crops = [
+        c for c in await repo.crops_with_status(session, await engine_statuses(session))
+        if c.slug in slugs
+    ]  # fmt: skip
+    regional = await repo.regional_for(session, [c.id for c in crops])
+    out = []
+    for c in crops:
+        rows = {region_slugs.get(r.region_id): r for r in regional.get(c.id, [])}
+        row = next((rows[r] for r in order if r in rows and rows[r].price_mandi_paise_per_kg), None)
+        if row is None or row.price_mandi_paise_per_kg is None:
+            continue
+        entry: dict[str, Any] = next(iter(row.sources.get("price_mandi_paise_per_kg") or []), {})
+        out.append(
+            CropPrice(
+                slug=c.slug, name_en=c.name_en, name_hi=c.name_hi,
+                price_mandi_paise_per_kg=int(row.price_mandi_paise_per_kg),
+                price_updated_on=row.price_updated_on, note=entry.get("note"),
+                source_url=entry.get("url"), source_title=entry.get("title"),
+                ai_checked=c.status == "ai_verified",
+            )
+        )  # fmt: skip
+    return sorted(out, key=lambda p: p.slug)
 
 
 async def engine_statuses(session: AsyncSession) -> list[str]:

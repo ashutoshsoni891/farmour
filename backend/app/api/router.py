@@ -9,7 +9,7 @@ from app.modules.layout.api import router as layout_router
 from app.modules.library.api import router as library_router
 from app.modules.parcel.api import router as parcel_router
 from app.modules.site.api import catalog_router as cost_norms_router
-from app.modules.site.api import kvk_router
+from app.modules.site.api import kvk_router, market_router
 from app.modules.site.api import router as site_router
 
 api_v1 = APIRouter(prefix="/api/v1")
@@ -21,5 +21,6 @@ api_v1.include_router(parcel_router)
 api_v1.include_router(site_router)
 api_v1.include_router(cost_norms_router)
 api_v1.include_router(kvk_router)
+api_v1.include_router(market_router)
 api_v1.include_router(geo.router)
 api_v1.include_router(settings.router)

@@ -10,7 +10,7 @@ from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.modules.site import repository as repo
-from app.modules.site.models import CostNorm, DistrictRegion, Kvk, Scheme
+from app.modules.site.models import CostNorm, DistrictRegion, Kvk, MarketCentre, Scheme
 
 SEED_DIR = Path(__file__).resolve().parents[3] / "seeds" / "site"
 
@@ -122,5 +122,34 @@ async def load_kvks(session: AsyncSession) -> dict[str, int]:
             for k, v in values.items():
                 setattr(row, k, v)
         counts["kvks_ai_verified" if ok else "kvks_draft"] += 1
+    await session.flush()
+    return counts
+
+
+async def load_market_centres(session: AsyncSession) -> dict[str, int]:
+    """Market centres from seeds/site/market_centres.json, loaded like the cost norms."""
+    path = SEED_DIR / "market_centres.json"
+    if not path.exists():
+        return {"market_centres": 0}
+    counts = {"markets_ai_verified": 0, "markets_draft": 0, "markets_skipped": 0}
+    fields = (
+        "kind", "name_en", "name_hi", "state", "district", "crops", "note_en", "note_hi", "url",
+        "sources",
+    )  # fmt: skip
+    for item in json.loads(path.read_text(encoding="utf-8"))["market_centres"]:
+        row = await session.scalar(select(MarketCentre).where(MarketCentre.code == item["code"]))
+        if row is not None and row.status not in ("draft", "ai_verified"):
+            counts["markets_skipped"] += 1
+            continue
+        ok, checked_on = _checked(item.get("sources", {}))
+        values = {f: item.get(f) for f in fields}
+        values.update(status="ai_verified" if ok else "draft", checked_on=checked_on)
+        values["crops"] = values["crops"] or []
+        if row is None:
+            session.add(MarketCentre(code=item["code"], **values))
+        else:
+            for k, v in values.items():
+                setattr(row, k, v)
+        counts["markets_ai_verified" if ok else "markets_draft"] += 1
     await session.flush()
     return counts

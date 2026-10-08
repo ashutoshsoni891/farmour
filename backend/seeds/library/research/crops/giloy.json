@@ -60,5 +60,23 @@
       }
     ]
   },
-  "source_notes": "AI research batch 15 (2026-10-08), medicinal and ayurvedic crops. Ranges are stored at their lower bound; the source range is in each quote. Yields are of the dried product that is sold (dried root, leaf or seed) unless a note says fresh. Sowing dates are from national guides (region india) unless a Malwa study is named. Medicinal crops are planned only when the owner picks the medicinal method; the market for each is thin and buy-back is not assured (see the economics sources)."
+  "source_notes": "AI research batch 15 (2026-10-08), medicinal and ayurvedic crops. Ranges are stored at their lower bound; the source range is in each quote. Yields are of the dried product that is sold (dried root, leaf or seed) unless a note says fresh. Sowing dates are from national guides (region india) unless a Malwa study is named. Medicinal crops are planned only when the owner picks the medicinal method; the market for each is thin and buy-back is not assured (see the economics sources).",
+  "regional": {
+    "india": {
+      "sow_windows": [],
+      "sources": {
+        "price_mandi_paise_per_kg": [
+          {
+            "url": "https://echarak.ayush.gov.in/avgmarketprice",
+            "title": "e-CHARAK (National Medicinal Plants Board, Ministry of Ayush): average market price of the last 6 months, Rs/kg",
+            "quote": "Tinospora cordifolia Stem 37.41",
+            "note": "Stem (dry), 6-month average. Rs 37.41/kg: at 300 kg dry stem per hectare over about two years this is a low-income crop, grown for the little work it takes.",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      },
+      "price_mandi_paise_per_kg": 3741,
+      "price_updated_on": "2026-10-08"
+    }
+  }
 }

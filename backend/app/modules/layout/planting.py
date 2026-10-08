@@ -142,6 +142,12 @@ def first_sow(crop: CropSpec, slot: SeasonSlot, not_before: date | None = None) 
     return best
 
 
+def first_open(crops: list[CropSpec], slot: SeasonSlot) -> date | None:
+    """The first day in a season that any of these crops can be sown."""
+    days = [d for c in crops if (d := first_sow(c, slot, None)) is not None]
+    return min(days) if days else None
+
+
 def _done(crop: CropSpec, sow: date) -> date:
     """The day the layer is free again: first harvest plus the picking period."""
     return sow + timedelta(days=(crop.days_to_first_harvest or 0) + (crop.harvest_span_days or 0))
@@ -198,7 +204,18 @@ def assign(
     previous: dict[str, set[str]] = {}  # bed -> families planted in the previous slot
     busy: dict[tuple[str, str], date] = {}  # (bed, layer) -> date the layer is free again
     med_beds = math.ceil(p.medicinal_bed_share * len(beds)) if allow_medicinal else 0
-    for slot in season_slots(start, p):
+    slots = season_slots(start, p)
+    # the first day each season that a herb can go in a layer: a herb bed keeps clear for it
+    herb_open = [
+        {
+            layer: first_open(
+                [c for c in usable if "medicinal" in c.tags and layer in c.layers], sl
+            )
+            for layer in LAYERS
+        }
+        for sl in slots
+    ]
+    for slot_no, slot in enumerate(slots):
         # Eligibility follows the crops' own sow windows (season names are only a calendar).
         if not any(first_sow(c, slot) for c in usable):
             continue
@@ -223,6 +240,13 @@ def assign(
                 ]  # fmt: skip
                 # The first beds are the herbs' (when asked for); the rest keep to food crops.
                 herbs = [c for c in candidates if "medicinal" in c.tags]
+                clear = min(
+                    (d for o in herb_open[slot_no + 1 :] if (d := o[layer]) is not None),
+                    default=None,
+                )
+                if medicinal_bed and not herbs and clear is not None:
+                    # no herb fits now but one will: only a crop that is gone by then
+                    candidates = [c for c in candidates if _done(c, sow[c.slug] or start) <= clear]
                 if medicinal_bed and herbs:
                     candidates = herbs
                 elif not medicinal_bed:

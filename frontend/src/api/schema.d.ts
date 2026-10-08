@@ -359,6 +359,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/markets": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Markets
+         * @description Reference prices and where to sell, for the medicinal herbs in this plan.
+         */
+        get: operations["markets_api_v1_farms__farm_id__plan__plan_id__markets_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/library/crops": {
         parameters: {
             query?: never;
@@ -719,6 +739,26 @@ export interface paths {
          * @description Krishi Vigyan Kendras (government farm advisory centres) with the cited directory entry.
          */
         get: operations["kvks_api_v1_kvks_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/market-centres": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Market Centres
+         * @description Herb mandis and portals where crops can be sold or priced, each with its source.
+         */
+        get: operations["market_centres_api_v1_market_centres_get"];
         put?: never;
         post?: never;
         delete?: never;
@@ -1272,6 +1312,11 @@ export interface components {
             name_hi: string;
             /** Ai Checked */
             ai_checked: boolean;
+            /**
+             * Medicinal
+             * @default false
+             */
+            medicinal: boolean;
         };
         /** CropSummary */
         CropSummary: {
@@ -1621,6 +1666,28 @@ export interface components {
             /** Detail */
             detail?: components["schemas"]["ValidationError"][];
         };
+        /**
+         * HerbPrice
+         * @description What the library holds as a price for one medicinal crop of the plan.
+         */
+        HerbPrice: {
+            /** Slug */
+            slug: string;
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** Price Paise Per Kg */
+            price_paise_per_kg: number;
+            /** Updated On */
+            updated_on: string | null;
+            /** Note */
+            note: string | null;
+            /** Source Url */
+            source_url: string | null;
+            /** Source Title */
+            source_title: string | null;
+        };
         /** Ingredient */
         Ingredient: {
             /** Name En */
@@ -1707,6 +1774,50 @@ export interface components {
         LinkVerify: {
             /** Token */
             token: string;
+        };
+        /**
+         * MarketCentreOut
+         * @description A herb mandi or portal where a crop can be sold or priced.
+         */
+        MarketCentreOut: {
+            /** Code */
+            code: string;
+            /** Kind */
+            kind: string;
+            /** Name En */
+            name_en: string;
+            /** Name Hi */
+            name_hi: string;
+            /** State */
+            state: string | null;
+            /** District */
+            district: string | null;
+            /** Crops */
+            crops: string[];
+            /** Note En */
+            note_en: string | null;
+            /** Note Hi */
+            note_hi: string | null;
+            /** Url */
+            url: string | null;
+            /** Sources */
+            sources: components["schemas"]["SchemeSource"][];
+            /** Checked On */
+            checked_on: string | null;
+            /** Ai Checked */
+            ai_checked: boolean;
+        };
+        /**
+         * MarketsOut
+         * @description Before the owner grows herbs: reference prices and where they can be sold.
+         */
+        MarketsOut: {
+            /** Herbs */
+            herbs: components["schemas"]["CropRef"][];
+            /** Prices */
+            prices: components["schemas"]["HerbPrice"][];
+            /** Centres */
+            centres: components["schemas"]["MarketCentreOut"][];
         };
         /** MeOut */
         MeOut: {
@@ -3492,6 +3603,38 @@ export interface operations {
             };
         };
     };
+    markets_api_v1_farms__farm_id__plan__plan_id__markets_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                plan_id: string;
+                farm_id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MarketsOut"];
+                };
+            };
+            /** @description Validation Error */
+            422: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
     list_crops_api_v1_library_crops_get: {
         parameters: {
             query?: {
@@ -4287,6 +4430,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    market_centres_api_v1_market_centres_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["MarketCentreOut"][];
                 };
             };
         };

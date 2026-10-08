@@ -1,7 +1,7 @@
 """Database access for the library module. Only this module imports it."""
 
 import uuid
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 from typing import Any, cast
 
 from sqlalchemy import func, select
@@ -110,6 +110,8 @@ async def upsert_regional(
         row = CropRegional(crop_id=crop_id, region_id=region_id)
         session.add(row)
     for key, value in values.items():
+        if key == "price_updated_on" and isinstance(value, str):
+            value = date.fromisoformat(value)  # JSON gives an ISO string
         setattr(row, key, value)
     await session.flush()
     return row

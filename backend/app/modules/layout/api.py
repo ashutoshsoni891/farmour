@@ -10,6 +10,7 @@ from app.modules.layout import service
 from app.modules.layout.schemas import (
     AdjustIn,
     AlternativeOut,
+    MarketsOut,
     OptionsOut,
     PlanOut,
     SwapIn,
@@ -86,3 +87,11 @@ async def benefits(
 ) -> list[SchemeOut]:
     """Government schemes and benefits this plan may be eligible for ("may be eligible")."""
     return await service.benefits(session, m, plan_id)
+
+
+@router.get("/{plan_id}/markets")
+async def markets(
+    plan_id: uuid.UUID, session: SessionDep, m: Membership = membership()
+) -> MarketsOut:
+    """Reference prices and where to sell, for the medicinal herbs in this plan."""
+    return await service.markets(session, m, plan_id)

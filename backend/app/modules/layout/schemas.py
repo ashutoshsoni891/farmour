@@ -6,6 +6,8 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from app.modules.site.schemas import MarketCentreOut
+
 PlanStatus = Literal["draft", "active", "archived"]
 
 
@@ -36,6 +38,7 @@ class CropRef(BaseModel):
     name_en: str
     name_hi: str
     ai_checked: bool  # AI-checked library entry, not yet reviewed by an expert
+    medicinal: bool = False  # a herb planned because the owner chose the medicinal method
 
 
 class SeasonOut(BaseModel):
@@ -189,3 +192,24 @@ class AlternativeOut(BaseModel):
     harvest_end: date
     plant_count: int
     expected_yield_kg: float
+
+
+class HerbPrice(BaseModel):
+    """What the library holds as a price for one medicinal crop of the plan."""
+
+    slug: str
+    name_en: str
+    name_hi: str
+    price_paise_per_kg: int
+    updated_on: date | None
+    note: str | None
+    source_url: str | None
+    source_title: str | None
+
+
+class MarketsOut(BaseModel):
+    """Before the owner grows herbs: reference prices and where they can be sold."""
+
+    herbs: list[CropRef]
+    prices: list[HerbPrice]
+    centres: list[MarketCentreOut]

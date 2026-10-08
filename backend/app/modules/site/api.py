@@ -5,7 +5,7 @@ from fastapi import APIRouter, status
 from app.modules.farms.service import Membership, membership
 from app.modules.identity.deps import CurrentUser, SessionDep
 from app.modules.site import service
-from app.modules.site.schemas import AnswerBatch, CostNormOut, KvkOut, ProfileOut
+from app.modules.site.schemas import AnswerBatch, CostNormOut, KvkOut, MarketCentreOut, ProfileOut
 
 router = APIRouter(prefix="/farms/{farm_id}/site-profile", tags=["site"])
 
@@ -36,6 +36,15 @@ catalog_router = APIRouter(prefix="/cost-norms", tags=["site"])
 async def cost_norms(session: SessionDep, _user: CurrentUser) -> list[CostNormOut]:
     """Setup costs and subsidy rates from the government's cost norms, each with its source."""
     return await service.list_cost_norms(session)
+
+
+market_router = APIRouter(prefix="/market-centres", tags=["site"])
+
+
+@market_router.get("")
+async def market_centres(session: SessionDep, _user: CurrentUser) -> list[MarketCentreOut]:
+    """Herb mandis and portals where crops can be sold or priced, each with its source."""
+    return await service.list_market_centres(session)
 
 
 kvk_router = APIRouter(prefix="/kvks", tags=["site"])

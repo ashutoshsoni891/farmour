@@ -95,8 +95,19 @@
             "quote": "The cuttings should be transplanted in the month of July-August to get maximum herbage yield.",
             "checked_on": "2026-10-08"
           }
+        ],
+        "price_mandi_paise_per_kg": [
+          {
+            "url": "https://echarak.ayush.gov.in/avgmarketprice",
+            "title": "e-CHARAK (National Medicinal Plants Board, Ministry of Ayush): average market price of the last 6 months, Rs/kg",
+            "quote": "Bacopa monnieri Whole Plant 68.18",
+            "note": "Whole plant (dry), 6-month average. Rs 68.18/kg. Demand is thin: confirm a buyer before planting.",
+            "checked_on": "2026-10-08"
+          }
         ]
-      }
+      },
+      "price_mandi_paise_per_kg": 6818,
+      "price_updated_on": "2026-10-08"
     }
   }
 }

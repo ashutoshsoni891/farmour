@@ -18,6 +18,7 @@ from app.modules.site.models import (
     Kvk,
     Mandi,
     MandiPrice,
+    MarketCentre,
     Scheme,
     SiteBuild,
     SiteFact,
@@ -219,3 +220,13 @@ async def kvks(session: AsyncSession, statuses: list[str], district: str | None)
     if district:
         stmt = stmt.where(func.lower(Kvk.district) == district.strip().lower())
     return list(await session.scalars(stmt.order_by(Kvk.state, Kvk.district, Kvk.code)))
+
+
+async def market_centres(session: AsyncSession, statuses: list[str]) -> list[MarketCentre]:
+    return list(
+        await session.scalars(
+            select(MarketCentre)
+            .where(MarketCentre.status.in_(statuses))
+            .order_by(MarketCentre.kind, MarketCentre.code)
+        )
+    )

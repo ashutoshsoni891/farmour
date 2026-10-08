@@ -101,12 +101,6 @@ def split_plots(zone: BaseGeometry, count: int, min_plot_sqm: float) -> list[Fie
     return plots
 
 
-def _first_open(herbs: list[CropSpec], slot: SeasonSlot) -> date | None:
-    """The first day in a season that any of these crops can be sown."""
-    days = [d for c in herbs if (d := planting.first_sow(c, slot, None)) is not None]
-    return min(days, default=None)
-
-
 def _past(c: CropSpec, sown: date, limit: date | None) -> bool:
     """Is the crop still on the plot after `limit`?"""
     return limit is not None and planting._done(c, sown) > limit
@@ -139,7 +133,7 @@ def assign_fields(
     slots = planting.season_slots(start, p)
     herbs_all = [c for c in usable if "medicinal" in c.tags]
     # the day each season's first herb can go in: a herb plot keeps clear for it
-    herb_open = [_first_open(herbs_all, sl) for sl in slots]
+    herb_open = [planting.first_open(herbs_all, sl) for sl in slots]
     for i, slot in enumerate(slots):
         used: dict[str, int] = {}
         for no, plot in enumerate(plots):

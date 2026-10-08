@@ -8,7 +8,7 @@
   "spacing_plant_cm": 15,
   "water_need": "low",
   "waterlogging_tolerant": false,
-  "expected_yield_kg_per_sqm": 0.4,
+  "expected_yield_kg_per_sqm": 0.04,
   "sources": {
     "seasons": [
       {
@@ -73,7 +73,14 @@
         "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/asparagus-racemosus?lgn=en",
         "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
         "quote": "The crop, when harvested in 12 months, yields about 4–5 tonnes/hectare",
-        "note": "4 t/ha = 0.4 kg/m². The source says 'tubers' and does not say fresh or dry; agronomist to confirm.",
+        "note": "4 t/ha of fresh tubers.",
+        "checked_on": "2026-10-08"
+      },
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/asparagus-racemosus?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "The tuberous root yields 10%–12% of dry matter after removal of outer wall.",
+        "note": "4 t/ha x 10% = 0.4 t/ha of dried root = 0.04 kg/m². The dried-root price below is for dry root.",
         "checked_on": "2026-10-08"
       }
     ],
@@ -81,8 +88,15 @@
       {
         "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/asparagus-racemosus?lgn=en",
         "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
-        "quote": "while harvesting after 20 months yields about 6 tonnes/hectare of tubers along with 35 kg/hectare of seeds",
-        "note": "Waiting 20 months gives more roots and some seed, but ties the bed up for nearly two years.",
+        "quote": "An average shade-dried tuberous root yield of 3 tonnes per hectare is obtained from 20-month-old plants underexperimental conditions.",
+        "note": "Waiting 20 months gives far more dried root (3 t/ha, experimental) but ties the bed up for nearly two years.",
+        "checked_on": "2026-10-08"
+      },
+      {
+        "url": "https://en.vikaspedia.in/viewcontent/agriculture/crop-production/package-of-practices/medicinal-and-aromatic-plants/asparagus-racemosus?lgn=en",
+        "title": "Vikaspedia (Govt. of India), medicinal plants: Agro-techniques of selected medicinal plants (NMPB)",
+        "quote": "The calculated yield of 20 month-old crop of Shatavar is 3 tonnes/hectare, which can fetch net returns of approximately Rs 62,500 /hectare.",
+        "note": "The source's own estimate, at the price it assumed; the cost of cultivation it gives is about Rs 1,00,000 per hectare.",
         "checked_on": "2026-10-08"
       }
     ]
@@ -105,8 +119,19 @@
             "quote": "These are transplanted in field at the onset of monsoon in July.",
             "checked_on": "2026-10-08"
           }
+        ],
+        "price_mandi_paise_per_kg": [
+          {
+            "url": "https://echarak.ayush.gov.in/avgmarketprice",
+            "title": "e-CHARAK (National Medicinal Plants Board, Ministry of Ayush): average market price of the last 6 months, Rs/kg",
+            "quote": "Asparagus racemosus(MP) Root 247.5",
+            "note": "Dried root from Madhya Pradesh, 6-month average. Rs 247.5/kg (the Nepali root sells at Rs 413.89).",
+            "checked_on": "2026-10-08"
+          }
         ]
-      }
+      },
+      "price_mandi_paise_per_kg": 24750,
+      "price_updated_on": "2026-10-08"
     }
   }
 }

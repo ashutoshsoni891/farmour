@@ -25,7 +25,9 @@ from app.modules.layout.schemas import (
     BedOut,
     CropRef,
     FieldPlantingOut,
+    HerbPrice,
     Level,
+    MarketsOut,
     OptionMetrics,
     OptionOut,
     OptionsOut,
@@ -215,6 +217,7 @@ async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
                     id=bl.crop_id, slug=names[bl.crop_id].slug, name_en=names[bl.crop_id].name_en,
                     name_hi=names[bl.crop_id].name_hi,
                     ai_checked=names[bl.crop_id].status == "ai_verified",
+                    medicinal="medicinal" in names[bl.crop_id].tags,
                 ),
                 planned_sow=bl.planned_sow, harvest_start=bl.harvest_start,
                 harvest_end=bl.harvest_end, plant_count=bl.plant_count, spacing_cm=bl.spacing_cm,
@@ -231,6 +234,7 @@ async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
                     id=fp.crop_id, slug=names[fp.crop_id].slug, name_en=names[fp.crop_id].name_en,
                     name_hi=names[fp.crop_id].name_hi,
                     ai_checked=names[fp.crop_id].status == "ai_verified",
+                    medicinal="medicinal" in names[fp.crop_id].tags,
                 ),
                 planned_sow=fp.planned_sow, harvest_start=fp.harvest_start,
                 harvest_end=fp.harvest_end, plant_count=fp.plant_count,
@@ -802,3 +806,38 @@ async def benefits(session: AsyncSession, m: Membership, plan_id: uuid.UUID) -> 
         "labour": farm.labour, "goal": farm.goal,
     }  # fmt: skip
     return await site_service.schemes_for(session, tags, facts)
+
+
+async def markets(session: AsyncSession, m: Membership, plan_id: uuid.UUID) -> MarketsOut:
+    """For the medicinal herbs in a plan: the library's reference prices and where to sell them.
+    Empty when the plan grows no herbs."""
+    plan = await _plan_or_404(session, m, plan_id)
+    layers = await repo.bed_layers_of(session, plan.id)
+    field_rows = await repo.field_plantings_of(session, plan.id)
+    names = await library.crop_names(
+        session, list({bl.crop_id for _, bl in layers} | {fp.crop_id for fp in field_rows})
+    )
+    herbs = sorted((n for n in names.values() if "medicinal" in n.tags), key=lambda n: n.slug)
+    if not herbs:
+        return MarketsOut(herbs=[], prices=[], centres=[])
+    slugs = {n.slug for n in herbs}
+    centres = [
+        c for c in await site_service.list_market_centres(session)
+        if not c.crops or slugs & set(c.crops)
+    ]  # fmt: skip
+    return MarketsOut(
+        herbs=[
+            CropRef(id=n.id, slug=n.slug, name_en=n.name_en, name_hi=n.name_hi,
+                    ai_checked=n.status == "ai_verified", medicinal=True)
+            for n in herbs
+        ],
+        prices=[
+            HerbPrice(
+                slug=p.slug, name_en=p.name_en, name_hi=p.name_hi,
+                price_paise_per_kg=p.price_mandi_paise_per_kg, updated_on=p.price_updated_on,
+                note=p.note, source_url=p.source_url, source_title=p.source_title,
+            )
+            for p in await library.crop_prices(session, sorted(slugs))
+        ],
+        centres=centres,
+    )  # fmt: skip

@@ -1249,6 +1249,65 @@
         }
       }
     },
+    "/api/v1/farms/{farm_id}/plan/{plan_id}/markets": {
+      "get": {
+        "tags": [
+          "plan"
+        ],
+        "summary": "Markets",
+        "description": "Reference prices and where to sell, for the medicinal herbs in this plan.",
+        "operationId": "markets_api_v1_farms__farm_id__plan__plan_id__markets_get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "plan_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Plan Id"
+            }
+          },
+          {
+            "name": "farm_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Farm Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MarketsOut"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/library/crops": {
       "get": {
         "tags": [
@@ -2570,6 +2629,37 @@
             }
           }
         }
+      }
+    },
+    "/api/v1/market-centres": {
+      "get": {
+        "tags": [
+          "site"
+        ],
+        "summary": "Market Centres",
+        "description": "Herb mandis and portals where crops can be sold or priced, each with its source.",
+        "operationId": "market_centres_api_v1_market_centres_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/MarketCentreOut"
+                  },
+                  "type": "array",
+                  "title": "Response Market Centres Api V1 Market Centres Get"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
       }
     },
     "/api/v1/geo/search": {
@@ -4535,6 +4625,11 @@
           "ai_checked": {
             "type": "boolean",
             "title": "Ai Checked"
+          },
+          "medicinal": {
+            "type": "boolean",
+            "title": "Medicinal",
+            "default": false
           }
         },
         "type": "object",
@@ -6178,6 +6273,84 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
+      "HerbPrice": {
+        "properties": {
+          "slug": {
+            "type": "string",
+            "title": "Slug"
+          },
+          "name_en": {
+            "type": "string",
+            "title": "Name En"
+          },
+          "name_hi": {
+            "type": "string",
+            "title": "Name Hi"
+          },
+          "price_paise_per_kg": {
+            "type": "integer",
+            "title": "Price Paise Per Kg"
+          },
+          "updated_on": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Updated On"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "source_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Url"
+          },
+          "source_title": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Title"
+          }
+        },
+        "type": "object",
+        "required": [
+          "slug",
+          "name_en",
+          "name_hi",
+          "price_paise_per_kg",
+          "updated_on",
+          "note",
+          "source_url",
+          "source_title"
+        ],
+        "title": "HerbPrice",
+        "description": "What the library holds as a price for one medicinal crop of the plan."
+      },
       "Ingredient": {
         "properties": {
           "name_en": {
@@ -6398,6 +6571,162 @@
           "token"
         ],
         "title": "LinkVerify"
+      },
+      "MarketCentreOut": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "kind": {
+            "type": "string",
+            "title": "Kind"
+          },
+          "name_en": {
+            "type": "string",
+            "title": "Name En"
+          },
+          "name_hi": {
+            "type": "string",
+            "title": "Name Hi"
+          },
+          "state": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "State"
+          },
+          "district": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "District"
+          },
+          "crops": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Crops"
+          },
+          "note_en": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note En"
+          },
+          "note_hi": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note Hi"
+          },
+          "url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Url"
+          },
+          "sources": {
+            "items": {
+              "$ref": "#/components/schemas/SchemeSource"
+            },
+            "type": "array",
+            "title": "Sources"
+          },
+          "checked_on": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checked On"
+          },
+          "ai_checked": {
+            "type": "boolean",
+            "title": "Ai Checked"
+          }
+        },
+        "type": "object",
+        "required": [
+          "code",
+          "kind",
+          "name_en",
+          "name_hi",
+          "state",
+          "district",
+          "crops",
+          "note_en",
+          "note_hi",
+          "url",
+          "sources",
+          "checked_on",
+          "ai_checked"
+        ],
+        "title": "MarketCentreOut",
+        "description": "A herb mandi or portal where a crop can be sold or priced."
+      },
+      "MarketsOut": {
+        "properties": {
+          "herbs": {
+            "items": {
+              "$ref": "#/components/schemas/CropRef"
+            },
+            "type": "array",
+            "title": "Herbs"
+          },
+          "prices": {
+            "items": {
+              "$ref": "#/components/schemas/HerbPrice"
+            },
+            "type": "array",
+            "title": "Prices"
+          },
+          "centres": {
+            "items": {
+              "$ref": "#/components/schemas/MarketCentreOut"
+            },
+            "type": "array",
+            "title": "Centres"
+          }
+        },
+        "type": "object",
+        "required": [
+          "herbs",
+          "prices",
+          "centres"
+        ],
+        "title": "MarketsOut",
+        "description": "Before the owner grows herbs: reference prices and where they can be sold."
       },
       "MeOut": {
         "properties": {

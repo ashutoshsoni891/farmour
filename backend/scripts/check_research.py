@@ -115,6 +115,7 @@ def main() -> int:
     pests = sorted((FOLDER.parent / "pests").glob("*.json"))
     cost_norms = FOLDER.parents[2] / "site" / "cost_norms.json"
     kvks = FOLDER.parents[2] / "site" / "kvks.json"
+    markets = FOLDER.parents[2] / "site" / "market_centres.json"
     paths = [
         *sorted(FOLDER.glob("*.json")),
         FOLDER.parent / "companions.json",
@@ -123,6 +124,7 @@ def main() -> int:
         schemes,
         cost_norms,
         kvks,
+        markets,
     ]
     if args.only:
         paths = [p for p in paths if p.stem in args.only]
@@ -134,6 +136,7 @@ def main() -> int:
             or data.get("schemes")
             or data.get("cost_norms")
             or data.get("kvks")
+            or data.get("market_centres")
             or [data]
         )
         for src in [s for entry in entries for s in _sources(entry)]:

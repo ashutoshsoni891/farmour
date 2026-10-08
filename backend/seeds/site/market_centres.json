@@ -1,0 +1,97 @@
+{
+  "market_centres": [
+    {
+      "code": "neemuch-mandi",
+      "kind": "herb_mandi",
+      "name_en": "Neemuch Krishi Upaj Mandi (herb section)",
+      "name_hi": "नीमच कृषि उपज मंडी (जड़ी-बूटी खंड)",
+      "state": "Madhya Pradesh",
+      "district": "Neemuch",
+      "crops": [
+        "ashwagandha",
+        "shatavari",
+        "safed-musli",
+        "giloy",
+        "isabgol"
+      ],
+      "note_en": "The district's own page calls Neemuch the only auction and trading centre of ashwagandha roots, with over 500 kinds of herbs traded (ashwagandha, kalmegh, shatavari, safed musli, stevia leaves, giloy) and isabgol husk and herbal extraction plants. Prices are by auction on the day.",
+      "note_hi": "ज़िला प्रशासन के अनुसार नीमच अश्वगंधा जड़ की एकमात्र नीलामी और व्यापार मंडी है; 500 से ज़्यादा जड़ी-बूटियाँ बिकती हैं (अश्वगंधा, कालमेघ, शतावरी, सफेद मूसली, स्टीविया पत्ती, गिलोय) और यहाँ इसबगोल भूसी व जड़ी-बूटी अर्क के कारखाने हैं। भाव उसी दिन नीलामी से तय होते हैं।",
+      "url": "https://neemuch.nic.in/en/economy/",
+      "sources": {
+        "centre": [
+          {
+            "url": "https://neemuch.nic.in/en/economy/",
+            "title": "District Neemuch (Government of Madhya Pradesh): economy",
+            "quote": "is the only auction and trading centre of ashwagandha roots",
+            "note": "District government page.",
+            "checked_on": "2026-10-08"
+          },
+          {
+            "url": "https://neemuch.nic.in/en/economy/",
+            "title": "District Neemuch (Government of Madhya Pradesh): economy",
+            "quote": "Majorly they are ashwagandha, kalmegh, shatawari, safed musli, stevia leaves, giloy, babul and many more.",
+            "checked_on": "2026-10-08"
+          },
+          {
+            "url": "https://neemuch.nic.in/en/economy/",
+            "title": "District Neemuch (Government of Madhya Pradesh): economy",
+            "quote": "herbal extraction plants and isabgol husk plants",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      }
+    },
+    {
+      "code": "mandsaur-pipliya-mandi",
+      "kind": "herb_mandi",
+      "name_en": "Pipliya Mandi, Mandsaur (medicinal crops section)",
+      "name_hi": "पिपलिया मंडी, मंदसौर (औषधीय फ़सल खंड)",
+      "state": "Madhya Pradesh",
+      "district": "Mandsaur",
+      "crops": [],
+      "note_en": "A news report names Pipliya Mandi with Neemuch as the state's largest produce markets, each with a separate section for medicinal crops. Ask the mandi office which herbs are bought and on which days.",
+      "note_hi": "एक समाचार रिपोर्ट के अनुसार नीमच के साथ पिपलिया मंडी राज्य की सबसे बड़ी उपज मंडियों में है, और दोनों में औषधीय फ़सलों के अलग खंड हैं। मंडी कार्यालय से पूछें कि कौन-सी जड़ी-बूटी किस दिन खरीदी जाती है।",
+      "url": null,
+      "sources": {
+        "centre": [
+          {
+            "url": "https://www.etvbharat.com/en/!offbeat/from-stones-to-soil-exploring-a-unique-marketplace-in-madhya-pradesh-neemuch-enn25080500981",
+            "title": "ETV Bharat, 5 Aug 2025: From stones to soil, a unique marketplace in Neemuch",
+            "quote": "Separate sections have been arranged for medicinal crops at both places.",
+            "note": "A news report, not a government page.",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      }
+    },
+    {
+      "code": "e-charak",
+      "kind": "portal",
+      "name_en": "e-CHARAK: herb prices, sellers and buyers (Ministry of Ayush)",
+      "name_hi": "ई-चरक: जड़ी-बूटी के भाव, बेचने वाले और खरीदार (आयुष मंत्रालय)",
+      "state": null,
+      "district": null,
+      "crops": [],
+      "note_en": "The National Medicinal Plants Board's portal and app: market prices of medicinal plants, a place to post what you have to sell, and buyer demand. Check prices here before you agree a rate.",
+      "note_hi": "राष्ट्रीय औषधीय पादप बोर्ड का पोर्टल और ऐप: औषधीय पौधों के बाज़ार भाव, अपनी उपज बेचने के लिए सूचना डालने की जगह, और खरीदारों की माँग। भाव तय करने से पहले यहाँ देखें।",
+      "url": "https://echarak.ayush.gov.in/",
+      "sources": {
+        "centre": [
+          {
+            "url": "https://echarak.ayush.gov.in/",
+            "title": "e-CHARAK (National Medicinal Plants Board, Ministry of Ayush)",
+            "quote": "Latest Market Price of Medicinal Plants",
+            "checked_on": "2026-10-08"
+          },
+          {
+            "url": "https://echarak.ayush.gov.in/",
+            "title": "e-CHARAK (National Medicinal Plants Board, Ministry of Ayush)",
+            "quote": "Post an Item",
+            "note": "The menu also lists Buyer Demand and Latest Items - Sell.",
+            "checked_on": "2026-10-08"
+          }
+        ]
+      }
+    }
+  ]
+}

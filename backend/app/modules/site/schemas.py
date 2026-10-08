@@ -111,3 +111,21 @@ class KvkOut(BaseModel):
     sources: list[SchemeSource]
     checked_on: date | None
     ai_checked: bool
+
+
+class MarketCentreOut(BaseModel):
+    """A herb mandi or portal where a crop can be sold or priced."""
+
+    code: str
+    kind: str
+    name_en: str
+    name_hi: str
+    state: str | None
+    district: str | None
+    crops: list[str]  # library slugs; empty = any crop
+    note_en: str | None
+    note_hi: str | None
+    url: str | None
+    sources: list[SchemeSource]
+    checked_on: date | None
+    ai_checked: bool

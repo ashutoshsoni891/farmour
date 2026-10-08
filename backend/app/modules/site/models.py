@@ -216,3 +216,29 @@ class Kvk(IdMixin, TimestampMixin, Base):
             "status in ('draft','ai_verified','in_review','approved','retired')", name="status"
         ),
     )
+
+
+class MarketCentre(IdMixin, TimestampMixin, Base):
+    """A place or portal where a farmer can sell or price a crop (a herb mandi, a government
+    portal). `crops` are library slugs; empty means any crop. Every row cites its source."""
+
+    __tablename__ = "market_centres"
+    code: Mapped[str] = mapped_column(String(50), unique=True)
+    kind: Mapped[str] = mapped_column(String(12))
+    name_en: Mapped[str] = mapped_column(Text)
+    name_hi: Mapped[str] = mapped_column(Text)
+    state: Mapped[str | None] = mapped_column(String(50))
+    district: Mapped[str | None] = mapped_column(String(80))
+    crops: Mapped[list[str]] = mapped_column(ARRAY(String), default=list, server_default="{}")
+    note_en: Mapped[str | None] = mapped_column(Text)
+    note_hi: Mapped[str | None] = mapped_column(Text)
+    url: Mapped[str | None] = mapped_column(Text)
+    sources: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default="{}")
+    checked_on: Mapped[date | None] = mapped_column(Date)
+    status: Mapped[str] = mapped_column(String(12), default="draft", server_default="draft")
+    __table_args__ = (
+        CheckConstraint("kind in ('herb_mandi','portal','support')", name="kind"),
+        CheckConstraint(
+            "status in ('draft','ai_verified','in_review','approved','retired')", name="status"
+        ),
+    )

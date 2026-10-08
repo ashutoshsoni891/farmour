@@ -10,6 +10,7 @@ import { BedPicture } from "./BedPicture";
 import { BedTimeline } from "./BedTimeline";
 import { FieldCrops } from "./FieldCrops";
 import { MachanGuide } from "./MachanGuide";
+import { MedicinalMarkets } from "./MedicinalMarkets";
 import { Methods } from "./Methods";
 import { Perennials } from "./Perennials";
 import { SwapPicker } from "./SwapPicker";
@@ -244,6 +245,7 @@ export function PlanView(props: Props) {
         </div>
       )}
 
+      <MedicinalMarkets plan={plan} lang={lang} />
       <Perennials items={plan.perennials} lang={lang} />
       <FieldCrops items={plan.fields} unit={unit} lang={lang} bighaSqft={bighaSqft} />
 

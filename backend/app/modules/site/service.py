@@ -30,6 +30,7 @@ from app.modules.site.schemas import (
     FactOut,
     Group,
     KvkOut,
+    MarketCentreOut,
     ProfileOut,
     SchemeOut,
     SchemeSource,
@@ -381,6 +382,7 @@ async def load_seed(session: AsyncSession) -> dict[str, int]:
     counts.update(await seed.load_schemes(session))
     counts.update(await seed.load_cost_norms(session))
     counts.update(await seed.load_kvks(session))
+    counts.update(await seed.load_market_centres(session))
     return counts
 
 
@@ -470,6 +472,23 @@ async def list_kvks(session: AsyncSession, district: str | None = None) -> list[
             KvkOut.model_validate(
                 {
                     **{n: getattr(row, n) for n in KvkOut.model_fields if hasattr(row, n)},
+                    "sources": [SchemeSource.model_validate(e) for e in entries],
+                    "ai_checked": row.status == "ai_verified",
+                }
+            )
+        )
+    return out
+
+
+async def list_market_centres(session: AsyncSession) -> list[MarketCentreOut]:
+    """Herb mandis and portals whose listing was checked against its source."""
+    out = []
+    for row in await repo.market_centres(session, ["ai_verified", "approved"]):
+        entries = [e for group in row.sources.values() for e in group]
+        out.append(
+            MarketCentreOut.model_validate(
+                {
+                    **{n: getattr(row, n) for n in MarketCentreOut.model_fields if hasattr(row, n)},
                     "sources": [SchemeSource.model_validate(e) for e in entries],
                     "ai_checked": row.status == "ai_verified",
                 }

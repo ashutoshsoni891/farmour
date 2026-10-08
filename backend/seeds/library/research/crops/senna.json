@@ -83,8 +83,19 @@
             "quote": "sown in beds at a spacing 45 x 30 cm during February – March or June – July",
             "checked_on": "2026-10-08"
           }
+        ],
+        "price_mandi_paise_per_kg": [
+          {
+            "url": "https://echarak.ayush.gov.in/avgmarketprice",
+            "title": "e-CHARAK (National Medicinal Plants Board, Ministry of Ayush): average market price of the last 6 months, Rs/kg",
+            "quote": "Cassia angustifolia Leaf 58.56",
+            "note": "Leaf (dry), 6-month average. Rs 58.56/kg; pods sell separately.",
+            "checked_on": "2026-10-08"
+          }
         ]
-      }
+      },
+      "price_mandi_paise_per_kg": 5856,
+      "price_updated_on": "2026-10-08"
     }
   }
 }

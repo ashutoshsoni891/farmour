@@ -373,3 +373,18 @@ class CropName(BaseModel):
     name_en: str
     name_hi: str
     status: Status
+    tags: list[str] = []
+
+
+class CropPrice(BaseModel):
+    """A sourced price for a crop, as the library holds it (a reference, not a quote)."""
+
+    slug: str
+    name_en: str
+    name_hi: str
+    price_mandi_paise_per_kg: int
+    price_updated_on: date | None
+    note: str | None  # what the price is for (dried root, leaf ...), from the source note
+    source_url: str | None
+    source_title: str | None
+    ai_checked: bool

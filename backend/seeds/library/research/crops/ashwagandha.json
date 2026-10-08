@@ -115,8 +115,19 @@
             "quote": "the seeds are sown during the second week of July to August",
             "checked_on": "2026-10-08"
           }
+        ],
+        "price_mandi_paise_per_kg": [
+          {
+            "url": "https://echarak.ayush.gov.in/avgmarketprice",
+            "title": "e-CHARAK (National Medicinal Plants Board, Ministry of Ayush): average market price of the last 6 months, Rs/kg",
+            "quote": "Withania somnifera Root 295.45",
+            "note": "Dried root, average of the last 6 months across the herbal markets NMPB tracks (national, not Neemuch alone). Rs 295.45/kg.",
+            "checked_on": "2026-10-08"
+          }
         ]
-      }
+      },
+      "price_mandi_paise_per_kg": 29545,
+      "price_updated_on": "2026-10-08"
     }
   }
 }
