@@ -747,6 +747,26 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/schemes": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Schemes
+         * @description Every government scheme in the catalogue with its sources (not matched to a farm).
+         */
+        get: operations["schemes_api_v1_schemes_get"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/market-centres": {
         parameters: {
             query?: never;
@@ -2723,6 +2743,12 @@ export interface components {
             url: string | null;
             /** Title */
             title: string;
+            /** Quote */
+            quote?: string | null;
+            /** Note */
+            note?: string | null;
+            /** Checked On */
+            checked_on?: string | null;
         };
         /** SeasonOut */
         SeasonOut: {
@@ -4430,6 +4456,26 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["HTTPValidationError"];
+                };
+            };
+        };
+    };
+    schemes_api_v1_schemes_get: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Successful Response */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SchemeOut"][];
                 };
             };
         };

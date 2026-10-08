@@ -2631,6 +2631,37 @@
         }
       }
     },
+    "/api/v1/schemes": {
+      "get": {
+        "tags": [
+          "site"
+        ],
+        "summary": "Schemes",
+        "description": "Every government scheme in the catalogue with its sources (not matched to a farm).",
+        "operationId": "schemes_api_v1_schemes_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "$ref": "#/components/schemas/SchemeOut"
+                  },
+                  "type": "array",
+                  "title": "Response Schemes Api V1 Schemes Get"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
     "/api/v1/market-centres": {
       "get": {
         "tags": [
@@ -9845,6 +9876,40 @@
           "title": {
             "type": "string",
             "title": "Title"
+          },
+          "quote": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Quote"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "checked_on": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Checked On"
           }
         },
         "type": "object",

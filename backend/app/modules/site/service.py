@@ -446,6 +446,27 @@ async def schemes_for(
     return sorted(out, key=lambda x: (order.get(x.benefit_type, 9), x.code))
 
 
+async def list_schemes(session: AsyncSession) -> list[SchemeOut]:
+    """The whole scheme catalogue (checked entries), not matched to any farm."""
+    out = []
+    for row in await repo.schemes(session, ["ai_verified", "approved"]):
+        out.append(
+            SchemeOut(
+                code=row.code, level=row.level, state=row.state, benefit_type=row.benefit_type,
+                name_en=row.name_en, name_hi=row.name_hi, gives_en=row.gives_en,
+                gives_hi=row.gives_hi, eligibility_en=row.eligibility_en,
+                eligibility_hi=row.eligibility_hi, documents=row.documents,
+                apply_en=row.apply_en, apply_hi=row.apply_hi, apply_url=row.apply_url,
+                sources=[
+                    SchemeSource.model_validate(e) for g in row.sources.values() for e in g
+                ],
+                checked_on=row.checked_on, ai_checked=row.status == "ai_verified",
+                reasons=[], conditions=[],
+            )
+        )  # fmt: skip
+    return sorted(out, key=lambda x: (x.benefit_type, x.code))
+
+
 async def list_cost_norms(session: AsyncSession) -> list[CostNormOut]:
     """Setup costs and subsidy rates (government cost norms) that are cited and checked."""
     out = []

@@ -49,6 +49,9 @@ class AnswerBatch(BaseModel):
 class SchemeSource(BaseModel):
     url: str | None
     title: str
+    quote: str | None = None  # the sentence the value was found in
+    note: str | None = None
+    checked_on: date | None = None
 
 
 class SchemeOut(BaseModel):

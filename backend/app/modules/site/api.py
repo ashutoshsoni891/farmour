@@ -5,7 +5,14 @@ from fastapi import APIRouter, status
 from app.modules.farms.service import Membership, membership
 from app.modules.identity.deps import CurrentUser, SessionDep
 from app.modules.site import service
-from app.modules.site.schemas import AnswerBatch, CostNormOut, KvkOut, MarketCentreOut, ProfileOut
+from app.modules.site.schemas import (
+    AnswerBatch,
+    CostNormOut,
+    KvkOut,
+    MarketCentreOut,
+    ProfileOut,
+    SchemeOut,
+)
 
 router = APIRouter(prefix="/farms/{farm_id}/site-profile", tags=["site"])
 
@@ -27,6 +34,15 @@ async def answer(
 @router.post("/refresh", status_code=status.HTTP_202_ACCEPTED)
 async def refresh(session: SessionDep, m: Membership = membership("owner")) -> None:
     await service.request_refresh(session, m)
+
+
+scheme_router = APIRouter(prefix="/schemes", tags=["site"])
+
+
+@scheme_router.get("")
+async def schemes(session: SessionDep, _user: CurrentUser) -> list[SchemeOut]:
+    """Every government scheme in the catalogue with its sources (not matched to a farm)."""
+    return await service.list_schemes(session)
 
 
 catalog_router = APIRouter(prefix="/cost-norms", tags=["site"])
