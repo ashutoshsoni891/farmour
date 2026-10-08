@@ -151,6 +151,20 @@ def _complete(crop: CropSpec) -> bool:
     return None not in (crop.spacing_plant_cm, crop.yield_kg_per_sqm, crop.days_to_first_harvest)
 
 
+def effective_weights(
+    goal: str | None, p: PlantingParams, option: dict[str, float] | None
+) -> dict[str, float]:
+    """Score weights for a plan: the option's own, else the defaults shifted by the owner's goal."""
+    if option is not None:
+        return {**p.weights, **option}
+    weights = dict(p.weights)
+    if goal == "income":
+        weights["value"] = p.goal_income_value
+    elif goal == "home_food":
+        weights["diversity"] = p.goal_home_food_diversity
+    return weights
+
+
 def assign(
     beds: list[BedSpec],
     crops: list[CropSpec],
@@ -167,14 +181,7 @@ def assign(
 ) -> PlantingResult:
     """Fill every bed. `weights` (a plan option's score weights) replaces the goal shift."""
     pairs = _pairs(companions)
-    if weights is None:
-        weights = dict(p.weights)
-        if goal == "income":
-            weights["value"] = p.goal_income_value
-        elif goal == "home_food":
-            weights["diversity"] = p.goal_home_food_diversity
-    else:
-        weights = {**p.weights, **weights}
+    weights = effective_weights(goal, p, weights)
     by_slug = {c.slug: c for c in crops}
     # Flowers and medicinal herbs go in beds only when the owner asked for them (goal step).
     usable = [

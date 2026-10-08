@@ -16,7 +16,7 @@ from app.core.settings_store import get_setting
 from app.modules.farms import service as farms_service
 from app.modules.farms.schemas import FarmOut
 from app.modules.farms.service import Membership
-from app.modules.layout import engine, perennials, planting
+from app.modules.layout import engine, fields, perennials, planting
 from app.modules.layout import repository as repo
 from app.modules.layout.models import Plan
 from app.modules.layout.schemas import (
@@ -24,6 +24,7 @@ from app.modules.layout.schemas import (
     AlternativeOut,
     BedOut,
     CropRef,
+    FieldPlantingOut,
     Level,
     OptionMetrics,
     OptionOut,
@@ -165,8 +166,14 @@ async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
     beds = await repo.beds_of(session, plan.id)
     layers = await repo.bed_layers_of(session, plan.id)
     plants = await repo.zone_plants_of(session, plan.id)
+    field_rows = await repo.field_plantings_of(session, plan.id)
     names = await library.crop_names(
-        session, list({bl.crop_id for _, bl in layers} | {zp.crop_id for zp in plants})
+        session,
+        list(
+            {bl.crop_id for _, bl in layers}
+            | {zp.crop_id for zp in plants}
+            | {fp.crop_id for fp in field_rows}
+        ),
     )
     yields = {c.id: c.expected_yield_kg_per_sqm for c in await library.engine_crops(session)}
     summary = plan.summary
@@ -215,6 +222,22 @@ async def _out(session: AsyncSession, plan: Plan) -> PlanOut:
             )
             for code, bl in layers
             if bl.crop_id in names
+        ],
+        fields=[
+            FieldPlantingOut(
+                plot_code=fp.plot_code, geometry=repo.geojson(fp.geom),
+                area_sqm=float(fp.area_sqm), season=fp.season, season_label=fp.season_label,
+                crop=CropRef(
+                    id=fp.crop_id, slug=names[fp.crop_id].slug, name_en=names[fp.crop_id].name_en,
+                    name_hi=names[fp.crop_id].name_hi,
+                    ai_checked=names[fp.crop_id].status == "ai_verified",
+                ),
+                planned_sow=fp.planned_sow, harvest_start=fp.harvest_start,
+                harvest_end=fp.harvest_end, plant_count=fp.plant_count,
+                expected_yield_kg=float(fp.expected_yield_kg), why=fp.why,
+            )
+            for fp in field_rows
+            if fp.crop_id in names
         ],
         perennials=_perennials(plants, names, yields),
         uses_ai_checked=bool(summary.get("uses_ai_checked", False)),
@@ -343,8 +366,29 @@ async def _build(
         allow_flowers="flowers" in (farm.methods or []),
         allow_medicinal="medicinal" in (farm.methods or []),
     )
-    # trees in the orchard strip, hedge plants on the border
+    # field crops on the plots of the rotation field
     pp = await _planting_params(session)
+    rotation_at = next((i for i, z in enumerate(result.zones) if z.kind == "rotation"), None)
+    field_plots = (
+        fields.split_plots(
+            result.zones[rotation_at].geom,
+            int(await get_setting(session, "layout.field_plots")),
+            float(await get_setting(session, "layout.field_min_plot_sqm")),
+        )
+        if rotation_at is not None else []
+    )  # fmt: skip
+    field_plan = fields.assign_fields(
+        field_plots,
+        list(specs.values()),
+        start=start_date,
+        drainage=parcel.drainage,
+        p=pp,
+        weights=planting.effective_weights(
+            farm.goal, pp, {k: float(v) for k, v in spec.get("weights", {}).items()} or None
+        ),
+        allow_medicinal="medicinal" in (farm.methods or []),
+    )
+    # trees in the orchard strip, hedge plants on the border
     tree_weights = {**pp.weights, **{k: float(v) for k, v in spec.get("weights", {}).items()}}
     trees = [
         perennials.PerennialSpec(specs[c.slug], float(c.tree_spacing_m), c.years_to_bear, None)
@@ -377,9 +421,14 @@ async def _build(
     metrics = {
         "beds": len(result.beds),
         "bed_area_sqm": round(sum(b.geom.area for b in result.beds), 1),
-        "crops_total": len({pl.crop for pl in crop_plan.plantings}),
+        "crops_total": len(
+            {pl.crop for pl in crop_plan.plantings} | {fp.crop for fp in field_plan.plantings}
+        ),
         "crops_min_season": min((len(v) for v in per_season.values()), default=0),
-        "harvest_kg": round(sum(pl.expected_yield_kg for pl in crop_plan.plantings), 1),
+        "harvest_kg": round(
+            sum(pl.expected_yield_kg for pl in crop_plan.plantings)
+            + sum(fp.expected_yield_kg for fp in field_plan.plantings), 1,
+        ),
         "water_index": round(
             sum(
                 next(b.area_sqm for b in bed_specs if b.code == pl.bed)
@@ -394,12 +443,18 @@ async def _build(
                 next(b.area_sqm for b in bed_specs if b.code == pl.bed)
                 * (pl.harvest_end - pl.planned_sow).days
                 for pl in crop_plan.plantings
+            ) / 1000
+            + sum(
+                fp.area_sqm * (fp.harvest_end - fp.planned_sow).days
+                for fp in field_plan.plantings
             ) / 1000, 1,
         ),
         "plantings": len(crop_plan.plantings),
         "trees": sum(1 for x in placed if x.kind == "tree"),
         "tree_species": len({x.crop for x in placed if x.kind == "tree"}),
         "hedge_plants": sum(1 for x in placed if x.kind == "hedge"),
+        "field_plantings": len(field_plan.plantings),
+        "field_kg": round(sum(fp.expected_yield_kg for fp in field_plan.plantings), 1),
         "trees_yearly_kg": round(
             sum((specs[x.crop].yield_kg_per_sqm or 0) * x.spacing_m**2 for x in placed
                 if x.kind == "tree"), 1,
@@ -431,7 +486,7 @@ async def _build(
                 for z in result.zones
             ],
             "bed_count": len(result.beds),
-            "warnings": result.warnings + crop_plan.warnings,
+            "warnings": result.warnings + crop_plan.warnings + field_plan.warnings,
             "seasons": [
                 {
                     "season": x.season,
@@ -441,8 +496,10 @@ async def _build(
                 }
                 for x in crop_plan.slots
             ],
-            "uses_ai_checked": crop_plan.uses_ai_verified,
-            "crops": sorted({pl.crop for pl in crop_plan.plantings}),
+            "uses_ai_checked": crop_plan.uses_ai_verified or field_plan.uses_ai_verified,
+            "crops": sorted(
+                {pl.crop for pl in crop_plan.plantings} | {fp.crop for fp in field_plan.plantings}
+            ),
             "metrics": metrics,
             "custom": bool(owner_delta) or bed_size != "standard",
         },
@@ -467,6 +524,16 @@ async def _build(
             session, zone_id=zone_ids[x.zone_index], crop_id=crop_ids[x.crop], kind=x.kind,
             geom=result.frame.to_wgs84(x.point), spacing_m=round(x.spacing_m, 2),
             plant_on=x.plant_on, first_harvest=x.first_harvest,
+        )  # fmt: skip
+    for fp in field_plan.plantings:
+        plot = next(x for x in field_plots if x.code == fp.plot)
+        await repo.add_field_planting(
+            session, zone_id=zone_ids[rotation_at or 0], plot_code=fp.plot,
+            geom=result.frame.to_wgs84(plot.geom), area_sqm=fp.area_sqm,
+            season=fp.slot.season, season_label=fp.slot.label, crop_id=crop_ids[fp.crop],
+            planned_sow=fp.planned_sow, harvest_start=fp.harvest_start,
+            harvest_end=fp.harvest_end, plant_count=fp.plant_count,
+            expected_yield_kg=fp.expected_yield_kg, why=fp.why,
         )  # fmt: skip
     for pl in crop_plan.plantings:
         await repo.add_bed_layer(

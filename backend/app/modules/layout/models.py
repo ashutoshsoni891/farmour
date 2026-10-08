@@ -112,3 +112,30 @@ class ZonePlant(IdMixin, Base):
     plant_on: Mapped[date] = mapped_column(Date)
     first_harvest: Mapped[date | None] = mapped_column(Date)
     __table_args__ = (CheckConstraint("kind in ('tree','hedge')", name="kind"),)
+
+
+class FieldPlanting(IdMixin, Base):
+    """One field crop on one plot of the rotation field for one season of the plan.
+
+    The rotation zone is cut into plots (F1, F2, ...); each season a plot takes one crop, or a
+    green manure when no field crop fits."""
+
+    __tablename__ = "field_plantings"
+    zone_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("zones.id", ondelete="CASCADE"), index=True
+    )
+    plot_code: Mapped[str] = mapped_column(String(10))
+    geom: Mapped[WKBElement] = mapped_column(Geometry("POLYGON", srid=4326))
+    area_sqm: Mapped[Decimal] = mapped_column(Numeric(12, 2))
+    season: Mapped[str] = mapped_column(String(10))
+    season_label: Mapped[str] = mapped_column(String(20))
+    crop_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("crops.id"))
+    planned_sow: Mapped[date] = mapped_column(Date)
+    harvest_start: Mapped[date | None] = mapped_column(Date)
+    harvest_end: Mapped[date | None] = mapped_column(Date)
+    plant_count: Mapped[int | None] = mapped_column(Integer)
+    expected_yield_kg: Mapped[Decimal] = mapped_column(Numeric(12, 2))
+    why: Mapped[dict[str, Any]] = mapped_column(JSONB, default=dict, server_default="{}")
+    __table_args__ = (
+        CheckConstraint("season in ('kharif','rabi','zaid','perennial')", name="season"),
+    )

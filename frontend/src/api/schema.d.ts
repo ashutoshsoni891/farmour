@@ -1553,6 +1553,42 @@ export interface components {
             /** Name */
             name?: string | null;
         };
+        /**
+         * FieldPlantingOut
+         * @description One crop on one plot of the rotation field for one season.
+         */
+        FieldPlantingOut: {
+            /** Plot Code */
+            plot_code: string;
+            /** Geometry */
+            geometry: {
+                [key: string]: unknown;
+            };
+            /** Area Sqm */
+            area_sqm: number;
+            /** Season */
+            season: string;
+            /** Season Label */
+            season_label: string;
+            crop: components["schemas"]["CropRef"];
+            /**
+             * Planned Sow
+             * Format: date
+             */
+            planned_sow: string;
+            /** Harvest Start */
+            harvest_start: string | null;
+            /** Harvest End */
+            harvest_end: string | null;
+            /** Plant Count */
+            plant_count: number | null;
+            /** Expected Yield Kg */
+            expected_yield_kg: number;
+            /** Why */
+            why: {
+                [key: string]: unknown;
+            };
+        };
         /** FourSides */
         FourSides: {
             /**
@@ -1794,6 +1830,16 @@ export interface components {
              * @default 0
              */
             hedge_plants: number;
+            /**
+             * Field Plantings
+             * @default 0
+             */
+            field_plantings: number;
+            /**
+             * Field Kg
+             * @default 0
+             */
+            field_kg: number;
             /**
              * Trees Yearly Kg
              * @default 0
@@ -2151,6 +2197,11 @@ export interface components {
             seasons: components["schemas"]["SeasonOut"][];
             /** Plantings */
             plantings: components["schemas"]["PlantingOut"][];
+            /**
+             * Fields
+             * @default []
+             */
+            fields: components["schemas"]["FieldPlantingOut"][];
             /**
              * Perennials
              * @default []

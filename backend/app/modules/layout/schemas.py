@@ -60,6 +60,23 @@ class PlantingOut(BaseModel):
     why: dict[str, Any]
 
 
+class FieldPlantingOut(BaseModel):
+    """One crop on one plot of the rotation field for one season."""
+
+    plot_code: str
+    geometry: dict[str, Any]
+    area_sqm: float
+    season: str
+    season_label: str
+    crop: CropRef
+    planned_sow: date
+    harvest_start: date | None
+    harvest_end: date | None
+    plant_count: int | None
+    expected_yield_kg: float
+    why: dict[str, Any]
+
+
 class PerennialOut(BaseModel):
     """All trees (or hedge plants) of one crop: where they stand, when they go in and first bear."""
 
@@ -97,6 +114,7 @@ class PlanOut(BaseModel):
     beds: list[BedOut]
     seasons: list[SeasonOut]
     plantings: list[PlantingOut]
+    fields: list[FieldPlantingOut] = []  # crops on the rotation-field plots
     perennials: list[PerennialOut] = []
     uses_ai_checked: bool
     trellis_height_m: float | None = None
@@ -121,6 +139,8 @@ class OptionMetrics(BaseModel):
     trees: int = 0
     tree_species: int = 0
     hedge_plants: int = 0
+    field_plantings: int = 0
+    field_kg: float = 0.0
     trees_yearly_kg: float = 0.0  # once the trees bear
 
 

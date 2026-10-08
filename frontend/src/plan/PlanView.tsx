@@ -8,6 +8,7 @@ import type { UnitPref } from "../lib/format";
 import { ZONE_COLORS } from "../setup/PlotMap";
 import { BedPicture } from "./BedPicture";
 import { BedTimeline } from "./BedTimeline";
+import { FieldCrops } from "./FieldCrops";
 import { MachanGuide } from "./MachanGuide";
 import { Methods } from "./Methods";
 import { Perennials } from "./Perennials";
@@ -244,6 +245,7 @@ export function PlanView(props: Props) {
       )}
 
       <Perennials items={plan.perennials} lang={lang} />
+      <FieldCrops items={plan.fields} unit={unit} lang={lang} bighaSqft={bighaSqft} />
 
       {hasClimbers && plan.machan_guide.length > 0 && (
         <MachanGuide

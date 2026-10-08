@@ -6000,6 +6000,100 @@
         "type": "object",
         "title": "FarmUpdate"
       },
+      "FieldPlantingOut": {
+        "properties": {
+          "plot_code": {
+            "type": "string",
+            "title": "Plot Code"
+          },
+          "geometry": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Geometry"
+          },
+          "area_sqm": {
+            "type": "number",
+            "title": "Area Sqm"
+          },
+          "season": {
+            "type": "string",
+            "title": "Season"
+          },
+          "season_label": {
+            "type": "string",
+            "title": "Season Label"
+          },
+          "crop": {
+            "$ref": "#/components/schemas/CropRef"
+          },
+          "planned_sow": {
+            "type": "string",
+            "format": "date",
+            "title": "Planned Sow"
+          },
+          "harvest_start": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harvest Start"
+          },
+          "harvest_end": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Harvest End"
+          },
+          "plant_count": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Plant Count"
+          },
+          "expected_yield_kg": {
+            "type": "number",
+            "title": "Expected Yield Kg"
+          },
+          "why": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Why"
+          }
+        },
+        "type": "object",
+        "required": [
+          "plot_code",
+          "geometry",
+          "area_sqm",
+          "season",
+          "season_label",
+          "crop",
+          "planned_sow",
+          "harvest_start",
+          "harvest_end",
+          "plant_count",
+          "expected_yield_kg",
+          "why"
+        ],
+        "title": "FieldPlantingOut",
+        "description": "One crop on one plot of the rotation field for one season."
+      },
       "FourSides": {
         "properties": {
           "kind": {
@@ -6708,6 +6802,16 @@
             "type": "integer",
             "title": "Hedge Plants",
             "default": 0
+          },
+          "field_plantings": {
+            "type": "integer",
+            "title": "Field Plantings",
+            "default": 0
+          },
+          "field_kg": {
+            "type": "number",
+            "title": "Field Kg",
+            "default": 0.0
           },
           "trees_yearly_kg": {
             "type": "number",
@@ -7955,6 +8059,14 @@
             },
             "type": "array",
             "title": "Plantings"
+          },
+          "fields": {
+            "items": {
+              "$ref": "#/components/schemas/FieldPlantingOut"
+            },
+            "type": "array",
+            "title": "Fields",
+            "default": []
           },
           "perennials": {
             "items": {
