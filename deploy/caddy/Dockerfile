@@ -14,6 +14,6 @@ ARG VITE_GOOGLE_MAPS_KEY=
 ARG VITE_DEV_IMAGERY=
 RUN pnpm build
 
-FROM caddy:2.11.4-alpine
+FROM caddy:2.11.7-alpine
 COPY deploy/caddy/Caddyfile /etc/caddy/Caddyfile
 COPY --from=web /web/dist /srv
