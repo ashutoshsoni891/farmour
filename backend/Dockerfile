@@ -1,4 +1,4 @@
-FROM python:3.12.14-slim-bookworm AS base
+FROM python:3.15.0-slim-bookworm AS base
 ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
 COPY --from=ghcr.io/astral-sh/uv:0.11.29 /uv /usr/local/bin/uv
 WORKDIR /app
