@@ -177,7 +177,7 @@ services:
   # Without it the site profile falls back to labelled straight-line distances.
   osrm-download:
     profiles: ["routing"]
-    image: curlimages/curl:8.22.0
+    image: curlimages/curl:8.23.0
     user: root
     entrypoint: ["/bin/sh", "-c"]
     command:
