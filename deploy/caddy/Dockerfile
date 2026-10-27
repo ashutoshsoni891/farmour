@@ -1,5 +1,5 @@
 # Builds the PWA and serves it with Caddy (the only public service).
-FROM node:22.23.3-alpine AS web
+FROM node:26.12.1-alpine AS web
 WORKDIR /web
 RUN corepack enable
 COPY frontend/package.json frontend/pnpm-lock.yaml ./
