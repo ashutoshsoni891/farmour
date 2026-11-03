@@ -66,7 +66,7 @@ services:
     restart: unless-stopped
 
   seaweedfs:
-    image: chrislusf/seaweedfs:4.48
+    image: chrislusf/seaweedfs:4.50
     entrypoint: ["/bin/sh", "/entrypoint-farm.sh"]
     environment:
       S3_ACCESS_KEY: ${S3_ACCESS_KEY}
@@ -82,7 +82,7 @@ services:
     restart: unless-stopped
 
   storage-init:
-    image: chrislusf/seaweedfs:4.48
+    image: chrislusf/seaweedfs:4.50
     depends_on: { seaweedfs: { condition: service_healthy } }
     entrypoint: ["/bin/sh", "-c"]
     # Idempotent: an existing bucket counts as success.
